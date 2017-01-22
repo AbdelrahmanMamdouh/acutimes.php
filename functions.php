@@ -114,6 +114,37 @@ function cairo_jazz_club_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+/*
+	<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+
+	<!-- Skrollr -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();/css/skrollr.css" data-skrollr-stylesheet>
+
+	<!-- Bootstrap v3.3.6 -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/bootstrap/bootstrap-theme.min.css">
+
+	<!-- Bootstrap RTL Layer, requires bootstrap and bootstrap-theme -->
+	<!-- <link rel="stylesheet" href="css/bootstrap/bootstrap-rtl.min.css"> -->
+	
+	<!-- Main styles -->
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/main-ltr.css">
+
+	<!-- Modernizer, feature detection library -->
+	<script src="<?php echo get_template_directory_uri();?>/js/vendor/modernizr-2.8.0.min.js"></script>
+*/
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700');
+
+	wp_enqueue_style( 'skrollr-style','get_template_directory_uri();?>/css/skrollr.css');//<<<<<<<<<< check later 
+
+	wp_enqueue_style("bootstrap-min",get_template_directory_uri()."/css/bootstrap/bootstrap.min.css");
+    wp_enqueue_style("bootstrap-theme-min",get_template_directory_uri()."/css/bootstrap/bootstrap-theme.min.css");
+
+	wp_enqueue_style("main-ltr",get_template_directory_uri()."/css/main-ltr.css");
+
+	wp_enqueue_script( 'modernizr-2.8.0', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js");
+ 
 }
 add_action( 'wp_enqueue_scripts', 'cairo_jazz_club_scripts' );
 
