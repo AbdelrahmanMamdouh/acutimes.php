@@ -1,4 +1,5 @@
-$(document).ready(function() {
+(function($) {
+	$(document).ready(function() {
 
     if (enquire.register("screen and (min-width: 768px)", {
             deferSetup: !0,
@@ -205,3 +206,4 @@ $(document).ready(function() {
     // }; eventPositions($('.event'));
 
 });
+})( jQuery );

@@ -105,10 +105,6 @@ add_action( 'widgets_init', 'cairo_jazz_club_widgets_init' );
  * Enqueue scripts and styles.
  */
 function cairo_jazz_club_scripts() {
-	//jquery avoiding compability mode ..... $
-	wp_deregister_script('jquery');
-	wp_enqueue_script('jquery','http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js',array('json2'),'1.11.2',true);
-
 	wp_enqueue_style( 'cairo-jazz-club-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'cairo-jazz-club-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -146,6 +142,8 @@ function cairo_jazz_club_scripts() {
 
 	wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js",array(),null);
  
+ 	wp_enqueue_script('jquery');
+	
 // Boot Strap
 	wp_enqueue_style("bootstrap",'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
     wp_enqueue_style("bootstrap-theme",'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css');
