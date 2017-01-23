@@ -1,3 +1,9 @@
+# Website Boilerplate...
+Start with npm install
+Grunt watch / grunt server# wseed 
+# wseed 
+
+
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
 _s
