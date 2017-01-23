@@ -20,30 +20,49 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'cairo-jazz-club' ); ?></a>
+	<div class="page-container">
+		<header id="masthead" role="banner">
+			<div class="container-fluid">
+				<div class="row">
+<!--
+					<div class="col-sm-2 left-panel">
+						<a href="<?php echo get_permalink( get_page_by_title( 'Login' ) ) ?>">
+							<img src="<?php echo get_template_directory_uri();?>/img/sprites/account-active.png" alt="">
+						</a>
+					</div>
+-->
+					<?php if (has_custom_logo()): ?>
+						<div class="logo col-sm-10 col-md-2">
+							<a href="<?php echo site_url()?>" class="logo__link">
+								<img src="<?php echo Mcustomizer::getCustomLogoURL() ?>" alt="Cairo Jazz Club Logo">
+							</a>
+						</div>
+					<?php endif; ?>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+					<div class="col-sm-2 right-panel">
+						<a href="#main-menu">
+							<img src="<?php echo get_template_directory_uri();?>/img/burger.png" alt="" width="32">
+						</a>
+					</div>
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+					<div class="main-menu col-sm-8 col-md-7" id="main-menu">
+						<ul>
+						<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
+							<?php/*
+								wp_nav_menu( array(
+									'menu'            => 'main-menu',
+									'container' => '',
+									'container_class' => false,
+									'items_wrap' => '%3$s',
+								) );*/
+							?>
+						</ul>
+					</div> <!-- /.main-menu -->
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'cairo-jazz-club' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+					<div class="top-icons col-sm-4 col-md-3">
+						<?php get_template_part('template-parts/social-icons' ); ?>
+					</div> <!-- /.top-icons -->  
+				</div>
+			</div>
+		</header>
+		

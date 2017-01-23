@@ -17,6 +17,13 @@
  * @uses cairo_jazz_club_header_style()
  */
 function cairo_jazz_club_custom_header_setup() {
+	add_theme_support('custom-logo',array(
+		'width'			=>100,
+		'height'		=>100,
+		'flex-width'	=>true,
+		'flex-height'	=>true
+	));
+
 	add_theme_support( 'custom-header', apply_filters( 'cairo_jazz_club_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',

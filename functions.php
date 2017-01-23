@@ -170,3 +170,13 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load mcustomizer class.
+ */
+require get_template_directory() . '/inc/mcustomizer.php';
+
+/**
+ * Load advanced search liberary
+ */
+require_once(get_template_directory() . '/inc/wp-advanced-search/wpas.php');
