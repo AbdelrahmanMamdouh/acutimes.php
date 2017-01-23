@@ -105,6 +105,10 @@ add_action( 'widgets_init', 'cairo_jazz_club_widgets_init' );
  * Enqueue scripts and styles.
  */
 function cairo_jazz_club_scripts() {
+	//jquery avoiding compability mode ..... $
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery','http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js',array('json2'),'1.11.2',true);
+
 	wp_enqueue_style( 'cairo-jazz-club-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'cairo-jazz-club-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -136,15 +140,23 @@ function cairo_jazz_club_scripts() {
 */
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700');
 
-	wp_enqueue_style( 'skrollr-style','get_template_directory_uri();?>/css/skrollr.css');//<<<<<<<<<< check later 
-
-	wp_enqueue_style("bootstrap-min",get_template_directory_uri()."/css/bootstrap/bootstrap.min.css");
-    wp_enqueue_style("bootstrap-theme-min",get_template_directory_uri()."/css/bootstrap/bootstrap-theme.min.css");
+	wp_enqueue_style( 'skrollr-style',get_template_directory_uri().'/css/skrollr.css');//<<<<<<<<<< check later 
 
 	wp_enqueue_style("main-ltr",get_template_directory_uri()."/css/main-ltr.css");
 
-	wp_enqueue_script( 'modernizr-2.8.0', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js");
+	wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js",array(),null);
  
+// Boot Strap
+	wp_enqueue_style("bootstrap",'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+    wp_enqueue_style("bootstrap-theme",'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css');
+	wp_enqueue_script('bootstrap-js','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',array('jquery'),null,true);
+
+/*
+	<script src="<?php echo get_template_directory_uri(); ?>/js/min/plugins.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/min/main.min.js"></script>
+*/
+	wp_enqueue_script('cjc-plugins',get_template_directory_uri().'/js/min/plugins.min.js',array('jquery'),null,true);
+	wp_enqueue_script('cjc-main',get_template_directory_uri().'/js/min/main.min.js',array('jquery'),null,true);
 }
 add_action( 'wp_enqueue_scripts', 'cairo_jazz_club_scripts' );
 
