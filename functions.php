@@ -89,6 +89,7 @@ add_action( 'after_setup_theme', 'cairo_jazz_club_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function cairo_jazz_club_widgets_init() {
+	/*
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'cairo-jazz-club' ),
 		'id'            => 'sidebar-1',
@@ -98,6 +99,7 @@ function cairo_jazz_club_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	*/
 }
 add_action( 'widgets_init', 'cairo_jazz_club_widgets_init' );
 
