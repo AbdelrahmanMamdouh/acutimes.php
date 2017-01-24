@@ -121,6 +121,16 @@ function cairo_jazz_club_widgets_init() {
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widget area left (small)', 'cairo-jazz-club' ),
+		'id'            => 'footer-widget-left',
+		'description'   => esc_html__( 'a widget area in the footer on the left side , size small', 'cairo-jazz-club' ),
+		'before_widget' => '<div class="block">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'cairo_jazz_club_widgets_init' );
 

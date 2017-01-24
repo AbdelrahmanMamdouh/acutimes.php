@@ -20,29 +20,7 @@
 				<div class="footer-container">
 					<div class="row">
 						<div class="cjc-summary col-md-12 col-lg-4">
-							<div class="footer-logo">
-								<a href="#"><img src="<?php echo get_theme_mod('cjc-identity-footer-logo'); ?>" alt=""></a> 
-							</div>
-							<?php// the_field('message', 'option') ?>
-
-							<?php
-								$ios = get_theme_mod('cjc-identity-ios');
-								$android = get_theme_mod('cjc-identity-android');
-							?>
-							<?php if($android || $ios){ ?>
-								<p>Download our App</p>
-								<div class="download-app">
-									<ul>
-										<?php if ($android) { ?>
-											<li><a href="<?php echo $android ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/android-store.png" alt=""></a></li>
-										<?php } ?>
-
-										<?php if ($ios) { ?>
-											<li><a href="<?php echo $ios ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/apple-store.png" alt=""></a></li>
-										<?php } ?>
-									</ul>
-								</div>
-							<?php } ?>
+							<?php dynamic_sidebar( 'footer-widget-left' ); ?>
 						</div>
 
 						<div class="subscribe col-md-6 col-lg-5">
