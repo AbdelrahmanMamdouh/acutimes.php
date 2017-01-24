@@ -42,9 +42,11 @@ function cairo_jazz_club_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in 3 locations.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'cairo-jazz-club' ),
+		'main-menu' => esc_html__( 'Primary', 'cairo-jazz-club' ),
+		'footer-menu'=> esc_html__( 'Footer Menu', 'cairo-jazz-club' ),
+		'copyrights-menu' => esc_html__( 'Copyrights Menu', 'cairo-jazz-club' ),
 	) );
 
 	/*

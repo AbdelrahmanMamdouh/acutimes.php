@@ -47,14 +47,13 @@
 
 					<div class="main-menu col-sm-8 col-md-7" id="main-menu">
 						<ul>
-						<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
-							<?php/*
+							<?php
 								wp_nav_menu( array(
-									'menu'            => 'main-menu',
+									'theme_location' => 'main-menu',
 									'container' => '',
 									'container_class' => false,
 									'items_wrap' => '%3$s',
-								) );*/
+								) );
 							?>
 						</ul>
 					</div> <!-- /.main-menu -->
