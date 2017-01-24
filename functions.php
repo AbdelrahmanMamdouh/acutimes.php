@@ -60,13 +60,13 @@ function cairo_jazz_club_setup() {
 		'gallery',
 		'caption',
 	) );
-
+/*
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'cairo_jazz_club_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
-
+*/
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 }
