@@ -15,152 +15,50 @@
 
 	<footer id="colophon" role="contentinfo">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section>
-        <div class="container-fluid">
-            <div class="footer-container">
-                <div class="row">
-                    <div class="cjc-summary col-md-12 col-lg-4">
-                        <div class="footer-logo">
-                            <a href="#"><img src="<?php echo get_theme_mod('cjc-identity-footer-logo'); ?>" alt=""></a> 
-                        </div>
-                        <?php// the_field('message', 'option') ?>
-
-						<?php
-							$ios = get_theme_mod('cjc-identity-ios');
-							$android = get_theme_mod('cjc-identity-android');
-							if($android || $ios){
-                         ?>
-							<p>Download our App</p>
-							<div class="download-app">
-								<ul>
-									<?php if ($android) { ?>
-										<li><a href="<?php echo $android ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/android-store.png" alt=""></a></li>
-									<?php } ?>
-
-									<?php if ($ios) { ?>
-										<li><a href="<?php echo $ios ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/apple-store.png" alt=""></a></li>
-									<?php } ?>
-								</ul>
+		<section>
+			<div class="container-fluid">
+				<div class="footer-container">
+					<div class="row">
+						<div class="cjc-summary col-md-12 col-lg-4">
+							<div class="footer-logo">
+								<a href="#"><img src="<?php echo get_theme_mod('cjc-identity-footer-logo'); ?>" alt=""></a> 
 							</div>
-						<?php } ?>
-                    </div>
+							<?php// the_field('message', 'option') ?>
 
-                    <div class="subscribe col-md-6 col-lg-5">
-                        <h2>Stay in touch</h2>
-                        <p>Integer vitae libero ac risus egestas placerat.</p>
+							<?php
+								$ios = get_theme_mod('cjc-identity-ios');
+								$android = get_theme_mod('cjc-identity-android');
+							?>
+							<?php if($android || $ios){ ?>
+								<p>Download our App</p>
+								<div class="download-app">
+									<ul>
+										<?php if ($android) { ?>
+											<li><a href="<?php echo $android ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/android-store.png" alt=""></a></li>
+										<?php } ?>
 
-                        <form action="/">
-                            <div class="form-group">
-                                <div class="input input--reverse">
-                                    <label for="email">Type Your Email</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                            </div>
-                            <h3>Choose your genre</h3>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <p>
-                                        <input type="checkbox" id="test1" />
-                                        <label for="test1">Avant-garde</label>
-                                    </p>
-                                    <p>
-                                        <input type="checkbox" id="test2"/>
-                                        <label for="test2">Blues</label>
-                                    </p>
-                                    <p>
-                                        <input type="checkbox" id="test3"/>
-                                        <label for="test3">Caribbean</label>
-                                    </p>
-                                    <p>
-                                        <input type="checkbox" id="test4"/>
-                                        <label for="test4">Country</label>
-                                    </p>
-                                </div>
+										<?php if ($ios) { ?>
+											<li><a href="<?php echo $ios ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/apple-store.png" alt=""></a></li>
+										<?php } ?>
+									</ul>
+								</div>
+							<?php } ?>
+						</div>
 
-                                <div class="col-md-5">
-                                    <p>
-                                        <input type="checkbox" id="test5" />
-                                        <label for="test5">R&amp;B and soul</label>
-                                    </p>
-                                    <p>
-                                        <input type="checkbox" id="test6"/>
-                                        <label for="test6">Rock</label>
-                                    </p>
-                                    <p>
-                                        <input type="checkbox" id="test7"/>
-                                        <label for="test7">Electronic</label>
-                                    </p>
-                                    <p>
-                                        <input type="checkbox" id="test8"/>
-                                        <label for="test8">Folk</label>
-                                    </p>
-                                </div>
-                            </div>
+						<div class="subscribe col-md-6 col-lg-5">
+							<?php dynamic_sidebar( 'footer-widget-center' ); ?>
+						</div>
 
-                            <submit class="btn btn-supporting btn-wide">Submit</submit>
-                        </form>
-                    </div>
-
-                    <div class="contact-information col-md-6 col-lg-3">
-                        <div class="block">
-                            <h2>Social media</h2>
-                            <?php get_template_part('template-parts/social-icons'); ?>
-                        </div>
-
-                        <div class="block">
-                            <h2>Contact us</h2>
-                            <ul class="contact-us">
-                                <li class="address">
-                                    <?php echo get_theme_mod('cjc-identity-address'); ?>
-                                </li>
-                                <li class="emails">
-                                    <?php echo get_theme_mod('cjc-identity-email');  ?>
-                                </li>
-                                <li class="phone">
-                                    <?php echo get_theme_mod('cjc-identity-phone');  ?>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+						<div class="contact-information col-md-6 col-lg-3">
+							<?php dynamic_sidebar( 'footer-widget-right' ); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<section class="bottom-footer">
+
 			<div class="container-fluid">
 				<div class="block">
 					<ul class="footer-menu">
@@ -188,8 +86,8 @@
 				</ul>
 				<p class="centered">All rights reserved</p>
 			</div>
-		</section>
 
+		</section>
 
 	</footer><!-- #colophon -->
 </div><!-- #page -->

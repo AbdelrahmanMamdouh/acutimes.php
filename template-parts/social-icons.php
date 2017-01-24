@@ -7,8 +7,6 @@
  * @package cjc
  */
 
-//<<<<<<<<<<<<<<<<<<<<<<<<<
-
 $facebook = get_theme_mod('cjc-social-media-facebook');
 $twitter = get_theme_mod('cjc-social-media-twitter');
 $youtube = get_theme_mod('cjc-social-media-youtube');
