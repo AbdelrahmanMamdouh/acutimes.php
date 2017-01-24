@@ -31,6 +31,27 @@ function cairo_jazz_club_customize_register( $wp_customize ) {
 	 QuickCustomizer::add_SiteIdentety($wp_customize,'phone','Phone Number','','text');
 	 QuickCustomizer::add_SiteIdentety($wp_customize,'email','E-Mail','','email');
 	 QuickCustomizer::add_SiteIdentety($wp_customize,'address','Address','','text');
+
+	 QuickCustomizer::add_SiteIdentety($wp_customize,'android','Android Store','google play store link','url');
+	 QuickCustomizer::add_SiteIdentety($wp_customize,'ios','IOS Store','ios store link','url');
+
+	$wp_customize->add_setting('cjc-identity-footer-logo', array(
+		'default'        => '',
+		'transport'   => 'refresh',
+	));
+
+	 $wp_customize->add_control(
+       new WP_Customize_Image_Control(
+           $wp_customize,
+           'cjc-identity-footer-logo',
+           array(
+               'label'      => __( 'Footer logo (inverse)', 'cairo-jazz-club' ),
+               'section'    => 'title_tagline',
+               'settings'   => 'cjc-identity-footer-logo',
+             //  'context'    => 'your_setting_context' 
+           )
+       )
+   );
 }
 add_action( 'customize_register', 'cairo_jazz_club_customize_register' );
 

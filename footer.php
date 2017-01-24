@@ -34,26 +34,28 @@
                 <div class="row">
                     <div class="cjc-summary col-md-12 col-lg-4">
                         <div class="footer-logo">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/img/logo-inverted.png" alt=""></a> 
+                            <a href="#"><img src="<?php echo get_theme_mod('cjc-identity-footer-logo'); ?>" alt=""></a> 
                         </div>
                         <?php// the_field('message', 'option') ?>
-                        <p>Download our App</p>
-                        <div class="download-app">
-                            <ul>
-                                <?php
-                                $ios = '';//get_field('ios_app', 'option');
-                                $android = '';//get_field('android_app', 'option');
-                                ?>
 
-                                <?php if ($android) { ?>
-                                    <li><a href="<?php echo $android ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/android-store.png" alt=""></a></li>
-                                <?php } ?>
+						<?php
+							$ios = get_theme_mod('cjc-identity-ios');
+							$android = get_theme_mod('cjc-identity-android');
+							if($android || $ios){
+                         ?>
+							<p>Download our App</p>
+							<div class="download-app">
+								<ul>
+									<?php if ($android) { ?>
+										<li><a href="<?php echo $android ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/android-store.png" alt=""></a></li>
+									<?php } ?>
 
-                                <?php if ($ios) { ?>
-                                    <li><a href="<?php echo $ios ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/apple-store.png" alt=""></a></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
+									<?php if ($ios) { ?>
+										<li><a href="<?php echo $ios ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/apple-store.png" alt=""></a></li>
+									<?php } ?>
+								</ul>
+							</div>
+						<?php } ?>
                     </div>
 
                     <div class="subscribe col-md-6 col-lg-5">
