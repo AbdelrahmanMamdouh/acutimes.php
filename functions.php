@@ -119,29 +119,29 @@ function cairo_jazz_club_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-//google fonts
+	//google fonts
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' );
-// Skrollr
+	// Skrollr
 	wp_enqueue_style( 'skrollr-style', get_template_directory_uri().'/css/skrollr.css' );
-// Modernizer, feature detection library
+	// Modernizer, feature detection library
 	wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js", array(), null );
-// jquery
+	// jquery
  	wp_enqueue_script( 'jquery' );
-// Boot Strap
+	// Boot Strap
 	wp_enqueue_style( "bootstrap", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
     wp_enqueue_style( "bootstrap-theme", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
 	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true );
-// sprites
+	// sprites
 	wp_enqueue_style("sprites",get_template_directory_uri()."/css/sprites.css");
 
 	if(is_rtl()){
-// Load Bootstrap RTL theme from RawGit
-// Bootstrap RTL Layer, requires bootstrap and bootstrap-theme
+		// Load Bootstrap RTL theme from RawGit
+		// Bootstrap RTL Layer, requires bootstrap and bootstrap-theme
 		wp_enqueue_style( "bootstrap-rtl", '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css',array( 'bootstrap' , 'bootstrap-theme' ) );
-// Main styles rtl
+		// Main styles rtl
 		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-rtl.css", array( 'bootstrap', 'bootstrap-theme' ) );
 	}else{
-// Main styles ltr
+		// Main styles ltr
 		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-ltr.css", array( 'bootstrap', 'bootstrap-theme' ) );
 	}
 
