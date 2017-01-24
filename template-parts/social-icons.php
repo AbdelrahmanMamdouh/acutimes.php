@@ -8,12 +8,10 @@
  */
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<
-if (!function_exists('get_feild')) {
-	return;
-}
-$facebook = get_field('facebook', 'option');
-$twitter = get_field('twitter', 'option');
-$youtube = get_field('youtube', 'option');
+
+$facebook = get_theme_mod('cjc-social-media-facebook');
+$twitter = get_theme_mod('cjc-social-media-twitter');
+$youtube = get_theme_mod('cjc-social-media-youtube');
 ?>
 
 <ul class="social-icons">

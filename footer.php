@@ -115,20 +115,20 @@
                     <div class="contact-information col-md-6 col-lg-3">
                         <div class="block">
                             <h2>Social media</h2>
-                            <?php get_template_part('templates/social-icons'); ?>
+                            <?php get_template_part('template-parts/social-icons'); ?>
                         </div>
 
                         <div class="block">
                             <h2>Contact us</h2>
                             <ul class="contact-us">
                                 <li class="address">
-                                    <?php //the_field('address', 'option'); ?>
+                                    <?php echo get_theme_mod('cjc-identity-address'); ?>
                                 </li>
                                 <li class="emails">
-                                    <?php //the_field('emails', 'option'); ?>
+                                    <?php echo get_theme_mod('cjc-identity-email');  ?>
                                 </li>
                                 <li class="phone">
-                                    <?php //the_field('phone', 'option'); ?>
+                                    <?php echo get_theme_mod('cjc-identity-phone');  ?>
                                 </li>
                             </ul>
                         </div>
