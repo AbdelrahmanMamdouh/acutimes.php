@@ -193,7 +193,7 @@ function cairo_jazz_club_scripts() {
 	wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js", array(), null );
 	// custom scripts
 	wp_enqueue_script( 'cjc-plugins', get_template_directory_uri().'/js/min/plugins.min.js', array('jquery'), null, true);
-	wp_enqueue_script( 'cjc-main', get_template_directory_uri().'/js/min/main.min.js', array('jquery'), null, true);
+	//wp_enqueue_script( 'cjc-main', get_template_directory_uri().'/js/min/main.min.js', array('jquery'), null, true);
 }
 add_action( 'wp_enqueue_scripts', 'cairo_jazz_club_scripts' );
 

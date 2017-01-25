@@ -171,39 +171,39 @@
 			$(".wpas-select").wrap('<div class="select-wrap"></div>');
 		});
 
+		/*
+		Random events positioning
+		function eventPositions(item) {
+		var sizes = ['lg', 'md', 'sm'];
+		var positions = ['pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5', 'pos-6', 'pos-7'];
+		var appliedPositions = [];
 
-		// Random events positioning
-		// function eventPositions(item) {
-		//  var sizes = ['lg', 'md', 'sm'];
-		//  var positions = ['pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5', 'pos-6', 'pos-7'];
-		//  var appliedPositions = [];
+		$(item).each(function(){
+			var randSize = sizes[Math.floor(Math.random()*sizes.length)];
+			var randPos = positions[Math.floor(Math.random()*positions.length)];
+			var element = $(this);
 
-		//  $(item).each(function(){
-		//      var randSize = sizes[Math.floor(Math.random()*sizes.length)];
-		//      var randPos = positions[Math.floor(Math.random()*positions.length)];
-		//      var element = $(this);
+			element.addClass('circule--' + randSize);
 
-		//      element.addClass('circule--' + randSize);
+			function first(position) {
 
-		//      function first(position) {
+				if(appliedPositions.indexOf(position) == -1) {
 
-		//          if(appliedPositions.indexOf(position) == -1) {
+					appliedPositions.push(position);
+					console.log(element);
+					element.addClass(position);
 
-		//              appliedPositions.push(position);
-		//              console.log(element);
-		//              element.addClass(position);
+				} else {
 
-		//          } else {
+					first(randPos)
+				}
 
-		//              first(randPos)
-		//          }
-
-		//      }; first(randPos);
+			}; first(randPos);
 
 
-		//  });
+		});
 
-		// }; eventPositions($('.event'));
-
+		}; eventPositions($('.event'));
+		*/
 	});
 })(jQuery);
