@@ -17,8 +17,8 @@ function cairo_jazz_club_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'cairo_jazz_club_infinite_scroll_render',
-		'footer'    => 'page',
+		'render'	=> 'cairo_jazz_club_infinite_scroll_render',
+		'footer'	=> 'page',
 	) );
 
 	// Add theme support for Responsive Videos.

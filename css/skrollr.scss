@@ -1,14 +1,14 @@
 .parallax__content {
-    -skrollr-animation-name: animation1;
+	-skrollr-animation-name: animation1;
 }
 
 @-skrollr-keyframes animation1 {
-    skrollr-100 {
-        top: -100px;
-    }
+	skrollr-100 {
+		top: -100px;
+	}
 	
 	skrollr-700 {
-        top: -2000px;
-    }
+		top: -2000px;
+	}
 }
 

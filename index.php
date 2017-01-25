@@ -27,8 +27,8 @@ get_header(); ?>
 
 			<?php endif ?>
 			<main class="inner">
-    			<section>
-                    <div class="container-fluid">
+				<section>
+					<div class="container-fluid">
 						<?php
 			/* Start the Loop */
 			$cjc_post_direction = true;
@@ -49,9 +49,9 @@ get_header(); ?>
 
 			endwhile;
 
-                    ?></div>
-                </section>
-            </main><?php
+					?></div>
+				</section>
+			</main><?php
 
 			the_posts_navigation();
 

@@ -93,8 +93,8 @@ add_action( 'after_setup_theme', 'cairo_jazz_club_content_width', 0 );
 function cairo_jazz_club_widgets_init() {
 	/*
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'cairo-jazz-club' ),
-		'id'            => 'sidebar-1',
+		'name'		  => esc_html__( 'Sidebar', 'cairo-jazz-club' ),
+		'id'			=> 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'cairo-jazz-club' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -103,8 +103,8 @@ function cairo_jazz_club_widgets_init() {
 	) );
 	*/
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget area Right (small)', 'cairo-jazz-club' ),
-		'id'            => 'footer-widget-right',
+		'name'		  => esc_html__( 'Footer Widget area Right (small)', 'cairo-jazz-club' ),
+		'id'			=> 'footer-widget-right',
 		'description'   => esc_html__( 'a widget area in the footer on the right side , size small', 'cairo-jazz-club' ),
 		'before_widget' => '<div class="block">',
 		'after_widget'  => '</div>',
@@ -113,8 +113,8 @@ function cairo_jazz_club_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget area Center (large)', 'cairo-jazz-club' ),
-		'id'            => 'footer-widget-center',
+		'name'		  => esc_html__( 'Footer Widget area Center (large)', 'cairo-jazz-club' ),
+		'id'			=> 'footer-widget-center',
 		'description'   => esc_html__( 'a widget area in the footer in center , size large', 'cairo-jazz-club' ),
 		'before_widget' => '<div class="block">',
 		'after_widget'  => '</div>',
@@ -123,8 +123,8 @@ function cairo_jazz_club_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget area left (small)', 'cairo-jazz-club' ),
-		'id'            => 'footer-widget-left',
+		'name'		  => esc_html__( 'Footer Widget area left (small)', 'cairo-jazz-club' ),
+		'id'			=> 'footer-widget-left',
 		'description'   => esc_html__( 'a widget area in the footer on the left side , size small', 'cairo-jazz-club' ),
 		'before_widget' => '<div class="block">',
 		'after_widget'  => '</div>',
@@ -157,7 +157,7 @@ function cairo_jazz_club_scripts() {
 	wp_enqueue_style( 'skrollr-style', get_template_directory_uri().'/css/skrollr.css' );
 	// Bootstrap
 	wp_enqueue_style( "bootstrap", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
-    wp_enqueue_style( "bootstrap-theme", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
+	wp_enqueue_style( "bootstrap-theme", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
 
 	// sprites
 	wp_enqueue_style("sprites",get_template_directory_uri()."/css/sprites.css");

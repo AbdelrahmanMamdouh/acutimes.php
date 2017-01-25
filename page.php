@@ -15,11 +15,11 @@
 get_header(); ?>
 
 <main class="inner">
-    <section>
-        <div class="container-fluid">
-            
+	<section>
+		<div class="container-fluid">
+			
 
-            <?php
+			<?php
 			while ( have_posts() ) : the_post();
 
 				get_template_part( 'template-parts/content', 'page' );
@@ -31,9 +31,9 @@ get_header(); ?>
 
 			endwhile; // End of the loop.
 			?>
-            
-        </div>
-    </section>
+			
+		</div>
+	</section>
 </main>
 
 <?php

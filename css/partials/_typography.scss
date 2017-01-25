@@ -45,7 +45,7 @@ h1, .h1 {
 	color: $fourth-color;
 
 	@media screen and (max-width: 768px) {
-	    font-size: 4rem;
+		font-size: 4rem;
 	}
 }
 
@@ -110,21 +110,21 @@ h3, .h3 {
 
 	&-facebook {
 		background: #3b5998 url('../img/facebook.png') 5px center no-repeat;
-	    background-size: 24px;
+		background-size: 24px;
 		color: #fff !important;
-	    padding-left: 35px;
-	    color: #fff;
-	    font-size: 1.9rem;
+		padding-left: 35px;
+		color: #fff;
+		font-size: 1.9rem;
 
-	    &:active,
-	    &.active {
+		&:active,
+		&.active {
 			background: #3b5998 url('../img/facebook.png') 5px center no-repeat;
 			background-size: 24px;
-	    }
+		}
 
-	    &:hover {
-	    	color: #fff;
-	    }
+		&:hover {
+			color: #fff;
+		}
 	}
 }
 
@@ -176,8 +176,8 @@ h3, .h3 {
 }
 
 .vertical-middle {
-    display: inline-block;
-    vertical-align: middle;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .left-line {
@@ -265,17 +265,17 @@ textarea.form-control {
 }
 
 .select-wrap {
-    display: inline-block;
-    position: relative;
+	display: inline-block;
+	position: relative;
 
-    &:after {
-    	content: '\25bc';
-    	position: absolute;
-    	@include right(0);
-    	padding: 5px;
-    	font-size: 1.2rem;
-    	color: $text;
-    }
+	&:after {
+		content: '\25bc';
+		position: absolute;
+		@include right(0);
+		padding: 5px;
+		font-size: 1.2rem;
+		color: $text;
+	}
 }
 
 select {
@@ -343,25 +343,25 @@ select {
 .input--modern {
   
   label {
-    @include left(0);
+	@include left(0);
   }
 
   .form-control {
-    background: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
+	background: none;
+	box-shadow: none;
+	border-radius: 0;
+	padding: 0;
 
-    border: 0;
-    border-bottom: 1px solid $text;
+	border: 0;
+	border-bottom: 1px solid $text;
   }
 
   &#focused {
 
-    label {
-      @include left(0);
-      padding: 0;
-    }
+	label {
+	  @include left(0);
+	  padding: 0;
+	}
   }
 }
 
@@ -369,15 +369,15 @@ select {
 
   .input {
 
-    label {
-      font-size: 1.4rem;
-      position: relative;
-      @include left(0);
-      transform: none;
+	label {
+	  font-size: 1.4rem;
+	  position: relative;
+	  @include left(0);
+	  transform: none;
 
-      display: block;
-      @include text-align(left);
-    }
+	  display: block;
+	  @include text-align(left);
+	}
   }
 }
 
@@ -480,8 +480,8 @@ label:hover:before {
 // Misc
 .absolute-content {
 	padding: 2rem;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
