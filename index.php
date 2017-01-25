@@ -14,8 +14,9 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<main class="inner" id="primary">
+	<section>
+		<div class="container-fluid">
 
 		<?php
 		if ( have_posts() ) :
@@ -34,18 +35,12 @@ get_header(); ?>
 			$cjc_post_direction = true;
 			while ( have_posts() ) : the_post();
 
-				if($cjc_post_direction){
-					get_template_part( 'template-parts/content-small-right', get_post_format() );
-				}else{
-					get_template_part( 'template-parts/content-small-left', get_post_format() );
-				}
-
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				//get_template_part( 'template-parts/content', get_post_format() );
+				get_template_part( 'template-parts/content', get_post_format() );
 
 			endwhile;
 
@@ -62,8 +57,9 @@ get_header(); ?>
 		endif; 
 ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</div>
+	</section>
+</main>
 
 <?php
 get_sidebar();

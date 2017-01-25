@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-<main class="inner">
+<main class="inner" id="primary">
 	<section>
 		<div class="container-fluid">
 			

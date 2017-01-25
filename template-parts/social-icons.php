@@ -7,13 +7,16 @@
  * @package cjc
  */
 
-$facebook = get_theme_mod('cjc-social-media-facebook');
-$twitter = get_theme_mod('cjc-social-media-twitter');
-$youtube = get_theme_mod('cjc-social-media-youtube');
+$login 		= get_permalink( get_page_by_title('Login') );
+$facebook 	= get_theme_mod('cjc-social-media-facebook');
+$twitter 	= get_theme_mod('cjc-social-media-twitter');
+$youtube 	= get_theme_mod('cjc-social-media-youtube');
 ?>
 
 <ul class="social-icons">
-	<li><a class="account" href="<?php echo get_permalink( get_page_by_title( 'Login' ) ) ?>">Account</a></li>
+	<?php if($login) { ?>
+		<li><a class="account" href="<?php echo $login ?>">Account</a></li>
+	<?php } ?>
 	<?php if($facebook) { ?>
 		<li><a class="facebook" href="<?php echo $facebook ?>">Facebook</a></li>
 	<?php } ?>

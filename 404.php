@@ -9,26 +9,25 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main class="inner">
-			<section>
-				<div class="container-fluid">
-					<h1 class="centered page-heading">404</h1>
+<main class="inner" id="primary">
+	<section>
+		<div class="container-fluid">
 
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<h1 class="centered page-heading">404</h1>
 
-						<?php the_content(); ?>
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-					<?php endwhile; else: ?>
+				<?php the_content(); ?>
+
+			<?php endwhile; else: ?>
+
+				<p class="centered">Sorry, this page does not exist</p>
+				
+			<?php endif; ?>
 			
-						<p class="centered">Sorry, this page does not exist</p>
-
-					<?php endif; ?>
-					
-				</div>
-			</section>
-		</main>
-	</div><!-- #primary -->
+		</div>
+	</section>
+</main>
 
 <?php
 get_footer();
