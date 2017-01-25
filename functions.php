@@ -138,6 +138,9 @@ add_action( 'widgets_init', 'cairo_jazz_club_widgets_init' );
  * Enqueue scripts and styles.
  */
 function cairo_jazz_club_scripts() {
+	// jquery
+ 	wp_enqueue_script( 'jquery' );
+
 	wp_enqueue_style( 'cairo-jazz-club-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'cairo-jazz-club-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -152,14 +155,10 @@ function cairo_jazz_club_scripts() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' );
 	// Skrollr
 	wp_enqueue_style( 'skrollr-style', get_template_directory_uri().'/css/skrollr.css' );
-	// Modernizer, feature detection library
-	wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js", array(), null );
-	// jquery
- 	wp_enqueue_script( 'jquery' );
-	// Boot Strap
+	// Bootstrap
 	wp_enqueue_style( "bootstrap", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
     wp_enqueue_style( "bootstrap-theme", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
-	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true );
+
 	// sprites
 	wp_enqueue_style("sprites",get_template_directory_uri()."/css/sprites.css");
 
@@ -173,11 +172,29 @@ function cairo_jazz_club_scripts() {
 		// Main styles ltr
 		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-ltr.css", array( 'bootstrap', 'bootstrap-theme' ) );
 	}
-
+	// Bootstrap js
+	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true );
+	// Modernizer, feature detection library
+	wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js", array(), null );
+	// custom scripts
 	wp_enqueue_script( 'cjc-plugins', get_template_directory_uri().'/js/min/plugins.min.js', array('jquery'), null, true);
 	wp_enqueue_script( 'cjc-main', get_template_directory_uri().'/js/min/main.min.js', array('jquery'), null, true);
 }
 add_action( 'wp_enqueue_scripts', 'cairo_jazz_club_scripts' );
+
+/**
+ * add editor styles.
+ */
+add_editor_style(array(
+	get_stylesheet_uri(),
+	'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+	'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css',
+	'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700',
+	get_template_directory_uri().'/css/skrollr.css',
+	get_template_directory_uri()."/css/sprites.css",
+	get_template_directory_uri()."/css/main-ltr.css",
+	get_template_directory_uri()."/css/editor-style.css"
+));
 
 /**
  * Implement the Custom Header feature.
