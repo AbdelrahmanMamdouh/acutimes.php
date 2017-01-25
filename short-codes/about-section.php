@@ -19,7 +19,7 @@ function cjc_shortcode_aboutus_section( $atts, $content = null ) {
 	?>
 	<div class="c-section--tall">
 		<div class="row">
-		
+
 			<div class="col-md-4 <?php echo $img_css_class ?>">
 				<div class="circle circle--xl circle--center">
 					<div class="circle__content">
@@ -41,13 +41,15 @@ function cjc_shortcode_aboutus_section( $atts, $content = null ) {
 
 add_shortcode( 'cjc_about_section' , 'cjc_shortcode_aboutus_section' );
 
+//check if visual composer is installed
+if(function_exists ('vc_map')){
 vc_map( array(
 	"name" 			=> __("CJC about section"),
 	"base" 			=> "cjc_about_section",
 	"category" 		=> __('Cairo Jazz Club'),
 	"params" => array(
 		array(
-			"type" 		=> "textfield",
+			"type" 			=> "textfield",
 			"holder" 		=> "div",
 			"class" 		=> "",
 			"heading" 		=> __("Title"),
@@ -73,14 +75,15 @@ vc_map( array(
 			"description" 	=> __("the direction of the img"),
 		 	"value"			=> array('Right','Left')
 		),
-	  array(
-				"type" => "textarea_html",
-				"holder" => "div",
-				"class" => "",
-				"heading" => __( "Content" ),
-				"param_name" => "content", // Important: Only one textarea_html param per content element allowed and it should have "content" as a "param_name"
-				"value" => __(""),
-				"description" => __( "Enter your content." )
-			)
+		array(
+			"type" 			=> "textarea_html",
+			"holder" 		=> "div",
+			"class" 		=> "",
+			"heading" 		=> __( "Content" ),
+			"param_name" 	=> "content", // Important: Only one textarea_html param per content element allowed and it should have "content" as a "param_name"
+			"value" 		=> __(""),
+			"description" 	=> __( "Enter your content." )
+		),
 	)
 ));
+}
