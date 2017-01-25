@@ -1,34 +1,37 @@
 <?php
 function cjc_shortcode_aboutus_section( $atts, $content = null ) {
 	 $a = shortcode_atts( array(
-		  'title' 	=> '',
-		  'img' 		=> '',
-		'direction'	=>'right'
+		'title' 	=> '',
+		'img' 		=> '',
+		'direction'	=>'Right'
 	 ), $atts );
 
 	$img = $a['img']? wp_get_attachment_image($a['img'] ):'';
-	if($a['direction']='left'){
+
+	$img_css_class = $text_css_class = '';
+	
+	if($a['direction']=='Right'){
 		$img_css_class = ' col-md-push-8 ';
-		$text_css_class = 'col-md-pull-4';
-	}else{
-		$text_css_class = ' col-md-push-8 ';
-		$img_css_class = 'col-md-pull-4';
+		$text_css_class = ' col-md-pull-4 ';
 	}
+
 	ob_start();// start buffer
 	?>
+	<div class="c-section--tall">
 		<div class="row">
-			<div class="col-md-4 <?php $img_css_class ?>">
+			<div class="col-md-4 <?php echo $img_css_class ?>">
 				<div class="circule circule--xl circule--center">
 					<div class="circule__content">
 						<?php echo $img ?>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-8 <?php $text_css_class ?>">
-				<h1><?php echo $a['title'] ?></h1>
+			<div class="col-md-8 <?php echo $text_css_class ?>">
+				<h1><?php echo $a['title'].$a['direction'] ?></h1>
 				<?php echo $content ?>
-				</div>
+			</div>
 		</div>
+	</div>
 	<?php
 	return  ob_get_clean();// return buffer
 }
@@ -64,12 +67,8 @@ vc_map( array(
 			"class"			=> "",
 			"heading" 		=> __("direction"),
 			"param_name" 	=> "direction",
-			"value" 		=> __(""),
 			"description" 	=> __("the direction of the img"),
-		 	"value"			=> array(
-			 	'Right'	=> 'right',
-				'Left'	=> 'left',
-			)
+		 	"value"			=> array('Right','Left')
 		),
 	  array(
 				"type" => "textarea_html",
