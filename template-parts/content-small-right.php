@@ -1,7 +1,7 @@
 <div class="c-section">
 	<div class="row">
 		<div class="col-md-7">
-			<a href=""><img class="article__img" src="<?php echo the_post_thumbnail() ?>" alt=""></a>
+			<a href=""><img class="article__img" src="<?php echo get_the_post_thumbnail_url() ?>" alt=""></a>
 		</div>
 		<div class="col-md-5">
 			<h3><a class="h3" href="<?php echo esc_url( get_permalink() ) ?>" ><?php the_title() ?></a></h3>

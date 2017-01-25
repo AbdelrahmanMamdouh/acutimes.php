@@ -42,6 +42,18 @@ function cairo_jazz_club_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	// Add Image Sizes
+	add_image_size('event-calendar', 163, 125, true);
+	add_image_size('circle', 280, 280, true);
+	add_image_size('hero-mfp', 728, 9999);
+	add_image_size('modal-bleed', 560, 250, true);
+	add_image_size('night-logo', 260, 185, true);
+	add_image_size('product', 200, 250, true);
+	add_image_size('album', 720, 500, true);
+	add_image_size('footer-ad', 800, 481, true);
+	add_image_size('icon', 52, 52, true);
+	add_image_size('blog',960,500, true);
+
 	// This theme uses wp_nav_menu() in 3 locations.
 	register_nav_menus( array(
 		'main-menu' => esc_html__( 'Primary', 'cairo-jazz-club' ),
@@ -60,15 +72,18 @@ function cairo_jazz_club_setup() {
 		'gallery',
 		'caption',
 	) );
-/*
-	// Set up the WordPress core custom background feature.
+
+	/*// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'cairo_jazz_club_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
-	) ) );
-*/
+	) ) );*/
+
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
+
+	// Add theme Support
+	add_theme_support( 'menus' );
 }
 endif;
 add_action( 'after_setup_theme', 'cairo_jazz_club_setup' );
