@@ -25,20 +25,33 @@ get_header(); ?>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
 
-			<?php
-			endif;
-
+			<?php endif ?>
+			<main class="inner">
+    			<section>
+                    <div class="container-fluid">
+						<?php
 			/* Start the Loop */
+			$cjc_post_direction = true;
 			while ( have_posts() ) : the_post();
+
+				if($cjc_post_direction){
+					get_template_part( 'template-parts/content-small-right', get_post_format() );
+				}else{
+					get_template_part( 'template-parts/content-small-left', get_post_format() );
+				}
 
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+				//get_template_part( 'template-parts/content', get_post_format() );
 
 			endwhile;
+
+                    ?></div>
+                </section>
+            </main><?php
 
 			the_posts_navigation();
 
@@ -46,7 +59,8 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+		endif; 
+?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
