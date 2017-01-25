@@ -250,3 +250,8 @@ require_once get_template_directory() . '/inc/wp-advanced-search/wpas.php';
  * Load cjc widgets
  */
 require_once get_template_directory() . '/widgets/register-widgets.php';
+
+/**
+ * Load cjc shortcodes
+ */
+require_once get_template_directory() . '/short-codes/load-shortcodes.php';
