@@ -3,12 +3,16 @@
     top: 32px;
 }
 
-#masthead {
-    z-index: 99998;
-}
-
 @media screen and (max-width: 783px) {
 	.admin-bar #masthead {
 		top: 46px;
 	}
+}
+
+#masthead {
+    z-index: 90000;
+}
+
+.mfp-content {
+	z-index: 90100;
 }
