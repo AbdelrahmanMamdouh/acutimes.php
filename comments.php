@@ -79,7 +79,61 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form();
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+
+	$feilds = apply_filters( 'comment_form_default_fields', array(
+
+		'author' =>
+				'<div class="col-md-5">
+					<div class="form-group">
+						<label for="author">' . __('Name') . '</label> ' .
+					( $req ? '<span class="required">*</span>' : '' ) .
+						'<div class="input">
+							<input type="text" id="author" name="author" class="form-control" value="' . esc_attr( $commenter['comment_author'] ) .'" size="30"' . $aria_req . ' />
+						</div>
+					</div>',
+
+		'email' =>
+				'<div class="form-group">
+					<label for="email">' . __('Email') . '</label> ' .
+				( $req ? '<span class="required">*</span>' : '' ) .
+					'<div class="input">
+						<input type="email" id="email" class="form-control" value="' . esc_attr(  $commenter['comment_author_email'] ) .'" size="30"' . $aria_req . ' />
+					</div>
+				</div>',
+
+		'url' =>
+				'<div class="form-group">
+					<label for="url">' . __('Website') . '</label>' .
+					'<div class="input">
+						<input class="form-control" id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) .'" size="30" />
+					</div>
+				</div>
+			</div>',
+		) );
+
+
+	comment_form(array(
+		
+		'fields'=>$feilds,
+		
+		'id_submit'         => 'submit',
+		'class_submit'      => 'btn btn-supporting btn-wide',
+		'name_submit'       => 'submit',
+
+		'comment_field' =>  
+					'<div class="col-md-7">
+						<div class="form-group">
+							<label for="comment">' . _x( 'Comment', 'noun' ) .'</label>
+							<div class="input">
+								<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Type your message"  class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>',
+	));
 	?>
 
 </div><!-- #comments -->
