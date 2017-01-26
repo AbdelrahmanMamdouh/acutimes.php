@@ -10,9 +10,5 @@
 }
 
 #masthead {
-    z-index: 90000;
-}
-
-.mfp-content {
-	z-index: 90100;
+	z-index: 1000;
 }
