@@ -14,11 +14,10 @@
 
 get_header(); ?>
 
-<main class="inner" id="primary">
+<main class="inner" id="primary" <?php if( !is_home() &&  is_front_page()){ ?> style="padding-top: 0"<?php } ?>>
 	<section>
 		<div class="container-fluid">
 			
-
 			<?php
 			while ( have_posts() ) : the_post();
 

@@ -25,12 +25,8 @@ get_header(); ?>
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
+		<?php endif;
 
-			<?php endif ?>
-			<main class="inner">
-				<section>
-					<div class="container-fluid">
-						<?php
 			/* Start the Loop */
 			$cjc_post_direction = true;
 			while ( have_posts() ) : the_post();
@@ -44,10 +40,6 @@ get_header(); ?>
 
 			endwhile;
 
-					?></div>
-				</section>
-			</main><?php
-
 			the_posts_navigation();
 
 		else :
@@ -55,8 +47,7 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; 
-?>
-
+		?>
 		</div>
 	</section>
 </main>
