@@ -209,7 +209,7 @@ add_editor_style(array(
 	'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700',
 	get_template_directory_uri().'/css/skrollr.css',
 	get_template_directory_uri()."/css/sprites.css",
-	get_template_directory_uri()."/css/main-ltr.css",
+	get_template_directory_uri()."/css/main-rtl.css",
 	get_template_directory_uri()."/css/editor-style.css"
 ));
 
