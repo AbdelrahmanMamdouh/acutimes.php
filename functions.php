@@ -196,6 +196,7 @@ function cairo_jazz_club_scripts() {
 	// custom scripts
 	wp_enqueue_script( 'cjc-plugins', get_template_directory_uri().'/js/min/plugins.min.js', array('jquery'), null, true);
 	//wp_enqueue_script( 'cjc-main', get_template_directory_uri().'/js/min/main.min.js', array('jquery'), null, true);
+	wp_enqueue_script( 'cjc-magnific-popup', get_template_directory_uri().'/js/cjc-magnific-popup.js', array('jquery'), null, true );
 }
 add_action( 'wp_enqueue_scripts', 'cairo_jazz_club_scripts' );
 
@@ -212,6 +213,11 @@ add_editor_style(array(
 	get_template_directory_uri()."/css/main-rtl.css",
 	get_template_directory_uri()."/css/editor-style.css"
 ));
+
+/**
+ * Require Ess. Grid modifications.
+ */
+require( get_template_directory().'/ess-grid-mods/meta-tags.php' ); // meta tags modifications
 
 /**
  * Implement the Custom Header feature.
