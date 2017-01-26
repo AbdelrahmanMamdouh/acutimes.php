@@ -182,11 +182,13 @@ function cairo_jazz_club_scripts() {
 		// Bootstrap RTL Layer, requires bootstrap and bootstrap-theme
 		wp_enqueue_style( "bootstrap-rtl", '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css',array( 'bootstrap' , 'bootstrap-theme' ) );
 		// Main styles rtl
-		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-rtl.css", array( 'bootstrap', 'bootstrap-theme' ) );
+		wp_enqueue_style( "main-rtl", get_template_directory_uri()."/css/main-rtl.css", array( 'bootstrap', 'bootstrap-theme' ) );
 	}else{
 		// Main styles ltr
 		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-ltr.css", array( 'bootstrap', 'bootstrap-theme' ) );
 	}
+	//custom to override old css
+	wp_enqueue_style( "override-style", get_template_directory_uri()."/css/override-style.css", array( 'bootstrap', 'bootstrap-theme' ) );
 	// Bootstrap js
 	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true );
 	// Modernizer, feature detection library

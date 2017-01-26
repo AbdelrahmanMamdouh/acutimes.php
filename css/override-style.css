@@ -1,0 +1,14 @@
+
+.admin-bar #masthead {
+    top: 32px;
+}
+
+#masthead {
+    z-index: 99990px;
+}
+
+@media screen and (max-width: 783px) {
+	.admin-bar #masthead {
+		top: 46px;
+	}
+}
