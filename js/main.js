@@ -42,14 +42,13 @@
 			});
 
 		function inputCheck(element) {
+
 			var value = $(element).val();
+			value = value ? value : "";
 
 			if (value.length > 0) {
-
 				$(element).parent().addClass('have-data');
-
 			} else {
-
 				$(element).val('');
 				$(element).parent().removeClass('focused');
 				$(element).parent().removeClass('have-data');

@@ -188,15 +188,22 @@ function cairo_jazz_club_scripts() {
 		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-ltr.css", array( 'bootstrap', 'bootstrap-theme' ) );
 	}
 	//custom to override old css
-	wp_enqueue_style( "override-style", get_template_directory_uri()."/css/override-style.css", array( 'bootstrap', 'bootstrap-theme' ) );
+	wp_enqueue_style( "cjc-override-style", get_template_directory_uri()."/css/override-style.css", array( 'bootstrap', 'bootstrap-theme' ) );
+
+
 	// Bootstrap js
 	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true );
 	// Modernizer, feature detection library
-	wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js", array(), null );
-	// custom scripts
-	wp_enqueue_script( 'cjc-plugins', get_template_directory_uri().'/js/min/plugins.min.js', array('jquery'), null, true);
+	//wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js", array(), null );
+	// jquery mmenu scripts , Hamberger Menue
+	wp_enqueue_script( 'jquery-mmenu', get_template_directory_uri().'/js/vendor/jquery.mmenu.min.js', array('jquery'), null, true);
+	// jquery magnific popup scripts , popup plugin
+	wp_enqueue_script( 'jquery-magnific-popup', get_template_directory_uri().'/js/vendor/jquery.magnific-popup.min.js', array('jquery'), null, true);
+
+	//wp_enqueue_script( 'cjc-plugins', get_template_directory_uri().'/js/min/plugins.min.js', array('jquery'), null, true);
 	//wp_enqueue_script( 'cjc-main', get_template_directory_uri().'/js/min/main.min.js', array('jquery'), null, true);
-	wp_enqueue_script( 'cjc-magnific-popup', get_template_directory_uri().'/js/cjc-magnific-popup.js', array('jquery'), null, true );
+
+	wp_enqueue_script( 'cjc-main-v2', get_template_directory_uri().'/js/main-v2.js', array('jquery','jquery-mmenu','jquery-magnific-popup'), null, true);
 }
 add_action( 'wp_enqueue_scripts', 'cairo_jazz_club_scripts' );
 
