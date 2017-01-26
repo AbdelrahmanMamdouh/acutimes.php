@@ -4,7 +4,7 @@
 }
 
 #masthead {
-    z-index: 99990px;
+    z-index: 99998;
 }
 
 @media screen and (max-width: 783px) {
