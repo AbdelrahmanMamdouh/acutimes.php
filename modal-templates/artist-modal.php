@@ -1,6 +1,6 @@
 <?php
 	$serverDir = $_SERVER["DOCUMENT_ROOT"];
-	require($_SERVER["DOCUMENT_ROOT"] . '/cjc/wordpress/wp-load.php');
+	require($_SERVER["DOCUMENT_ROOT"] . '/cjc/wp-load.php');
 	$artist = get_post($_GET["artistId"]);
 ?>
 
