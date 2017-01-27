@@ -52,7 +52,7 @@
 		$ret["base"] = $this->base;
 		$ret["category"] = __($this->category);
 		$ret["icon"] = $this->icon;
-		$ret["params"] = $this->vcParams;
+		$ret["params"] = $this->vcAttributeParams;
 
 		return $ret;
 	}
