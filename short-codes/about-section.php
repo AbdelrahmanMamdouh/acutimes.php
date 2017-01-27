@@ -1,5 +1,10 @@
 <?php
-function cjc_shortcode_aboutus_section( $atts, $content = null ) {
+
+$cjcAboutSection =  new CJC_ShortCode();
+
+$cjcAboutSection->base = 'cjc_about_section';
+$cjcAboutSection->displayName = 'CJC about section';
+$cjcAboutSection->callback = function ( $atts, $content = null ) {
 	 $a = shortcode_atts( array(
 		'title' 	=> '',
 		'img' 		=> '',
@@ -37,53 +42,35 @@ function cjc_shortcode_aboutus_section( $atts, $content = null ) {
 	</div>
 	<?php
 	return  ob_get_clean();// return buffer
-}
+};
 
-add_shortcode( 'cjc_about_section' , 'cjc_shortcode_aboutus_section' );
-
-//check if visual composer is installed
-if(function_exists ('vc_map')){
-vc_map( array(
-	"name" 			=> __("CJC about section"),
-	"base" 			=> "cjc_about_section",
-	"category" 		=> __('Cairo Jazz Club'),
-	"params" => array(
-		array(
-			"type" 			=> "textfield",
-			"holder" 		=> "div",
-			"class" 		=> "",
-			"heading" 		=> __("Title"),
-			"param_name"	=> "title",
-			"value" 		=> __(""),
-			"description" 	=> __("the title to be displayed.")
-		),
-		array(
-			"type"			=> "attach_image",
-			"holder"		=> "div",
-			"class"			=> "",
-			"heading" 		=> __("image"),
-			"param_name" 	=> "img",
-			"value" 		=> __(""),
-			"description" 	=> __("the img to be displayed next to title.")
-		),
-	  array(
-			"type"			=> "dropdown",
-			"holder"		=> "div",
-			"class"			=> "",
-			"heading" 		=> __("direction"),
-			"param_name" 	=> "direction",
-			"description" 	=> __("the direction of the img"),
-		 	"value"			=> array('Right','Left')
-		),
-		array(
-			"type" 			=> "textarea_html",
-			"holder" 		=> "div",
-			"class" 		=> "",
-			"heading" 		=> __( "Content" ),
-			"param_name" 	=> "content", // Important: Only one textarea_html param per content element allowed and it should have "content" as a "param_name"
-			"value" 		=> __(""),
-			"description" 	=> __( "Enter your content." )
-		),
-	)
+$cjcAboutSection->addvcAttribute(array(
+	"type" 			=> "textfield",
+	"holder" 		=> "div",
+	"class" 		=> "",
+	"heading" 		=> __("Title"),
+	"param_name"	=> "title",
+	"value" 		=> __(""),
+	"description" 	=> __("the title to be displayed.")
 ));
-}
+$cjcAboutSection->addvcAttribute(array(
+	"type"			=> "attach_image",
+	"holder"		=> "div",
+	"class"			=> "",
+	"heading" 		=> __("image"),
+	"param_name" 	=> "img",
+	"value" 		=> __(""),
+	"description" 	=> __("the img to be displayed next to title.")
+));
+$cjcAboutSection->addvcAttribute(array(
+	"type"			=> "dropdown",
+	"holder"		=> "div",
+	"class"			=> "",
+	"heading" 		=> __("direction"),
+	"param_name" 	=> "direction",
+	"description" 	=> __("the direction of the img"),
+	"value"			=> array('Right','Left')
+));
+$cjcAboutSection->addvcContent();
+
+$cjcAboutSection->register();

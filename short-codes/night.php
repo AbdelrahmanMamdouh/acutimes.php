@@ -1,5 +1,10 @@
 <?php
-function cjc_shortcode_night( $atts, $content = null ) {
+
+$cjcNight =  new CJC_ShortCode();
+
+$cjcNight->base = 'cjc_night';
+$cjcNight->displayName = 'CJC Night';
+$cjcNight->callback = function ( $atts, $content = null ) {
 	 $a = shortcode_atts( array(
 		'title' 	=> '',
 		'img' 		=> '',
@@ -36,62 +41,44 @@ function cjc_shortcode_night( $atts, $content = null ) {
 	</ul>
 	<?php
 	return  ob_get_clean();// return buffer
-}
+};
 
-add_shortcode( 'cjc_night' , 'cjc_shortcode_night' );
-
-//check if visual composer is installed
-if(function_exists ('vc_map')){
-vc_map( array(
-	"name" 			=> __("CJC Night"),
-	"base" 			=> "cjc_night",
-	"category" 		=> __('Cairo Jazz Club'),
-	"params" => array(
-		array(
-			"type" 			=> "textfield",
-			"holder" 		=> "div",
-			"class" 		=> "",
-			"heading" 		=> __("Night Name"),
-			"param_name"	=> "title",
-			"value" 		=> __(""),
-			"description" 	=> __("")
-		),
-		array(
-			"type"			=> "attach_image",
-			"holder"		=> "div",
-			"class"			=> "",
-			"heading" 		=> __("Night Image"),
-			"param_name" 	=> "img",
-			"value" 		=> __(""),
-			"description" 	=> __("")
-		),
-		array(
-			"type" 			=> "textarea_html",
-			"holder" 		=> "div",
-			"class" 		=> "",
-			"heading" 		=> __( "Content" ),
-			"param_name" 	=> "content", // Important: Only one textarea_html param per content element allowed and it should have "content" as a "param_name"
-			"value" 		=> __(""),
-			"description" 	=> __( "Enter your content." )
-		),
-		array(
-			"type" 			=> "textfield",
-			"holder" 		=> "div",
-			"class" 		=> "",
-			"heading" 		=> __("Embed"),
-			"param_name"	=> "embed",
-			"value" 		=> __(""),
-			"description" 	=> __(" youtube, soundcloud & others <br> only copy the URL !!")
-		),
-		array(
-			"type" 			=> "colorpicker",
-			"holder" 		=> "div",
-			"class" 		=> "",
-			"heading" 		=> __("Background Color"),
-			"param_name"	=> "color",
-			"value" 		=> __(""),
-			"description" 	=> __("")
-		),
-	)
+$cjcNight->addvcAttribute(array(
+	"type" 			=> "textfield",
+	"holder" 		=> "div",
+	"class" 		=> "",
+	"heading" 		=> __("Night Name"),
+	"param_name"	=> "title",
+	"value" 		=> __(""),
+	"description" 	=> __("")
 ));
-}
+$cjcNight->addvcAttribute(array(
+	"type"			=> "attach_image",
+	"holder"		=> "div",
+	"class"			=> "",
+	"heading" 		=> __("Night Image"),
+	"param_name" 	=> "img",
+	"value" 		=> __(""),
+	"description" 	=> __("")
+));
+$cjcNight->addvcAttribute(array(
+	"type" 			=> "textfield",
+	"holder" 		=> "div",
+	"class" 		=> "",
+	"heading" 		=> __("Embed"),
+	"param_name"	=> "embed",
+	"value" 		=> __(""),
+	"description" 	=> __(" youtube, soundcloud & others <br> only copy the URL !!")
+));
+$cjcNight->addvcAttribute(array(
+	"type" 			=> "colorpicker",
+	"holder" 		=> "div",
+	"class" 		=> "",
+	"heading" 		=> __("Background Color"),
+	"param_name"	=> "color",
+	"value" 		=> __(""),
+	"description" 	=> __("")
+));
+$cjcNight->addvcContent();
+
+$cjcNight->register();

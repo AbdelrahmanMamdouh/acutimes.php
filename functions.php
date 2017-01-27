@@ -283,4 +283,4 @@ require_once get_template_directory() . '/widgets/register-widgets.php';
 /**
  * Load cjc shortcodes
  */
-require_once get_template_directory() . '/short-codes/load-shortcodes.php';
+require_once get_template_directory() . '/short-codes/init.php';
