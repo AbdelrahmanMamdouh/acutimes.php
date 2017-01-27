@@ -6,9 +6,6 @@ function cjc_shortcode_parallax_slider( $atts, $content = null ) {
 		'id' 	=> '',
 	 ), $atts );
 
-	$shortcodes = get_shortcodes( $content );
-	$content = strip_shortcodes( $content );
-
 	ob_start();// start buffer
 	?>
 	 <div class="container-fluid" id="trigger">
@@ -21,9 +18,7 @@ function cjc_shortcode_parallax_slider( $atts, $content = null ) {
 
                     <h2 class="centered"> <?php echo $args['title']; ?> </h2>
 
-                    <?php echo do_shortcode( implode($shortcodes) ); ?>
-
-                    <?php echo $content ?>
+                    <?php echo apply_filters('the_content', $content); ?>
 
                 </div>
 
@@ -76,7 +71,7 @@ vc_map( array(
 			"type" 			=> "textfield",
 			"holder" 		=> "div",
 			"class" 		=> "",
-			"heading" 		=> __("Extra id name"),
+			"heading" 		=> __("ID"),
 			"param_name"	=> "id",
 			"value" 		=> __(""),
 			"description" 	=> __("Style particular content element differently - add a id name and refer to it in custom CSS.")
