@@ -180,36 +180,44 @@ function cairo_jazz_club_scripts() {
 	if(is_rtl()){
 		// Load Bootstrap RTL theme from RawGit
 		// Bootstrap RTL Layer, requires bootstrap and bootstrap-theme
-		wp_enqueue_style( "bootstrap-rtl", '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css',array( 'bootstrap' , 'bootstrap-theme' ) );
+		wp_enqueue_style( "bootstrap-rtl", '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css',
+			array( 'bootstrap' , 'bootstrap-theme' ) );
 		// Main styles rtl
-		wp_enqueue_style( "main-rtl", get_template_directory_uri()."/css/main-rtl.css", array( 'bootstrap', 'bootstrap-theme' ) );
+		wp_enqueue_style( "main-rtl", get_template_directory_uri()."/css/main-rtl.css", 
+			array( 'bootstrap', 'bootstrap-theme' ) );
 	}else{
 		// Main styles ltr
-		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-ltr.css", array( 'bootstrap', 'bootstrap-theme' ) );
+		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-ltr.css", 
+			array( 'bootstrap', 'bootstrap-theme' ) );
 	}
 	//custom to override old css
-	wp_enqueue_style( "cjc-override-style", get_template_directory_uri()."/css/override-style.css", array( 'bootstrap', 'bootstrap-theme' ) );
+	wp_enqueue_style( "cjc-override-style", get_template_directory_uri()."/css/override-style.css", 
+		array( 'bootstrap', 'bootstrap-theme' ) );
 
 
 	// Bootstrap js
-	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true );
+	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 
+		array('jquery'), null, true );
 	// TweenMax js
-	wp_enqueue_script( 'tweenmax-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', array('jquery'), null, true );
+	wp_enqueue_script( 'tweenmax-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', 
+		array('jquery'), null, true );
 	// ScrollMagic js
-	wp_enqueue_script( 'scrollmagic-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js', array('jquery'), null, true );
-	// animation.gsap js
-	wp_enqueue_script( 'animation-gsap-js', get_template_directory_uri().'/js/vendor/animation.gsap.js', array('jquery'), null, true );
+	wp_enqueue_script( 'scrollmagic-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js', 
+		array('jquery'), null, true );
 	// Modernizer, feature detection library
-	//wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js", array(), null );
+	//wp_enqueue_script( 'modernizr-js', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), null );
 	// jquery mmenu scripts , Hamberger Menue
-	wp_enqueue_script( 'jquery-mmenu', get_template_directory_uri().'/js/vendor/jquery.mmenu.min.js', array('jquery'), null, true);
+	wp_enqueue_script( 'jquery-mmenu-js', 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.7.8/js/jquery.mmenu.min.js', 
+		array('jquery'), null, true);
 	// jquery magnific popup scripts , popup plugin
-	wp_enqueue_script( 'jquery-magnific-popup', get_template_directory_uri().'/js/vendor/jquery.magnific-popup.min.js', array('jquery'), null, true);
+	wp_enqueue_script( 'jquery-magnific-popup-js', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js', 
+		array('jquery'), null, true);
+	// animation.gsap js
+	wp_enqueue_script( 'scrollmagic--animation-gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', 
+		array('jquery', 'scrollmagic-js'), null, true );
 
-	//wp_enqueue_script( 'cjc-plugins', get_template_directory_uri().'/js/min/plugins.min.js', array('jquery'), null, true);
-	//wp_enqueue_script( 'cjc-main', get_template_directory_uri().'/js/min/main.min.js', array('jquery'), null, true);
-
-	wp_enqueue_script( 'cjc-main-v2', get_template_directory_uri().'/js/main-v2.js', array('jquery','jquery-mmenu','jquery-magnific-popup'), null, true);
+	wp_enqueue_script( 'cjc-main-v2', get_template_directory_uri().'/js/main-v2.js', 
+		array('jquery', 'tweenmax-js', 'scrollmagic-js', 'jquery-mmenu-js', 'jquery-magnific-popup-js', 'scrollmagic--animation-gsap-js'), null, true);
 }
 add_action( 'wp_enqueue_scripts', 'cairo_jazz_club_scripts' );
 
