@@ -193,6 +193,12 @@ function cairo_jazz_club_scripts() {
 
 	// Bootstrap js
 	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true );
+	// TweenMax js
+	wp_enqueue_script( 'tweenmax-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', array('jquery'), null, true );
+	// ScrollMagic js
+	wp_enqueue_script( 'scrollmagic-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js', array('jquery'), null, true );
+	// animation.gsap js
+	wp_enqueue_script( 'animation-gsap-js', get_template_directory_uri().'/js/vendor/animation.gsap.js', array('jquery'), null, true );
 	// Modernizer, feature detection library
 	//wp_enqueue_script( 'modernizr', get_template_directory_uri()."/js/vendor/modernizr-2.8.0.min.js", array(), null );
 	// jquery mmenu scripts , Hamberger Menue
