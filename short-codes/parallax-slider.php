@@ -13,7 +13,7 @@ $cjcParallaxSlider->callback = function ( $atts, $content = null ) {
 
 	ob_start();// start buffer
 	?>
-	 <div class="container-fluid" id="trigger">
+	 <div class="container-fluid">
         <div class="parallax <?php echo $args['class']; ?>" id="<?php echo $args['id']; ?>">
             <div class="parallax__content">
 

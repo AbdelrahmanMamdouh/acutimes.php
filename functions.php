@@ -202,8 +202,11 @@ function cairo_jazz_club_scripts() {
 	wp_enqueue_script( 'tweenmax-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', 
 		array('jquery'), null, true );
 	// ScrollMagic js
-	wp_enqueue_script( 'scrollmagic-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js', 
+	wp_enqueue_script( 'scrollmagic-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', 
 		array('jquery'), null, true );
+	// animation.gsap js (Animation of ScrollMagic)
+	wp_enqueue_script( 'scrollmagic--animation-gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', 
+		array('jquery', 'scrollmagic-js'), null, true );
 	// Modernizer, feature detection library
 	//wp_enqueue_script( 'modernizr-js', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), null );
 	// jquery mmenu scripts , Hamberger Menue
@@ -212,9 +215,6 @@ function cairo_jazz_club_scripts() {
 	// jquery magnific popup scripts , popup plugin
 	wp_enqueue_script( 'jquery-magnific-popup-js', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js', 
 		array('jquery'), null, true);
-	// animation.gsap js
-	wp_enqueue_script( 'scrollmagic--animation-gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', 
-		array('jquery', 'scrollmagic-js'), null, true );
 
 	wp_enqueue_script( 'cjc-main-v2', get_template_directory_uri().'/js/main-v2.js', 
 		array('jquery', 'tweenmax-js', 'scrollmagic-js', 'jquery-mmenu-js', 'jquery-magnific-popup-js', 'scrollmagic--animation-gsap-js'), null, true);

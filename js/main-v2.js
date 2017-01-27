@@ -28,6 +28,8 @@
 		 / /  / / /_/ / /_/ / / / / / __/ / /__   / ____/ /_/ / /_/ / /_/ / /_/ /
 		/_/  /_/\__,_/\__, /_/ /_/_/_/ /_/\___/  /_/    \____/ .___/\__,_/ .___/ 
 					 /____/                                 /_/         /_/      
+
+					 			Magnific Popup
 		*/
 
 		//init Magnific Popup on each element with "modal-link" class
@@ -44,16 +46,17 @@
 		 ___/ / /__/ /  / /_/ / / / /  / / /_/ / /_/ / / /__  
 		/____/\___/_/   \____/_/_/_/  /_/\__,_/\__, /_/\___/  
 											  /____/          
-			Home Parallax Slider
+
+								Home Parallax Slider
 		*/
 		// build controller
-		var controller = new ScrollMagic.Controller({ vertical: true });
+		var controller = new ScrollMagic.Controller( { vertical: true } );
 
 		// build tween
-		var tween = TweenMax.fromTo(".parallax", 0.75, { bottom: 400 }, { bottom: 7975 });
+		var tween = TweenMax.fromTo( ".parallax", 1, { bottom: 182 }, { bottom: 7975 } );
 
 		// build scene
-		var scene = new ScrollMagic.Scene({ TriggerElement: "#trigger", duration: 10000 })
+		var scene = new ScrollMagic.Scene( { duration: 10000 } )
 			.setTween(tween)
 			.addTo(controller);
 
