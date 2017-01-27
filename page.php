@@ -13,11 +13,11 @@
  */
 
 get_header(); ?>
-<?php if( !is_home() &&  is_front_page()){ ?>
+<?php if( !(!is_home() &&  is_front_page())){ ?>
 	<main class="inner" id="primary">
 		<section>
 			<div class="container-fluid">
- <?php } ?>	
+<?php } ?>	
 				<?php
 				while ( have_posts() ) : the_post();
 
@@ -30,11 +30,11 @@ get_header(); ?>
 
 				endwhile; // End of the loop.
 				?>
-<?php if( !is_home() &&  is_front_page()){ ?>		
+<?php if( !(!is_home() &&  is_front_page())){ ?>	
 			</div>
 		</section>
 	</main>
- <?php } ?>	
+<?php } ?>	
 <?php
 get_sidebar();
 get_footer();
