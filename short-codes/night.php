@@ -4,13 +4,10 @@ $cjcNight =  new CJC_ShortCode();
 
 $cjcNight->base = 'cjc_night';
 $cjcNight->displayName = 'CJC Night';
+
 $cjcNight->callback = function ( $atts, $content = null ) {
-	 $a = shortcode_atts( array(
-		'title' 	=> '',
-		'img' 		=> '',
-		'embed'		=>'',
-		'color'		=>'#FFF'
-	 ), $atts );
+
+	$a = $cjcNight->shortcode_atts( $atts );
 
 	$img = $a['img']? wp_get_attachment_url($a['img'] ):'';
 
@@ -42,43 +39,43 @@ $cjcNight->callback = function ( $atts, $content = null ) {
 	<?php
 	return  ob_get_clean();// return buffer
 };
-
-$cjcNight->addvcAttribute(array(
-	"type" 			=> "textfield",
-	"holder" 		=> "div",
-	"class" 		=> "",
-	"heading" 		=> __("Night Name"),
-	"param_name"	=> "title",
-	"value" 		=> __(""),
-	"description" 	=> __("")
-));
-$cjcNight->addvcAttribute(array(
-	"type"			=> "attach_image",
-	"holder"		=> "div",
-	"class"			=> "",
-	"heading" 		=> __("Night Image"),
-	"param_name" 	=> "img",
-	"value" 		=> __(""),
-	"description" 	=> __("")
-));
-$cjcNight->addvcAttribute(array(
-	"type" 			=> "textfield",
-	"holder" 		=> "div",
-	"class" 		=> "",
-	"heading" 		=> __("Embed"),
-	"param_name"	=> "embed",
-	"value" 		=> __(""),
-	"description" 	=> __(" youtube, soundcloud & others <br> only copy the URL !!")
-));
-$cjcNight->addvcAttribute(array(
-	"type" 			=> "colorpicker",
-	"holder" 		=> "div",
-	"class" 		=> "",
-	"heading" 		=> __("Background Color"),
-	"param_name"	=> "color",
-	"value" 		=> __(""),
-	"description" 	=> __("")
-));
-$cjcNight->addvcContent();
+$cjcNight
+	->addvcAttribute(array(
+		"type" 			=> "textfield",
+		"holder" 		=> "div",
+		"class" 		=> "",
+		"heading" 		=> __("Night Name"),
+		"param_name"	=> "title",
+		"value" 		=> __(""),
+		"description" 	=> __("")
+	))
+	->addvcAttribute(array(
+		"type"			=> "attach_image",
+		"holder"		=> "div",
+		"class"			=> "",
+		"heading" 		=> __("Night Image"),
+		"param_name" 	=> "img",
+		"value" 		=> __(""),
+		"description" 	=> __("")
+	))
+	->addvcAttribute(array(
+		"type" 			=> "textfield",
+		"holder" 		=> "div",
+		"class" 		=> "",
+		"heading" 		=> __("Embed"),
+		"param_name"	=> "embed",
+		"value" 		=> __(""),
+		"description" 	=> __(" youtube, soundcloud & others <br> only copy the URL !!")
+	))
+	->addvcAttribute(array(
+		"type" 			=> "colorpicker",
+		"holder" 		=> "div",
+		"class" 		=> "",
+		"heading" 		=> __("Background Color"),
+		"param_name"	=> "color",
+		"value" 		=> __(""),
+		"description" 	=> __("")
+	))
+	->addvcContent();
 
 $cjcNight->register();

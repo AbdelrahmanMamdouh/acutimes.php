@@ -1,39 +1,59 @@
 <?php
 
+/**
+ * a simple way to integrate Wordpress Shortcode API with Visual Composer
+ */
  class CJC_ShortCode{
 
-	 var $base;
-	 var $displayName;
-	 var $category;
-	 var $vcParams;
-	 var $vcAttributeParams;
-	 var $icon;
-	 var $callback;// the shortcode
+	public $base,
+		$displayName,
+		$category,
+		$vcParams,
+		$vcAttributes,
+		$icon,
+		$callback;// the shortcode
 
-	 function __construct() {
+	 public function __construct() {
 	 	 $this->base = '';
 		 $this->displayName = '';
 		 $this->category = 'Cairo Jazz Club';
 		 $this->vcParams = array();
-		 $this->vcAttributeParams = array();
+		 $this->vcAttributes = array();
 		 $this->icon = has_custom_logo() ? Mcustomizer::getCustomLogoURL(): get_template_directory_uri().'/img/logo.png';
 	 }
 
 	/**
-	 * @return the result from shortcode string
+	 * get the attributes default value from the $vcAttributes
+	 * @return asoc array to be passed to shortcode_atts
 	 */
-	function run( $atts, $content = null ){
-
+	public function getAttributeDefaultVal(){
+		$a = array();
+		foreach($this->vcAttributes as $att) {
+			if($att['param_name'] != 'content'){
+				$a[$att['param_name']] = isset($att['value']) ? $att['value'] :'';
+			}
+		}
+		return $a;
+	}
+	
+	/**
+	 * push a attribute to the array
+	 * keep in mind it's usless if u have already registered
+	 * @return $this
+	 */
+	public function addvcAttribute(array $att){
+		array_push ($this->vcAttributes,$att);
+		return $this;
 	}
 
-	function addvcAttribute(array $att){
-		array_push ($this->vcAttributeParams,$att);
-	}
-
-	function addvcContent($title = "Content",$description="Enter your content.",$value=""){
+	/**
+	 * add a generic Content param
+	 * @return $this
+	 */
+	public function addvcContent($title = "Content", $description="Enter your content.", $value=""){
 		 // Important: Only one textarea_html param per content element allowed and 
 		 // it should have "content" as a "param_name"
-		array_push ($this->vcAttributeParams,
+		array_push ($this->vcAttributes,
 			array(
 				"type" 			=> "textarea_html",
 				"holder" 		=> "div",
@@ -43,28 +63,38 @@
 				"value" 		=> __( $value ),
 				"description" 	=> __( $description )
 			));
+		return $this;
 	}
 
-	function getParams(){
-		$ret = $this->vcParams;
-
-		$ret["name"] = __($this->displayName);
-		$ret["base"] = $this->base;
-		$ret["category"] = __($this->category);
-		$ret["icon"] = $this->icon;
-		$ret["params"] = $this->vcAttributeParams;
-
-		return $ret;
+	/**
+	 * @return $the full vc param array
+	 */
+	public function getParams(){
+		return $ret + array(
+			"name" => __($this->displayName),
+			"base" => $this->base,
+			"category" => __($this->category),
+			"icon" => $this->icon,
+			"params" => $this->vcAttributes,
+		);
 	}
 
-	function register(){
+	/**
+	 * run the callback function
+	 */
+	public function run( $atts, $content = null ){
+		call_user_func(
+			$this->callback ,
+			shortcode_atts( $this->getAttributeDefaultVal() ,$atts ),
+		 	$content
+				 );
+	}
 
-		add_shortcode($this->base,$this->callback);
-		
+	public function register(){
+		add_shortcode($this->base,array($this, 'run'));
 		// if visual composer is installed
 		if(function_exists ('vc_map')){
 			vc_map( $this->getParams());
 		}
-		//static::class.'::run';
 	}
 }
