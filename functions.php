@@ -7,7 +7,6 @@
  * @package cjc
  */
 
-if ( ! function_exists( 'cairo_jazz_club_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,7 +14,7 @@ if ( ! function_exists( 'cairo_jazz_club_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function cairo_jazz_club_setup() {
+add_action( 'after_setup_theme', function() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -84,9 +83,7 @@ function cairo_jazz_club_setup() {
 
 	// Add theme Support
 	add_theme_support( 'menus' );
-}
-endif;
-add_action( 'after_setup_theme', 'cairo_jazz_club_setup' );
+} );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -95,71 +92,37 @@ add_action( 'after_setup_theme', 'cairo_jazz_club_setup' );
  *
  * @global int $content_width
  */
-function cairo_jazz_club_content_width() {
+add_action( 'after_setup_theme', function() {
 	$GLOBALS['content_width'] = apply_filters( 'cairo_jazz_club_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'cairo_jazz_club_content_width', 0 );
+}, 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * add editor styles.
  */
-function cairo_jazz_club_widgets_init() {
-	/*
-	register_sidebar( array(
-		'name'		  => esc_html__( 'Sidebar', 'cairo-jazz-club' ),
-		'id'			=> 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'cairo-jazz-club' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	*/
-	register_sidebar( array(
-		'name'		  => esc_html__( 'Footer Widget area Right (small)', 'cairo-jazz-club' ),
-		'id'			=> 'footer-widget-right',
-		'description'   => esc_html__( 'a widget area in the footer on the right side , size small', 'cairo-jazz-club' ),
-		'before_widget' => '<div class="block">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2>',
-		'after_title'   => '</h2>',
-	) );
+add_action( 'after_setup_theme', function(){
 
-	register_sidebar( array(
-		'name'		  => esc_html__( 'Footer Widget area Center (large)', 'cairo-jazz-club' ),
-		'id'			=> 'footer-widget-center',
-		'description'   => esc_html__( 'a widget area in the footer in center , size large', 'cairo-jazz-club' ),
-		'before_widget' => '<div class="block">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2>',
-		'after_title'   => '</h2>',
-	) );
+	add_editor_style(array(
+		get_stylesheet_uri(),
+		'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+		'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css',
+		'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700',
+		get_template_directory_uri().'/css/skrollr.css',
+		get_template_directory_uri().'/css/sprites.css',
+		get_template_directory_uri().'/css/main-rtl.css',
+		get_template_directory_uri().'/css/editor-style.css'
+	));
 
-	register_sidebar( array(
-		'name'		  => esc_html__( 'Footer Widget area left (small)', 'cairo-jazz-club' ),
-		'id'			=> 'footer-widget-left',
-		'description'   => esc_html__( 'a widget area in the footer on the left side , size small', 'cairo-jazz-club' ),
-		'before_widget' => '<div class="block">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2>',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'cairo_jazz_club_widgets_init' );
+});
 
 /**
  * Enqueue scripts and styles.
  */
-function cairo_jazz_club_scripts() {
-	// jquery
+add_action( 'wp_enqueue_scripts', function () {
+
  	wp_enqueue_script( 'jquery' );
 
 	wp_enqueue_style( 'cairo-jazz-club-style', get_stylesheet_uri() );
-
 	wp_enqueue_script( 'cairo-jazz-club-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'cairo-jazz-club-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -218,69 +181,35 @@ function cairo_jazz_club_scripts() {
 
 	wp_enqueue_script( 'cjc-main-v2', get_template_directory_uri().'/js/main-v2.js', 
 		array('jquery', 'tweenmax-js', 'scrollmagic-js', 'jquery-mmenu-js', 'jquery-magnific-popup-js', 'scrollmagic--animation-gsap-js'), null, true);
-}
-add_action( 'wp_enqueue_scripts', 'cairo_jazz_club_scripts' );
+	
+});
 
-/**
- * add editor styles.
- */
-add_editor_style(array(
-	get_stylesheet_uri(),
-	'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
-	'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css',
-	'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700',
-	get_template_directory_uri().'/css/skrollr.css',
-	get_template_directory_uri()."/css/sprites.css",
-	get_template_directory_uri()."/css/main-rtl.css",
-	get_template_directory_uri()."/css/editor-style.css"
-));
+// Require Ess. Grid modifications.
+require get_template_directory() . '/ess-grid-mods/meta-tags.php'; // meta tags modifications
 
-/**
- * Require Ess. Grid modifications.
- */
-require( get_template_directory().'/ess-grid-mods/meta-tags.php' ); // meta tags modifications
-
-/**
- * Implement the Custom Header feature.
- */
+// Implement the Custom Header feature.
 require get_template_directory() . '/inc/custom-header.php';
 
-/**
- * Custom template tags for this theme.
- */
+// Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Custom functions that act independently of the theme templates.
- */
+// Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/extras.php';
 
-/**
- * Customizer additions.
- */
+// Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
+// Load Jetpack compatibility file.
 require get_template_directory() . '/inc/jetpack.php';
 
-/**
- * Load mcustomizer class.
- */
+// Load mcustomizer class.
 require get_template_directory() . '/inc/mcustomizer.php';
 
-/**
- * Load advanced search liberary
- */
+// Load advanced search liberary
 require_once get_template_directory() . '/inc/wp-advanced-search/wpas.php';
 
-/**
- * Load cjc widgets
- */
-require_once get_template_directory() . '/widgets/register-widgets.php';
+// Load cjc widgets
+require_once get_template_directory() . '/widgets/init.php';
 
-/**
- * Load cjc shortcodes
- */
+// Load cjc shortcodes
 require_once get_template_directory() . '/short-codes/init.php';
