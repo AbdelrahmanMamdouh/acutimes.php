@@ -70,7 +70,7 @@
 	 * @return $the full vc param array
 	 */
 	public function getParams(){
-		return $ret + array(
+		return $this->vcParams + array(
 			"name" => __($this->displayName),
 			"base" => $this->base,
 			"category" => __($this->category),
