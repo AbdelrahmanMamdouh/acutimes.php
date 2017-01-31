@@ -83,11 +83,11 @@
 	 * run the callback function
 	 */
 	public function run( $atts, $content = null ){
-		call_user_func(
+		return call_user_func(
 			$this->callback ,
 			shortcode_atts( $this->getAttributeDefaultVal() ,$atts ),
 		 	$content
-				 );
+		);
 	}
 
 	public function register(){

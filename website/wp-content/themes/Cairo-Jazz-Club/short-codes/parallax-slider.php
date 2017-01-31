@@ -7,7 +7,7 @@ $cjcParallaxSlider->displayName = 'CJC Parallax Slider';
 
 $cjcParallaxSlider->callback = function ( $atts, $content = null ) {
 
-	$a = $cjcParallaxSlider->shortcode_atts( $atts );
+	$a = $atts;
 
 	ob_start();// start buffer
 	?>

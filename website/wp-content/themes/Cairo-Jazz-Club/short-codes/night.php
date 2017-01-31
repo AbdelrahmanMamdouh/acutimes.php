@@ -7,7 +7,7 @@ $cjcNight->displayName = 'CJC Night';
 
 $cjcNight->callback = function ( $atts, $content = null ) {
 
-	$a = $cjcNight->shortcode_atts( $atts );
+	$a = $atts;
 
 	$img = $a['img']? wp_get_attachment_url($a['img'] ):'';
 
