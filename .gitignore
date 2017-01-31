@@ -3,4 +3,4 @@ website/*
 # But not these files...
 !website/wp-content/themes/Cairo-Jazz-Club/*
 # ...even if they are in subdirectories
-!*/
+#!*/
