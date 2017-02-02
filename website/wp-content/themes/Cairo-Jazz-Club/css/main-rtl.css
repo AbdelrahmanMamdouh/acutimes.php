@@ -3,7 +3,7 @@
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
+ *	user zoom.
  */
 @import url(https://fonts.googleapis.com/css?family=Palanquin+Dark:400,600);
 html {
@@ -221,7 +221,7 @@ samp {
  */
 /**
  * 1. Correct color not being inherited.
- *    Known issue: affects color of disabled elements.
+ *	Known issue: affects color of disabled elements.
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
@@ -258,10 +258,10 @@ select {
 
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
+ *	and `video` controls.
  * 2. Correct inability to style clickable `input` types in iOS.
  * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
+ *	`input` and others.
  */
 button,
 html input[type="button"],
@@ -326,7 +326,7 @@ input[type="number"]::-webkit-outer-spin-button {
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
- *    (include `-moz` to future-proof).
+ *	(include `-moz` to future-proof).
  */
 input[type="search"] {
   -webkit-appearance: textfield;
@@ -2970,8 +2970,8 @@ img.mfp-img {
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
   /**
-       * Remove all paddings around the image on small screen
-       */
+	   * Remove all paddings around the image on small screen
+	   */
   .mfp-img-mobile .mfp-image-holder {
     padding-left: 0;
     padding-right: 0;
@@ -3188,11 +3188,11 @@ textarea {
  *
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
+ *	`contenteditable` attribute is included anywhere else in the document.
+ *	Otherwise it causes space to appear at the top and bottom of elements
+ *	that receive the `clearfix` class.
  * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
+ *	`:before` to contain the top-margins of child elements.
  */
 .clearfix:before,
 .clearfix:after {
@@ -3545,7 +3545,7 @@ select {
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
-  content: '✔';
+  content: 'Γ£ö';
   position: absolute;
   top: 3px;
   left: 4px;
@@ -4392,7 +4392,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 .mfp-modal {
   position: relative;
   width: auto;
-  max-width: 750px;
+  max-width: 550px;
   margin: 20px auto;
 }
 .mfp-modal .modal-image {
@@ -5172,8 +5172,8 @@ form span {
   *:after {
     background: transparent !important;
     color: #000 !important;
-    /* Black prints faster:
-       http://www.sanbeiji.com/archives/953 */
+                        /* Black prints faster:
+						   http://www.sanbeiji.com/archives/953 */
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -5234,4 +5234,16 @@ form span {
   h3 {
     page-break-after: avoid;
   }
+}
+.admin-bar #masthead {
+  top: 32px;
+}
+
+@media screen and (max-width: 783px) {
+  .admin-bar #masthead {
+    top: 46px;
+  }
+}
+#masthead {
+  z-index: 1000;
 }

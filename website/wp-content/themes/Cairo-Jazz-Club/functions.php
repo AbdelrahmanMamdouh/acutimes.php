@@ -103,6 +103,7 @@ add_action( 'after_setup_theme', function(){
 
 	add_editor_style(array(
 		get_stylesheet_uri(),
+		get_template_directory_uri() .'/css/underscore.css',
 		'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
 		'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css',
 		'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700',
@@ -120,43 +121,40 @@ add_action( 'after_setup_theme', function(){
 add_action( 'wp_enqueue_scripts', function () {
 
  	wp_enqueue_script( 'jquery' );
-
-	//wp_enqueue_style( 'cairo-jazz-club-style', get_stylesheet_uri() );
+	// underscore
+	wp_enqueue_style( 'cairo-jazz-club-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'cairo-jazz-club-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'cairo-jazz-club-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_style( 'underscore', get_template_directory_uri() .'/css/underscore.css' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	//google fonts
+	// google fonts
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' );
 	// Skrollr
 	wp_enqueue_style( 'skrollr-style', get_template_directory_uri().'/css/skrollr.css' );
 	// Bootstrap
-	wp_enqueue_style( "bootstrap", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
-	wp_enqueue_style( "bootstrap-theme", 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
+	wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
+	wp_enqueue_style( 'bootstrap-theme', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
 
 	// sprites
-	wp_enqueue_style("sprites",get_template_directory_uri()."/css/sprites.css");
+	wp_enqueue_style('sprites',get_template_directory_uri().'/css/sprites.css'');
 
 	if(is_rtl()){
 		// Load Bootstrap RTL theme from RawGit
 		// Bootstrap RTL Layer, requires bootstrap and bootstrap-theme
-		wp_enqueue_style( "bootstrap-rtl", '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css',
+		wp_enqueue_style( 'bootstrap-rtl', '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css',
 			array( 'bootstrap' , 'bootstrap-theme' ) );
 		// Main styles rtl
-		wp_enqueue_style( "main-rtl", get_template_directory_uri()."/css/main-rtl.css", 
+		wp_enqueue_style( 'main-rtl', get_template_directory_uri().'/css/main-rtl.css', 
 			array( 'bootstrap', 'bootstrap-theme' ) );
 	}else{
 		// Main styles ltr
-		wp_enqueue_style( "main-ltr", get_template_directory_uri()."/css/main-ltr.css", 
+		wp_enqueue_style( 'main-ltr', get_template_directory_uri().'/css/main-ltr.css', 
 			array( 'bootstrap', 'bootstrap-theme' ) );
 	}
-	//custom to override old css
-	wp_enqueue_style( "cjc-override-style", get_template_directory_uri()."/css/override-style.css", 
-		array( 'bootstrap', 'bootstrap-theme' ) );
-
 
 	// Bootstrap js
 	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 

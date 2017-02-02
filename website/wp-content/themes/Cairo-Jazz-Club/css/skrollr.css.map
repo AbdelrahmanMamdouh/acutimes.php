@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,kBAAmB;EACf,uBAAuB,EAAE,UAAU;;;AAGvC,8BAQC;EAPG,WAAY;IACR,GAAG,EAAE,MAAM;;EAGlB,WAAY;IACL,GAAG,EAAE,OAAO",
-"sources": ["skrollr.scss"],
+"mappings": "AAAA,kBAAmB;EAClB,uBAAuB,EAAE,UAAU;;;AAGpC,8BAQC;EAPA,WAAY;IACX,GAAG,EAAE,MAAM;;EAGZ,WAAY;IACX,GAAG,EAAE,OAAO",
+"sources": ["../sass/skrollr.scss"],
 "names": [],
 "file": "skrollr.css"
 }

@@ -4,10 +4,10 @@
 
 @-skrollr-keyframes animation1 {
   skrollr-100 {
-	top: -100px;
+    top: -100px;
   }
   skrollr-700 {
-	top: -2000px;
+    top: -2000px;
   }
 }
 
