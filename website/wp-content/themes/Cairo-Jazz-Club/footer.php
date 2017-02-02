@@ -72,5 +72,19 @@
 
 <?php wp_footer(); ?>
 
+<script>
+	var footermenuheight = jQuery(".bottom-footer").outerHeight();
+	jQuery(".bottom-footer").css({"bottom": -footermenuheight  });
+	jQuery(".footer-container").css({"padding-bottom": footermenuheight  });
+	jQuery(window).scroll(function() {
+   	if(jQuery(window).scrollTop() + jQuery(window).height() > jQuery(document).height() - 100) {
+       		console.log("near bottom!");
+		jQuery(".bottom-footer").css({"bottom": 0  });
+   	} else{
+		jQuery(".bottom-footer").css({"bottom": -footermenuheight  });
+	}
+});
+</script>
+
 </body>
 </html>
