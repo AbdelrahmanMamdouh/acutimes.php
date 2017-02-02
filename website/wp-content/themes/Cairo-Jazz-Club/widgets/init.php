@@ -3,12 +3,14 @@ require_once get_template_directory() .'/widgets/social-icons.php';
 require_once get_template_directory() .'/widgets/contact-us.php';
 require_once get_template_directory() .'/widgets/footer-logo.php';
 require_once get_template_directory() .'/widgets/android-ios-store.php';
+require_once get_template_directory() .'/widgets/stay-in-touch.php';
 
 add_action( 'widgets_init', function () {
 	register_widget( 'CJC_Social_Widget' );
 	register_widget( 'CJC_ContactUs_Widget' );
 	register_widget( 'CJC_FooterLogo_Widget' );
 	register_widget( 'CJC_Android_IOS_Widget' );
+	register_widget( 'CJC_StayInTouch_Widget' );
 });
 
 
