@@ -1,7 +1,9 @@
-# Website Boilerplate...
-Start with npm install
-Grunt watch / grunt server# wseed 
-# wseed 
+
+Website Boilerplate...
+========================
+Start with `npm install`
+ * `grunt watch` to keep watching for changes
+ * `grunt build` for a 1 time build
 
 
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)

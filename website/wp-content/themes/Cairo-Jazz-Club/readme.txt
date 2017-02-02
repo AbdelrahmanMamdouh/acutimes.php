@@ -25,7 +25,7 @@ Hi. I'm a starter theme called cjc, or underscores, if you like. I'm a theme mea
 
 = Does this theme support any plugins? =
 
-cjc includes support for Infinite Scroll in Jetpack.
+cjc includes support for Infinite Scroll in Jetpack, Visual composer, essential grid.
 
 == Changelog ==
 
