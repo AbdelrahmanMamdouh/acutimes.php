@@ -34,7 +34,15 @@ get_header(); ?>
 			</div>
 		</section>
 	</main>
-<?php } ?>	
+<?php } ?>
+
+
+<section>
+	<div class="container-fluid">
+		<?php get_template_part('template-parts/advertisement'); ?>
+	</div>
+</section>
+
 <?php
 get_sidebar();
 get_footer();

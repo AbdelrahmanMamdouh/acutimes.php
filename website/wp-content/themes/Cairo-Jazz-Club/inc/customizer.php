@@ -24,6 +24,15 @@ function cairo_jazz_club_customize_register( $wp_customize ) {
 		'description'=>'social media links'
 	 ));
 
+	$wp_customize->add_panel( 'cjc-adds-panel', array(
+		'priority'       => 10,
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '',
+		'title'          => 'Advertisements',
+		'description'	=> 'a place for ur Advertisement above the footer',
+	// 'description'    => '',
+	) );
+
 	 QuickCustomizer::add_SocialMedia($wp_customize,'facebook','add your facebook page url here');
 	 QuickCustomizer::add_SocialMedia($wp_customize,'twitter','add your twitter page url here');
 	 QuickCustomizer::add_SocialMedia($wp_customize,'youtube','add your youtube chanel page url here');
@@ -34,6 +43,9 @@ function cairo_jazz_club_customize_register( $wp_customize ) {
 
 	 QuickCustomizer::add_SiteIdentety($wp_customize,'android','Android Store','google play store link','url');
 	 QuickCustomizer::add_SiteIdentety($wp_customize,'ios','IOS Store','ios store link','url');
+
+	 QuickCustomizer::add_adver_img($wp_customize, '1');
+	 QuickCustomizer::add_adver_img($wp_customize, '2');
 
 	$wp_customize->add_setting('cjc-identity-footer-logo', array(
 		'default'		=> '',
@@ -65,7 +77,7 @@ add_action( 'customize_preview_init', 'cairo_jazz_club_customize_preview_js' );
 
 class QuickCustomizer{
 
-	static function add_SocialMedia($wp_customize,$name,$descrption){
+	static function add_SocialMedia($wp_customize, $name, $descrption){
 		$wp_customize->add_setting('cjc-social-media-'.$name, array(
 				'default'		=> '',
 				//'capability'	 => 'edit_theme_options',
@@ -83,7 +95,47 @@ class QuickCustomizer{
 		));
 	}
 
-	static function add_SiteIdentety($wp_customize,$name,$label,$descrption,$type){
+	static function add_adver_img($wp_customize, $name){
+		$wp_customize->add_section('cjc-adds-section-' . $name, array(
+			'title'			=> 'Advertisement ' . $name,
+			'priority'		=> '50',
+			'panel'			=> 'cjc-adds-panel'
+		));
+		
+		$wp_customize->add_setting('cjc-adds-url-'.$name, array(
+			'default'		=> '',
+			'transport'		=> 'refresh',
+		));
+
+		$wp_customize->add_control('cjc-adds-url-'.$name,
+			array(
+				'label'			=> __("Advertisement " . $name . " URL" ),
+				'section'		=> 'cjc-adds-section-' . $name,
+				'settings'		=> 'cjc-adds-url-'.$name,
+				'type'			=> 'url',
+			)
+		);
+
+		$wp_customize->add_setting('cjc-adds-img-'.$name, array(
+			'default'		=> '',
+			'transport'		=> 'refresh',
+		));
+
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'cjc-adds-img-'.$name,
+				array(
+					'label'			=> __("Advertisement " . $name . " IMG" ),
+					'section'		=> 'cjc-adds-section-' . $name,
+					'settings'		=> 'cjc-adds-img-'.$name,
+					//  'context'	=> 'your_setting_context' 
+				)
+			)
+		);
+	}
+
+	static function add_SiteIdentety($wp_customize, $name, $label, $descrption, $type){
 		$wp_customize->add_setting('cjc-identity-'.$name, array(
 			'default'		=> '',
 			'transport'   => 'refresh',
