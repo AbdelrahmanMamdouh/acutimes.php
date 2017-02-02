@@ -50,15 +50,31 @@
 								Home Parallax Slider
 		*/
 		// build controller
-		var controller = new ScrollMagic.Controller( { vertical: true } );
+		var controller = new ScrollMagic.Controller({ vertical: true });
 
 		// build tween
-		var tween = TweenMax.fromTo( ".parallax", 1, { bottom: 182 }, { bottom: 7975 } );
+		var tween = TweenMax.fromTo(".parallax", 1, { bottom: 182 }, { bottom: 7975 });
 
 		// build scene
-		var scene = new ScrollMagic.Scene( { duration: 10000 } )
+		var scene = new ScrollMagic.Scene({ duration: 10000 })
 			.setTween(tween)
 			.addTo(controller);
+
+
+
+		/*
+								Footer
+		*/
+		var footermenuheight = $(".bottom-footer").outerHeight();
+		$(".bottom-footer").css({ "bottom": -footermenuheight });
+		$(".footer-container").css({ "padding-bottom": footermenuheight });
+		$(window).scroll(function () {
+			if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+				$(".bottom-footer").css({ "bottom": 0 });
+			} else {
+				$(".bottom-footer").css({ "bottom": -footermenuheight });
+			}
+		});
 
 
 	});
