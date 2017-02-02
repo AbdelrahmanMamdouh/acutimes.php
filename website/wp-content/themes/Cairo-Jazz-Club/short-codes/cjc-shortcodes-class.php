@@ -30,7 +30,12 @@
 		$a = array();
 		foreach($this->vcAttributes as $att) {
 			if($att['param_name'] != 'content'){
-				$a[$att['param_name']] = isset($att['value']) ? $att['value'] :'';
+				$value = '';
+				if( isset($att['value'])){
+					// if the var is an array it gets the first value
+					$value = is_array ($att['value']) ? $att['value'][0] : $att['value'];
+				}
+				$a[$att['param_name']] = $value;
 			}
 		}
 		return $a;

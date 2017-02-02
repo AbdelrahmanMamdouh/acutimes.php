@@ -9,7 +9,7 @@ $cjcAboutSection->callback = function ( $atts, $content = null ) {
 
 	$a = $atts;
 
-	$img = $a['img']? wp_get_attachment_url($a['img'] ):'';
+	$img = $a['img']? wp_get_attachment_url($a['img'] ):null;
 	
 	$img_css_class = $text_css_class = '';
 	if($a['direction']=='Right'){
@@ -21,17 +21,18 @@ $cjcAboutSection->callback = function ( $atts, $content = null ) {
 	?>
 	<div class="c-section--tall">
 		<div class="row">
-
 			<div class="col-md-4 <?php echo $img_css_class ?>">
-				<div class="circle circle--xl circle--center">
-					<div class="circle__content">
-						<img style="height: 255px;" src="<?php echo $img ?>" alt="">
+				<?php if( $img ){ ?>
+					<div class="circle circle--xl circle--center">
+						<div class="circle__content">
+							<img style="height: 255px;" src="<?php echo $img ?>" alt="">
+						</div>
 					</div>
-				</div>
+				<?php } ?>
 			</div>
-
+			
 			<div class="col-md-8 <?php echo $text_css_class ?>">
-				<h1><?php echo $a['title'].$a['direction'] ?></h1>
+				<h1><?php echo $a['title'] ?></h1>
 				<?php echo $content ?>
 			</div>
 
