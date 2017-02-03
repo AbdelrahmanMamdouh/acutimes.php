@@ -12,14 +12,14 @@ $cjcParallaxSlider->callback = function ( $atts, $content = null ) {
 	ob_start();// start buffer
 	?>
 	 <div class="container-fluid">
-        <div class="parallax <?php echo $args['class']; ?>" id="<?php echo $args['id']; ?>">
+        <div class="parallax <?php echo $a['class']; ?>" id="<?php echo $a['id']; ?>">
             <div class="parallax__content">
 
                 <img src="<?php echo get_template_directory_uri();?>/img/events-top.png" alt="">
 
                 <div class="events-content">
 
-                    <h2 class="centered"> <?php echo $args['title']; ?> </h2>
+                    <h2 class="centered"> <?php echo $a['title']; ?> </h2>
 
                     <?php echo apply_filters('the_content', $content); ?>
 
