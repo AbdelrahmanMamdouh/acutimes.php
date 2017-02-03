@@ -3545,7 +3545,7 @@ select {
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
-  content: 'Γ£ö';
+  content: '✔';
   position: absolute;
   top: 3px;
   left: 4px;
