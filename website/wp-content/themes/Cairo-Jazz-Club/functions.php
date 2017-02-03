@@ -203,9 +203,6 @@ require get_template_directory() . '/inc/jetpack.php';
 // Load mcustomizer class.
 require get_template_directory() . '/inc/mcustomizer.php';
 
-// Load advanced search liberary
-require_once get_template_directory() . '/inc/wp-advanced-search/wpas.php';
-
 // Load cjc widgets
 require_once get_template_directory() . '/widgets/init.php';
 
