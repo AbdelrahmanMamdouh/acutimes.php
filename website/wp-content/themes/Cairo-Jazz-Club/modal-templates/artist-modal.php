@@ -3,7 +3,7 @@
 	$artist = get_post($_GET["artistId"]);
 ?>
 
-<div class='mfp-modal' id='artist-modal-<?php $artist->ID ?>' style='max-width: 550px;'>
+<div class='mfp-modal' id="artist-modal-<?php echo $artist->ID ?>" style='max-width: 550px;'>
 
 	<div class='modal-head'>
 		<img src='<?php echo get_template_directory_uri() ?>/img/modal-head.png' alt='' class='modal-image'>
@@ -15,12 +15,11 @@
 						<div class='circle circle--sm'>
 
 				            <div class='circle__content'>
+
 				                <?php
-
-                                   $artist_image_id = get_post_meta($artist->ID, "eg-artist-image")[0];
-                                   $artist_image = wp_get_attachment_image_src($artist_image_id, "circle", true);
-                                   $artist_image_url = $artist_image[0];
-
+                                    $artist_image_id = get_post_thumbnail_id( $artist->ID );
+                                    $artist_image = wp_get_attachment_image_src($artist_image_id, 'circle', true);
+                                    $artist_image_url = $artist_image[0];        
 				                ?>
 
 				                <img src='<?php echo $artist_image_url; ?>' alt=''>

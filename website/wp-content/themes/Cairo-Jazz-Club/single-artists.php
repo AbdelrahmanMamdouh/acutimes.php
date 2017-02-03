@@ -21,11 +21,13 @@ get_header();
                         <div class="row">
                             <div class="c-section">
                                 <div class="mobile-spacer col-lg-4">
+
                                     <?php
-                                    $artist_image_id = get_post_meta($post->ID, 'eg-artist-image')[0];
-                                    $artist_image = wp_get_attachment_image_src($artist_image_id, 'circle', true);
-                                    $artist_image_url = $artist_image[0];
+                                        $artist_image_id = get_post_thumbnail_id( $post->ID );
+                                        $artist_image = wp_get_attachment_image_src($artist_image_id, 'circle', true);
+                                        $artist_image_url = $artist_image[0];
                                     ?>
+                                    
                                     <div class="circle circle--xl circle--center" style="margin-top: -30px; margin-bottom: 3rem;">
                                         <div class="circle__content">
                                             <img src="<?php echo $artist_image_url ?>" alt="">

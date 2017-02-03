@@ -185,14 +185,6 @@ add_action( 'wp_enqueue_scripts', function () {
 	
 });
 
-// Require Ess. Grid modifications.
-require get_template_directory() . '/ess-grid-mods/meta-tags.php'; // meta tags modifications
-require( get_template_directory().'/rest-api-mods/albums.php' ); // albums (custom post) modifications
-
-/**
- * Require rest api modifications.
- */
-
 // Implement the Custom Header feature.
 require get_template_directory() . '/inc/custom-header.php';
 
@@ -219,3 +211,9 @@ require_once get_template_directory() . '/widgets/init.php';
 
 // Load cjc shortcodes
 require_once get_template_directory() . '/short-codes/init.php';
+
+// Load Ess. Grid modifications.
+require get_template_directory() . '/ess-grid-mods/meta-tags.php'; // meta tags modifications
+
+// Load rest api modifications.
+require get_template_directory().'/rest-api-mods/albums.php'; // albums (custom post) modifications
