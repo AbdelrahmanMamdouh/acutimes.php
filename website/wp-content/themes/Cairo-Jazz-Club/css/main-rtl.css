@@ -5235,15 +5235,3 @@ form span {
     page-break-after: avoid;
   }
 }
-.admin-bar #masthead {
-  top: 32px;
-}
-
-@media screen and (max-width: 783px) {
-  .admin-bar #masthead {
-    top: 46px;
-  }
-}
-#masthead {
-  z-index: 1000;
-}

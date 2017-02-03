@@ -140,7 +140,7 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'bootstrap-theme', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
 
 	// sprites
-	wp_enqueue_style('sprites',get_template_directory_uri().'/css/sprites.css'');
+	wp_enqueue_style('sprites',get_template_directory_uri().'/css/sprites.css');
 
 	if(is_rtl()){
 		// Load Bootstrap RTL theme from RawGit
@@ -148,13 +148,16 @@ add_action( 'wp_enqueue_scripts', function () {
 		wp_enqueue_style( 'bootstrap-rtl', '//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css',
 			array( 'bootstrap' , 'bootstrap-theme' ) );
 		// Main styles rtl
-		wp_enqueue_style( 'main-rtl', get_template_directory_uri().'/css/main-rtl.css', 
-			array( 'bootstrap', 'bootstrap-theme' ) );
+		wp_enqueue_style( 'cjc-main-rtl', get_template_directory_uri().'/css/main-rtl.css', 
+			array( 'bootstrap', 'bootstrap-theme', 'bootstrap-rtl' ) );
 	}else{
 		// Main styles ltr
-		wp_enqueue_style( 'main-ltr', get_template_directory_uri().'/css/main-ltr.css', 
+		wp_enqueue_style( 'cjc-main-ltr', get_template_directory_uri().'/css/main-ltr.css', 
 			array( 'bootstrap', 'bootstrap-theme' ) );
 	}
+
+	wp_enqueue_style( 'cjc-override', get_template_directory_uri().'/css/override.css', 
+				array( 'bootstrap', 'bootstrap-theme' ) );
 
 	// Bootstrap js
 	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 

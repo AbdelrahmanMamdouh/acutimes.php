@@ -12,3 +12,14 @@
 #masthead {
 	z-index: 1000;
 }
+
+/*
+removes the space above the content
+*/
+.hentry {
+	margin: 0;
+}
+
+.entry-content, .entry-summary {
+    margin: 0;
+}
