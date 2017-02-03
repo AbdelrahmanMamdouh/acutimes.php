@@ -32,8 +32,9 @@
 					 			Magnific Popup
 		*/
 
-		//init Magnific Popup on each element with "modal-link" class
-		$('.modal-link').magnificPopup({
+		//init Magnific Popup on each element with "modal-link" class which is inside Essential Grid div
+		$('.esg-grid').magnificPopup({
+			delegate: '.modal-link',
 			type: 'ajax'
 		});
 
