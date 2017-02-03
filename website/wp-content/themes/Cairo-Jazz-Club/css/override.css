@@ -23,3 +23,15 @@ removes the space above the content
 .entry-content, .entry-summary {
     margin: 0;
 }
+
+.ninja-forms-form-wrap input {
+    height: 4rem !important;
+}
+
+.ninja-forms-form-wrap textarea {
+    height: 24.2rem !important;
+}
+
+.edit-link{
+	display: none;
+}
