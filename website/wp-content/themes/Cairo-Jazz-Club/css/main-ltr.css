@@ -5235,3 +5235,48 @@ form span {
     page-break-after: avoid;
   }
 }
+/*******************************************
+ *	navbar & admin bar
+ *******************************************/
+.admin-bar #masthead {
+  top: 32px;
+}
+
+@media screen and (max-width: 783px) {
+  .admin-bar #masthead {
+    top: 46px;
+  }
+}
+#masthead {
+  z-index: 1000;
+}
+
+/*******************************************
+ *	removes the space above the content
+ *******************************************/
+.hentry {
+  margin: 0;
+}
+
+.entry-content, .entry-summary {
+  margin: 0;
+}
+
+/*******************************************
+ *	FORMS
+ *******************************************/
+.ninja-forms-form-wrap input {
+  height: 4rem !important;
+}
+
+.ninja-forms-form-wrap textarea {
+  height: 16rem !important;
+}
+
+.edit-link {
+  display: none;
+}
+
+.wpb_button, .wpb_content_element, ul.wpb_thumbnails-fluid > li {
+  margin-bottom: 0px !important;
+}

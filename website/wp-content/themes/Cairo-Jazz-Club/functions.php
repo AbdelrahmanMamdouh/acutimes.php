@@ -156,9 +156,6 @@ add_action( 'wp_enqueue_scripts', function () {
 			array( 'bootstrap', 'bootstrap-theme' ) );
 	}
 
-	wp_enqueue_style( 'cjc-override', get_template_directory_uri().'/css/override.css', 
-				array( 'bootstrap', 'bootstrap-theme' ) );
-
 	// Bootstrap js
 	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 
 		array('jquery'), null, true );
