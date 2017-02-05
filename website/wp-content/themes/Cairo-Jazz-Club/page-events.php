@@ -1,5 +1,4 @@
 <?php
-global $init;
 //$init->fbLogout();
 //if(isset($_POST['logout'])){
 //$init->fbLogout();
@@ -13,14 +12,9 @@ global $init;
     <section>
         <div class="container-fluid">
             <h1 class="centered page-heading"><?php the_title() ?></h1>
-            <h2>Welcome! <?php echo $init->getUserName(); ?></h2>
-            <?php if($init->IsLogged()): ?>
-            <form method="post" action=".">
-                <button name="logout" class="btn btn-facebook" type="submit">Logout</button>
-            </form>
-            <?php endif; ?>
+            <h2>Welcome!</h2>
             <div class="calendar">
-                <script type="text/template" id="template-calendar">
+                <script type="text/template"  id="template-calendar">
                     <div class="clndr-controls">
                     <a href="javascript:void(0)" class="clndr-previous-button vertical-middle"></a>
                     <h1 class="capitalize month vertical-middle"><%= month %> <%= year %></h1>
@@ -112,6 +106,34 @@ else:
 <p>Sorry, there are no events to display</p>
 
 <?php endif; ?>
+<script type="text/javascript">
+        // Calendar
+        var thisMonth = moment().format('YYYY-MM');
+
+        // Events to load into calendar
+        $.getJSON("<?php echo get_site_url(); ?>/events-json/", function eventsCallbacl(data) {
+            var eventArray = data;
+
+            $('.calendar').clndr({
+                daysOfTheWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                events: eventArray,
+                multiDayEvents: {
+                    singleDay: 'date',
+                    endDate: 'endDate',
+                    startDate: 'startDate'
+                },
+                showAdjacentMonths: true,
+                adjacentDaysChangeMonth: false,
+                template: $('#template-calendar').html(),
+            });
+        });
+    
+
+
+
+
+    </script>
 <?php wp_reset_query(); ?>
+
 
 <?php get_footer() ?>
