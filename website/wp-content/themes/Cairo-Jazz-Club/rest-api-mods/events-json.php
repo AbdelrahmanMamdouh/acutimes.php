@@ -1,6 +1,6 @@
 <?php
 header( 'Content-type: application/json' );
- 
+require('../../../../wp-load.php');
 /**
  * Template Name: Events JSON page
  * Description: Outputs the list of events as JSON
