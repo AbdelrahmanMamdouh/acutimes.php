@@ -35,7 +35,7 @@ CREATE TABLE `cjc_nf_objects` (
 
 LOCK TABLES `cjc_nf_objects` WRITE;
 /*!40000 ALTER TABLE `cjc_nf_objects` DISABLE KEYS */;
-INSERT INTO `cjc_nf_objects` VALUES (3,'form'),(4,'form'),(5,'form'),(6,'form'),(7,'form'),(9,'notification');
+INSERT INTO `cjc_nf_objects` VALUES (3,'form'),(4,'form'),(9,'notification');
 /*!40000 ALTER TABLE `cjc_nf_objects` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-04  2:23:14
+-- Dump completed on 2017-02-05 15:04:29

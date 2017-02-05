@@ -16,33 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cjc_rg_lead_notes`
+-- Table structure for table `cjc_social_users`
 --
 
-DROP TABLE IF EXISTS `cjc_rg_lead_notes`;
+DROP TABLE IF EXISTS `cjc_social_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cjc_rg_lead_notes` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `lead_id` int(10) unsigned NOT NULL,
-  `user_name` varchar(250) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  `date_created` datetime NOT NULL,
-  `value` longtext COLLATE utf8mb4_unicode_520_ci,
-  `note_type` varchar(50) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `lead_id` (`lead_id`),
-  KEY `lead_user_key` (`lead_id`,`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+CREATE TABLE `cjc_social_users` (
+  `ID` int(11) NOT NULL,
+  `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `identifier` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  KEY `ID` (`ID`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cjc_rg_lead_notes`
+-- Dumping data for table `cjc_social_users`
 --
 
-LOCK TABLES `cjc_rg_lead_notes` WRITE;
-/*!40000 ALTER TABLE `cjc_rg_lead_notes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cjc_rg_lead_notes` ENABLE KEYS */;
+LOCK TABLES `cjc_social_users` WRITE;
+/*!40000 ALTER TABLE `cjc_social_users` DISABLE KEYS */;
+INSERT INTO `cjc_social_users` VALUES (1,'fb','1095196287273086');
+/*!40000 ALTER TABLE `cjc_social_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-04  2:21:13
+-- Dump completed on 2017-02-05 15:05:17

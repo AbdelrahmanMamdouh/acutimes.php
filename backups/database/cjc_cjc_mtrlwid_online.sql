@@ -38,7 +38,7 @@ CREATE TABLE `cjc_mtrlwid_online` (
   `referer_doamin` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `referer_url` text COLLATE utf8_unicode_ci NOT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=471 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=883 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,6 @@ CREATE TABLE `cjc_mtrlwid_online` (
 
 LOCK TABLES `cjc_mtrlwid_online` WRITE;
 /*!40000 ALTER TABLE `cjc_mtrlwid_online` DISABLE KEYS */;
-INSERT INTO `cjc_mtrlwid_online` VALUES (455,'qm0pd9dteen8hpuk09j1fgbik0','2017-02-03 22:51:13','1486162273','1','61','page','','','','Chrome','Windows','direct','none'),(462,'o1qnqb3t6e28bvo534m6t2ue02','2017-02-03 22:56:31','1486162591','guest','104.40.211.237/Cairo-Jazz-Club.wp/website/undefined','page','','','','Chrome','Windows','none','http://104.40.211.237/Cairo-Jazz-Club.wp/website/'),(469,'2fmuttmn66lb8v0q4hef0kmmm4','2017-02-03 23:12:24','1486163544','1','104.40.211.237/Cairo-Jazz-Club.wp/website/undefined','err_404','','','','Chrome','Windows','none','http://104.40.211.237/Cairo-Jazz-Club.wp/website/');
 /*!40000 ALTER TABLE `cjc_mtrlwid_online` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-04  2:21:09
+-- Dump completed on 2017-02-05 15:02:30

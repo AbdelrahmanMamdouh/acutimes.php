@@ -1,3 +1,4 @@
+<?php
 function cptui_register_my_cpts() {
 
 	/**
@@ -16,7 +17,7 @@ function cptui_register_my_cpts() {
 		"public" => true,
 		"publicly_queryable" => true,
 		"show_ui" => true,
-		"show_in_rest" => false,
+		"show_in_rest" => true,
 		"rest_base" => "",
 		"has_archive" => false,
 		"show_in_menu" => true,
