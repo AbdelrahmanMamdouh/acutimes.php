@@ -108,7 +108,7 @@ else:
 <?php endif; ?>
 <script type="text/javascript">
         // Calendar
-        //var thisMonth = moment().format('YYYY-MM');
+        var thisMonth = moment().format('YYYY-MM');
 
         // Events to load into calendar
         $.getJSON("<?php echo get_site_url(); ?>/events-json/", function eventsCallbacl(data) {
