@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+/* BEGIN ARTISTS GRID CSS */
+.eg-text-and-image-nostyle-element-10 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+ 
+.eg-text-and-image-nostyle-element-10 > div {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background-size: cover;
+}
+ 
+/* content padding */
+.eg-text-and-image-nostyle-element-10 .cj-content {
+  padding: 20px;
+}
+ 
+/* CSS reset */
+.eg-text-and-image-nostyle-element-10 h3,
+.eg-text-and-image-nostyle-element-10 h4 {
+  padding: 0;
+  margin: 15px;
+}
+ 
+.eg-text-and-image-nostyle-element-10 h3 {
+  margin-bottom: 0;
+}
+ 
+/* paragraph font sizing */
+.eg-text-and-image-nostyle-element-10 h4 {
+  line-height: 18px;
+}
+ 
+/* read more link */
+.cj-read-more a,
+.cj-read-more a:visited {
+  color: #06F;
+  border-bottom: none;
+}
+ 
+/* clear floats */
+.eg-text-and-image-nostyle-element-10 .cj-clear {
+  width: 0;
+  height: 0;
+  float: none;
+  clear: both;
+}
+
+/* circle shape */
+.circle-img {
+   overflow:hidden;
+   box-sizing:border-box;
+   -webkit-box-sizing:border-box;
+   -moz-box-sizing:border-box;
+   border-radius:50%;
+   -webkit-border-radius:50%;
+   -moz-border-radius:50%;
+}
+
+.clickable {
+  cursor: pointer; 
+}
+
+input.eg-search-input[type="text"] {
+  background-color: #556668;
+  padding: 1px 10px;
+  border-radius: 5px;
+  border: 0;
+  height: 2.8rem;
+}
+
+.esg-filter-wrapper.dropdownstyle .esg-filterbutton {
+    display: block;
+    width: 250px;
+}
+.minimal-light .esg-filter-checked {
+    margin-right: 7px;
+}
+input.eg-search-input[type="text"] {
+    font-family: "Open Sans",sans-serif;
+    outline: none !important;
+    margin: 0px 0px 5px !important;
+    padding: 3px 15px;
+    vertical-align: middle;
+    font-size: 12px;
+    height: auto;
+}
+
+.esg-filter-wrapper.dropdownstyle .esg-filterbutton, .esg-filter-wrapper.dropdownstyle .esg-filterbutton a, input.eg-search-input[type="text"], .minimal-light .esg-pagination {
+font-family: "Open Sans",sans-serif;
+}
+
+/* END ARTISTS GRID CSS */
+
+/*Artist Circle*/
+.circle--md {
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.artist__name {
+  color: #fff !important;
+}
+
+.genres-list {
+  color: #faaf43 !important;
+}
+
+
+/*Lightbox*/
+.esgbox-next span {
+    background-image: url(../img/next-month-a.png) !important;
+    background-repeat: no-repeat;
+    background-position: 0 -0px !important;
+    /* width: 28% !important; */
+    height: 23% !important;
+}
+
+.esgbox-prev span {
+    background-image: url(../img/prev-month-a.png) !important;
+    background-repeat: no-repeat;
+    background-position: 0 -0px !important;
+    /* width: 28% !important; */
+    height: 23% !important;
+}
+
+/*Ess. Grid filter*/
+.esg-multiplefilters {
+    border-style: solid !important;
+    border-width: 10px 20px !important;
+    -o-border-image: url(../img/border-2.png) 27 stretch;
+    border-image: url(../img/border-2.png) 27 fill stretch !important;
+    font-size: 2.0rem !important;
+    font-family: "Noto Sans", sans-serif !important;
+    color: #bccacd !important;
+}
+
+.esg-dropdown-wrapper {
+    background: rgba(0,0,0,0) !important;
+}
+
+.esg-filter-wrapper.dropdownstyle .esg-filterbutton {
+    width: 215px !important;
+}
+
+.esg-selected-filterbutton {
+    color: #cec2ab !important;
+}
+
+.eg-search-wrapper {
+    line-height: 44px !important;
+}
+
+.minimal-light .esg-filterbutton.selected .esg-filter-checked
+{
+    color: #faaf43 !important;
+    background: #577981 !important;
+}
+
+.minimal-light .esg-filterbutton:hover .esg-filter-checked
+{
+    color: #faaf43 !important;
+    background: #577981 !important;
+}
+
+.minimal-light .esg-filterbutton:hover {
+  background-color: #bccacd !important;
+}
+
+.minimal-light .esg-filterbutton {
+    padding: 0px 0px !important;
+}
+
+.esg-selected-filterbutton {
+    font-size: 16px !important;
+}
+
+.minimal-light .esg-filterbutton.selected {
+  border-color: #50485b !important;
+}
+
+.esg-filter-wrapper:nth-last-child(2) .esg-filterbutton {
+  color: #cec2ab !important;
+  font-size: 15px !important;
+  background: rgba(0,0,0,0) !important;
+  border: 1px solid rgba(0,0,0,0) !important;
+  		
+}
+
+.esg-filter-wrapper:nth-last-child(2) .esg-filterbutton:hover {
+      color: #cec2ab !important;
+      box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0) !important;
+}
+
+.esg-filter-wrapper:nth-last-child(2) .esg-filterbutton.selected {
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0) !important;
+}
+
+.esg-loadmore {
+  visibility: hidden !important;
+}
+
+.esg-loader {
+  top: 5% !important;
+}
