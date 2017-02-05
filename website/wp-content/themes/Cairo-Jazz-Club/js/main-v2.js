@@ -44,6 +44,12 @@
 			type: 'ajax'
 		});
 
+		//init Magnific Popup on each element with "modal-link" class which is inside any div with event class
+		$('.artist').magnificPopup({
+			delegate: '.modal-link',
+			type: 'ajax'
+		});
+
 
 
 		/*
