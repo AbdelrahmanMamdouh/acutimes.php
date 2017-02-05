@@ -1,12 +1,16 @@
 <?php
-//$init->fbLogout();
-//if(isset($_POST['logout'])){
-//$init->fbLogout();
-//header("Location: " . get_the_permalink());
-//}
+/**
+ * The template for displaying all single posts
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
+ * @package cjc
+ */
+get_header();
 ?>
-<?php get_header() ?>
 
+<script type="text/javascript" src="../moment.js"></script>
+<script type="text/javascript" src="../plugins.js"></script>
 
 <main class="inner">
     <section>
@@ -97,7 +101,7 @@ $thumb_id = get_post_thumbnail_id();
 $image_url_array = wp_get_attachment_image_src($thumb_id, 'hero-mfp', true);
 $image_url = $image_url_array[0];
 ?>
-<?php include(locate_template('templates/event-modal.php')); ?>
+<?php include(locate_template('template-parts/event-modal.php')); ?>
 <?php
 endwhile;
 else:
@@ -111,10 +115,10 @@ else:
         var thisMonth = moment().format('YYYY-MM');
 
         // Events to load into calendar
-        $.getJSON("<?php echo get_site_url(); ?>/events-json/", function eventsCallbacl(data) {
+        jQuery.getJSON("<?php echo get_site_url(); ?>/events-json.php/", function (data) {
             var eventArray = data;
 
-            $('.calendar').clndr({
+            jQuery('.calendar').clndr({
                 daysOfTheWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
                 events: eventArray,
                 multiDayEvents: {
@@ -124,16 +128,20 @@ else:
                 },
                 showAdjacentMonths: true,
                 adjacentDaysChangeMonth: false,
-                template: $('#template-calendar').html(),
+                template: jQuery('#template-calendar').html(),
             });
         });
     
-
-
-
-
     </script>
 <?php wp_reset_query(); ?>
 
-
-<?php get_footer() ?>
+<?php
+/**
+ * The template for displaying all single posts
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
+ * @package cjc
+ */
+get_footer();
+?>
