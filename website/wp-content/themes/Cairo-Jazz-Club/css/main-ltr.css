@@ -4112,46 +4112,46 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .events-content .desktop-events .event.pos-1 {
   top: 20%;
-  left: 38%;
+  left: 43%;
 }
 .events-content .desktop-events .event.pos-2 {
-  top: 30%;
-  left: 28%;
+  top: 14%;
+  left: 20%;
 }
 .events-content .desktop-events .event.pos-3 {
-  top: 30%;
-  left: 60%;
+  top: 26%;
+  left: 81%;
 }
 .events-content .desktop-events .event.pos-4 {
-  top: 65%;
-  left: 50%;
+  top: 60%;
+  left: 61%;
 }
 .events-content .desktop-events .event.pos-5 {
-  top: 65%;
-  left: 35%;
+  top: 41%;
+  left: 5%;
 }
 .events-content .desktop-events .event.pos-6 {
   top: 50%;
-  left: 18%;
+  left: 30%;
 }
 .events-content .desktop-events .event.pos-7 {
-  top: 65%;
-  left: 73%;
+  top: 73%;
+  left: 80%;
 }
 .events-content .artist {
   position: absolute;
 }
 .events-content .artist.pos-1 {
-  top: 49%;
-  left: 54%;
+  top: 21%;
+  left: 65%;
 }
 .events-content .artist.pos-2 {
-  top: 55%;
-  left: 32%;
+  top: 73%;
+  left: 16%;
 }
 .events-content .artist.pos-3 {
-  top: 75%;
-  left: 45%;
+  top: 70%;
+  left: 47%;
 }
 .events-content .artist.pos-4 {
   top: 65%;
@@ -4163,11 +4163,11 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .events-content .artist.pos-6 {
   top: 50%;
-  left: 18%;
+  left: 10%;
 }
 .events-content .artist.pos-7 {
   top: 65%;
-  left: 73%;
+  left: 80%;
 }
 
 .events-slider .slick-slide {
@@ -4240,6 +4240,9 @@ footer h2, footer .h2, footer h3, footer .h3 {
 .circle--md .circle__content .date {
   left: -20px;
 }
+.circle--xm .circle__content .date {
+  left: -30px;
+}
 .circle--sm .circle__content .date {
   left: -30px;
 }
@@ -4270,6 +4273,14 @@ footer h2, footer .h2, footer h3, footer .h3 {
   border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
   width: 150px;
   height: 150px;
+}
+.circle--xm {
+  border-style: solid;
+  border-width: 13px;
+  -o-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
+  border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
+  width: 77px;
+  height: 78px;
 }
 .circle--sm {
   border-style: solid;
