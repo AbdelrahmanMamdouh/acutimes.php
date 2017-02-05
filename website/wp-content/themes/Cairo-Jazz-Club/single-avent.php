@@ -47,17 +47,8 @@ get_header(); ?>
 
 							<h3>Reservation</h3>
 
-							<?php if(isset($init)) { ?>
-								<?php if ($init->IsLogged()){ ?>
-									<?php get_template_part('template-parts/reservation.php'); ?>
-								<?php } else { ?>
-									<p>You need to be logged in before you can reserve!</p>
-									<div class="button-twin">
-										<a class="btn btn-facebook" href="<?php echo htmlspecialchars($init->getLoginURl(get_the_permalink())) ?>">Login</a>
-									</div>
-								<?php } ?>
-							<?php } ?>
-
+							<?php include get_template_directory() . '/template-parts/reservation.php'; ?>
+							
 						</div>
 					</div>
 
