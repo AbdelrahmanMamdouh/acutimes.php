@@ -9,9 +9,6 @@
 get_header();
 ?>
 
-<script type="text/javascript" src="../moment.js"></script>
-<script type="text/javascript" src="../plugins.js"></script>
-
 <main class="inner">
     <section>
         <div class="container-fluid">
@@ -110,38 +107,13 @@ else:
 <p>Sorry, there are no events to display</p>
 
 <?php endif; ?>
-<script type="text/javascript">
-        // Calendar
-        var thisMonth = moment().format('YYYY-MM');
 
-        // Events to load into calendar
-        jQuery.getJSON("<?php echo get_site_url(); ?>/events-json.php/", function (data) {
-            var eventArray = data;
-
-            jQuery('.calendar').clndr({
-                daysOfTheWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                events: eventArray,
-                multiDayEvents: {
-                    singleDay: 'date',
-                    endDate: 'endDate',
-                    startDate: 'startDate'
-                },
-                showAdjacentMonths: true,
-                adjacentDaysChangeMonth: false,
-                template: jQuery('#template-calendar').html(),
-            });
-        });
-    
-    </script>
 <?php wp_reset_query(); ?>
 
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package cjc
- */
-get_footer();
-?>
+<?php get_footer(); ?>
+
+<script type="text/javascript">
+	jQuery(document).ready(function (){ 
+		Init.Event("<?php echo get_site_url(); ?>/events-json.php/");
+	});
+</script>
