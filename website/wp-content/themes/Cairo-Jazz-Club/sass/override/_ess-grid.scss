@@ -76,20 +76,20 @@ input.eg-search-input[type="text"] {
 }
 
 .esg-filter-wrapper.dropdownstyle .esg-filterbutton {
-    display: block;
-    width: 250px;
+	display: block;
+	width: 250px;
 }
 .minimal-light .esg-filter-checked {
-    margin-right: 7px;
+	margin-right: 7px;
 }
 input.eg-search-input[type="text"] {
-    font-family: "Open Sans",sans-serif;
-    outline: none !important;
-    margin: 0px 0px 5px !important;
-    padding: 3px 15px;
-    vertical-align: middle;
-    font-size: 12px;
-    height: auto;
+	font-family: "Open Sans",sans-serif;
+	outline: none !important;
+	margin: 0px 0px 5px !important;
+	padding: 3px 15px;
+	vertical-align: middle;
+	font-size: 12px;
+	height: auto;
 }
 
 .esg-filter-wrapper.dropdownstyle .esg-filterbutton, .esg-filter-wrapper.dropdownstyle .esg-filterbutton a, input.eg-search-input[type="text"], .minimal-light .esg-pagination {
@@ -100,8 +100,8 @@ font-family: "Open Sans",sans-serif;
 
 /*Artist Circle*/
 .circle--md {
-    width: 150px !important;
-    height: 150px !important;
+	width: 150px !important;
+	height: 150px !important;
 }
 
 .artist__name {
@@ -115,58 +115,58 @@ font-family: "Open Sans",sans-serif;
 
 /*Lightbox*/
 .esgbox-next span {
-    background-image: url(../img/next-month-a.png) !important;
-    background-repeat: no-repeat;
-    background-position: 0 -0px !important;
-    /* width: 28% !important; */
-    height: 23% !important;
+	background-image: url(../img/next-month-a.png) !important;
+	background-repeat: no-repeat;
+	background-position: 0 -0px !important;
+	/* width: 28% !important; */
+	height: 23% !important;
 }
 
 .esgbox-prev span {
-    background-image: url(../img/prev-month-a.png) !important;
-    background-repeat: no-repeat;
-    background-position: 0 -0px !important;
-    /* width: 28% !important; */
-    height: 23% !important;
+	background-image: url(../img/prev-month-a.png) !important;
+	background-repeat: no-repeat;
+	background-position: 0 -0px !important;
+	/* width: 28% !important; */
+	height: 23% !important;
 }
 
 /*Ess. Grid filter*/
 .esg-multiplefilters {
-    border-style: solid !important;
-    border-width: 10px 20px !important;
-    -o-border-image: url(../img/border-2.png) 27 stretch;
-    border-image: url(../img/border-2.png) 27 fill stretch !important;
-    font-size: 2.0rem !important;
-    font-family: "Noto Sans", sans-serif !important;
-    color: #bccacd !important;
+	border-style: solid !important;
+	border-width: 10px 20px !important;
+	-o-border-image: url(../img/border-2.png) 27 stretch;
+	border-image: url(../img/border-2.png) 27 fill stretch !important;
+	font-size: 2.0rem !important;
+	font-family: "Noto Sans", sans-serif !important;
+	color: #bccacd !important;
 }
 
 .esg-dropdown-wrapper {
-    background: rgba(0,0,0,0) !important;
+	background: rgba(0,0,0,0) !important;
 }
 
 .esg-filter-wrapper.dropdownstyle .esg-filterbutton {
-    width: 215px !important;
+	width: 215px !important;
 }
 
 .esg-selected-filterbutton {
-    color: #cec2ab !important;
+	color: #cec2ab !important;
 }
 
 .eg-search-wrapper {
-    line-height: 44px !important;
+	line-height: 44px !important;
 }
 
 .minimal-light .esg-filterbutton.selected .esg-filter-checked
 {
-    color: #faaf43 !important;
-    background: #577981 !important;
+	color: #faaf43 !important;
+	background: #577981 !important;
 }
 
 .minimal-light .esg-filterbutton:hover .esg-filter-checked
 {
-    color: #faaf43 !important;
-    background: #577981 !important;
+	color: #faaf43 !important;
+	background: #577981 !important;
 }
 
 .minimal-light .esg-filterbutton:hover {
@@ -174,11 +174,11 @@ font-family: "Open Sans",sans-serif;
 }
 
 .minimal-light .esg-filterbutton {
-    padding: 0px 0px !important;
+	padding: 0px 0px !important;
 }
 
 .esg-selected-filterbutton {
-    font-size: 16px !important;
+	font-size: 16px !important;
 }
 
 .minimal-light .esg-filterbutton.selected {
@@ -194,8 +194,8 @@ font-family: "Open Sans",sans-serif;
 }
 
 .esg-filter-wrapper:nth-last-child(2) .esg-filterbutton:hover {
-      color: #cec2ab !important;
-      box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0) !important;
+	  color: #cec2ab !important;
+	  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0) !important;
 }
 
 .esg-filter-wrapper:nth-last-child(2) .esg-filterbutton.selected {

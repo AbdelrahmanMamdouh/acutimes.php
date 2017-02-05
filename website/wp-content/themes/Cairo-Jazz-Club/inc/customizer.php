@@ -25,12 +25,12 @@ function cairo_jazz_club_customize_register( $wp_customize ) {
 	 ));
 
 	$wp_customize->add_panel( 'cjc-adds-panel', array(
-		'priority'       => 10,
-		'capability'     => 'edit_theme_options',
-		'theme_supports' => '',
-		'title'          => 'Advertisements',
-		'description'	=> 'a place for ur Advertisement above the footer',
-	// 'description'    => '',
+		'priority'			=> 10,
+		'capability'		=> 'edit_theme_options',
+		'theme_supports'	=> '',
+		'title'				=> 'Advertisements',
+		'description'		=> 'a place for ur Advertisement above the footer',
+	// 'description'		=> '',
 	) );
 
 	 QuickCustomizer::add_SocialMedia($wp_customize,'facebook','add your facebook page url here');

@@ -119,9 +119,9 @@ if ( post_password_required() ) {
 		
 		'fields'=>$feilds,
 		
-		'id_submit'         => 'submit',
-		'class_submit'      => 'btn btn-supporting btn-wide',
-		'name_submit'       => 'submit',
+		'id_submit'			=> 'submit',
+		'class_submit'		=> 'btn btn-supporting btn-wide',
+		'name_submit'		=> 'submit',
 
 		'comment_field' =>  
 					'<div class="col-md-7">
