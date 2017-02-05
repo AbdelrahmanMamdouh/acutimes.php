@@ -26,7 +26,7 @@
 				<% _.each(days, function(day) { %>
 					<div class="<%= day.classes %>" id="<%= day.id %>">
 						<% _.each(day.events, function(event) { %>
-							<a href="#event-modal-<%= event.id %>" class="mfp-inline modal-link event-link <%= event.type %>" style="background-image: url('<%= event.img %>')"></a>
+							<a href="<?php echo get_template_directory_uri() ?> /modal-templates/event-modal.php?eventId=<%= event.id %>" class="modal-link event-link <%= event.type %>" style="background-image: url('<%= event.img %>')"></a>
 						<% }) %>
 						<span class="day-number-container"><span class="day-number"><%= day.day %></span></span>
 					</div>

@@ -74,7 +74,7 @@
                 <div class="c-section c-section--short">
                     <h2>Reserve</h2>
                     <div class="stacked-twin">
-                        <?php  include(get_template_part('template-parts/reservation')); ?>
+                        <?php include(locate_template('template-parts/reservation.php')); ?>
                     </div>
                 </div>
                 <div>
