@@ -45,7 +45,7 @@
 		});
 
 		//init Magnific Popup on each element with "modal-link" class which is inside any div with event class
-		$('.artist').magnificPopup({
+		$('.event').magnificPopup({
 			delegate: '.modal-link',
 			type: 'ajax'
 		});
