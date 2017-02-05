@@ -41,8 +41,8 @@ var Init = (function ($) {
 			type: 'ajax'
 		});
 
-		//init Magnific Popup on each element with "modal-link" class which is inside any div with event class
-		$('.event').magnificPopup({
+		//init Magnific Popup on each element with "modal-link" class which is inside any div with calendar class
+		$('.calendar').magnificPopup({
 			delegate: '.modal-link',
 			type: 'ajax'
 		});

@@ -1,5 +1,5 @@
 <?php
-	require('../../../../wp-load.php');
+	require_once('../../../../wp-load.php');
 	$artist = get_post($_GET["artistId"]);
 ?>
 
