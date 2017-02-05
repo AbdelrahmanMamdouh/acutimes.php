@@ -3668,6 +3668,7 @@ body {
 }
 .c-section--short {
   margin-bottom: 3rem;
+    color:#333;
 }
 
 main.inner {
@@ -4564,6 +4565,8 @@ form span {
 }
 .modal-head__title {
   margin-top: 1.5rem;
+    width: 400px;
+    font-size: 4rem;
 }
 .modal-head .media-box {
   display: inline-block;
