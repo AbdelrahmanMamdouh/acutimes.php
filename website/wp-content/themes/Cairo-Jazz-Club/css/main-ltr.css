@@ -3668,7 +3668,6 @@ body {
 }
 .c-section--short {
   margin-bottom: 3rem;
-    color:#333;
 }
 
 main.inner {
@@ -4113,46 +4112,46 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .events-content .desktop-events .event.pos-1 {
   top: 20%;
-  left: 43%;
+  left: 38%;
 }
 .events-content .desktop-events .event.pos-2 {
-  top: 14%;
-  left: 20%;
+  top: 30%;
+  left: 28%;
 }
 .events-content .desktop-events .event.pos-3 {
-  top: 26%;
-  left: 81%;
+  top: 30%;
+  left: 60%;
 }
 .events-content .desktop-events .event.pos-4 {
-  top: 60%;
-  left: 61%;
+  top: 65%;
+  left: 50%;
 }
 .events-content .desktop-events .event.pos-5 {
-  top: 41%;
-  left: 5%;
+  top: 65%;
+  left: 35%;
 }
 .events-content .desktop-events .event.pos-6 {
   top: 50%;
-  left: 30%;
+  left: 18%;
 }
 .events-content .desktop-events .event.pos-7 {
-  top: 73%;
-  left: 80%;
+  top: 65%;
+  left: 73%;
 }
 .events-content .artist {
   position: absolute;
 }
 .events-content .artist.pos-1 {
-  top: 21%;
-  left: 65%;
+  top: 49%;
+  left: 54%;
 }
 .events-content .artist.pos-2 {
-  top: 73%;
-  left: 16%;
+  top: 55%;
+  left: 32%;
 }
 .events-content .artist.pos-3 {
-  top: 70%;
-  left: 47%;
+  top: 75%;
+  left: 45%;
 }
 .events-content .artist.pos-4 {
   top: 65%;
@@ -4164,11 +4163,11 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .events-content .artist.pos-6 {
   top: 50%;
-  left: 10%;
+  left: 18%;
 }
 .events-content .artist.pos-7 {
   top: 65%;
-  left: 80%;
+  left: 73%;
 }
 
 .events-slider .slick-slide {
@@ -4241,9 +4240,6 @@ footer h2, footer .h2, footer h3, footer .h3 {
 .circle--md .circle__content .date {
   left: -20px;
 }
-.circle--xm .circle__content .date {
-  left: -30px;
-}
 .circle--sm .circle__content .date {
   left: -30px;
 }
@@ -4274,14 +4270,6 @@ footer h2, footer .h2, footer h3, footer .h3 {
   border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
   width: 150px;
   height: 150px;
-}
-.circle--xm {
-  border-style: solid;
-  border-width: 13px;
-  -o-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
-  border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
-  width: 77px;
-  height: 78px;
 }
 .circle--sm {
   border-style: solid;
@@ -4576,8 +4564,6 @@ form span {
 }
 .modal-head__title {
   margin-top: 1.5rem;
-    width: 400px;
-    font-size: 4rem;
 }
 .modal-head .media-box {
   display: inline-block;
@@ -5293,4 +5279,92 @@ form span {
 
 .wpb_button, .wpb_content_element, ul.wpb_thumbnails-fluid > li {
   margin-bottom: 0px !important;
+}
+
+/****************************************************************************************
+ *	Clean up
+ ****************************************************************************************/
+.modal-head__title {
+  width: 400px;
+  font-size: 4rem;
+}
+
+.c-section--short {
+  color: #333;
+}
+
+/*******************************************
+ *	Events
+ *******************************************/
+.events-content .desktop-events .event.pos-1 {
+  left: 43%;
+}
+
+.events-content .desktop-events .event.pos-2 {
+  top: 14%;
+  left: 20%;
+}
+
+.events-content .desktop-events .event.pos-3 {
+  top: 26%;
+  left: 81%;
+}
+
+.events-content .desktop-events .event.pos-4 {
+  top: 60%;
+  left: 61%;
+}
+
+.events-content .desktop-events .event.pos-5 {
+  top: 41%;
+  left: 5%;
+}
+
+.events-content .desktop-events .event.pos-6 {
+  left: 30%;
+}
+
+.events-content .desktop-events .event.pos-7 {
+  top: 73%;
+  left: 80%;
+}
+
+.events-content .artist {
+  position: absolute;
+}
+
+.events-content .artist.pos-1 {
+  top: 21%;
+  left: 65%;
+}
+
+.events-content .artist.pos-2 {
+  top: 73%;
+  left: 16%;
+}
+
+.events-content .artist.pos-3 {
+  top: 70%;
+  left: 47%;
+}
+
+.events-content .artist.pos-6 {
+  left: 10%;
+}
+
+.events-content .artist.pos-7 {
+  left: 80%;
+}
+
+.circle--xm .circle__content .date {
+  left: -30px;
+}
+
+.circle--xm {
+  border-style: solid;
+  border-width: 13px;
+  -o-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
+  border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
+  width: 77px;
+  height: 78px;
 }
