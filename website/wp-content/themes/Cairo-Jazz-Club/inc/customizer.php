@@ -49,21 +49,21 @@ function cairo_jazz_club_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting('cjc-identity-footer-logo', array(
 		'default'		=> '',
-		'transport'   => 'refresh',
+		'transport'	=> 'refresh',
 	));
 
 	 $wp_customize->add_control(
-	   new WP_Customize_Image_Control(
-		   $wp_customize,
-		   'cjc-identity-footer-logo',
-		   array(
-			   'label'	  => __( 'Footer logo (inverse)', 'cairo-jazz-club' ),
-			   'section'	=> 'title_tagline',
-			   'settings'   => 'cjc-identity-footer-logo',
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'cjc-identity-footer-logo',
+			array(
+				'label'	  => __( 'Footer logo (inverse)', 'cairo-jazz-club' ),
+				'section'	=> 'title_tagline',
+				'settings'	=> 'cjc-identity-footer-logo',
 			 //  'context'	=> 'your_setting_context' 
-		   )
-	   )
-   );
+			)
+		)
+	);
 }
 add_action( 'customize_register', 'cairo_jazz_club_customize_register' );
 
@@ -81,8 +81,8 @@ class QuickCustomizer{
 		$wp_customize->add_setting('cjc-social-media-'.$name, array(
 				'default'		=> '',
 				//'capability'	 => 'edit_theme_options',
-				'transport'   => 'refresh',
-				//'type'		   => 'option',
+				'transport'	=> 'refresh',
+				//'type'			=> 'option',
 			));
 
 		$wp_customize->add_control('cjc-social-media-'.$name, array(
@@ -139,7 +139,7 @@ class QuickCustomizer{
 	static function add_SiteIdentety($wp_customize, $name, $label, $descrption, $type){
 		$wp_customize->add_setting('cjc-identity-'.$name, array(
 			'default'		=> '',
-			'transport'   => 'refresh',
+			'transport'	=> 'refresh',
 		));
 
 		$wp_customize->add_control('cjc-identity-'.$name, array(

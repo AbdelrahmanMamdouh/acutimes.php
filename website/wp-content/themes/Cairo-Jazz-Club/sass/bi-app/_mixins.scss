@@ -246,7 +246,7 @@
 	@include border-bottom-left-radius($bottomLeft);
   } @else {
 	-webkit-border-radius: $topLeft;
-	   -moz-border-radius: $topLeft;
+		-moz-border-radius: $topLeft;
 		-ms-border-radius: $topLeft;
 		 -o-border-radius: $topLeft;
 			border-radius: $topLeft;

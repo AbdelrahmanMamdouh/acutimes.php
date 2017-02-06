@@ -213,7 +213,7 @@ $slick-opacity-not-active: 0.25 !default;
 
 	&:before {
 		content: '\200B';
-		/*   content: '';  */
+		/*	content: '';  */
 		margin-left: -0.3em;
 		display: inline-block;
 		height: 100%;
@@ -457,16 +457,16 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 // .calendar .clndr .clndr-grid .day.event {
-//   background-color: #B4E09F;
+//	background-color: #B4E09F;
 // }
 // .calendar .clndr .clndr-grid .day.today {
-//   background-color: #E3C57F;
+//	background-color: #E3C57F;
 // }
 // .calendar .clndr .clndr-grid .day.selected {
-//   background-color: #E37FD6;
+//	background-color: #E37FD6;
 // }
 // .calendar .clndr .clndr-grid .day.inactive {
-//   color: gray;
+//	color: gray;
 // }
 .calendar .day-number-container {
 	position: absolute;
@@ -516,7 +516,7 @@ $slick-opacity-not-active: 0.25 !default;
 
 .jazz-sunday + .day-number-container .day-number {
 	background: $jazz-sunday;
-}   
+}	
 
 .manic-monday + .day-number-container .day-number {
 	background: $manic-monday;
