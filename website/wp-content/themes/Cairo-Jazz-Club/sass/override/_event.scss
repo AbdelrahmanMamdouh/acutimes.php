@@ -61,9 +61,6 @@
 	height: 78px;
 }
 
-
-
-
 .modal-head__title {
 	width: 400px;
 	font-size: 4rem;
@@ -71,4 +68,9 @@
 
 .c-section--short {
 	color:#333;
+}
+
+/* events modal popup */
+.mfp-modal {
+    max-width: 750px !important;
 }

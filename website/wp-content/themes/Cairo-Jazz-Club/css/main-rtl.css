@@ -5369,6 +5369,11 @@ form span {
   color: #333;
 }
 
+/* events modal popup */
+.mfp-modal {
+  max-width: 750px !important;
+}
+
 /*******************************************
  *	essential grid
  *******************************************/
