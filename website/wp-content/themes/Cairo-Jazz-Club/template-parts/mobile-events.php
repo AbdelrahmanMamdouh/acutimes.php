@@ -10,7 +10,7 @@
             'posts_per_page' => 7,
             'meta_key'  => 'date',
             'orderby' => 'meta_value_num',
-            'order' => 'ASC'
+            'order' => 'DESC'
         );
 
         $the_query = new WP_Query( $args );
