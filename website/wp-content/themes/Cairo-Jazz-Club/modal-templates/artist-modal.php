@@ -10,7 +10,6 @@
 
 		<div class='modal-head__content'>
 			<div class='media-box'>
-				<a href='<?php echo get_permalink($artist) ?>' class='container-link'>
 					<div class='media-box__img'>
 						<div class='circle circle--sm'>
 
@@ -31,7 +30,6 @@
 					<div class='media-box__content'>
 						<h1 class='modal-head__title'><?php echo $artist->post_title; ?></h1>
 					</div>
-				</a>
 			</div>	
 		</div>
 	</div>
@@ -87,7 +85,7 @@
 			        "meta_query" => array(
 			            array(
 			                "key" => "performing_artists", // name of custom field
-			                "value" => "'" . $artist->ID . "'", // matches exaclty '123', not just 123. This prevents a match for '1234'
+			                "value" => "'" . get_the_ID() . "'", // matches exaclty '123', not just 123. This prevents a match for '1234'
 			                "compare" => "LIKE"
 			            ),
 			            array(
@@ -122,12 +120,12 @@
 
 	                <div class='row'>
 	                	<div class='col-md-7'>
-	                		<?php //get_template_part("templates/cancellation-policy" ); ?>
+	                		<?php get_template_part("templates/cancellation-policy" ); ?>
 	                	</div>
 	                	<div class='col-md-5'>
 	                		<h3>Reserve</h3>
 	                		<div class='stacked-twin'>
-	                			<?php include(locate_template("template-parts/reservation.php")); ?>
+	                			<?php include(locate_template("templates/reservation.php")); ?>
 	                		</div>
 	                	</div>
 	                </div>
