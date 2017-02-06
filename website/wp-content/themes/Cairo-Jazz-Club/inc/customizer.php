@@ -109,7 +109,7 @@ class QuickCustomizer{
 
 		$wp_customize->add_control('cjc-adds-url-'.$name,
 			array(
-				'label'			=> __("Advertisement " . $name . " URL" ),
+				'label'			=> __("Advertisement URL" ),
 				'section'		=> 'cjc-adds-section-' . $name,
 				'settings'		=> 'cjc-adds-url-'.$name,
 				'type'			=> 'url',
@@ -126,7 +126,8 @@ class QuickCustomizer{
 				$wp_customize,
 				'cjc-adds-img-'.$name,
 				array(
-					'label'			=> __("Advertisement " . $name . " IMG" ),
+					'description'	=> __("recommended resolution 800x481"),
+					'label'			=> __("Advertisement image" ),
 					'section'		=> 'cjc-adds-section-' . $name,
 					'settings'		=> 'cjc-adds-img-'.$name,
 					//  'context'	=> 'your_setting_context' 

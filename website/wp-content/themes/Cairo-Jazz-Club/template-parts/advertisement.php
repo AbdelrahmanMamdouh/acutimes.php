@@ -19,15 +19,13 @@ $img = array(
 ?>
 
 <div class="custom-row">
-	<div class="half">
-		<a href="<?php echo $url[0] ?>">
-			<img src="<?php echo $img[0] ?>" alt="">
-		</a>
-	</div>
-
-	<div class="half">
-		<a href="<?php echo $url[1] ?>">
-			<img src="<?php echo $img[1] ?>" alt="">
-		</a>
-	</div>
+	<?php for ( $advCount=0; $advCount<count($img); $advCount++){ ?>
+		<?php if ( $img[$advCount] ){ ?>
+			<div class="half">
+				<a href="<?php echo $url[$advCount] ?>">
+					<img src="<?php echo $img[$advCount] ?>" alt="">
+				</a>
+			</div>
+		<?php } ?>
+	<?php } ?>
 </div>
