@@ -7,10 +7,10 @@
  * @package cjc
  */
 
-$login 		= get_permalink( get_page_by_title('Login') );
-$facebook 	= get_theme_mod('cjc-social-media-facebook');
-$twitter 	= get_theme_mod('cjc-social-media-twitter');
-$youtube 	= get_theme_mod('cjc-social-media-youtube');
+$login		=  wp_login_url( get_permalink() ) . '&loginFacebook=1';
+$facebook	= get_theme_mod('cjc-social-media-facebook');
+$twitter	= get_theme_mod('cjc-social-media-twitter');
+$youtube	= get_theme_mod('cjc-social-media-youtube');
 ?>
 
 <ul class="social-icons">
