@@ -138,9 +138,16 @@ add_action( 'wp_enqueue_scripts', function () {
 	// Bootstrap
 	wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
 	wp_enqueue_style( 'bootstrap-theme', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' );
+	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 
+		array('jquery'), null, true );
 
 	// sprites
 	wp_enqueue_style('sprites',get_template_directory_uri().'/css/sprites.css');
+	
+	// slick js & css
+	wp_enqueue_style( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css');
+	wp_enqueue_script( 'slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js', 
+		array('jquery', ), null, true);
 
 	if(is_rtl()){
 		// Load Bootstrap RTL theme from RawGit
@@ -156,9 +163,6 @@ add_action( 'wp_enqueue_scripts', function () {
 			array( 'bootstrap', 'bootstrap-theme' ) );
 	}
 
-	// Bootstrap js
-	wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 
-		array('jquery'), null, true );
 	// TweenMax js
 	wp_enqueue_script( 'tweenmax-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', 
 		array('jquery'), null, true );
@@ -174,8 +178,6 @@ add_action( 'wp_enqueue_scripts', function () {
 	// animation.gsap js (Animation of ScrollMagic)
 	wp_enqueue_script( 'scrollmagic--animation-gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', 
 		array('jquery', 'scrollmagic-js'), null, true );
-	// Modernizer, feature detection library
-	//wp_enqueue_script( 'modernizr-js', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), null );
 	// jquery mmenu scripts , Hamberger Menue
 	wp_enqueue_script( 'jquery-mmenu-js', 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.7.8/js/jquery.mmenu.min.js', 
 		array('jquery'), null, true);
@@ -185,7 +187,7 @@ add_action( 'wp_enqueue_scripts', function () {
 
 	wp_enqueue_script( 'cjc-main-v2', get_template_directory_uri().'/js/main-v2.js', 
 		array('jquery', 'tweenmax-js', 'scrollmagic-js', 'jquery-mmenu-js', 'jquery-magnific-popup-js', 'scrollmagic--animation-gsap-js'), null, true);
-	
+
 });
 
 // Implement the Custom Header feature.

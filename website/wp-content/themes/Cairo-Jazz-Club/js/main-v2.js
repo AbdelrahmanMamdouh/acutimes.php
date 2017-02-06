@@ -1,5 +1,5 @@
 var Init = (function ($) {
-	
+
 	var Init = {};
 
 	/**
@@ -65,6 +65,31 @@ var Init = (function ($) {
 		var scene = new ScrollMagic.Scene({ duration: 10000 })
 			.setTween(tween)
 			.addTo(controller);
+
+		// Events Slider
+		$('.events-slider').slick({
+			centerMode: true,
+			arrows: false,
+			centerPadding: '20px',
+			slidesToShow: 3,
+			responsive: [{
+				breakpoint: 680,
+				settings: {
+					arrows: false,
+					centerMode: true,
+					centerPadding: '0',
+					slidesToShow: 3
+				}
+			}, {
+				breakpoint: 580,
+				settings: {
+					arrows: true,
+					centerMode: true,
+					centerPadding: '0',
+					slidesToShow: 1
+				}
+			}]
+		});
 	}
 
 	Init.Footer = function () {

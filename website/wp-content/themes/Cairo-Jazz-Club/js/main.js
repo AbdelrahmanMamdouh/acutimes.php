@@ -54,7 +54,7 @@
 				$(element).parent().removeClass('have-data');
 			}
 		}
-/*
+
 		// Events Slider
 		$('.events-slider').slick({
 			centerMode: true,
@@ -86,7 +86,7 @@
 			autoplay: true,
 			arrows: false
 		});
-*/
+
 		$('body').magnificPopup({
 			delegate: '.modal-link'
 		});
