@@ -214,8 +214,14 @@ require_once get_template_directory() . '/widgets/init.php';
 // Load cjc shortcodes
 require_once get_template_directory() . '/short-codes/init.php';
 
-// Load Ess. Grid modifications.
-require get_template_directory() . '/ess-grid-mods/meta-tags.php'; // meta tags modifications
+// Load Ess. Grid modifications. meta tags modifications
+require get_template_directory() . '/ess-grid-mods/meta-tags.php';
 
-// Load rest api modifications.
-require get_template_directory().'/rest-api-mods/albums.php'; // albums (custom post) modifications
+// Load rest api modifications. albums (custom post) modifications
+require get_template_directory().'/rest-api-mods/albums.php';
+
+try {
+	if(class_exists('fb_login'))  $init = new fb_login() ;
+} catch (Exception $e) {
+	$init = null; // if the api key is unset
+}
