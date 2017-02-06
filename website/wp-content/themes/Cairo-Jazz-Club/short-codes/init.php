@@ -8,3 +8,4 @@ require_once get_template_directory() . '/short-codes/parallax-slider.php';
 require_once get_template_directory() . '/short-codes/advertisement.php';
 require_once get_template_directory() . '/short-codes/circle-artist.php';
 require_once get_template_directory() . '/short-codes/events-calendar.php';
+require_once get_template_directory() . '/short-codes/circle-event.php';

@@ -46,6 +46,12 @@ var Init = (function ($) {
 			delegate: '.modal-link',
 			type: 'ajax'
 		});
+
+		//init Magnific Popup on each element with "modal-link" class which is inside any div with event class
+		$('.event').magnificPopup({
+			delegate: '.modal-link',
+			type: 'ajax'
+		});
 	}
 
 	Init.HomeParallaxSlider = function () {

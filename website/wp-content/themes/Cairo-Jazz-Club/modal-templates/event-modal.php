@@ -1,11 +1,15 @@
 <?php
 	require_once('../../../../wp-load.php');
 	$event = get_post($_GET["eventId"]);
+
+    $thumb_id = get_post_thumbnail_id($event->ID);
+    $image_url_array = wp_get_attachment_image_src($thumb_id, 'hero-mfp', true);
+    $image_url = $image_url_array[0];
 ?>
 
 <div class="mfp-modal" id="event-modal-<?php echo $event->ID ?>">
     <a href="<?php the_permalink($event->ID) ?>">
-        <img src='<?php echo get_template_directory_uri() ?>/img/modal-head.png' alt="" class="modal-image">
+        <img src="<?php echo $image_url ?>" alt="" class="modal-image">
     </a>
     <div class="mfp-modal-content">
         <div class="row">

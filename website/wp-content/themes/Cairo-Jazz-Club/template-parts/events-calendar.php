@@ -55,7 +55,7 @@
 
 <?php
 
-$the_query = new WP_Query(array(
+/*$the_query = new WP_Query(array(
 	'post_type'			=> 'avent',
 	'post_status'		=> 'publish',
 	'posts_per_page'	=> 999999, // all
@@ -79,14 +79,14 @@ if ($the_query->have_posts()) {
 		$image_url_array = wp_get_attachment_image_src($thumb_id, 'hero-mfp', true);
 		$image_url = $image_url_array[0];
 
-		get_template_part('template-parts/event-modal.php');
+	//	get_template_part('template-parts/event-modal.php');
 
   }
 } else {
 	?><p>Sorry, there are no events to display</p><?php 
 } 
 
- wp_reset_query();
+ wp_reset_query();*/
 
 ?>
 

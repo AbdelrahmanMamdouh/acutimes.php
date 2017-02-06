@@ -87,7 +87,7 @@
 			        "meta_query" => array(
 			            array(
 			                "key" => "performing_artists", // name of custom field
-			                "value" => "'" . get_the_ID() . "'", // matches exaclty '123', not just 123. This prevents a match for '1234'
+			                "value" => "'" . $artist->ID . "'", // matches exaclty '123', not just 123. This prevents a match for '1234'
 			                "compare" => "LIKE"
 			            ),
 			            array(
@@ -122,12 +122,12 @@
 
 	                <div class='row'>
 	                	<div class='col-md-7'>
-	                		<?php get_template_part("templates/cancellation-policy" ); ?>
+	                		<?php //get_template_part("templates/cancellation-policy" ); ?>
 	                	</div>
 	                	<div class='col-md-5'>
 	                		<h3>Reserve</h3>
 	                		<div class='stacked-twin'>
-	                			<?php include(locate_template("templates/reservation.php")); ?>
+	                			<?php include(locate_template("template-parts/reservation.php")); ?>
 	                		</div>
 	                	</div>
 	                </div>
