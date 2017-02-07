@@ -8,9 +8,9 @@
 ?>
 
 <div class="mfp-modal" id="event-modal-<?php echo $event->ID ?>">
-    <a href="<?php the_permalink($event->ID) ?>">
-        <img src="<?php echo $image_url ?>" alt="" class="modal-image">
-    </a>
+
+    <img src="<?php echo $image_url ?>" alt="" class="modal-image">
+    
     <div class="mfp-modal-content">
         <div class="row">
             <div class="col-md-8">
@@ -68,7 +68,6 @@
                                         <div class="artist__desc">
                                             <?php echo the_content() ?>
                                         </div>
-                                        <a href="<?php the_permalink() ?> " class="artist__link modal-link">READ MORE</a>
                                     </div>
                                 </div>
                             </div>

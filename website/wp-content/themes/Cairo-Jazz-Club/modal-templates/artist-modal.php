@@ -10,7 +10,6 @@
 
 		<div class='modal-head__content'>
 			<div class='media-box'>
-				<a href='<?php echo get_permalink($artist) ?>' class='container-link'>
 					<div class='media-box__img'>
 						<div class='circle circle--sm'>
 
@@ -31,7 +30,6 @@
 					<div class='media-box__content'>
 						<h1 class='modal-head__title'><?php echo $artist->post_title; ?></h1>
 					</div>
-				</a>
 			</div>	
 		</div>
 	</div>
