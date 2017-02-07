@@ -22,6 +22,17 @@ $positions = array(
 	'circle--md pos-6',
 	'circle--md pos-7'
 );
+$ArtistPositions = array(
+	'circle--xs pos-1',
+	'circle--xs pos-2',
+	'circle--xs pos-3',
+	'circle--md pos-4',
+	'circle--sm pos-5',
+	'circle--md pos-6',
+	'circle--sm pos-7'
+);
+
+
 
 $i = 0;
 ?>
@@ -41,23 +52,14 @@ $i = 0;
 
 <?php
 wp_reset_query();
-$the_query = new WP_Query(  array( 
-	'post_type' => 'avent',
-	'post_status' => 'publish',
-	'posts_per_page' => 3,
-	'meta_key'  => 'date',
-	'meta_value'   => current_time( "Ymd" ),
-	'meta_compare' => '>=',
-	'orderby' => 'meta_value_num',
-	'order' => 'ASC'
-) );
-$i = 1;
+$the_query = new WP_Query( $args );
+$i = 0;
 ?>
 
 <div class="rand-artists hidden-xs">
 	<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();?>
 
-		<div class="artist circle circle--md pos-<?php echo $i++ ?>">
+		<div class="artist circle <?php $ArtistPositions[$i++] ?>">
 			<?php get_template_part('template-parts/event-artist-circle'); ?>
 		</div>
 
