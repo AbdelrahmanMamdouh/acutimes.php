@@ -18,14 +18,14 @@ $youtube	= get_theme_mod('cjc-social-media-youtube');
 		<li><a class="account" href="<?php echo $login ?>">Account</a></li>
 	<?php } ?>
 	<?php if($facebook) { ?>
-		<li><a class="facebook" href="<?php echo $facebook ?>">Facebook</a></li>
+		<li><a class="facebook" target="_blank" href="<?php echo $facebook ?>">Facebook</a></li>
 	<?php } ?>
 
 	<?php if($twitter) { ?>
-		<li><a class="twitter" href="<?php echo $twitter ?>">Twitter</a></li>
+		<li><a class="twitter" target="_blank" href="<?php echo $twitter ?>">Twitter</a></li>
 	<?php } ?>
 
 	<?php if($youtube) { ?>
-		<li><a class="youtube" href="<?php echo $youtube ?>">Youtube</a></li>
+		<li><a class="youtube" target="_blank" href="<?php echo $youtube ?>">Youtube</a></li>
 	<?php } ?>
 </ul>
