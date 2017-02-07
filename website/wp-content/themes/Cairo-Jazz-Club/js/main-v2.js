@@ -29,29 +29,10 @@ var Init = (function ($) {
 	}
 
 	Init.MagnificPopup = function () {
-		//init Magnific Popup on each element with "modal-link" class which is inside Essential Grid div
-		$('.esg-grid').magnificPopup({
-			delegate: '.modal-link',
-			type: 'ajax'
-		});
-
-		//init Magnific Popup on each element with "modal-link" class which is inside any div with artist class
-		$('.artist').magnificPopup({
-			delegate: '.modal-link',
-			type: 'ajax'
-		});
-
-		//init Magnific Popup on each element with "modal-link" class which is inside any div with calendar class
-		$('.calendar').magnificPopup({
-			delegate: '.modal-link',
-			type: 'ajax'
-		});
-
-		//init Magnific Popup on each element with "modal-link" class which is inside any div with event class
-		$('.event').magnificPopup({
-			delegate: '.modal-link',
-			type: 'ajax'
-		});
+		// init Magnific Popup on each element with "modal-link" class
+		$('body').magnificPopup({
+	      delegate: '.modal-link',
+	      type: 'ajax'
 	}
 
 	Init.HomeParallaxSlider = function () {
