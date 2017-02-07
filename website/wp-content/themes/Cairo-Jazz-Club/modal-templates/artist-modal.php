@@ -83,6 +83,7 @@
 
 				$events = get_posts(array(
 					'post_type' => 'avent',
+					"posts_per_page" => "1",
 					'meta_query' => array(
 						array(
 							'key' => 'performing_artists', // name of custom field
