@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: cjc
 -- ------------------------------------------------------
--- Server version	5.7.17-0ubuntu0.16.04.1
+-- Server version	5.7.16-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,7 +37,7 @@ CREATE TABLE `cjc_users` (
   KEY `user_login_key` (`user_login`),
   KEY `user_nicename` (`user_nicename`),
   KEY `user_email` (`user_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `cjc_users` (
 
 LOCK TABLES `cjc_users` WRITE;
 /*!40000 ALTER TABLE `cjc_users` DISABLE KEYS */;
-INSERT INTO `cjc_users` VALUES (1,'Dev','$P$BwUUyCLw6bzuqDilq7XX48PTt0Rzd/.','dev','exception.ss.team@gmail.com','','2017-01-25 14:28:46','',0,'Dev'),(2,'ramy','$P$By8vRKelSs/tEJZv/1arJgkjplj.xQ1','ramy','ramy@bni.agency','','2017-02-02 12:56:03','1486040163:$P$Bm3Y2ECihbTH2DORBj6MwAvTXNFlB71',0,'ramy');
+INSERT INTO `cjc_users` VALUES (1,'Dev','$P$BwUUyCLw6bzuqDilq7XX48PTt0Rzd/.','dev','exception.ss.team@gmail.com','','2017-01-25 14:28:46','',0,'Dev'),(2,'ramy','$P$By8vRKelSs/tEJZv/1arJgkjplj.xQ1','ramy','ramy@bni.agency','','2017-02-02 12:56:03','1486040163:$P$Bm3Y2ECihbTH2DORBj6MwAvTXNFlB71',0,'ramy'),(3,'Facebook - naderelewa','$P$BQQKkqJICEbveiyLLWomo9dpvzc8XU0','facebook-naderelewa','nader.elewa@gmail.com','','2017-02-05 13:47:31','1486302451:$P$BkEvfj2y6ONBiudeaW0Wox8c05tNGO0',0,'Nader Elewa'),(4,'sara','$P$BWOVgZNrw7h3ulLeTYSJtX5eYGjBjM.','sara','sara@cairojazzclub.com','','2017-02-05 14:11:26','',0,'sara'),(5,'Mohammed Magdy','$P$BIpY/IAJOpEnGFvEC/Ah9qZDFR6Bx40','mohammed-magdy','mohammed_magdy_ali@yahoo.com','','2017-02-05 23:40:47','',0,'Mohammed Magdy'),(6,'Abdo Mamdouh Ali','$P$BVzFtyisH1OOch5kqCl/BnIU6ISAJ6.','abdo-mamdouh-ali','poparab_2012@yahoo.com','','2017-02-06 00:01:37','',0,'Abdo Ali'),(7,'edit','$P$BPQYRWk2Jp0kvhX1DYUwcz/.aTvWaj.','edit','edit@edit.com','','2017-02-06 12:56:02','',0,'edit edit');
 /*!40000 ALTER TABLE `cjc_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-05 15:04:17
+-- Dump completed on 2017-02-07 18:26:55

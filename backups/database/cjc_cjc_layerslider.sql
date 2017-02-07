@@ -16,33 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cjc_nf3_actions`
+-- Table structure for table `cjc_layerslider`
 --
 
-DROP TABLE IF EXISTS `cjc_nf3_actions`;
+DROP TABLE IF EXISTS `cjc_layerslider`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cjc_nf3_actions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` longtext COLLATE utf8mb4_unicode_520_ci,
-  `key` longtext COLLATE utf8mb4_unicode_520_ci,
-  `type` longtext COLLATE utf8mb4_unicode_520_ci,
-  `active` tinyint(1) DEFAULT '1',
-  `parent_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+CREATE TABLE `cjc_layerslider` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `author` int(10) NOT NULL DEFAULT '0',
+  `name` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `slug` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `data` mediumtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `date_c` int(10) NOT NULL,
+  `date_m` int(11) NOT NULL,
+  `flag_hidden` tinyint(1) NOT NULL DEFAULT '0',
+  `flag_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cjc_nf3_actions`
+-- Dumping data for table `cjc_layerslider`
 --
 
-LOCK TABLES `cjc_nf3_actions` WRITE;
-/*!40000 ALTER TABLE `cjc_nf3_actions` DISABLE KEYS */;
-INSERT INTO `cjc_nf3_actions` VALUES (1,'','','save',1,1,'2016-08-24 16:39:20',NULL),(2,'','','email',1,1,'2016-08-24 16:39:20',NULL),(3,'','','email',1,1,'2016-08-24 16:47:39',NULL),(4,'','','successmessage',1,1,'2016-08-24 16:39:20',NULL);
-/*!40000 ALTER TABLE `cjc_nf3_actions` ENABLE KEYS */;
+LOCK TABLES `cjc_layerslider` WRITE;
+/*!40000 ALTER TABLE `cjc_layerslider` DISABLE KEYS */;
+INSERT INTO `cjc_layerslider` VALUES (1,1,'homepage','','{\"properties\":{\"title\":\"homepage\",\"new\":true},\"layers\":[[]]}',1486390249,1486390249,0,0);
+/*!40000 ALTER TABLE `cjc_layerslider` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-07 18:26:50
+-- Dump completed on 2017-02-07 18:26:55

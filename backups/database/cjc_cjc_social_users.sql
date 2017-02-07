@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: cjc
 -- ------------------------------------------------------
--- Server version	5.7.17-0ubuntu0.16.04.1
+-- Server version	5.7.16-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -36,7 +36,7 @@ CREATE TABLE `cjc_social_users` (
 
 LOCK TABLES `cjc_social_users` WRITE;
 /*!40000 ALTER TABLE `cjc_social_users` DISABLE KEYS */;
-INSERT INTO `cjc_social_users` VALUES (1,'fb','1095196287273086');
+INSERT INTO `cjc_social_users` VALUES (3,'fb','10155757190863154'),(6,'fb','1407746389276156'),(5,'fb','1095196287273086');
 /*!40000 ALTER TABLE `cjc_social_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-05 15:05:17
+-- Dump completed on 2017-02-07 18:26:58

@@ -16,33 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cjc_nf3_actions`
+-- Table structure for table `cjc_events_users`
 --
 
-DROP TABLE IF EXISTS `cjc_nf3_actions`;
+DROP TABLE IF EXISTS `cjc_events_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cjc_nf3_actions` (
+CREATE TABLE `cjc_events_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` longtext COLLATE utf8mb4_unicode_520_ci,
-  `key` longtext COLLATE utf8mb4_unicode_520_ci,
-  `type` longtext COLLATE utf8mb4_unicode_520_ci,
-  `active` tinyint(1) DEFAULT '1',
-  `parent_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  `user_name` varchar(512) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user_picture` varchar(2048) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user_profile` varchar(1024) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user_email` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user_id` varchar(512) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user_status` bit(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cjc_nf3_actions`
+-- Dumping data for table `cjc_events_users`
 --
 
-LOCK TABLES `cjc_nf3_actions` WRITE;
-/*!40000 ALTER TABLE `cjc_nf3_actions` DISABLE KEYS */;
-INSERT INTO `cjc_nf3_actions` VALUES (1,'','','save',1,1,'2016-08-24 16:39:20',NULL),(2,'','','email',1,1,'2016-08-24 16:39:20',NULL),(3,'','','email',1,1,'2016-08-24 16:47:39',NULL),(4,'','','successmessage',1,1,'2016-08-24 16:39:20',NULL);
-/*!40000 ALTER TABLE `cjc_nf3_actions` ENABLE KEYS */;
+LOCK TABLES `cjc_events_users` WRITE;
+/*!40000 ALTER TABLE `cjc_events_users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cjc_events_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-07 18:26:50
+-- Dump completed on 2017-02-07 18:26:49
