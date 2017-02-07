@@ -57,7 +57,7 @@ $i = 0;
 <div class="rand-artists hidden-xs">
 	<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();?>
 
-		<div class="artist circle circle--md pos-<?php echo $i ?>">
+		<div class="artist circle circle--md pos-<?php echo $i++ ?>">
 			<?php get_template_part('template-parts/event-artist-circle'); ?>
 		</div>
 
