@@ -51,7 +51,7 @@ $the_query = new WP_Query(  array(
 	'orderby' => 'meta_value_num',
 	'order' => 'ASC'
 ) );
-$i = 0;
+$i = 1;
 ?>
 
 <div class="rand-artists hidden-xs">
