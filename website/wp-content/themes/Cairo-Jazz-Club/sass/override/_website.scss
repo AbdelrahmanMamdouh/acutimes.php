@@ -29,3 +29,10 @@
 .entry-content, .entry-summary {
 	margin: 0;
 }
+
+.eg-text-and-image-nostyle-element-10 > div {
+	width: 30%;
+	height: 100%;
+	float: left;
+	background-size: cover;
+}

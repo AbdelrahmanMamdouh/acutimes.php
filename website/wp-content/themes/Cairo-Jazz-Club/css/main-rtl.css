@@ -23,7 +23,7 @@ body {
 }
 
 /* HTML5 display definitions
-   ========================================================================== */
+	========================================================================== */
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
  * Correct `block` display not defined for `details` or `summary` in IE 10/11
@@ -79,7 +79,7 @@ template {
 }
 
 /* Links
-   ========================================================================== */
+	========================================================================== */
 /**
  * Remove the gray background color from active links in IE 10.
  */
@@ -96,7 +96,7 @@ a:hover {
 }
 
 /* Text-level semantics
-   ========================================================================== */
+	========================================================================== */
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
@@ -163,7 +163,7 @@ sub {
 }
 
 /* Embedded content
-   ========================================================================== */
+	========================================================================== */
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
@@ -179,7 +179,7 @@ svg:not(:root) {
 }
 
 /* Grouping content
-   ========================================================================== */
+	========================================================================== */
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
@@ -214,7 +214,7 @@ samp {
 }
 
 /* Forms
-   ========================================================================== */
+	========================================================================== */
 /**
  * Known limitation: by default, Chrome and Safari on OS X allow very limited
  * styling of `select`, unless a `border` property is set.
@@ -381,7 +381,7 @@ optgroup {
 }
 
 /* Tables
-   ========================================================================== */
+	========================================================================== */
 /**
  * Remove most spacing between table cells.
  */
@@ -2970,8 +2970,8 @@ img.mfp-img {
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
   /**
-	   * Remove all paddings around the image on small screen
-	   */
+		* Remove all paddings around the image on small screen
+		*/
   .mfp-img-mobile .mfp-image-holder {
     padding-left: 0;
     padding-right: 0;
@@ -3049,8 +3049,8 @@ img.mfp-img {
  * Kroc Camen, and the H5BP dev community and team.
  */
 /* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+	Base styles: opinionated defaults
+	========================================================================== */
 html {
   color: #222;
   font-size: 1em;
@@ -3122,8 +3122,8 @@ textarea {
 }
 
 /* ==========================================================================
-   Browser Upgrade Prompt
-   ========================================================================== */
+	Browser Upgrade Prompt
+	========================================================================== */
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -3132,11 +3132,11 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+	Author's custom styles
+	========================================================================== */
 /* ==========================================================================
-   Helper classes
-   ========================================================================== */
+	Helper classes
+	========================================================================== */
 /*
  * Hide visually and from screen readers:
  * http://juicystudio.com/article/screen-readers-display-none.php
@@ -4753,7 +4753,7 @@ form span {
 }
 .dc-block:before {
   content: '\200B';
-  /*   content: '';  */
+  /*	content: '';  */
   margin-left: -0.3em;
   display: inline-block;
   height: 100%;
@@ -5162,10 +5162,10 @@ form span {
 }
 
 /* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   http://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
+	Print styles.
+	Inlined to avoid the additional HTTP request:
+	http://www.phpied.com/delay-loading-your-print-css/
+	========================================================================== */
 @media print {
   *,
   *:before,
@@ -5173,7 +5173,7 @@ form span {
     background: transparent !important;
     color: #000 !important;
                         /* Black prints faster:
-						   http://www.sanbeiji.com/archives/953 */
+							http://www.sanbeiji.com/archives/953 */
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -5263,6 +5263,13 @@ form span {
 
 .entry-content, .entry-summary {
   margin: 0;
+}
+
+.eg-text-and-image-nostyle-element-10 > div {
+  width: 30%;
+  height: 100%;
+  float: left;
+  background-size: cover;
 }
 
 /*******************************************
