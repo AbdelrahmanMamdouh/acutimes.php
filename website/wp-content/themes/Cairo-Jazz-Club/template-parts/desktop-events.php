@@ -7,8 +7,10 @@
             'post_status' => 'publish',
             'posts_per_page' => 7,
             'meta_key'  => 'date',
+            'meta_value'   => date( "Ymd" ),
+			'meta_compare' => '>=',
             'orderby' => 'meta_value_num',
-            'order' => 'DESC'
+            'order' => 'ASC'
         );
 
         $the_query = new WP_Query( $args );
@@ -32,6 +34,7 @@
             <div class="event circle <?php echo $positions[$i] ?>">
 
                 <?php get_template_part('template-parts/event-circle'); ?>
+                <?php get_template_part('template-parts/event-artist-circle'); ?>
 
             </div>
 
