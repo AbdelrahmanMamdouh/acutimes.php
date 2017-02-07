@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: cjc
 -- ------------------------------------------------------
--- Server version	5.7.16-log
+-- Server version	5.7.17-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-07 18:26:54
+-- Dump completed on 2017-02-07 18:32:08
