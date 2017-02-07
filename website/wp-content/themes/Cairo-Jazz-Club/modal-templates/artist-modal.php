@@ -10,6 +10,7 @@
 
 		<div class='modal-head__content'>
 			<div class='media-box'>
+				<a href='<?php echo get_permalink($artist) ?>' class='container-link'>
 					<div class='media-box__img'>
 						<div class='circle circle--sm'>
 
@@ -30,6 +31,7 @@
 					<div class='media-box__content'>
 						<h1 class='modal-head__title'><?php echo $artist->post_title; ?></h1>
 					</div>
+				</a>
 			</div>	
 		</div>
 	</div>
@@ -78,23 +80,22 @@
         	<h2>Upcoming Event</h2>
 			
         	<?php
-        		$today = current_time("Ymd");
-			    $events = get_posts(array(
-			        "post_type" => "avent",
-			        "posts_per_page" => "1",
-			        "meta_query" => array(
-			            array(
-			                "key" => "performing_artists", // name of custom field
-			                "value" => "'" . get_the_ID() . "'", // matches exaclty '123', not just 123. This prevents a match for '1234'
-			                "compare" => "LIKE"
-			            ),
-			            array(
-                            "key"       => "date",
-                            "compare"   => ">=",
-                            "value"     => $today,
-                        ),
-			        )
-			    ));
+
+				$events = get_posts(array(
+					'post_type' => 'avent',
+					'meta_query' => array(
+						array(
+							'key' => 'performing_artists', // name of custom field
+							'value' => '"' . $artist->ID . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
+							'compare' => 'LIKE'
+						),
+						array(
+					        'key'		=> 'date',
+					        'compare'	=> '>=',
+					        'value'		=>  current_time("Ymd") // today's date
+	    				)
+					)
+				));
 
 			?>
 
@@ -112,7 +113,7 @@
 	                ?>
 					
 					<div class='modal-bleed c-section c-section--short'>
-						<a href='<?php the_permalink() ?>' class='container_link'>
+						<a href="<?php echo get_template_directory_uri()?>/modal-templates/event-modal.php?eventId= <?php echo $event_id?>" class="modal-link event-link container_link">
 							<img src='<?php echo $thumb_url ?>' alt=''>
 						</a>
 					</div>
@@ -120,12 +121,12 @@
 
 	                <div class='row'>
 	                	<div class='col-md-7'>
-	                		<?php get_template_part("templates/cancellation-policy" ); ?>
+	                		<?php // get_template_part("templates/cancellation-policy" ); ?>
 	                	</div>
 	                	<div class='col-md-5'>
 	                		<h3>Reserve</h3>
 	                		<div class='stacked-twin'>
-	                			<?php include(locate_template("templates/reservation.php")); ?>
+	                			<?php include(locate_template("template-parts/reservation.php")); ?>
 	                		</div>
 	                	</div>
 	                </div>

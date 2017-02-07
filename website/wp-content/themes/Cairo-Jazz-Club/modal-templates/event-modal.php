@@ -14,17 +14,19 @@
     <div class="mfp-modal-content">
         <div class="row">
             <div class="col-md-8">
-		<?php $description = get_field('description', $event->ID, false, false); ?>
+		<?php $description = get_field('description', $event->ID, false); ?>
 		<?php if ($description) : ?>
 		<div class="media-box__content">
 			<h3>Description</h3>
 			<p> <?php echo $description ?> </p>
 		</div>
+		
 		<?php endif; ?>
                 <h2>Performing Artists</h2>
+
                 <?php
 
-                $artists = get_field('performing_artists', $event->ID, false, false);
+                $artists = get_field('performing_artists', $event->ID, false);
                 $query = new WP_Query(array(
                     'post_type' => 'artists',
                     'post__in' => $artists,
@@ -32,14 +34,18 @@
                     'orderby' => 'post__in',
                 ));
                 ?>
+
                 <?php if ($query->have_posts()) : ?>
+
                     <div class="mfp-artists">
+
                         <?php while ($query->have_posts()) : $query->the_post(); ?>
+
                             <div class="artist">
                                 <div class="media-box">
                                     <div class="media-box__img">
                                         <div class="circle circle--md circle--center">
-                                            <a href="<?php the_permalink() ?> " class="event__link modal-link">
+                                            <a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo get_the_ID() ?>" class="modal-link"><h3 class="event__link artist__name">
                                                 <div class="circle__content">
                                                     <?php
 
@@ -57,7 +63,7 @@
 
                                     <div class="media-box__content">
                                         <h3 class="artist__name">
-                                            <a href="<?php the_permalink() ?> " class="event__link modal-link"><?php the_title() ?></a>
+                                            <a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo get_the_ID() ?>" class="modal-link" " class="event__link modal-link"><?php the_title() ?></a>
                                         </h3>
                                         <div class="artist__desc">
                                             <?php echo the_content() ?>
@@ -66,9 +72,11 @@
                                     </div>
                                 </div>
                             </div>
- 			<?php //include(locate_template('templates/artist-modal.php')); ?>
+
                       <?php endwhile; ?>
+
                     </div>
+
                 <?php else: ?>
                     <p>Sorry, there are no artists to display</p>
                 <?php endif; ?>
