@@ -5557,6 +5557,37 @@ input.eg-search-input[type="text"] {
   height: 23% !important;
 }
 
+.esgbox-close {
+  background-image: url(../img/modal-close.png) !important;
+  background-repeat: no-repeat !important;
+}
+
+.esgbox-close {
+  width: 43px !important;
+  height: 42px !important;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), not all, not all {
+  .esgbox-close {
+    background-image: url(../img/modal-close.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: inherit !important;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), not all, not all {
+  .esgbox-next span {
+    background-image: url(../img/next-month-a.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: inherit !important;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), not all, not all {
+  .esgbox-prev span {
+    background-image: url(../img/prev-month-a.png) !important;
+    background-repeat: no-repeat;
+    background-size: inherit !important;
+  }
+}
 /*Ess. Grid filter*/
 .esg-multiplefilters {
   border-style: solid !important;
