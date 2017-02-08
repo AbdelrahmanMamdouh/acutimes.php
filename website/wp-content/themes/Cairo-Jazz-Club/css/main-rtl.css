@@ -4801,6 +4801,18 @@ form span {
   background-image: url(../img/spritesheet.png);
   background-position: 0px 0px;
 }
+.social-icons a.account-loged-in {
+  background-image: none;
+  background-position: 0px 0px;
+  border-radius: 50%;
+  background-size: cover;
+  -webkit-filter: opacity(85%);
+          filter: opacity(85%);
+}
+.social-icons a.account-loged-in:hover {
+  -webkit-filter: opacity(100%);
+          filter: opacity(100%);
+}
 .social-icons a.facebook {
   background-image: url(../img/spritesheet.png);
   background-position: -40px -40px;
