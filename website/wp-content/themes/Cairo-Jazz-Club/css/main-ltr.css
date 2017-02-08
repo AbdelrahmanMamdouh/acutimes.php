@@ -5272,7 +5272,8 @@ form span {
   margin: 0;
 }
 
-.entry-content, .entry-summary {
+.entry-content,
+.entry-summary {
   margin: 0;
 }
 
@@ -5290,6 +5291,30 @@ form span {
   overflow-x: hidden !important;
 }
 
+/*********************************
+ *	Artist modal (Small Screens)
+**********************************/
+@media screen and (max-width: 768px) {
+  .media-box__img {
+    margin-right: 1rem;
+  }
+
+  .media-box__content {
+    float: none;
+    width: inherit;
+    margin-top: 2.5rem;
+  }
+
+  .modal-head .media-box {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .modal-head__title {
+    width: inherit !important;
+    font-size: 2.5rem !important;
+  }
+}
 /*******************************************
  *	FORMS
  *******************************************/
@@ -5607,4 +5632,13 @@ input.eg-search-input[type="text"] {
 
 .esg-loader {
   top: 5% !important;
+}
+
+.mfp-modal.modal-login-header {
+  text-align: -webkit-center;
+  color: black;
+}
+
+.mfp-modal .modal-login-contaner {
+  width: 26%;
 }
