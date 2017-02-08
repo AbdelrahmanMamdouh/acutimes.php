@@ -22,23 +22,23 @@ $positions = array(
 	'circle--md pos-6',
 	'circle--md pos-7'
 );
-/*
+
 $ArtistPositions = array(
-	'circle--xs pos-1',
+	'circle--md pos-1',
 	'circle--xs pos-2',
 	'circle--xs pos-3',
-	'circle--md pos-4',
+	'circle--xs pos-4',
 	'circle--sm pos-5',
 	'circle--md pos-6',
-	'circle--sm pos-7'
+	'circle--xs pos-7'
 );
-*/
+/*
 $ArtistPositions = array(
 	'circle--md pos-1',
 	'circle--md pos-2',
 	'circle--md pos-3',
 );
-
+*/
 $i = 0;
 ?>
 <div class="desktop-events hidden-xs">
