@@ -15,6 +15,7 @@
                     'post_status' => 'any',
                     'orderby' => 'post__in',
                 ));
+                $date=get_field('date',false,false);
                 ?>
                 <?php if ($query->have_posts()) : ?>
                     <div class="mfp-artists">

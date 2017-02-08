@@ -10,7 +10,7 @@ if (isset($_POST['logout'])) {
 	
 	<?php if ($eventDate >= $todayDate):  ?>
 
-		<?php if ($init->IsLogged() && $init->isApproved() && $private==null): ?> 
+		<?php if ($init->IsLogged() && $init->isApproved() && $private=='0' && !($date==$todayDate && $time <= $this_time)): ?> 
 
 			<div id="respond-<?php echo $event_id ?>">
 				<?php echo $response; ?>
