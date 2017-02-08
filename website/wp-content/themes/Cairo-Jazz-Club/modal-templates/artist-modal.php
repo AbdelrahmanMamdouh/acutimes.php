@@ -119,10 +119,25 @@
 	                
 
 	                <div class='row'>
-	                	<div class='col-md-7'>
+						<!-- <div class='col-md-7'>
 	                		<?php // get_template_part("templates/cancellation-policy" ); ?>
+	                	</div> -->
+	                	<div class='col-md-7'>
+	                	<?php $description = get_field('description', false, false); ?>
+						<?php if ($description) : ?>
+							<div class="media-box__content">
+								<h3>Description</h3>
+								<p> <?php echo $description ?> </p>
+							</div>
+						<?php endif; ?>
 	                	</div>
 	                	<div class='col-md-5'>
+	                	<?php $date = get_field('date', false); ?>
+						<?php if ($date) : ?>
+							<div class="media-box__content">
+								<p> <?php echo $date ?> </p>
+							</div>
+						<?php endif; ?>
 	                		<h3>Reserve</h3>
 	                		<div class='stacked-twin'>
 	                			<?php include(locate_template("template-parts/reservation.php")); ?>
