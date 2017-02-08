@@ -5,6 +5,7 @@ if (isset($_POST['logout'])) {
 	wp_redirect(get_permalink());
 	exit();
 }
+$fbUser = $init->getUserDetails();
 ?>
 <div>
 	
@@ -28,7 +29,15 @@ if (isset($_POST['logout'])) {
 
 		<?php elseif ($init->IsLogged()): ?>
 
-			<h2>Welcome! <?php echo $init->getUserName(); ?></h2>
+			<div class="media-box__img">
+				<div class="circle circle--sm circle--center">
+					<div class="circle__content">
+						<img width=280px src="<?php echo $fbUser->user_picture ?>" alt="<?php echo $fbUser->user_name ?>">
+					</div>
+				</div>
+			</div>
+
+			<h2>Welcome! <?php echo $fbUser->user_name ?></h2>
 			<p><?php echo __('unfortunately reservations are now unavailable!')?></p>
 			<form method="post" action=".">
 				<button name="logout" class="btn btn-facebook" type="submit">Logout</button>
