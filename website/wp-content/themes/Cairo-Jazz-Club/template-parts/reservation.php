@@ -38,7 +38,7 @@ if (isset($_POST['logout'])) {
 
 			<p><?php echo __('You need to be logged in before you can reserve!')?></p>
 			<div class="button-twin">
-				<a class="btn btn-facebook" href="<?php echo get_the_permalink($event_id) ?>">Login</a>
+				<a class="btn btn-facebook" href="<?php echo htmlspecialchars($init->getLoginURl(get_the_permalink())) ?>">Login</a>
 			</div>
 
 		<?php endif; ?>
