@@ -5272,6 +5272,11 @@ form span {
   background-size: cover;
 }
 
+@media screen and (max-width: 768px) {
+  .parallax__content {
+    background-image: none;
+  }
+}
 /*******************************************
  *	FORMS
  *******************************************/
