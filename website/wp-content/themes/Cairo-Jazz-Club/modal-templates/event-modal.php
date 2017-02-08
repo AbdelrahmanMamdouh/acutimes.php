@@ -5,6 +5,7 @@
     $thumb_id = get_post_thumbnail_id($event->ID);
     $image_url_array = wp_get_attachment_image_src($thumb_id, 'hero-mfp', true);
     $image_url = $image_url_array[0];
+    $private = get_field('private',$event->ID,false);
 ?>
 
 <div class="mfp-modal" id="event-modal-<?php echo $event->ID ?>">
@@ -25,7 +26,6 @@
                 <h2>Performing Artists</h2>
 
                 <?php
-
                 $artists = get_field('performing_artists', $event->ID, false);
                 $query = new WP_Query(array(
                     'post_type' => 'artists',
@@ -63,7 +63,7 @@
 
                                     <div class="media-box__content">
                                         <h3 class="artist__name">
-                                            <a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo get_the_ID() ?>" class="modal-link" " class="event__link modal-link"><?php the_title() ?></a>
+                                            <a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo get_the_ID() ?>" class="modal-link"  class="event__link modal-link"><?php the_title() ?></a>
                                         </h3>
                                         <div class="artist__desc">
                                             <?php echo the_content() ?>
