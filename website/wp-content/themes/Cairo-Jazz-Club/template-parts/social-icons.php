@@ -15,7 +15,7 @@ $youtube	= get_theme_mod('cjc-social-media-youtube');
 
 <ul class="social-icons">
 	<?php if($login) { ?>
-		<li><a class="account" href="<?php echo $login ?>">Account</a></li>
+		<li><a class="account modal-link" href="<?php echo get_template_directory_uri()?>/modal-templates/login-modal.php">Account</a></li>
 	<?php } ?>
 	<?php if($facebook) { ?>
 		<li><a class="facebook" target="_blank" href="<?php echo $facebook ?>">Facebook</a></li>
