@@ -46,3 +46,11 @@
 	float: left;
 	background-size: cover;
 }
+
+/**************************************************
+ *	fix magnific popup conflixt bug with scrolling
+***************************************************/
+
+.hide-horizontal-scrollbar {
+    overflow-x: hidden !important;
+}

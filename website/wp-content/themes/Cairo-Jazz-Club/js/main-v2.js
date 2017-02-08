@@ -32,8 +32,23 @@ var Init = (function ($) {
 		// init Magnific Popup on each element with "modal-link" class
 		$('body').magnificPopup({
 			delegate: '.modal-link',
-			type: 'ajax'
-		})
+			type: 'ajax',
+
+			/**
+			* Remove and re-add the class to fix a scroll bug.
+			* add you new function here to be automaticly run on each page load
+			* open(): Will fire when the popup is OPENED
+			* afterClose():Will fire when the popup is COMPLETELY CLOSED 
+			*/
+			callbacks: {
+				open: function() {
+					$('body').removeClass('hide-horizontal-scrollbar');
+				},
+				afterClose: function() {
+					$('body').addClass('hide-horizontal-scrollbar');
+				}
+			}
+		}).addClass('hide-horizontal-scrollbar'); // Add the class for the first time in init.
 	}
 
 	Init.HomeParallaxSlider = function () {
