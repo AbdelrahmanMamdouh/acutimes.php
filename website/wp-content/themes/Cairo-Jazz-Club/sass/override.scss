@@ -19,10 +19,8 @@
  *	essential grid
  *******************************************/
 @import "override/_ess-grid.scss";
-.mfp-modal.modal-login-header{
-    text-align: -webkit-center;
-    color: black;
-}
-.mfp-modal .modal-login-contaner{
-    width: 26%;
-}
+
+/*******************************************
+ *	modals
+ *******************************************/
+@import "override/_modal.scss";

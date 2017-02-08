@@ -5431,11 +5431,6 @@ form span {
   color: #333;
 }
 
-/* events modal popup */
-.mfp-modal {
-  max-width: 750px !important;
-}
-
 /*******************************************
  *	essential grid
  *******************************************/
@@ -5677,6 +5672,13 @@ input.eg-search-input[type="text"] {
   top: 5% !important;
 }
 
+/*******************************************
+ *	modals
+ *******************************************/
+.mfp-modal {
+  max-width: 750px !important;
+}
+
 .mfp-modal.modal-login-header {
   text-align: -webkit-center;
   color: black;
@@ -5684,4 +5686,16 @@ input.eg-search-input[type="text"] {
 
 .mfp-modal .modal-login-contaner {
   width: 26%;
+}
+
+.mfp-modal {
+  color: black;
+}
+
+.mfp-modal .modal-login-contaner {
+  width: 26%;
+}
+
+.event-modal {
+  width: 100%;
 }
