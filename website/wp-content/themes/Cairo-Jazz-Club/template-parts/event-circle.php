@@ -33,7 +33,7 @@
     </a>
 </div>
 <div class="visible-xs">
-    <a href="<?php the_permalink() ?>" class="event__link <?php echo $status ?> <?php echo $term_list[0]->slug ?>">
+    <a href="<?php echo get_template_directory_uri() ?>/modal-templates/event-modal.php?eventId=<?php echo $event_id ?>" class="event__link modal-link <?php echo $status ?> <?php echo $term_list[0]->slug ?>">
 
         <div class="circle__content">
             <div class="date">
