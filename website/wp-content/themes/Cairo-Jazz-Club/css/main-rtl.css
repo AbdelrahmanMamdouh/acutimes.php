@@ -4400,6 +4400,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
   width: 728px;
 }
 .mfp-modal-content {
+  width: 99%;
   position: relative;
   border-style: solid;
   border-width: 35px 50px 50px 40px;
