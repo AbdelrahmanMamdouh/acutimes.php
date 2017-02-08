@@ -112,8 +112,8 @@
 	                ?>
 					
 					<div class='modal-bleed c-section c-section--short'>
-						<a href="<?php echo get_template_directory_uri()?>/modal-templates/event-modal.php?eventId= <?php echo $event_id?>" class="modal-link event-link container_link">
-							<img src='<?php echo $thumb_url ?>' alt=''>
+						<a    href="<?php echo get_template_directory_uri()?>/modal-templates/event-modal.php?eventId= <?php echo $event_id?>" class="modal-link event-link container_link">
+							<img  src='<?php echo $thumb_url ?>' style="width:100%" alt=''>
 						</a>
 					</div>
 	                
