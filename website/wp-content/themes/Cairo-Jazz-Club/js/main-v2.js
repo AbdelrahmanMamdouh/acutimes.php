@@ -31,22 +31,41 @@ var Init = (function ($) {
 	Init.MagnificPopup = function () {
 		// init Magnific Popup on each element with "modal-link" class
 		$('body').magnificPopup({
-		    delegate: '.modal-link',
-		    type: 'ajax'
+			delegate: '.modal-link',
+			type: 'ajax'
 		})
 	}
 
 	Init.HomeParallaxSlider = function () {
 		// build controller
 		var controller = new ScrollMagic.Controller({ vertical: true });
-
-		// build tween
-		var tween = TweenMax.fromTo(".parallax", 1, { bottom: 182 }, { bottom: 7975 });
-
+		var tween;
 		// build scene
-		var scene = new ScrollMagic.Scene({ duration: 10000 })
-			.setTween(tween)
-			.addTo(controller);
+		var scene = new ScrollMagic.Scene({ duration: 10000 });
+		scene.addTo(controller);
+
+		var pararezize = function () {
+
+			var buttonStart = 182;
+			var winWidth = $(window).width();
+			
+			if (winWidth <= 600) {
+				buttonStart = 70;
+			} else if (winWidth <= 768) {
+				buttonStart = 60;
+			} else if (winWidth <= 1024) {
+				buttonStart = 110;
+			};
+
+			tween = TweenMax.fromTo(".parallax", 1, { bottom: buttonStart }, { bottom: 7975 });
+			scene.setTween(tween);
+
+		};
+
+		pararezize();
+
+		$(window).bind("resize", pararezize);
+
 
 		// Events Slider
 		$('.events-slider').slick({
