@@ -428,8 +428,8 @@ footer {
 			position: relative;
 			top: auto;
 			bottom: auto;
-
-			background-image: url('../img/gallery-1.jpg');
+			height: 0px; //<--- new
+			//background-image: url('../img/gallery-1.jpg');
 			background-size: cover;
 		}
 	}

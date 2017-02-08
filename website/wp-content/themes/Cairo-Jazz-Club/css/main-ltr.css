@@ -4090,7 +4090,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
     position: relative;
     top: auto;
     bottom: auto;
-    background-image: url("../img/gallery-1.jpg");
+    height: 0px;
     background-size: cover;
   }
 }
@@ -5250,6 +5250,16 @@ form span {
     top: 46px;
   }
 }
+@media screen and (max-width: 600px) {
+  .admin-bar #masthead {
+    top: 0px;
+  }
+
+  #wpadminbar {
+    top: -44px;
+    z-index: 999;
+  }
+}
 #masthead {
   z-index: 1000;
 }
@@ -5272,11 +5282,6 @@ form span {
   background-size: cover;
 }
 
-@media screen and (max-width: 768px) {
-  .parallax__content {
-    background-image: none;
-  }
-}
 /*******************************************
  *	FORMS
  *******************************************/
