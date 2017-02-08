@@ -10,11 +10,11 @@ if (isset($_POST['logout'])) {
 	
 	<?php if ($eventDate >= $todayDate):  ?>
 
-		<?php if ($init->IsLogged() && $init->isApproved()): ?> 
+		<?php if ($init->IsLogged() && $init->isApproved() && $private==null): ?> 
 
 			<div id="respond-<?php echo $event_id ?>">
 				<?php echo $response; ?>
-				<form action="<?php echo get_site_url() . "/reserve/event/{$event_id}/" ?>" method="post" id="reserve-ticket">
+				<form action="<?php echo get_site_url() . "/reserve/event/{$event_id}/" ?>" method="post" id="reserve-ticket">                
 					<p><label for="attendees">Number of people</label></p>
 					<p class="attendees">
 						<input type="text" name="attendees" value="1" class="attendees-field num-organ">
