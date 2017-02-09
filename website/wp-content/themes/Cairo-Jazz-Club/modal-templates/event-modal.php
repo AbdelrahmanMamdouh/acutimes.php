@@ -6,6 +6,10 @@
     $image_url_array = wp_get_attachment_image_src($thumb_id, 'hero-mfp', true);
     $image_url = $image_url_array[0];
     $private = get_field('private',$event->ID,false);
+    $date = get_field('date',$event->ID,false);
+    $today= date("Ymd");
+    $time = '20:00:00';
+    $thistime=current_time("G:i:s");
 ?>
 
 <div class="mfp-modal" id="event-modal-<?php echo $event->ID ?>">
