@@ -52,7 +52,21 @@ var Init = (function ($) {
 		// init inline Magnific Popup on each element with "modal-link-inline" class which is inside a containter with "social-icons" class
 		$('.social-icons').magnificPopup({
 			delegate: '.modal-link-inline',
-			type: 'inline'
+			type: 'inline',
+
+			/**
+			* Remove and re-add the class to fix a scroll bug.
+			* open(): Will fire when the popup is OPENED
+			* afterClose():Will fire when the popup is COMPLETELY CLOSED 
+			*/
+			callbacks: {
+				open: function() {
+					$('body').removeClass('hide-horizontal-scrollbar');
+				},
+				afterClose: function() {
+					$('body').addClass('hide-horizontal-scrollbar');
+				}
+			}
 		})
 
 	}
