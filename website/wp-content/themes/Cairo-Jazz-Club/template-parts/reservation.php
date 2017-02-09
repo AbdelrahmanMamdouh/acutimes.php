@@ -1,11 +1,10 @@
 <?php
-global $init;
+global $init , $fbUser;
 if (isset($_POST['logout'])) {
 	$init->fbLogout();
 	wp_redirect(get_permalink());
 	exit();
 }
-$fbUser = $init->getUserDetails();
 ?>
 <div>
 	

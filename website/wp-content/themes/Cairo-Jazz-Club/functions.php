@@ -221,7 +221,10 @@ require get_template_directory() . '/ess-grid-mods/meta-tags.php';
 require get_template_directory().'/rest-api-mods/albums.php';
 
 try {
-	if(class_exists('fb_login'))  $init = new fb_login() ;
+	if( class_exists('fb_login') ) {
+		$init = new fb_login();
+		$fbUser = $init->getUserDetails();
+	}
 } catch (Exception $e) {
-	$init = null; // if the api key is unset
+	$init = $fbUser = null; // if the api key is unset
 }
