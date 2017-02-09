@@ -1,11 +1,5 @@
-<?php
-global $init , $fbUser;
-if (isset($_POST['logout'])) {
-	$init->fbLogout();
-	wp_redirect(get_permalink());
-	exit();
-}
-?>
+<?php global $init , $fbUser; ?>
+
 <div>
 	
 	<?php if (($today-$date)<=1):  ?>
@@ -39,9 +33,7 @@ if (isset($_POST['logout'])) {
 			<h2>Welcome! <?php echo $fbUser->user_name ?></h2>
             <img src="<?php echo get_template_directory_uri()?>/img/eye.png"></img>
 			<p><?php echo __('unfortunately reservations are now unavailable!')?></p>
-			<form method="post" action=".">
-				<button name="logout" class="btn btn-facebook" type="submit">Logout</button>
-			</form>
+			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/cjc-logout/') ?>">logout</a>
 
 		<?php else: ?>
 
