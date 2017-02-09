@@ -17,9 +17,9 @@ $youtube	= get_theme_mod('cjc-social-media-youtube');
 <ul class="social-icons">
 
 	<?php if( !$init->IsLogged() ) { ?>
-		<li><a class="account modal-link" href="<?php echo get_template_directory_uri()?>/modal-templates/login-modal.php">Account</a></li>
+		<li><a class="account modal-link-inline" href="#login-modal">Account</a></li>
 	<?php } else { ?>
-		<li><a class="account-loged-in modal-link" href="<?php echo get_template_directory_uri()?>/modal-templates/logout-modal.php" style = 'background-image: url(<?php echo $fbUser->user_picture ?>); '><?php echo $fbUser->user_name ?></a></li>
+		<li><a class="account-loged-in modal-link-inline" href="#logout-modal" style = 'background-image: url(<?php echo $fbUser->user_picture ?>); '><?php echo $fbUser->user_name ?></a></li>
 	<?php }?>
 
 	<?php if($facebook) { ?>
@@ -35,3 +35,8 @@ $youtube	= get_theme_mod('cjc-social-media-youtube');
 	<?php } ?>
 
 </ul>
+
+<?php 
+	require_once(locate_template('modal-templates/login-modal.php'));
+	require_once(locate_template('modal-templates/logout-modal.php'));
+?>

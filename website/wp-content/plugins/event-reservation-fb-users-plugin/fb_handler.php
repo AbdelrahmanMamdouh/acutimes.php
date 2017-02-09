@@ -156,12 +156,19 @@ class fb_login extends Facebook\Facebook {
 
 	public function fbLogout() {
 		//$this->helper->logout();
-		$_SESSION['fb_access_token'] = NULL;
-		$_SESSION['return_to_url'] = NULL;
 		if (PHP_VERSION_ID >= 50600) {
 			session_abort();
 		}
+
+		/*
+		* In order to kill the session altogether, like to log the user out, the session id must also be unset. If a cookie is used to propagate the session id
+		* (default behavior), then the session cookie must be deleted. setcookie() may be used for that.
+		*/
 		session_unset();
+		session_destroy();
+		session_write_close();
+		setcookie(session_name(),'',0,'/');
+		session_regenerate_id(true);
 	}
 
 	public function getUserName() {

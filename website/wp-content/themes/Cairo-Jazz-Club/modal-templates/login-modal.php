@@ -1,12 +1,9 @@
-<?php
-    require_once('../../../../wp-load.php');
-?>
 <style>
 	.mfp-auto-cursor .mfp-content {
 		max-width: 340px;
 	}
 </style>
-<div class='mfp-modal' id="login-modal">
+<div class='mfp-hide mfp-modal' id="login-modal">
 
 	<div class="mfp-modal-content">
 
@@ -20,12 +17,12 @@
 			</div>
 		<?php endif; ?>
 		<div>
-			<a class="btn btn-facebook" style="width:100%" href="">Sign in with facebook</a><br>
+			<a class="btn btn-facebook" style="width:100%" href="<?php echo htmlspecialchars($init->getLoginURl(get_the_permalink())) ?>">Sign in with facebook</a><br>
 		</div>
 		<div>
 			<small> 
 				<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-				We don't post anything to facebook
+				We don't post anything to facebook 
 			</small>
 		</div>
 	</div>

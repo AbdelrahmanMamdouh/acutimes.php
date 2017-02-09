@@ -1,12 +1,9 @@
-<?php
-    require_once('../../../../wp-load.php');
-?>
 <style>
 	.mfp-auto-cursor .mfp-content {
 		max-width: 340px;
 	}
 </style>
-<div class='mfp-modal' id="login-modal">
+<div class='mfp-hide mfp-modal' id="logout-modal">
 
 	<div class="mfp-modal-content">
 
@@ -20,7 +17,7 @@
 			</div>
 		<?php endif; ?>
 		<div>
-			<a class="btn btn-facebook" style="width:100%" href="">logout</a><br>
+			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/cjc-logout/') ?>">logout</a><br>
 		</div>
 	</div>
 

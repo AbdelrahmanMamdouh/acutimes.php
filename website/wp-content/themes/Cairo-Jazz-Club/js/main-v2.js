@@ -49,6 +49,12 @@ var Init = (function ($) {
 				}
 			}
 		}).addClass('hide-horizontal-scrollbar'); // Add the class for the first time in init.
+
+		$('body').magnificPopup({
+			delegate: '.modal-link-inline',
+			type: 'inline'
+		})
+
 	}
 
 	Init.HomeParallaxSlider = function () {
