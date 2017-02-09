@@ -26,7 +26,7 @@ function cptui_register_my_taxes() {
 		"rest_base" => "",
 		"show_in_quick_edit" => false,
 	);
-	register_taxonomy( "genre", array( "artist" ), $args );
+	register_taxonomy( "genre", array( "artists" ), $args );
 
 	/**
 	 * Taxonomy: Night Types.
@@ -53,7 +53,7 @@ function cptui_register_my_taxes() {
 		"rest_base" => "",
 		"show_in_quick_edit" => false,
 	);
-	register_taxonomy( "night-type", array( "artist" ), $args );
+	register_taxonomy( "night-type", array( "avent", "artists" ), $args );
 
 	/**
 	 * Taxonomy: Artists Status.

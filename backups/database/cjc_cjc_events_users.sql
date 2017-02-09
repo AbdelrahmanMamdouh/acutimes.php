@@ -31,7 +31,7 @@ CREATE TABLE `cjc_events_users` (
   `user_id` varchar(512) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `user_status` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `cjc_events_users` (
 
 LOCK TABLES `cjc_events_users` WRITE;
 /*!40000 ALTER TABLE `cjc_events_users` DISABLE KEYS */;
+INSERT INTO `cjc_events_users` VALUES (1,'Marc Wafik William','https://scontent.xx.fbcdn.net/v/t1.0-1/c56.56.700.700/s50x50/178994_4152687979200_1558462458_n.jpg?oh=2c2f9d03bd9dc0e504f132d867e874f0&oe=5906AD74','https://www.facebook.com/app_scoped_user_id/10212284048400056/','marc.wafik@hotmail.com','10212284048400056',''),(2,'Mohammed Magdy','https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12644895_832294850229899_7976505532329613399_n.jpg?oh=bf25ae86fb310255ef248a217d0c9169&oe=59448B11','https://www.facebook.com/app_scoped_user_id/1114074718718576/','mohammed_magdy_ali@yahoo.com','1114074718718576',NULL),(3,'Abdo Mamdouh Ali','https://scontent.xx.fbcdn.net/v/t1.0-1/c0.10.50.50/p50x50/15622597_1363438320373630_8769020919059326707_n.jpg?oh=11cd8b476439f2e4f63bf04cabb016c7&oe=594C310B','https://www.facebook.com/app_scoped_user_id/1410221429028652/','poparab_2012@yahoo.com','1410221429028652','');
 /*!40000 ALTER TABLE `cjc_events_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-07 18:30:02
+-- Dump completed on 2017-02-09  2:08:32

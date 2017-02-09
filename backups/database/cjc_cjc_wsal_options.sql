@@ -36,7 +36,7 @@ CREATE TABLE `cjc_wsal_options` (
 
 LOCK TABLES `cjc_wsal_options` WRITE;
 /*!40000 ALTER TABLE `cjc_wsal_options` DISABLE KEYS */;
-INSERT INTO `cjc_wsal_options` VALUES (1,'wsal-pruning-date','1 month'),(2,'wsal-pruning-limit-e','1'),(3,'wsal-pruning-limit','5000'),(4,'wsal-disabled-alerts','2099'),(5,'wsal-log-404','on'),(6,'wsal-purge-404-log','on'),(7,'wsal-promo-send-id','0');
+INSERT INTO `cjc_wsal_options` VALUES (1,'wsal-pruning-date','1 month'),(2,'wsal-pruning-limit-e','1'),(3,'wsal-pruning-limit','5000'),(4,'wsal-disabled-alerts','2099'),(5,'wsal-log-404','on'),(6,'wsal-purge-404-log','on'),(7,'wsal-promo-send-id','2');
 /*!40000 ALTER TABLE `cjc_wsal_options` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-07 18:32:48
+-- Dump completed on 2017-02-09  2:10:58

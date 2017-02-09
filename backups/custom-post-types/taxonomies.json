@@ -40,7 +40,7 @@
 			"items_list": ""
 		},
 		"object_types": [
-			"artist"
+			"artists"
 		]
 	},
 	"night-type": {
@@ -84,7 +84,8 @@
 			"items_list": ""
 		},
 		"object_types": [
-			"artist"
+			"avent",
+			"artists"
 		]
 	},
 	"artist_status": {

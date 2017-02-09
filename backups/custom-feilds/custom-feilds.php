@@ -566,6 +566,25 @@ acf_add_local_field_group(array (
 				'id' => '',
 			),
 		),
+		array (
+			'default_value' => 0,
+			'message' => '',
+			'ui' => 0,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
+			'key' => 'field_589a352106436',
+			'label' => 'private',
+			'name' => 'private',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+		),
 	),
 	'location' => array (
 		array (
