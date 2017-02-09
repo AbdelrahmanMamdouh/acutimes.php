@@ -1,9 +1,4 @@
-<style>
-	.mfp-auto-cursor .mfp-content {
-		max-width: 340px;
-	}
-</style>
-<div class='mfp-hide mfp-modal' id="login-modal">
+<div class='mfp-hide mfp-modal' id="login-modal" style="max-width: 340px !important">
 
 	<div class="mfp-modal-content">
 
