@@ -36,7 +36,6 @@ var Init = (function ($) {
 
 			/**
 			* Remove and re-add the class to fix a scroll bug.
-			* add you new function here to be automaticly run on each page load
 			* open(): Will fire when the popup is OPENED
 			* afterClose():Will fire when the popup is COMPLETELY CLOSED 
 			*/
@@ -50,7 +49,8 @@ var Init = (function ($) {
 			}
 		}).addClass('hide-horizontal-scrollbar'); // Add the class for the first time in init.
 
-		$('body').magnificPopup({
+		// init inline Magnific Popup on each element with "modal-link-inline" class which is inside a containter with "social-icons" class
+		$('.social-icons').magnificPopup({
 			delegate: '.modal-link-inline',
 			type: 'inline'
 		})
