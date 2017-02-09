@@ -8,9 +8,9 @@ if (isset($_POST['logout'])) {
 ?>
 <div>
 	
-	<?php if ($eventDate >= $todayDate):  ?>
+	<?php if (($today-$date)<=1):  ?>
 
-		<?php if ($init->IsLogged() && $init->isApproved() && $private=='0' && !($date==$todayDate && $time <= $this_time)): ?> 
+		<?php if ($init->IsLogged() && $init->isApproved() && ($private=='0'||$private==null) && !($date==$todayDate && $time <= $this_time)): ?> 
 
 			<div id="respond-<?php echo $event_id ?>">
 				<?php echo $response; ?>
@@ -37,6 +37,7 @@ if (isset($_POST['logout'])) {
 			</div>
 
 			<h2>Welcome! <?php echo $fbUser->user_name ?></h2>
+            <img src="<?php echo get_template_directory_uri()?>/img/eye.png"></img>
 			<p><?php echo __('unfortunately reservations are now unavailable!')?></p>
 			<form method="post" action=".">
 				<button name="logout" class="btn btn-facebook" type="submit">Logout</button>
@@ -46,7 +47,7 @@ if (isset($_POST['logout'])) {
 
 			<p><?php echo __('You need to be logged in before you can reserve!')?></p>
 			<div class="button-twin">
-				<a class="btn btn-facebook" href="<?php echo htmlspecialchars($init->getLoginURl(get_the_permalink())) ?>">Login</a>
+				<a class="btn btn-facebook" href="<?php echo htmlspecialchars($init->getLoginURl(get_the_permalink(get_page_by_title( 'Events' )))) ?>">Login</a>
 			</div>
 
 		<?php endif; ?>
