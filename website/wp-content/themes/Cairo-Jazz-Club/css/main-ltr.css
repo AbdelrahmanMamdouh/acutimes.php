@@ -4255,6 +4255,9 @@ footer h2, footer .h2, footer h3, footer .h3 {
   width: 260px;
   height: 260px;
 }
+.circle--xl img {
+  height: 255px;
+}
 .circle--lg {
   border-style: solid;
   border-width: 35px;
@@ -4262,6 +4265,9 @@ footer h2, footer .h2, footer h3, footer .h3 {
   border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
   width: 200px;
   height: 200px;
+}
+.circle--lg img {
+  height: 195px;
 }
 .circle--md {
   border-style: solid;
@@ -4271,6 +4277,9 @@ footer h2, footer .h2, footer h3, footer .h3 {
   width: 150px;
   height: 150px;
 }
+.circle--md img {
+  height: 145px;
+}
 .circle--sm {
   border-style: solid;
   border-width: 20px;
@@ -4279,6 +4288,9 @@ footer h2, footer .h2, footer h3, footer .h3 {
   width: 100px;
   height: 100px;
 }
+.circle--sm img {
+  height: 95px;
+}
 .circle--xs {
   border-style: solid;
   border-width: 10px;
@@ -4286,6 +4298,9 @@ footer h2, footer .h2, footer h3, footer .h3 {
   border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
   width: 50px;
   height: 50px;
+}
+.circle--xs img {
+  height: 45px;
 }
 
 .past {
@@ -4397,7 +4412,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .mfp-modal .modal-image {
   margin-left: 16px;
-  width: 728px;
+  width: 723px;
 }
 .mfp-modal-content {
   width: 99%;
