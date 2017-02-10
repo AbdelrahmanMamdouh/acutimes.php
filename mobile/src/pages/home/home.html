@@ -9,7 +9,38 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+    <ion-slides class="Slides">
+        <ion-slide *ngFor="let slide of slides">
+            <img [src]="slide.image" />
+        </ion-slide>
+    </ion-slides>
+
+
+    <ion-row class="background">
+        <ion-col text-center>
+            <img src="assets/img/BG.png" />
+        </ion-col>
+    </ion-row>
+
+    <ion-row class="content">
+        <ion-col text-center>
+            <div class="events-slider">
+                <div *ngFor="let event of events">
+                    <div class="circle circle--md">
+                        <div class="circle__content">
+                            <div class="date">
+                                {{ event.date }}
+                            </div>
+                            <img [src]="event.image" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </ion-col>
+    </ion-row>
 
 </ion-content>
 
