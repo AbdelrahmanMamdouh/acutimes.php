@@ -1,3 +1,10 @@
 @charset "utf-8";
 
 @import "website/main-ltr";
+
+
+ion-content , .content-md {
+    background-color: #214e58;
+    background-image: url(../assets/img/pattern.png);
+    background-position: top right;
+}

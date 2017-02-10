@@ -4,7 +4,7 @@
 
 $slick-font-path: "../fonts/slick/" !default;
 $slick-font-family: "slick" !default;
-$slick-loader-path: "../img/" !default;
+$slick-loader-path: "../assets/img/" !default;
 $slick-arrow-color: white !default;
 $slick-dot-color: black !default;
 $slick-dot-color-active: $slick-dot-color !default;
@@ -247,11 +247,11 @@ $slick-opacity-not-active: 0.25 !default;
 		padding: 0;
 
 		&.account {
-			background-image: url(../img/spritesheet.png);
+			background-image: url(../assets/img/spritesheet.png);
 			background-position: -40px 0px;
 
 			&:hover {
-				background-image: url(../img/spritesheet.png);
+				background-image: url(../assets/img/spritesheet.png);
 				background-position: 0px 0px;
 			}
 		}
@@ -270,31 +270,31 @@ $slick-opacity-not-active: 0.25 !default;
 		}
 
 		&.facebook {
-			background-image: url(../img/spritesheet.png);
+			background-image: url(../assets/img/spritesheet.png);
 			background-position: -40px -40px;
 
 			&:hover {
-				background-image: url(../img/spritesheet.png);
+				background-image: url(../assets/img/spritesheet.png);
 				background-position: 0px -40px;
 			}
 		}
 
 		&.twitter {
-			background-image: url(../img/spritesheet.png);
+			background-image: url(../assets/img/spritesheet.png);
 			background-position: -80px -40px;
 
 			&:hover {
-				background-image: url(../img/spritesheet.png);
+				background-image: url(../assets/img/spritesheet.png);
 				background-position: -80px 0px;
 			}
 		}
 
 		&.youtube {
-			background-image: url(../img/spritesheet.png);
+			background-image: url(../assets/img/spritesheet.png);
 			background-position: -40px -80px;
 
 			&:hover {
-				background-image: url(../img/spritesheet.png);
+				background-image: url(../assets/img/spritesheet.png);
 				background-position: 0px -80px;
 			}
 		}
@@ -416,7 +416,7 @@ $slick-opacity-not-active: 0.25 !default;
 .calendar .clndr .clndr-controls .clndr-previous-button {
 	width: 35px;
 	height: 45px;
-	background: url('../img/prev-month-a.png') no-repeat;
+	background: url('../assets/img/prev-month-a.png') no-repeat;
 }
 .calendar .clndr .clndr-controls .month {
   text-align: center;
@@ -431,7 +431,7 @@ $slick-opacity-not-active: 0.25 !default;
 .calendar .clndr .clndr-controls .clndr-next-button {
 	width: 35px;
 	height: 45px;
-	background: url('../img/next-month-a.png') no-repeat;
+	background: url('../assets/img/next-month-a.png') no-repeat;
 }
 .calendar .clndr .clndr-grid {
   text-align: center;
@@ -440,10 +440,10 @@ $slick-opacity-not-active: 0.25 !default;
 
   border-style: solid;
   border-width: 10px 10px 15px;
-  -moz-border-image: url(../img/events-bg.png) 53 86 62 97 repeat;
-  -webkit-border-image: url(../img/events-bg.png) 53 86 62 97 repeat;
-  -o-border-image: url(../img/events-bg.png) 53 86 62 97 repeat;
-  border-image: url(../img/events-bg.png) 53 86 62 97 fill repeat;
+  -moz-border-image: url(../assets/img/events-bg.png) 53 86 62 97 repeat;
+  -webkit-border-image: url(../assets/img/events-bg.png) 53 86 62 97 repeat;
+  -o-border-image: url(../assets/img/events-bg.png) 53 86 62 97 repeat;
+  border-image: url(../assets/img/events-bg.png) 53 86 62 97 fill repeat;
 }
 .calendar .clndr .clndr-grid .header-day {
   float: left;

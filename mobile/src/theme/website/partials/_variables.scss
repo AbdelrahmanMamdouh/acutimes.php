@@ -76,16 +76,16 @@ $v-margin: 4rem;
 	border-style: solid;
 	
 	@if $position == 'top' {
-		-moz-border-image:url("../img/border.png") 30 30 round; /* Firefox */
-		-webkit-border-image:url("../img/border.png") 30 30 round; /* Safari */
-		-o-border-image:url("../img/border.png") 30 30 round; /* Opera */
-		border-image:url('../img/border.png') 30 30 round;
+		-moz-border-image:url("../assets/img/border.png") 30 30 round; /* Firefox */
+		-webkit-border-image:url("../assets/img/border.png") 30 30 round; /* Safari */
+		-o-border-image:url("../assets/img/border.png") 30 30 round; /* Opera */
+		border-image:url('../assets/img/border.png') 30 30 round;
 		border-bottom:0;
 	} @else {
-		-moz-border-image:url("../img/border-bottom.png") 30 30 round; /* Firefox */
-		-webkit-border-image:url("../img/border-bottom.png") 30 30 round; /* Safari */
-		-o-border-image:url("../img/border-bottom.png") 30 30 round; /* Opera */
-		border-image:url('../img/border-bottom.png') 30 30 round;
+		-moz-border-image:url("../assets/img/border-bottom.png") 30 30 round; /* Firefox */
+		-webkit-border-image:url("../assets/img/border-bottom.png") 30 30 round; /* Safari */
+		-o-border-image:url("../assets/img/border-bottom.png") 30 30 round; /* Opera */
+		border-image:url('../assets/img/border-bottom.png') 30 30 round;
 		border-top:0;
 	}
 
@@ -97,10 +97,10 @@ $v-margin: 4rem;
 @mixin round-border($size, $border-width:auto) {
 	border-style: solid;
 	border-width: $border-width;
-	-moz-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
-	-webkit-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
-	-o-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
-	border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
+	-moz-border-image: url(../assets/img/circular-border.png) 54 53 54 55 stretch;
+	-webkit-border-image: url(../assets/img/circular-border.png) 54 53 54 55 stretch;
+	-o-border-image: url(../assets/img/circular-border.png) 54 53 54 55 stretch;
+	border-image: url(../assets/img/circular-border.png) 54 53 54 55 fill stretch;
 
 	width: $size;
 	height: $size;
@@ -110,8 +110,8 @@ $v-margin: 4rem;
 @mixin border-two() {
 	border-style: solid;
 	border-width: 10px 20px;
-	-moz-border-image: url(../img/border-2.png) 27 stretch;
-	-webkit-border-image: url(../img/border-2.png) 27 stretch;
-	-o-border-image: url(../img/border-2.png) 27 stretch;
-	border-image: url(../img/border-2.png) 27 fill stretch;
+	-moz-border-image: url(../assets/img/border-2.png) 27 stretch;
+	-webkit-border-image: url(../assets/img/border-2.png) 27 stretch;
+	-o-border-image: url(../assets/img/border-2.png) 27 stretch;
+	border-image: url(../assets/img/border-2.png) 27 fill stretch;
 }
