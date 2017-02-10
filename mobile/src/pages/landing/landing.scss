@@ -9,6 +9,12 @@ page-landing {
 	}
 	.slides {
 		display: inline !important;
+    }
+    .swiper-pagination-bullet-active {
+        background: #fcb034;
+    }
+    ion-content {
+        background-color: #fff !important;
 	}
 
 	.facebook {
