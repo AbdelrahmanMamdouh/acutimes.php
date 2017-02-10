@@ -15,4 +15,18 @@
 
 <ion-content padding>
 
+	<h1>About us</h1>
+
+	<div class="row" *ngFor="let section of sections">
+		<h2>{{section.title}}</h2>
+
+		<div class="circle circle--lg circle-about">
+			<div class="circle__content">
+				<img src="{{section.img}}" alt="">
+			</div>
+		</div>
+
+		<div [innerHTML]="section.content"></div>
+	</div>
+
 </ion-content>
