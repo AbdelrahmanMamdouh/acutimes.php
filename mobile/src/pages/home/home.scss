@@ -1,3 +1,19 @@
 page-home {
-
+    ion-slides.slides {
+        height: inherit;
+    }
+    ion-slides.slides img {
+        height: 45vh !important;
+        width: auto !important;
+    }
+    ion-row.background {
+        margin-top: -60px;
+        z-index: 1000;
+        position: relative;
+    }
+    ion-row.content {
+        margin-top: -250px;
+        position: relative;
+        z-index: 5000;
+    }
 }
