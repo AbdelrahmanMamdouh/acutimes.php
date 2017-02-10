@@ -1,8 +1,14 @@
-.landing-page {
+page-landing {
     .swiper-container {
         height: 57%;
     }
     .slides {
         display: inline;
+    }
+    .swiper-pagination-bullet-active {
+        background: #fcb034;
+    }
+    ion-content {
+        background-color: #fff !important;
     }
 }
