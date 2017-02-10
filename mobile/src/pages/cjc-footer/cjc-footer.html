@@ -7,17 +7,13 @@
 
 
 
-<div class= 'cjc-footer-container'>
 
-	<ul class="social-icons">
+<ul class="social-icons">
 
+	<li><a class="footer-call" target="_system" href="tel:{{phone}}">Call</a></li>
 
-		<li><a class="footer-call" href="tel:+201068804764">Call</a></li>
+	<li (click)='toLocation()'><a class="footer-location">location</a></li>
 
-		<li><a class="footer-location" href="geo:38.897096,-77.036545">location</a></li>
+	<li><a class="footer-facebook" target="_system" href="{{facebook}}">facebook</a></li>
 
-		<li><a class="footer-facebook" href="https://www.facebook.com/CairoJazzClubPage">facebook</a></li>
-		
-	</ul>
-
-</div>
+</ul>

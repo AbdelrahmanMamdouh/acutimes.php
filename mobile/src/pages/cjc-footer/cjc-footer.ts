@@ -15,7 +15,7 @@ export class CjcFooter {
 
 	public phone = '+201068804764';
 	public facebook = 'https://www.facebook.com/CairoJazzClubPage';
-	public location = 'geo:38.897096,-77.036545';
+	public location = '38.897096,-77.036545';
 
 	constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
@@ -23,4 +23,7 @@ export class CjcFooter {
 		console.log('ionViewDidLoad CjcFooter');
 	}
 
+	toLocation() {
+		document.location.href = 'geo:' + this.location;
+	}
 }
