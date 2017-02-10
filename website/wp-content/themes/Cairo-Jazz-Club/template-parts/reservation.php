@@ -2,9 +2,9 @@
 
 <div>
 	
-	<?php if (($today-$date)<=1):  ?>
+	<?php if (($today-$date)<'1' || ($today-$date)==='1' ):  ?>
 
-		<?php if ($init->IsLogged() && $init->isApproved() && ($private=='0'||$private==null) && !($date==$todayDate && $time <= $this_time)): ?> 
+		<?php if ($init->IsLogged() && $init->isApproved() && ($private==='0'||$private===null) && !($date===$todayDate && ($time < $this_time ||$time === $this_time))): ?> 
 
 			<div id="respond-<?php echo $event_id ?>">
 				<?php echo $response; ?>
