@@ -3,7 +3,7 @@
 
 body {
 	background-color: $tertiary-color;
-	background-image: url('../img/pattern.png');
+	background-image: url('../assets/img/pattern.png');
 	background-position: top right;
 }
 
@@ -202,10 +202,10 @@ header {
 
 	&:after {
 		@include rough-border(bottom, auto,-2px);
-		-moz-border-image:url("../img/border-white-bottom.png") 30 30 round; /* Firefox */
-		-webkit-border-image:url("../img/border-white-bottom.png") 30 30 round; /* Safari */
-		-o-border-image:url("../img/border-white-bottom.png") 30 30 round; /* Opera */
-		border-image:url('../img/border-white-bottom.png') 30 30 round;
+		-moz-border-image:url("../assets/img/border-white-bottom.png") 30 30 round; /* Firefox */
+		-webkit-border-image:url("../assets/img/border-white-bottom.png") 30 30 round; /* Safari */
+		-o-border-image:url("../assets/img/border-white-bottom.png") 30 30 round; /* Opera */
+		border-image:url('../assets/img/border-white-bottom.png') 30 30 round;
 	}
 
 
@@ -342,15 +342,15 @@ footer {
 
 
 		&.address {
-			background-image: url('../img/location.png');
+			background-image: url('../assets/img/location.png');
 		}
 
 		&.emails {
-			background-image: url('../img/email.png');
+			background-image: url('../assets/img/email.png');
 		}
 
 		&.phone {
-			background-image: url('../img/phone.png');
+			background-image: url('../assets/img/phone.png');
 		}
 	}
 }
@@ -429,7 +429,7 @@ footer {
 			top: auto;
 			bottom: auto;
 			height: 0px; //<--- new
-			//background-image: url('../img/gallery-1.jpg');
+			//background-image: url('../assets/img/gallery-1.jpg');
 			background-size: cover;
 		}
 	}
@@ -437,7 +437,7 @@ footer {
 
 .events-content {
 	position: relative;
-	background: #44686b url('../img/events-body.png') no-repeat center right 30px;;
+	background: #44686b url('../assets/img/events-body.png') no-repeat center right 30px;;
 	background-size: cover;
 	padding: 3rem;
 
@@ -628,22 +628,42 @@ footer {
 	
 	&--xl {
 		@include round-border(260px, 45px);
+
+		img {
+			height: 255px;
+		}
 	}
 
 	&--lg {
 		@include round-border(200px, 35px);
+		
+		img {
+			height: 195px;
+		}
 	}
 
 	&--md {
 		@include round-border(150px, 28px);
+
+		img {
+			height: 145px;
+		}
 	}
 
 	&--sm {
 		@include round-border(100px, 20px);
+
+		img {
+			height: 95px;
+		}
 	}
 
 	&--xs {
 		@include round-border(50px, 10px);
+
+		img {
+			height: 45px;
+		}
 	}
 }
 
@@ -760,10 +780,10 @@ footer {
 		position: relative;
 		border-style: solid;
 		border-width: 35px 50px 50px 40px;
-		-moz-border-image: url(../img/modal.png) 88 71 76 55;
-		-webkit-border-image: url(../img/modal.png) 88 71 76 55;
-		-o-border-image: url(../img/modal.png) 88 71 76 55;
-		border-image: url(../img/modal.png) 88 71 76 55 fill;
+		-moz-border-image: url(../assets/img/modal.png) 88 71 76 55;
+		-webkit-border-image: url(../assets/img/modal.png) 88 71 76 55;
+		-o-border-image: url(../assets/img/modal.png) 88 71 76 55;
+		border-image: url(../assets/img/modal.png) 88 71 76 55 fill;
 	}
 
 	.mfp-artists {
@@ -788,7 +808,7 @@ footer {
 }
 
 .mfp-close-btn-in .mfp-close {
-	background: url('../img/modal-close.png') no-repeat center center;
+	background: url('../assets/img/modal-close.png') no-repeat center center;
 	width: 43px !important;
 	height: 43px;
 	right: 10px;

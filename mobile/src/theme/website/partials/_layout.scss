@@ -628,22 +628,42 @@ footer {
 	
 	&--xl {
 		@include round-border(260px, 45px);
+
+		img {
+			height: 255px;
+		}
 	}
 
 	&--lg {
 		@include round-border(200px, 35px);
+		
+		img {
+			height: 195px;
+		}
 	}
 
 	&--md {
 		@include round-border(150px, 28px);
+
+		img {
+			height: 145px;
+		}
 	}
 
 	&--sm {
 		@include round-border(100px, 20px);
+
+		img {
+			height: 95px;
+		}
 	}
 
 	&--xs {
 		@include round-border(50px, 10px);
+
+		img {
+			height: 45px;
+		}
 	}
 }
 
