@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+/// Variables ///
+// Colors
+$primary-color: #752225;
+$secondary-color: #faaf43;
+$tertiary-color: #214e58;
+$fourth-color: #e6e1a6;
+$supporting-color: #84987f;
+$text: mix($tertiary-color, #fff, 30%);
+$black: #333;
+$grey: lighten($black, 30%);
+
+// Nights
+$friday-fever: #414141;
+$saturday-oriental: #5c5336;
+$jazz-sunday: #75252a;
+$manic-monday: #50223c;
+$alt-tuesday: #322e3d;
+$spinning-wednesday: #971f20;
+$boogie-night: #fab239;
+$thursday-night: #e4722c;
+
+
+// Fonts
+$primary-font: 'Noto Sans', sans-serif;
+$secondary-font: 'Palanquin Dark', sans-serif;
+
+// Spaces
+$v-margin: 4rem;
+
+/// Mixins ///
+
+// Clearfix
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+// Layout menu
+@mixin l-menu($margin:0, $padding:0) {
+	list-style-type: none;
+	margin: $margin;
+	padding: $padding;
+}
+
+// Hosrizntal Menu
+@mixin h-menu($direction:initial) {
+	@include l-menu();
+	@include text-align($direction);
+	font-size: 0;
+
+	li {
+		position: relative;
+		display: inline-block;
+		font-size: 1.6rem;
+	}
+
+	a {
+		padding: 1rem;
+	}
+}
+
+// Rough Borders
+@mixin rough-border($position, $top:auto, $bottom:auto) {
+	content: '';
+	position: absolute;
+	top: $top;
+	bottom: $bottom;
+	left: 0;
+	right: 0;
+	border-top-width: 5px;
+	border-style: solid;
+	
+	@if $position == 'top' {
+		-moz-border-image:url("../img/border.png") 30 30 round; /* Firefox */
+		-webkit-border-image:url("../img/border.png") 30 30 round; /* Safari */
+		-o-border-image:url("../img/border.png") 30 30 round; /* Opera */
+		border-image:url('../img/border.png') 30 30 round;
+		border-bottom:0;
+	} @else {
+		-moz-border-image:url("../img/border-bottom.png") 30 30 round; /* Firefox */
+		-webkit-border-image:url("../img/border-bottom.png") 30 30 round; /* Safari */
+		-o-border-image:url("../img/border-bottom.png") 30 30 round; /* Opera */
+		border-image:url('../img/border-bottom.png') 30 30 round;
+		border-top:0;
+	}
+
+	border-left:0;
+	border-right:0;
+}
+
+// Rogh round borders
+@mixin round-border($size, $border-width:auto) {
+	border-style: solid;
+	border-width: $border-width;
+	-moz-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
+	-webkit-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
+	-o-border-image: url(../img/circular-border.png) 54 53 54 55 stretch;
+	border-image: url(../img/circular-border.png) 54 53 54 55 fill stretch;
+
+	width: $size;
+	height: $size;
+}
+
+// Border Two
+@mixin border-two() {
+	border-style: solid;
+	border-width: 10px 20px;
+	-moz-border-image: url(../img/border-2.png) 27 stretch;
+	-webkit-border-image: url(../img/border-2.png) 27 stretch;
+	-o-border-image: url(../img/border-2.png) 27 stretch;
+	border-image: url(../img/border-2.png) 27 fill stretch;
+}

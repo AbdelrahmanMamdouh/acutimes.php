@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.parallax__content {
+	-skrollr-animation-name: animation1;
+}
+
+@-skrollr-keyframes animation1 {
+	skrollr-100 {
+		top: -100px;
+	}
+	
+	skrollr-700 {
+		top: -2000px;
+	}
+}
+
