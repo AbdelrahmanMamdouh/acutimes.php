@@ -1,32 +1,33 @@
+<ion-content class="landing-page">
 
-<ion-header>
-  <ion-navbar>
-    <ion-title>Slides</ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-row>
+        <ion-col text-center>
+            <img [src]="logo" />
+        </ion-col>
+    </ion-row>
 
-<ion-content class="tutorial-page">
+    <ion-slides class="slides" pager="true" parallax="true" padding>
+        <ion-slide *ngFor="let slide of slides">
+            <img [src]="slide.image" class="slide-image" />
+        </ion-slide>
+    </ion-slides>
 
-  <ion-slides pager>
-    <ion-slide *ngFor="let slide of slides">
-      <ion-toolbar>
-        <ion-buttons end>
-          <button ion-button color="primary">Skip</button>
-        </ion-buttons>
-      </ion-toolbar>
-      <img [src]="slide.image" class="slide-image"/>
-      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
-    </ion-slide>
-    <ion-slide>
-      <ion-toolbar>
-      </ion-toolbar>
-      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
-      <h2 class="slide-title">Ready to Play?</h2>
-      <button ion-button large clear icon-right color="primary" (click)="onFBLoginClick()">
-        Continue
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
-    </ion-slide>
-  </ion-slides>
+    <ion-row>
+        <ion-col text-center>
+            <button ion-button icon-left (click)="onFBLoginClick()">
+                <ion-icon name="logo-facebook"></ion-icon>
+                Sign in with facebook
+            </button>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col text-center>
+            <small> 
+				<ion-icon name="information-circle"></ion-icon>
+				We don't post anything to facebook 
+		    </small>
+        </ion-col>
+    </ion-row>
+
 </ion-content>
