@@ -15,6 +15,12 @@ page-landing {
 		background-color: $facebook;
 
 		&-sub-text{
+    }
+    .swiper-pagination-bullet-active {
+        background: #fcb034;
+    }
+    ion-content {
+        background-color: #fff !important;
 			color: $black !important;
 		}
 	}
