@@ -4257,6 +4257,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .circle--xl img {
   height: 255px;
+  width: 255px;
 }
 .circle--lg {
   border-style: solid;
@@ -4268,6 +4269,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .circle--lg img {
   height: 195px;
+  width: 195px;
 }
 .circle--md {
   border-style: solid;
@@ -4279,6 +4281,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .circle--md img {
   height: 145px;
+  width: 145px;
 }
 .circle--sm {
   border-style: solid;
@@ -4290,6 +4293,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .circle--sm img {
   height: 95px;
+  width: 95px;
 }
 .circle--xs {
   border-style: solid;
@@ -4301,6 +4305,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .circle--xs img {
   height: 45px;
+  width: 45px;
 }
 
 .past {
