@@ -8,15 +8,15 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-calendar',
-  templateUrl: 'calendar.html'
+	selector: 'page-calendar',
+	templateUrl: 'calendar.html'
 })
 export class CalendarPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalendarPage');
-  }
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad CalendarPage');
+	}
 
 }
