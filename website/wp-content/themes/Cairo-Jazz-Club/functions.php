@@ -214,11 +214,11 @@ require_once get_template_directory() . '/widgets/init.php';
 // Load cjc shortcodes
 require_once get_template_directory() . '/short-codes/init.php';
 
-// Load Ess. Grid modifications. meta tags modifications
-require get_template_directory() . '/ess-grid-mods/meta-tags.php';
+// Load Ess. Grid modifications.
+require get_template_directory() . '/ess-grid-mods/init.php';
 
-// Load rest api modifications. albums (custom post) modifications
-require get_template_directory().'/rest-api-mods/albums.php';
+// Load rest api modifications.
+require get_template_directory().'/rest-api-mods/init.php';
 
 try {
 	if( class_exists('fb_login') ) {
