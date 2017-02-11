@@ -218,7 +218,7 @@ require_once get_template_directory() . '/short-codes/init.php';
 require get_template_directory() . '/ess-grid-mods/init.php';
 
 // Load rest api modifications.
-require get_template_directory().'/rest-api-mods/init.php';
+require get_template_directory().'/rest-api/init.php';
 
 try {
 	if( class_exists('fb_login') ) {
