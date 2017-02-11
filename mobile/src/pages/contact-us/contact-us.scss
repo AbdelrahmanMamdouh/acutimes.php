@@ -1,3 +1,38 @@
 page-contact-us {
 
+	h2 {
+		color: $text;
+	}
+
+	.contact{
+
+		&-address , &-emails ,&-phone,li {
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 50px;
+			height: 50px;
+			float: left;
+		}
+
+		&-address {
+			background-image: url('../assets/img/contact-pin.png');
+		}
+
+		&-emails {
+			background-image: url('../assets/img/contact-email.png');
+		}
+
+		&-phone {
+			background-image: url('../assets/img/contact-phone.png');
+		}
+
+		&-text {
+			//height: 50px;
+			padding: 10px;
+			
+			padding-top: 15px;
+			padding-bottom: 15px;
+			padding-left: 70px;
+		}
+	}
 }
