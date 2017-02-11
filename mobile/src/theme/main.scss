@@ -4,9 +4,9 @@
 
 
 ion-content , .content-md , .content-ios , .content-wp {
-    background-color: #214e58;
+    background-color: #214e58; // #43686b
     background-image: url(../assets/img/background.png);
-    background-position: top right;
+    background-size: cover;
 	font-size: 1.6rem; 
 	font-family: $primary-font;
 	color: $text;
