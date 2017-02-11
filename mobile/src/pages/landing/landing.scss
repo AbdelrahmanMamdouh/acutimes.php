@@ -1,8 +1,22 @@
-.landing-page {
+page-landing {
+
+	ion-content{
+		background-color: #FFF !important;
+	}
+
 	.swiper-container {
-		height: 57%;
+		height: 57% !important;
 	}
 	.slides {
-		display: inline;
+		display: inline !important;
 	}
+
+	.facebook {
+		background-color: $facebook;
+
+		&-sub-text{
+			color: $black !important;
+		}
+	}
+
 }	
