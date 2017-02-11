@@ -1,5 +1,5 @@
 var Init = (function ($) {
-
+    
 	var Init = {};
 
 	/**
@@ -13,9 +13,15 @@ var Init = (function ($) {
 			Init.MagnificPopup();
 			Init.HomeParallaxSlider();
 			Init.Footer();
+            Init.sendemail();
 
 		});
 	}
+    
+    Init.sendemail = function() {
+        var email= document.getElementById("User_email").value;
+        document.getElementById("ninja_forms_field_91").value = email;
+    }
 
 	Init.ResponsiveMenu = function () {
 		$(".main-menu").mmenu({
