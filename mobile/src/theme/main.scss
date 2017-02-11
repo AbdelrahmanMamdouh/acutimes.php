@@ -12,6 +12,8 @@ ion-content , .content-md , .content-ios{
 	color: $text;
 }
 
-has-footer{
-	margin-bottom: 6rem;
+
+cjc-footer + ion-content   {
+   // margin-bottom: 6rem;
+
 }

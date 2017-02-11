@@ -8,6 +8,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { CjcFooter } from '../pages/cjc-footer/cjc-footer';
+import { CjcHeader } from '../pages/cjc-header/cjc-header';
 
 @NgModule({
 	declarations: [
@@ -17,6 +18,8 @@ import { CjcFooter } from '../pages/cjc-footer/cjc-footer';
 		AboutPage,
 		ContactUsPage,
 		CalendarPage,
+
+		CjcHeader,
 		CjcFooter
 	],
 	imports: [
