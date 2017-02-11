@@ -1,13 +1,15 @@
 page-about {
 
-	.row .col-md-push-8 {
-		float: right;
+	.title {
+		margin-left: auto;
+		margin-right: auto;
+		width: 10rem;
 	}
 
-	.col-md-4 {
-		float: left;
+	.sub-title {
+		text-transform: uppercase;
+		color: $text;
 	}
-
 	.circle-about{
 		float: left;
 		margin-bottom: 10px;
@@ -16,5 +18,8 @@ page-about {
 	
 	.about-sec-title {
 		text-transform: capitalize;
+	}
+	.row{
+		padding-bottom: 4rem;
 	}
 }

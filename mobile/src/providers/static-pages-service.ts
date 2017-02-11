@@ -19,6 +19,11 @@ export class StaticPagesService {
 		console.log('Hello StaticPagesService Provider');
 	}
 
+	/**
+	 * remove some short shortcodes
+	 * @param {StaticPage} page the static page
+	 * @returns the content whiout the shortcodes
+	 */
 	cleanContent(page: StaticPage): string {
 		return page.content.rendered.replace(/\[vc_row\]|\[vc_column\]|\[\/vc_row\]|\[\/vc_column\]/g, '');
 	}
@@ -31,9 +36,7 @@ export class StaticPagesService {
 
 		return this.http.get(CONFIG.API_URL + 'pages/57')
 			.map(res => {
-				let tempPage = <StaticPage>res.json();
-				tempPage.content.clean = this.cleanContent(tempPage);
-				return tempPage;
+				return <StaticPage> res.json();
 			})
 		//.catch(err => {console.log(error)})
 
@@ -41,11 +44,52 @@ export class StaticPagesService {
 }
 
 export interface StaticPage {
+
+	id: number;
+	date: any;
+	date_gmt: any;
+
+	guid: {
+		rendered: string
+	};
+
+	modified: any;
+	modified_gmt: any;
+
+	slug: string;
+	type: string;
+	link: string,
+
 	title: {
 		rendered: string
 	};
+
 	content: {
 		rendered: string,
-		clean: string
+		protected: boolean
 	};
+
+	excerpt: {
+		rendered: string,
+		protected: boolean
+	};
+
+	author: number,
+	featured_media: number,
+	parent: number,
+	menu_order: number,
+	comment_status: string,
+	ping_status: string,
+	template: string,
+	meta: Array<string>,
+
+	shortcodes: Array<ShortCode>;
+
+	_links: any;
+}
+
+export interface ShortCode {
+	tag: string;
+	atts: any;
+	content: string;
 }
