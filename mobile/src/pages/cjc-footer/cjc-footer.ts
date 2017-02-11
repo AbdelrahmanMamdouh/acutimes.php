@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CustomizerService, Customizer } from '../../providers/customizer-service';
 
 /*
   Generated class for the CjcFooter page.
@@ -9,7 +10,8 @@ import { NavController, NavParams } from 'ionic-angular';
 */
 @Component({
 	selector: 'cjc-footer',
-	templateUrl: 'cjc-footer.html'
+	templateUrl: 'cjc-footer.html',
+	providers: [CustomizerService]
 })
 export class CjcFooter {
 
@@ -17,7 +19,25 @@ export class CjcFooter {
 	public facebook = 'https://www.facebook.com/CairoJazzClubPage';
 	public location = '38.897096,-77.036545';
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) { }
+	public error;
+
+	constructor(public navCtrl: NavController, public navParams: NavParams, customizerService: CustomizerService) {
+
+		customizerService.getAll().subscribe(
+			function (customizer: Customizer) {
+
+				this.facebook = customizer.social.facebook;
+				this.phone = customizer.identity.phone;
+
+			}.bind(this),
+			function (err) {
+
+				this.error = err;
+				console.warn(err);
+
+			}.bind(this));
+
+	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad CjcFooter');
