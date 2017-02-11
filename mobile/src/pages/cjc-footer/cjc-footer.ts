@@ -17,7 +17,7 @@ export class CjcFooter {
 
 	public phone = '+201068804764';
 	public facebook = 'https://www.facebook.com/CairoJazzClubPage';
-	public location = '38.897096,-77.036545';
+	public location = 'geo:38.897096,-77.036545';
 
 	public error;
 

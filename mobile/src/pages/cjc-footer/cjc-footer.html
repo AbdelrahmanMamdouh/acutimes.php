@@ -5,15 +5,16 @@
   Ionic pages and navigation.
 -->
 
+<ion-toolbar>
 
+	<ul class="social-icons">
 
+		<li><a class="footer-call" target="_system" href="tel:{{phone}}">Call</a></li>
 
-<ul class="social-icons">
+		<li><a class="footer-location" target="" (click)='toLocation()'>location</a></li>
 
-	<li><a class="footer-call" target="_system" href="tel:{{phone}}">Call</a></li>
+		<li><a class="footer-facebook" target="_system" href="{{facebook}}">facebook</a></li>
 
-	<li (click)='toLocation()'><a class="footer-location">location</a></li>
+	</ul>
 
-	<li><a class="footer-facebook" target="_system" href="{{facebook}}">facebook</a></li>
-
-</ul>
+</ion-toolbar>
