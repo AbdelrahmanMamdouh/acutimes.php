@@ -7,8 +7,13 @@ import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { CalendarPage } from '../pages/calendar/calendar';
+
+import { PreferencePage } from '../pages/preference/preference';
+import { ReservationPage } from '../pages/reservation/reservation';
+
 import { CjcFooter } from '../pages/cjc-footer/cjc-footer';
 import { CjcHeader } from '../pages/cjc-header/cjc-header';
+
 
 @NgModule({
 	declarations: [
@@ -18,6 +23,9 @@ import { CjcHeader } from '../pages/cjc-header/cjc-header';
 		AboutPage,
 		ContactUsPage,
 		CalendarPage,
+
+		PreferencePage,
+		ReservationPage,
 
 		CjcHeader,
 		CjcFooter
@@ -32,7 +40,13 @@ import { CjcHeader } from '../pages/cjc-header/cjc-header';
 		HomePage,
 		AboutPage,
 		ContactUsPage,
-		CalendarPage
+		CalendarPage,
+
+		PreferencePage,
+		ReservationPage,
+
+		CjcHeader,
+		CjcFooter
 	],
 	providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
