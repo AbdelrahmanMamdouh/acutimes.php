@@ -8,15 +8,15 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-reservation',
-  templateUrl: 'reservation.html'
+	selector: 'page-reservation',
+	templateUrl: 'reservation.html'
 })
 export class ReservationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ReservationPage');
-  }
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad ReservationPage');
+	}
 
 }

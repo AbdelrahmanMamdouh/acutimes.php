@@ -1,33 +1,33 @@
 <ion-content class="landing-page">
 
-    <ion-row>
-        <ion-col text-center>
-            <img [src]="logo" />
-        </ion-col>
-    </ion-row>
+	<ion-row>
+		<ion-col text-center>
+			<img [src]="logo" />
+		</ion-col>
+	</ion-row>
 
-    <ion-slides class="slides" pager="true" parallax="true" padding>
-        <ion-slide *ngFor="let slide of slides">
-            <img [src]="slide.image" class="slide-image" />
-        </ion-slide>
-    </ion-slides>
+	<ion-slides class="slides" pager="true" parallax="true" padding>
+		<ion-slide *ngFor="let slide of slides">
+			<img [src]="slide.image" class="slide-image" />
+		</ion-slide>
+	</ion-slides>
 
-    <ion-row>
-        <ion-col text-center>
-            <button ion-button icon-left (click)="onFBLoginClick()">
+	<ion-row>
+		<ion-col text-center>
+			<button ion-button icon-left (click)="onFBLoginClick()">
                 <ion-icon name="logo-facebook"></ion-icon>
                 Sign in with facebook
             </button>
-        </ion-col>
-    </ion-row>
+		</ion-col>
+	</ion-row>
 
-    <ion-row>
-        <ion-col text-center>
-            <small> 
+	<ion-row>
+		<ion-col text-center>
+			<small> 
 				<ion-icon name="information-circle"></ion-icon>
 				We don't post anything to facebook 
 		    </small>
-        </ion-col>
-    </ion-row>
+		</ion-col>
+	</ion-row>
 
 </ion-content>

@@ -27,16 +27,16 @@ export class StaticPagesService {
 	cleanContent(page: StaticPage): string {
 		return page.content.rendered.replace(/\[vc_row\]|\[vc_column\]|\[\/vc_row\]|\[\/vc_column\]/g, '');
 	}
-
+	a
 	/**
 	 * get static page about cjc 
 	 * @returns Observable StaticPage
 	 */
 	PageAboutus(): Observable<StaticPage> {
 
-		return this.http.get(CONFIG.API_URL + 'pages/57')
+		return this.http.get(CONFIG.API_URL + 'wp/v2/pages/57')
 			.map(res => {
-				return <StaticPage> res.json();
+				return <StaticPage>res.json();
 			})
 		//.catch(err => {console.log(error)})
 

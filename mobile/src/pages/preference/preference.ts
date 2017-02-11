@@ -8,15 +8,15 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-preference',
-  templateUrl: 'preference.html'
+	selector: 'page-preference',
+	templateUrl: 'preference.html'
 })
 export class PreferencePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PreferencePage');
-  }
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad PreferencePage');
+	}
 
 }

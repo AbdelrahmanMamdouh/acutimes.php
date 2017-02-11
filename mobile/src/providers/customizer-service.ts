@@ -25,7 +25,7 @@ export class CustomizerService {
 	 */
 	getAll(): Observable<Customizer> {
 
-		return this.http.get('http://localhost/Cairo-Jazz-Club/Cairo-Jazz-Club.wp/website/wp-json/cjc/customizer/')
+		return this.http.get(CONFIG.API_URL + 'cjc/customizer/')
 			.map(res => {
 				return this.parsejson(res.json());
 			})
