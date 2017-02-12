@@ -1,5 +1,4 @@
-import { Component, ViewChild, Input } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core';
 
 import * as $ from "jquery";
 import 'slick-carousel/slick/slick';
@@ -25,7 +24,7 @@ export class HomePage {
 	sliderImages: SliderImage[] = []; // Initialize the array to avoid undefined behaviour with ionic/angular directives.
 	events: Event[];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private metaSliderImagesService: MetaSliderImagesService, private eventsService: EventsService) {
+	constructor(private metaSliderImagesService: MetaSliderImagesService, private eventsService: EventsService) {
 		// Get all images of the wp meta slider that have the id 1777.
 		metaSliderImagesService.getSliderImages(1777).subscribe(sliderImages => {
 			this.sliderImages = sliderImages;

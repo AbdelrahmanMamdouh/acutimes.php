@@ -1,5 +1,5 @@
 <ion-header>
-	<cjc-header></cjc-header>
+    <cjc-header></cjc-header>
 </ion-header>
 
 
@@ -25,7 +25,7 @@
                     <div class="circle circle--md">
                         <div class="circle__content">
                             <div class="date">
-                                {{ event.startDate }}
+                                {{ event.startDate | date: 'dd MMM' }}
                             </div>
                             <img [src]="event.img" alt="">
                         </div>
@@ -41,5 +41,5 @@
 
 
 <ion-footer>
-	<cjc-footer></cjc-footer>
+    <cjc-footer></cjc-footer>
 </ion-footer>
