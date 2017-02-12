@@ -1,3 +1,46 @@
-page-cjc-header {
+cjc-header {
+	ion-navbar{
+		height: 55px !important;
+	}
+	ion-navbar .toolbar-background {
+		background-image: url('../../assets/img/background.png');
+		background-size: cover ;
+		//background: #555;
+	}
 
+	.logo-img{
+		background-image: url('../../assets/img/logo.png');
+		background-size: cover ;
+		height: 45px;
+		width:45px;
+
+		position: absolute;
+		top: 5px;
+		right: 50%;
+	}
+
+	.user-img {
+
+		position: absolute;
+		top: 5px;
+		right: 5px;
+
+		img{
+			height: 45px;
+			width: 45px;
+			border-radius: 50%;
+		}
+		
+		/*
+		margin: 0 6px;
+		padding: 0;
+		min-width: 36px;
+
+		order: 7;
+
+		text-align: right;
+		float: right;
+		*/
+		
+	}
 }
