@@ -1,0 +1,117 @@
+@charset 'utf8';
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.ultralight.otf") format("opentype");
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.thin.otf") format("opentype");
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.light.otf") format("opentype");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.regular.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.semibold.otf") format("opentype");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.bold.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.heavy.otf") format("opentype");
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.black.otf") format("opentype");
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.black-italic.otf") format("opentype");
+	font-weight: 900;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.heavy-italic.otf") format("opentype");
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.bold-italic.otf") format("opentype");
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.semibold-italic.otf") format("opentype");
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.italic.otf") format("opentype");
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.light-italic.otf") format("opentype");
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.thin-italic.otf") format("opentype");
+	font-weight: 200;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "aileron";
+	src: url("aileron.ultralight-italic.otf") format("opentype");
+	font-weight: 100;
+	font-style: italic;
+}
+
+.font-aileron-reg {
+	font-family: aileron;
+	font-weight: 400;
+}
