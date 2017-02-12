@@ -92,6 +92,6 @@ if ($the_query->have_posts()) {
 
 <script type="text/javascript">
 	jQuery(document).ready(function (){ 
-		Init.Event("<?php echo get_site_url(); ?>/wp-json/cjc/calendar/events/");
+		Init.Event("<?php echo get_site_url(); ?>/wp-json/cjc/calendar/events/all");
 	});
 </script>
