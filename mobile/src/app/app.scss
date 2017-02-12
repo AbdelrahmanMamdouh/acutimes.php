@@ -18,3 +18,37 @@
 @charset "utf-8";
 
 @import "../theme/main";
+
+ion-menu{
+	
+	.list-ios > .item-block:first-child {
+		border-top: 0px;
+	}
+
+	.nav-itm-button{
+		background-color: transparent;
+		color: #faaf43;
+		font-size: 2.5rem;
+		text-transform: uppercase;
+
+		border-bottom: 1px solid rgb(222, 222, 222);
+	}
+
+	.item-block .item-inner {
+		border-bottom: none !important;
+	}
+
+	.menu-inner{
+		width: 100%
+	}
+
+	ion-list {
+    	padding-top: 45px;
+	}
+
+	ion-toolbar .toolbar-background {
+		background-image: url('../assets/img/background.png');
+		background-size: cover ;
+	}
+
+}
