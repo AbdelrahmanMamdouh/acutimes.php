@@ -1,3 +1,64 @@
-page-cjc-header {
+cjc-header {
+	ion-navbar{
+		//height: 55px !important;
+	}
+	ion-navbar .toolbar-background {
+		background-image: url('../../assets/img/background.png');
+		background-size: cover ;
+	}
 
+	.logo-img{
+		div{
+			background-image: url('../../assets/img/logo.png');
+			background-size: cover ;
+			height: 45px;
+			width:45px;
+			margin: 0 auto;
+		}
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 0;
+
+		padding: 5px;
+		width: 100%
+	}
+
+
+
+	.user{
+		&-img{
+
+		background: none;
+		background-color: transparent !important;
+		border-radius: 50%;
+		box-shadow: none;
+		height: 100%;
+		padding: 0;
+
+			div{
+				height: 100%;
+				width: 100%;
+
+				img{
+					height: 45px;
+					width: 45px;
+					border-radius: 50%;
+				}
+			}
+
+		}
+
+		&-name{
+			position: absolute;
+			top: 30%;
+			left: 60px;
+
+			max-width: 20%;
+			color:$primary-color;
+			white-space:nowrap;
+			overflow:hidden;
+		}
+	}
 }

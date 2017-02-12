@@ -8,15 +8,25 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'cjc-header',
-  templateUrl: 'cjc-header.html'
+	selector: 'cjc-header',
+	templateUrl: 'cjc-header.html'
 })
 export class CjcHeader {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	public user: User = {
+		name: "Beco G. asdas hgahujfg saldfh asdjf hasldfhdasdlf",
+		img: "https://randomuser.me/api/portraits/men/78.jpg"
+	};
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CjcHeaderPage');
-  }
+	constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad CjcHeaderPage');
+	}
+
+}
+
+interface User {
+	name: string;
+	img: string;
 }
