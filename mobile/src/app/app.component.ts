@@ -19,11 +19,6 @@ export class MyApp {
 
 	pages: Array<{ title: string, component: any }>;
 
-	public user: User = {
-		name: "Beco G. asdas hgahujfg saldfh asdjf hasldfhdasdlf",
-		img: "https://randomuser.me/api/portraits/men/78.jpg"
-	};
-
 	constructor(public platform: Platform) {
 		this.initializeApp();
 
@@ -51,9 +46,4 @@ export class MyApp {
 		// we wouldn't want the back button to show in this scenario
 		this.nav.setRoot(page.component);
 	}
-}
-
-interface User {
-	name: string;
-	img: string;
 }

@@ -1,26 +1,16 @@
 <ion-menu [content]="content" side="right">
 	<ion-header>
 		<ion-toolbar>
-			
-			
 
+			<button ion-button end menuToggle right>
+				<ion-icon name="close"></ion-icon>
+			</button>
 
-	<button ion-button end menuToggle right>
-		<ion-icon name="close"></ion-icon>
-	</button>
+			<div class="logo-img">
+				<div></div>
+			</div>
 
-	<div class="logo-img">
-		<div></div>
-	</div>
-
-	<button ion-button start class="user-img">
-		<div><img [src]='user.img'></div>
-	</button>
-
-	<div class="user-name">{{user.name}}</div>
-
-
-
+			<cjc-user-circle></cjc-user-circle>
 
 		</ion-toolbar>
 	</ion-header>
