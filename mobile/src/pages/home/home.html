@@ -1,9 +1,3 @@
-<!--
-  Generated template for the Home page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 	<cjc-header></cjc-header>
 </ion-header>
@@ -11,9 +5,9 @@
 
 <ion-content>
 
-    <ion-slides class="Slides">
-        <ion-slide *ngFor="let slide of slides">
-            <img [src]="slide.image" />
+    <ion-slides class="slides" autoplay="5000" loop="true" *ngIf="sliderImages.length">
+        <ion-slide *ngFor="let sliderImage of sliderImages">
+            <img [src]="sliderImage.url" />
         </ion-slide>
     </ion-slides>
 
@@ -27,15 +21,16 @@
     <ion-row class="content">
         <ion-col text-center>
             <div class="events-slider">
-                <div *ngFor="let event of events">
+                <div *ngFor="let event of events; let last = last">
                     <div class="circle circle--md">
                         <div class="circle__content">
                             <div class="date">
-                                {{ event.date }}
+                                {{ event.startDate }}
                             </div>
-                            <img [src]="event.image" alt="">
+                            <img [src]="event.img" alt="">
                         </div>
                     </div>
+                    {{(last && doinitSlick) ? initSlick() : ''}}
                 </div>
             </div>
 

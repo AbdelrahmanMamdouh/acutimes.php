@@ -1,20 +1,36 @@
 <?php
 //	wp-json/cjc/calendar/events/
 add_action( 'rest_api_init', function() {
-	register_rest_route( 'cjc/', 'calendar/events', array(
+	register_rest_route( 'cjc/', 'calendar/events/(?P<filter>\w+)', array(
 			'methods' => 'GET',
 			'callback' => 'restapi_cjc_calendar_events',
 		) );
 } );	
 
-function restapi_cjc_calendar_events(){
-	$args = array(
-	'post_type' => 'avent',
-	'post_status' => 'publish',
-	'posts_per_page' => -1, // all
-	'orderby' => 'title',
-	'order' => 'ASC'
-	);
+function restapi_cjc_calendar_events($request){
+
+	$filter = $request['filter'];
+
+	if ( $filter === 'all' ) {
+		$args = array(
+			'post_type' => 'avent',
+			'post_status' => 'publish',
+			'posts_per_page' => -1, // all
+			'orderby' => 'title',
+			'order' => 'ASC'
+		);
+	} else if ( $filter === 'upcoming' ) {
+		$args = array( 
+			'post_type' => 'avent',
+			'post_status' => 'publish',
+			'posts_per_page' => 7,
+			'meta_key'  => 'date',
+			'meta_value'   => current_time( "Ymd" ), // today
+			'meta_compare' => '>=',
+			'orderby' => 'meta_value_num',
+			'order' => 'ASC'
+		);
+	}
 	
 	$query = new WP_Query( $args );
 	

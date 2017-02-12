@@ -8,9 +8,9 @@ add_action( 'rest_api_init', function() {
 } );	
 
 
-function get_slider_images_urls($slider) {
+function get_slider_images_urls($request) {
 
-	$slider_id = $slider['id'];
+	$slider_id = $request['id'];
 
 	set_orginal_image_size(); // setting the slider before the shortcode gets excuted to retreive the original size of the image without cropping it.
 	$slider_content = do_shortcode("[metaslider id=$slider_id]");
@@ -21,7 +21,7 @@ function get_slider_images_urls($slider) {
 
 	    if( !empty($matches) ) {
 	        foreach ($matches as $image_url) {  
-	            $image_urls[] = $image_url[0];
+	            $image_urls[]['url'] = $image_url[0];
 	        }
 	        return $image_urls;
 	    }
