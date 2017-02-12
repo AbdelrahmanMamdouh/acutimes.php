@@ -1,7 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+
 import * as $ from "jquery";
 import 'slick-carousel/slick/slick';
+
+import { MetaSliderImagesService } from '../../providers/meta-slider-images-service';
+import { EventsService } from '../../providers/events-service';
+
+import { SliderImage } from '../../providers/meta-slider-images-service';
+import { Event } from '../../providers/events-service';
 
 /*
   Generated class for the Home page.
@@ -15,55 +22,33 @@ import 'slick-carousel/slick/slick';
 })
 export class HomePage {
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) { }
+	sliderImages: SliderImage[] = []; // Initialize the array to avoid undefined behaviour with ionic/angular directives.
+	events: Event[];
 
-	slides = [
-		{
-			image: "assets/img/home-slide-1.jpg"
-		},
-		{
-			image: "assets/img/home-slide-2.jpg"
-		}
-	];
+	constructor(public navCtrl: NavController, public navParams: NavParams, private metaSliderImagesService: MetaSliderImagesService, private eventsService: EventsService) {
+		// Get all images of the wp meta slider that have the id 1777.
+		metaSliderImagesService.getSliderImages(1777).subscribe(sliderImages => {
+			this.sliderImages = sliderImages;
+		})
+		// Get all upcoming events.
+		eventsService.getEvents("upcoming").subscribe(events => {
+			this.events = events;
+		})
+	}
 
-	events = [
-		{
-			image: "assets/img/event.jpg",
-			date: "11 Feb"
-		},
-		{
-			image: "assets/img/event.jpg",
-			date: "12 Feb"
-		},
-		{
-			image: "assets/img/event.jpg",
-			date: "13 Feb"
-		},
-		{
-			image: "assets/img/event.jpg",
-			date: "14 Feb"
-		},
-		{
-			image: "assets/img/event.jpg",
-			date: "15 Feb"
-		},
-		{
-			image: "assets/img/event.jpg",
-			date: "16 Feb"
-		},
-		{
-			image: "assets/img/event.jpg",
-			date: "17 Feb"
-		}
-	];
+	doinitSlick = true; // initialize it to true for the first run
 
-	ionViewDidLoad() {
-		// Events Slider
+	initSlick(): void {
 		$('.events-slider').slick({
 			arrows: false,
 			mobileFirst: true,
 			centerMode: true,
 			centerPadding: '90px',
 		});
+		this.doinitSlick = false; // set it to false until you need to trigger again
+	}
+
+	ionViewDidLoad() {
+
 	}
 }

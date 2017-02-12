@@ -2,6 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import {  MetaSliderImagesService } from '../providers/meta-slider-images-service';
+import { EventsService } from '../providers/events-service';
+
 import { LandingPage } from '../pages/landing/landing';
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
@@ -31,6 +34,6 @@ import { CjcFooter } from '../pages/cjc-footer/cjc-footer';
 		ContactUsPage,
 		CalendarPage
 	],
-	providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
+	providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, MetaSliderImagesService, EventsService]
 })
 export class AppModule { }
