@@ -6,14 +6,23 @@
 -->
 <ion-navbar>
 
-	<!--<ion-title></ion-title>-->
+	<!--<ion-title></ion-title>
 		<img class="logo-img">
-		<div class="user-img"><img src="http://placehold.it/150x150"></div>
-	
+		<div class="user-img"><img src="http://placehold.it/150x150"></div>-->
 
-	<button ion-button menuToggle>
+
+	<button ion-button end menuToggle right>
 		<ion-icon name="menu"></ion-icon>
 	</button>
 
-	
+	<div class="logo-img">
+		<div></div>
+	</div>
+
+	<button ion-button start class="user-img">
+		<div><img [src]='user.img'></div>
+	</button>
+
+	<div class="user-name">{{user.name}}</div>
+
 </ion-navbar>
