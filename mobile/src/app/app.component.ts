@@ -15,20 +15,24 @@ import { CalendarPage } from '../pages/calendar/calendar';
 export class MyApp {
 	@ViewChild(Nav) nav: Nav;
 
-	rootPage: any = ContactUsPage;
+	rootPage: any = ContactUsPage; //= LandingPage;
 
 	pages: Array<{ title: string, component: any }>;
+
+	public user: User = {
+		name: "Beco G. asdas hgahujfg saldfh asdjf hasldfhdasdlf",
+		img: "https://randomuser.me/api/portraits/men/78.jpg"
+	};
 
 	constructor(public platform: Platform) {
 		this.initializeApp();
 
 		// used for an example of ngFor and navigation
 		this.pages = [
-			{ title: 'Landing', component: LandingPage },
 			{ title: 'Home', component: HomePage },
 			{ title: 'About CJC', component: AboutPage },
-			{ title: 'Contact us', component: ContactUsPage },
-			{ title: 'Calendar', component: CalendarPage }
+			{ title: 'Schedule', component: CalendarPage },
+			{ title: 'Contact us', component: ContactUsPage }
 		];
 
 	}
@@ -47,4 +51,9 @@ export class MyApp {
 		// we wouldn't want the back button to show in this scenario
 		this.nav.setRoot(page.component);
 	}
+}
+
+interface User {
+	name: string;
+	img: string;
 }

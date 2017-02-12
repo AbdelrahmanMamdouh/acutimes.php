@@ -1,17 +1,37 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-menu [content]="content" side="right">
+	<ion-header>
+		<ion-toolbar>
+			
+			
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+
+	<button ion-button end menuToggle right>
+		<ion-icon name="close"></ion-icon>
+	</button>
+
+	<div class="logo-img">
+		<div></div>
+	</div>
+
+	<button ion-button start class="user-img">
+		<div><img [src]='user.img'></div>
+	</button>
+
+	<div class="user-name">{{user.name}}</div>
+
+
+
+
+		</ion-toolbar>
+	</ion-header>
+
+	<ion-content>
+		<ion-list>
+			<button class='nav-itm-button' menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+				{{p.title}}
+			</button>
+		</ion-list>
+	</ion-content>
 
 </ion-menu>
 
