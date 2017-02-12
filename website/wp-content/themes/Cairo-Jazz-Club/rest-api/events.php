@@ -16,7 +16,8 @@ function restapi_cjc_calendar_events($request){
 			'post_type' => 'avent',
 			'post_status' => 'publish',
 			'posts_per_page' => -1, // all
-			'orderby' => 'title',
+            'meta_key' => 'date',
+			'orderby' => 'meta_value_num',
 			'order' => 'ASC'
 		);
 	} else if ( $filter === 'upcoming' ) {
