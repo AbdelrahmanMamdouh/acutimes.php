@@ -20,6 +20,10 @@
 @import "../theme/main";
 
 ion-menu{
+	
+	.list-ios > .item-block:first-child {
+		border-top: 0px;
+	}
 
 	.nav-itm-button{
 		background-color: transparent;
