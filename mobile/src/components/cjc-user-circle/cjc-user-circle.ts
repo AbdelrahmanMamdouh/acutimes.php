@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { FacebookService, User } from '../../providers/facebook-service';
+
 /*
   Generated class for the CjcUserCircle page.
 
@@ -9,24 +11,19 @@ import { NavController, NavParams } from 'ionic-angular';
 */
 @Component({
 	selector: 'cjc-user-circle',
-	templateUrl: 'cjc-user-circle.html'
+	templateUrl: 'cjc-user-circle.html',
+	providers: [FacebookService]
 })
 export class CjcUserCircle {
 
-	public user: User = {
-		name: "Beco G. asdas hgahujfg saldfh asdjf hasldfhdasdlf",
-		img: "https://randomuser.me/api/portraits/men/78.jpg"
-	};
+	public user: User;
 
-	constructor(/*public navCtrl: NavController, public navParams: NavParams*/) { }
+	constructor(/*public navCtrl: NavController, public navParams: NavParams*/ facebookService: FacebookService) {
+		this.user = facebookService.getUser();
+	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad CjcUserCirclePage');
 	}
 
-}
-
-interface User {
-	name: string;
-	img: string;
 }

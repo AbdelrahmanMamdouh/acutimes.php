@@ -14,9 +14,9 @@ import { CalendarPage } from '../pages/calendar/calendar';
 import { PreferencePage } from '../pages/preference/preference';
 import { ReservationPage } from '../pages/reservation/reservation';
 
-import { CjcFooter } from '../pages/cjc-footer/cjc-footer';
-import { CjcHeader } from '../pages/cjc-header/cjc-header';
-import { CjcUserCircle } from '../pages/cjc-user-circle/cjc-user-circle';
+import { CjcFooter } from '../components/cjc-footer/cjc-footer';
+import { CjcHeader } from '../components/cjc-header/cjc-header';
+import { CjcUserCircle } from '../components/cjc-user-circle/cjc-user-circle';
 
 
 @NgModule({
