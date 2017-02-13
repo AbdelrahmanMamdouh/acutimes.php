@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
+import { CachingService } from './caching-service';
 import CONFIG from '../app/config.json';
 /*
   Generated class for the StaticPagesService provider.
@@ -15,9 +14,7 @@ import CONFIG from '../app/config.json';
 @Injectable()
 export class StaticPagesService {
 
-	constructor(public http: Http) {
-		console.log('Hello StaticPagesService Provider');
-	}
+	constructor(public http: Http, public cachingService: CachingService) { }
 
 	/**
 	 * remove some short shortcodes
@@ -27,14 +24,14 @@ export class StaticPagesService {
 	cleanContent(page: StaticPage): string {
 		return page.content.rendered.replace(/\[vc_row\]|\[vc_column\]|\[\/vc_row\]|\[\/vc_column\]/g, '');
 	}
-	a
+
 	/**
 	 * get static page about cjc 
 	 * @returns Observable StaticPage
 	 */
 	PageAboutus(): Observable<StaticPage> {
 
-		return this.http.get(CONFIG.API_URL + 'wp/v2/pages/57')
+		return this.cachingService.get(CONFIG.API_URL + 'wp/v2/pages/57')
 			.map(res => {
 				return <StaticPage>res.json();
 			})

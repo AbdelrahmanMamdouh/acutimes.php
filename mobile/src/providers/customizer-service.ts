@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
+import { CachingService } from './caching-service';
 import CONFIG from '../app/config.json';
 
 /*
@@ -16,20 +15,17 @@ import CONFIG from '../app/config.json';
 @Injectable()
 export class CustomizerService {
 
-	constructor(public http: Http) {
-		console.log('Hello CustomizerService Provider');
-	}
+	constructor(public http: Http, public cachingService: CachingService) { }
 	/**
 	 * get all the customizer options
 	 * @returns Observable Customizer
 	 */
 	getAll(): Observable<Customizer> {
 
-		return this.http.get(CONFIG.API_URL + 'cjc/customizer/')
+		return this.cachingService.get(CONFIG.API_URL + 'cjc/customizer/')
 			.map(res => {
 				return this.parsejson(res.json());
-			})
-		//.catch(err => {console.log(error)})
+			});
 
 	}
 	public parsejson(json): Customizer {
