@@ -13,7 +13,28 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ReservationPage {
 
+	numberOfPeople: number = 1;
+
+	artists = [
+		{
+			image: "http://104.40.211.237/Cairo-Jazz-Club.wp/website/wp-content/uploads/2017/02/12112119_1102935619792763_118435785410598425_n-280x280.jpg",
+			title: "El Dor El Awal"
+		},
+		{
+			image: "http://104.40.211.237/Cairo-Jazz-Club.wp/website/wp-content/uploads/2017/02/171497_1548962564637_748791_o-280x280.jpg",
+			title: "Gaser"
+		}
+	];
+
 	constructor(public navCtrl: NavController, public navParams: NavParams) { }
+
+	incrementNumberOfPeople() {
+		this.numberOfPeople += 1;
+	}
+
+	decrementNumberOfPeople() {
+		this.numberOfPeople -= 1;
+	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReservationPage');
