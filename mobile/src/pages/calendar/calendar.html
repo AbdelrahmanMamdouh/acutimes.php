@@ -10,10 +10,31 @@
 
 
 <ion-content padding class="has-footer">
+        <ion-col text-center>
+            <h1 class="cal-header">Events</h1>
+            
+            <div class="events-slider">
+                
+                <div *ngFor="let event of events; let last = last">
+                        <div >
+                            <div class="date-contaner">
+                                <div class="date">
+                                    {{ event.day }}
+                                </div>
+                                
+                            </div>
+                            <div>
+                                <img [src]="event.img" alt="">
+                            <span class="day-number-container"><span class="day-number">{{ event.iday }}</span></span>
+                            </div>
+                            
+                        </div>
+                    {{(last && doinitSlick) ? initSlick() : ''}}
+                </div>
+            </div>
 
+        </ion-col>
 </ion-content>
-
-
 <ion-footer>
 	<cjc-footer></cjc-footer>
 </ion-footer>
