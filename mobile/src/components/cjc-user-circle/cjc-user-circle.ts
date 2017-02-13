@@ -11,8 +11,7 @@ import { FacebookService, User } from '../../providers/facebook-service';
 */
 @Component({
 	selector: 'cjc-user-circle',
-	templateUrl: 'cjc-user-circle.html',
-	providers: [FacebookService]
+	templateUrl: 'cjc-user-circle.html'
 })
 export class CjcUserCircle {
 

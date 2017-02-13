@@ -10,8 +10,7 @@ import { CustomizerService, Customizer } from '../../providers/customizer-servic
 */
 @Component({
 	selector: 'cjc-footer',
-	templateUrl: 'cjc-footer.html',
-	providers: [CustomizerService]
+	templateUrl: 'cjc-footer.html'
 })
 export class CjcFooter {
 

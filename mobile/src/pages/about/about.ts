@@ -11,8 +11,7 @@ import { StaticPagesService, StaticPage, ShortCode } from '../../providers/stati
 */
 @Component({
 	selector: 'page-about',
-	templateUrl: 'about.html',
-	providers: [StaticPagesService]
+	templateUrl: 'about.html'
 })
 export class AboutPage {
 

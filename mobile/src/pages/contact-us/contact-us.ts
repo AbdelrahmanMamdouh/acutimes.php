@@ -10,8 +10,7 @@ import { CustomizerService, Customizer } from '../../providers/customizer-servic
 */
 @Component({
 	selector: 'page-contact-us',
-	templateUrl: 'contact-us.html',
-	providers: [CustomizerService]
+	templateUrl: 'contact-us.html'
 })
 export class ContactUsPage {
 

@@ -18,6 +18,9 @@ import { CjcFooter } from '../components/cjc-footer/cjc-footer';
 import { CjcHeader } from '../components/cjc-header/cjc-header';
 import { CjcUserCircle } from '../components/cjc-user-circle/cjc-user-circle';
 import { CachingService } from '../providers/caching-service';
+import { CustomizerService } from '../providers/customizer-service';
+import { FacebookService } from '../providers/facebook-service';
+import { StaticPagesService } from '../providers/static-pages-service';
 
 
 @NgModule({
@@ -39,7 +42,9 @@ import { CachingService } from '../providers/caching-service';
 	imports: [
 		IonicModule.forRoot(MyApp)
 	],
-	bootstrap: [IonicApp],
+	bootstrap: [
+		IonicApp
+	],
 	entryComponents: [
 		MyApp,
 		LandingPage,
@@ -55,6 +60,14 @@ import { CachingService } from '../providers/caching-service';
 		CjcFooter,
 		CjcUserCircle
 	],
-	providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, MetaSliderImagesService, EventsService, CachingService]
+	providers: [
+		{ provide: ErrorHandler, useClass: IonicErrorHandler },
+		MetaSliderImagesService,
+		EventsService,
+		CachingService,
+		CustomizerService,
+		FacebookService,
+		StaticPagesService
+	]
 })
 export class AppModule { }

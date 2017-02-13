@@ -20,7 +20,7 @@ export class CachingService {
 		console.log('Hello CachingService Provider');
 	}
 
-	get(url: string): Observable<any> {
+	public http_get(url: string): Observable<any> {
 
 		let subsc = new ReplaySubject(1);
 
@@ -46,7 +46,7 @@ export class CachingService {
 	private _getFromAPI(url: string, success: Function, fail: Function) {
 		return this.http.get(url).subscribe(
 			data => {
-				this.add(url,
+				NativeStorage.setItem(url,
 					<CacheReponce>{
 						value: data,
 						key: url,
@@ -61,6 +61,9 @@ export class CachingService {
 
 	}
 
+	/**
+	 * retreave the data from storage if it exists
+	 */
 	private _getFromStorage(url: string, success: Function, fail: Function) {
 		NativeStorage.getItem(url)
 			.then(
@@ -82,27 +85,6 @@ export class CachingService {
 	 */
 	private _isValidDate(date: Date): boolean {
 		return (new Date(date).getTime() - new Date().getTime()) >= (1000 * 60 * 60 * 24);
-	}
-
-
-	add(key, value) {
-		NativeStorage.setItem(key, { property: 'value', anotherProperty: 'anotherValue' })
-			.then(
-			() => console.log('Stored item!'),
-			error => console.error('Error storing item', error)
-			);
-	}
-
-	getvalue(key) {
-		NativeStorage.getItem(key)
-			.then(
-			data => console.log(data),
-			error => console.error(error)
-			);
-	}
-
-	rmValue() {
-
 	}
 
 }
