@@ -34,4 +34,7 @@ export interface Event {
   startDate: Date;
   img: string;
   type: string;
+  day: string;
+  month: string;
+  iday: string;
 }
