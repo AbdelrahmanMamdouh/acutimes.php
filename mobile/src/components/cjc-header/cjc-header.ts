@@ -13,20 +13,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CjcHeader {
 
-	public user: User = {
-		name: "Beco G. asdas hgahujfg saldfh asdjf hasldfhdasdlf",
-		img: "https://randomuser.me/api/portraits/men/78.jpg"
-	};
-
 	constructor(public navCtrl: NavController, public navParams: NavParams) { }
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad CjcHeaderPage');
 	}
 
-}
-
-interface User {
-	name: string;
-	img: string;
 }
