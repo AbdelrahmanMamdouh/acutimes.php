@@ -8,15 +8,7 @@
 
 			<div id="respond-<?php echo $event_id ?>">
 				<?php echo $response; ?>
-				<form action="<?php echo get_site_url() . "/reserve/event/{$event_id}/" ?>" method="post" id="reserve-ticket">                
-					<p><label for="attendees">Number of people</label></p>
-					<p class="attendees">
-						<input type="text" name="attendees" value="1" class="attendees-field num-organ">
-					</p>
-					<input type="hidden" name="submitted" value="1">
-					<input type="hidden" name="eventId" value="<?php echo $event_id ?>"/>
-					<input type="submit" class="btn btn-primary">
-				</form>
+				<?php echo do_shortcode( '[contact-form-7 id="1679" title="Event Reservation"]' ); ?>
 				<div class="form-response"></div>
 			</div>
 
