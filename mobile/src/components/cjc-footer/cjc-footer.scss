@@ -1,9 +1,11 @@
 cjc-footer {
 	
 	ion-toolbar .toolbar-background {
-		background-color: #1F4E59;
+		background-color: transparent;
+		background-image: url(../assets/img/footer-background.png);
+    	background-size: cover;
 	}
-
+//ion-footer
 	.social-icons {
 		@include h-menu();
 
@@ -42,35 +44,3 @@ cjc-footer {
 		}
 	}
 }
-
-/*
-
-	{
-
-		position: fixed;
-		bottom: 0px;
-		background: url(../../assets/img/footer-background.png);
-		height: 6rem;
-		width: 100%;
-		padding: 10px;
-		z-index: 1000;
-	}
-	.cjc-footer-container::before {
-		content: '';
-
-		position: absolute;
-		top: auto;
-		bottom: -2px;
-		left: 0;
-		right: 0;
-
-		border-top-width: 5px;
-		border-style: solid;
-		-o-border-image: url(../../assets/img/footer-border.png) 30 30 round;
-		border-image: url(../../assets/img/footer-border.png) 30 30 round;
-		border-top: 10px;
-		border-left: 0;
-		border-right: 0;
-	}
-*/
-

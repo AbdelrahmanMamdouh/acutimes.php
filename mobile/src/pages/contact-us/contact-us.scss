@@ -1,7 +1,9 @@
 page-contact-us {
 
-	h2 {
-		color: $text;
+	.page-title {
+		color: $fourth-color;
+		text-indent: 5%;
+		text-align: left;
 	}
 	.main-contact{
 		padding: 15px;
