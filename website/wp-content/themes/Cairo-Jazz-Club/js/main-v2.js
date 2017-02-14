@@ -1,5 +1,5 @@
 var Init = (function ($) {
-    
+
 	var Init = {};
 
 	/**
@@ -13,15 +13,26 @@ var Init = (function ($) {
 			Init.MagnificPopup();
 			Init.HomeParallaxSlider();
 			Init.Footer();
-            Init.sendemail();
+			Init.SetEmail();
 
 		});
 	}
-    
-    Init.sendemail = function() {
-        var email= document.getElementById("User_email").value;
-        document.getElementById("ninja_forms_field_91").value = email;
-    }
+
+	/**
+	 * set the email feild of ninja forms preffrence
+	 */
+	Init.SetEmail = function () {
+		// get hiden feild email value
+		var emailHF = document.getElementById("User_email");
+		// get ninja forms feil
+		var email = document.getElementById("ninja_forms_field_91");
+		// if found both email
+		if (emailHF && email) {
+			email.value = emailfeild.value;
+		} else {
+			console.warn("ninja form email feild not found")
+		}
+	}
 
 	Init.ResponsiveMenu = function () {
 		$(".main-menu").mmenu({
@@ -46,10 +57,10 @@ var Init = (function ($) {
 			* afterClose():Will fire when the popup is COMPLETELY CLOSED 
 			*/
 			callbacks: {
-				open: function() {
+				open: function () {
 					$('body').removeClass('hide-horizontal-scrollbar');
 				},
-				afterClose: function() {
+				afterClose: function () {
 					$('body').addClass('hide-horizontal-scrollbar');
 				}
 			}
@@ -66,10 +77,10 @@ var Init = (function ($) {
 			* afterClose():Will fire when the popup is COMPLETELY CLOSED 
 			*/
 			callbacks: {
-				open: function() {
+				open: function () {
 					$('body').removeClass('hide-horizontal-scrollbar');
 				},
-				afterClose: function() {
+				afterClose: function () {
 					$('body').addClass('hide-horizontal-scrollbar');
 				}
 			}
@@ -89,7 +100,7 @@ var Init = (function ($) {
 
 			var buttonStart = 182;
 			var winWidth = $(window).width();
-			
+
 			if (winWidth <= 600) {
 				buttonStart = 70;
 			} else if (winWidth <= 768) {
