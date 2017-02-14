@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
+import { CachingService } from './caching-service';
 import CONFIG from '../app/config.json';
 
 /*
@@ -15,21 +14,21 @@ import CONFIG from '../app/config.json';
 @Injectable()
 export class MetaSliderImagesService {
 
-  constructor(public http: Http) {
-    console.log('Hello MetaSliderImagesService Provider');
-  }
+	constructor(public http: Http, public cachingService: CachingService) {
+		console.log('Hello MetaSliderImagesService Provider');
+	}
 
-  /**
-	* get all images from the meta slider that match the given id
-	* @returns Observable SliderImage[]
-	*/
-  getSliderImages(sliderId: number): Observable<SliderImage[]> {
-    return this.http.get(`${CONFIG.API_URL}cjc/metaslider/images/${sliderId}`)
-      .map(res => <SliderImage[]>res.json());
-  }
+	/**
+	  * get all images from the meta slider that match the given id
+	  * @returns Observable SliderImage[]
+	  */
+	getSliderImages(sliderId: number): Observable<SliderImage[]> {
+		return this.cachingService.http_get(`${CONFIG.API_URL}cjc/metaslider/images/${sliderId}`)
+			.map(res => <SliderImage[]>res.json());
+	}
 
 }
 
 export interface SliderImage {
-  url: string;
+	url: string;
 }

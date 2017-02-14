@@ -22,7 +22,7 @@ export class CustomizerService {
 	 */
 	getAll(): Observable<Customizer> {
 
-		return this.cachingService.http_get(CONFIG.API_URL + 'cjc/customizer/')
+		return this.cachingService.http_get(`${CONFIG.API_URL}cjc/customizer/`)
 			.map(res => {
 				return this.parsejson(res.json());
 			});
