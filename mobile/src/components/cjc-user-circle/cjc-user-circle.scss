@@ -25,18 +25,18 @@ cjc-user-circle {
 		}
 
 		&-name{
-			position: absolute;
-			top: 34%;
-			left: 60px;
-
 			max-width: 20%;
-			color:$primary-color;
 			white-space:nowrap;
 			overflow:hidden;
 
+			color:$primary-color;
 			font-family: $myriadpro-font;
 			font-weight: bold;
-			//font-size: 40.4pt;
+			/*
+			position: absolute;
+			top: 34%;
+			left: 60px;
+			*/
 		}
 	}
 
