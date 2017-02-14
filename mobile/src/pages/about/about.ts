@@ -22,20 +22,17 @@ export class AboutPage {
 	constructor(public navCtrl: NavController, public navParams: NavParams, public staticPagesService: StaticPagesService) {
 		this.sections = [];
 		staticPagesService.PageAboutus().subscribe(
-			function (page: StaticPage) {
+			(page: StaticPage) => {
 
 				for (let i in page.shortcodes) {
 					this.sections[i] = this.shortcodeToAboutSection(page.shortcodes[i]);
 				}
 				this.error = null;
 
-			}.bind(this),
-			function (err) {
-
+			}, (err) => {
 				this.error = err;
 				console.warn(err);
-
-			}.bind(this));
+			});
 
 	}
 

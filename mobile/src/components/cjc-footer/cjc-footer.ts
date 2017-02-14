@@ -23,18 +23,15 @@ export class CjcFooter {
 	constructor(public navCtrl: NavController, public navParams: NavParams, customizerService: CustomizerService) {
 
 		customizerService.getAll().subscribe(
-			function (customizer: Customizer) {
-
+			(customizer: Customizer) => {
 				this.facebook = customizer.social.facebook;
 				this.phone = customizer.identity.phone;
-
-			}.bind(this),
-			function (err) {
-
+			},
+			(err) => {
 				this.error = err;
 				console.warn(err);
-
-			}.bind(this));
+			}
+		);
 
 	}
 
