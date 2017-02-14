@@ -1,3 +1,43 @@
-page-cjc-user-circle {
+cjc-user-circle {
+
+	
+	.user{
+		&-img{
+
+		background: none;
+		background-color: transparent !important;
+		border-radius: 50%;
+		box-shadow: none;
+		height: 100%;
+		padding: 0;
+
+			div{
+				height: 100%;
+				width: 100%;
+
+				img{
+					height: 45px;
+					width: 45px;
+					border-radius: 50%;
+				}
+			}
+
+		}
+
+		&-name{
+			position: absolute;
+			top: 34%;
+			left: 60px;
+
+			max-width: 20%;
+			color:$primary-color;
+			white-space:nowrap;
+			overflow:hidden;
+
+			font-family: $myriadpro-font;
+			font-weight: bold;
+			//font-size: 40.4pt;
+		}
+	}
 
 }
