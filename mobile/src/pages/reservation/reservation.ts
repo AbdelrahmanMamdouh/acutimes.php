@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { EventsService } from '../../providers/events-service';
+
+import { Event } from '../../providers/events-service';
+
 /*
   Generated class for the Reservation page.
 
@@ -14,6 +18,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ReservationPage {
 
 	numberOfPeople: number = 1;
+	targetEvent: Event;
 
 	artists = [
 		{
@@ -26,7 +31,9 @@ export class ReservationPage {
 		}
 	];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) { }
+	constructor(public navCtrl: NavController, public navParams: NavParams, private eventsService: EventsService) {
+		this.targetEvent = navParams.get('event');
+	}
 
 	incrementNumberOfPeople() {
 		this.numberOfPeople += 1;

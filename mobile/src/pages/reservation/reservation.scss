@@ -1,9 +1,9 @@
 /*** General STYLING ***/
 
 page-reservation {
-    ion-content {
-        background-color: transparent !important;
-        color: #000 !important;
+    ion-grid {
+        padding: 0;
+        height: 100%;
     }
     .ion-modal-content {
         width: 100%;
@@ -18,10 +18,6 @@ page-reservation {
         width: 33px;
         height: 30px;
         text-align: right;
-    }
-    .cjc-modal-wrapper {
-        top: -25px;
-        position: relative;
     }
 }
 
