@@ -16,30 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cjc_nf_relationships`
+-- Table structure for table `cjc_revslider_static_slides`
 --
 
-DROP TABLE IF EXISTS `cjc_nf_relationships`;
+DROP TABLE IF EXISTS `cjc_revslider_static_slides`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cjc_nf_relationships` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `child_id` bigint(20) NOT NULL,
-  `parent_id` bigint(20) NOT NULL,
-  `child_type` varchar(255) NOT NULL,
-  `parent_type` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+CREATE TABLE `cjc_revslider_static_slides` (
+  `id` int(9) NOT NULL AUTO_INCREMENT,
+  `slider_id` int(9) NOT NULL,
+  `params` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `layers` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `settings` text COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cjc_nf_relationships`
+-- Dumping data for table `cjc_revslider_static_slides`
 --
 
-LOCK TABLES `cjc_nf_relationships` WRITE;
-/*!40000 ALTER TABLE `cjc_nf_relationships` DISABLE KEYS */;
-INSERT INTO `cjc_nf_relationships` VALUES (1,9,4,'notification','form'),(2,11,3,'notification','form');
-/*!40000 ALTER TABLE `cjc_nf_relationships` ENABLE KEYS */;
+LOCK TABLES `cjc_revslider_static_slides` WRITE;
+/*!40000 ALTER TABLE `cjc_revslider_static_slides` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cjc_revslider_static_slides` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-15  1:59:57
+-- Dump completed on 2017-02-15  1:59:45
