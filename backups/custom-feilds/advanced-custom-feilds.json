@@ -1,1233 +1,1233 @@
 [
-	{
-		"key": "group_576db312e4653",
-		"title": "Artist Meta Data",
-		"fields": [
-			{
-				"width": "",
-				"height": 150,
-				"key": "field_576db31746207",
-				"label": "Soundcloud",
-				"name": "soundcloud",
-				"type": "oembed",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"width": "",
-				"height": "",
-				"key": "field_581e08870bdb9",
-				"label": "Video",
-				"name": "Video",
-				"type": "oembed",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"sub_fields": [
-					{
-						"return_format": "array",
-						"preview_size": "thumbnail",
-						"library": "all",
-						"min_width": "",
-						"min_height": "",
-						"min_size": "",
-						"max_width": "",
-						"max_height": "",
-						"max_size": "",
-						"mime_types": ".jpg, .png, .gif",
-						"key": "field_576db37246209",
-						"label": "Icon",
-						"name": "icon",
-						"type": "image",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						}
-					},
-					{
-						"default_value": "",
-						"maxlength": "",
-						"placeholder": "",
-						"prepend": "",
-						"append": "",
-						"key": "field_576db3ab4620a",
-						"label": "Text",
-						"name": "text",
-						"type": "text",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"readonly": 0,
-						"disabled": 0
-					},
-					{
-						"default_value": "",
-						"placeholder": "",
-						"key": "field_576db3b94620b",
-						"label": "URL",
-						"name": "url",
-						"type": "url",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						}
-					}
-				],
-				"min": 3,
-				"max": 3,
-				"layout": "table",
-				"button_label": "Add New Link",
-				"collapsed": "",
-				"key": "field_576db35d46208",
-				"label": "Links",
-				"name": "links",
-				"type": "repeater",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "artists"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": ""
-	},
-	{
-		"key": "group_57587e30c13df",
-		"title": "Artist Status",
-		"fields": [
-			{
-				"layout": "vertical",
-				"choices": {
-					"Yes": "Yes"
-				},
-				"default_value": [],
-				"allow_custom": 0,
-				"save_custom": 0,
-				"toggle": 0,
-				"return_format": "value",
-				"key": "field_57587e3664eb4",
-				"label": "Visiting Artist",
-				"name": "visiting_artist",
-				"type": "checkbox",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "artists"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "side",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 0,
-		"description": ""
-	},
-	{
-		"key": "group_576daf36ee8b4",
-		"title": "Cancellation Policy",
-		"fields": [
-			{
-				"tabs": "all",
-				"toolbar": "basic",
-				"media_upload": 0,
-				"default_value": "",
-				"delay": 0,
-				"key": "field_576daf5642cb7",
-				"label": "Cancellation Policy",
-				"name": "cancellation_policy",
-				"type": "wysiwyg",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "options_page",
-					"operator": "==",
-					"value": "acf-options-theme-options"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_574f1e967e6a2",
-		"title": "Contact Information",
-		"fields": [
-			{
-				"tabs": "all",
-				"toolbar": "basic",
-				"media_upload": 0,
-				"default_value": "",
-				"delay": 0,
-				"key": "field_574f1e9efb819",
-				"label": "Address",
-				"name": "address",
-				"type": "wysiwyg",
-				"instructions": "",
-				"required": 1,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"tabs": "visual",
-				"toolbar": "basic",
-				"media_upload": 0,
-				"default_value": "",
-				"delay": 0,
-				"key": "field_574f1ebafb81a",
-				"label": "Emails",
-				"name": "emails",
-				"type": "wysiwyg",
-				"instructions": "",
-				"required": 1,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"default_value": "",
-				"maxlength": "",
-				"placeholder": "",
-				"prepend": "",
-				"append": "",
-				"key": "field_574f1ed6fb81b",
-				"label": "Phone",
-				"name": "phone",
-				"type": "text",
-				"instructions": "",
-				"required": 1,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				},
-				"readonly": 0,
-				"disabled": 0
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "options_page",
-					"operator": "==",
-					"value": "acf-options-theme-options"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_57487dcde1bb1",
-		"title": "Content",
-		"fields": [
-			{
-				"layouts": [
-					{
-						"key": "57487de699f3b",
-						"name": "right_hand_image",
-						"label": "Right Hand Image",
-						"display": "block",
-						"sub_fields": [
-							{
-								"tabs": "all",
-								"toolbar": "full",
-								"media_upload": "",
-								"default_value": "",
-								"delay": 0,
-								"key": "field_57487e0f38048",
-								"label": "Text",
-								"name": "text",
-								"type": "wysiwyg",
-								"instructions": "",
-								"required": "",
-								"conditional_logic": "",
-								"wrapper": {
-									"width": "",
-									"class": "",
-									"id": ""
-								}
-							},
-							{
-								"return_format": "array",
-								"preview_size": "thumbnail",
-								"library": "all",
-								"min_width": "",
-								"min_height": "",
-								"min_size": "",
-								"max_width": "",
-								"max_height": "",
-								"max_size": "",
-								"mime_types": "",
-								"key": "field_57487e2e38049",
-								"label": "Image",
-								"name": "image",
-								"type": "image",
-								"instructions": "",
-								"required": 1,
-								"conditional_logic": 0,
-								"wrapper": {
-									"width": "",
-									"class": "",
-									"id": ""
-								}
-							}
-						],
-						"min": "",
-						"max": ""
-					},
-					{
-						"key": "57487e5c3804a",
-						"name": "left_hand_image",
-						"label": "Left Hand Image",
-						"display": "block",
-						"sub_fields": [
-							{
-								"tabs": "all",
-								"toolbar": "full",
-								"media_upload": "",
-								"default_value": "",
-								"delay": 0,
-								"key": "field_57487e5c3804b",
-								"label": "Text",
-								"name": "text",
-								"type": "wysiwyg",
-								"instructions": "",
-								"required": "",
-								"conditional_logic": "",
-								"wrapper": {
-									"width": "",
-									"class": "",
-									"id": ""
-								}
-							},
-							{
-								"return_format": "array",
-								"preview_size": "thumbnail",
-								"library": "all",
-								"min_width": "",
-								"min_height": "",
-								"min_size": "",
-								"max_width": "",
-								"max_height": "",
-								"max_size": "",
-								"mime_types": "",
-								"key": "field_57487e5c3804c",
-								"label": "Image",
-								"name": "image",
-								"type": "image",
-								"instructions": "",
-								"required": 1,
-								"conditional_logic": 0,
-								"wrapper": {
-									"width": "",
-									"class": "",
-									"id": ""
-								}
-							}
-						],
-						"min": "",
-						"max": ""
-					},
-					{
-						"key": "57487e713804d",
-						"name": "wysiwyg",
-						"label": "WYSIWYG",
-						"display": "block",
-						"sub_fields": [
-							{
-								"tabs": "all",
-								"toolbar": "full",
-								"media_upload": 1,
-								"default_value": "",
-								"delay": 0,
-								"key": "field_57487e7a3804e",
-								"label": "Text",
-								"name": "text",
-								"type": "wysiwyg",
-								"instructions": "",
-								"required": 0,
-								"conditional_logic": 0,
-								"wrapper": {
-									"width": "",
-									"class": "",
-									"id": ""
-								}
-							}
-						],
-						"min": "",
-						"max": ""
-					}
-				],
-				"min": "",
-				"max": "",
-				"button_label": "Add Layout",
-				"key": "field_57487dda38047",
-				"label": "Page Content",
-				"name": "page_content",
-				"type": "flexible_content",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "page",
-					"operator": "==",
-					"value": "7"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": [
-			"the_content"
-		],
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_589503122ec7c",
-		"title": "Event",
-		"fields": [
-			{
-				"default_value": "",
-				"new_lines": "br",
-				"maxlength": "",
-				"placeholder": "",
-				"rows": "",
-				"key": "field_5895032b1386e",
-				"label": "Description",
-				"name": "description",
-				"type": "textarea",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"post_type": [
-					"artists"
-				],
-				"taxonomy": [],
-				"min": "",
-				"max": "",
-				"filters": [
-					"search",
-					"post_type",
-					"taxonomy"
-				],
-				"elements": [
-					"featured_image"
-				],
-				"return_format": "object",
-				"key": "field_5895035f1386f",
-				"label": "Performing Artists",
-				"name": "performing_artists",
-				"type": "relationship",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"display_format": "Y-m-d",
-				"return_format": "Y-m-d",
-				"first_day": 0,
-				"key": "field_5895038913870",
-				"label": "Date",
-				"name": "date",
-				"type": "date_picker",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"default_value": 0,
-				"message": "",
-				"ui": 0,
-				"ui_on_text": "",
-				"ui_off_text": "",
-				"key": "field_589a352106436",
-				"label": "private",
-				"name": "private",
-				"type": "true_false",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "avent"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": ""
-	},
-	{
-		"key": "group_582379ebc9e1f",
-		"title": "Featured",
-		"fields": [
-			{
-				"default_value": 0,
-				"message": "Yes",
-				"ui": 0,
-				"ui_on_text": "",
-				"ui_off_text": "",
-				"key": "field_58237a7ecfe58",
-				"label": "Featured",
-				"name": "Featured",
-				"type": "true_false",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "video"
-				}
-			],
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "albums"
-				}
-			],
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "artists"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": ""
-	},
-	{
-		"key": "group_574f17b73fb32",
-		"title": "Footer Message",
-		"fields": [
-			{
-				"tabs": "all",
-				"toolbar": "basic",
-				"media_upload": 0,
-				"default_value": "",
-				"delay": 0,
-				"key": "field_574f17bee9a61",
-				"label": "Message",
-				"name": "message",
-				"type": "wysiwyg",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"default_value": "",
-				"placeholder": "http:\/\/",
-				"key": "field_574f17f5e9a62",
-				"label": "iOS App link",
-				"name": "ios_app",
-				"type": "url",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"default_value": "",
-				"placeholder": "http:\/\/",
-				"key": "field_574f181ee9a63",
-				"label": "Android App link",
-				"name": "android_app",
-				"type": "url",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "options_page",
-					"operator": "==",
-					"value": "acf-options-theme-options"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_574f293f9f919",
-		"title": "Gallery",
-		"fields": [
-			{
-				"library": "all",
-				"min": "",
-				"max": "",
-				"min_width": "",
-				"min_height": "",
-				"min_size": "",
-				"max_width": "",
-				"max_height": "",
-				"max_size": "",
-				"mime_types": "",
-				"insert": "append",
-				"key": "field_574f294504ed2",
-				"label": "Images",
-				"name": "images",
-				"type": "gallery",
-				"instructions": "",
-				"required": 1,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				},
-				"preview_size": "thumbnail"
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "album"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 0,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_575086e296aaa",
-		"title": "Image Ads",
-		"fields": [
-			{
-				"sub_fields": [
-					{
-						"default_value": "",
-						"placeholder": "http:\/\/",
-						"key": "field_575086fd8400c",
-						"label": "Ad Link",
-						"name": "ad_link",
-						"type": "url",
-						"instructions": "",
-						"required": 1,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						}
-					},
-					{
-						"return_format": "array",
-						"preview_size": "large",
-						"library": "all",
-						"min_width": "",
-						"min_height": "",
-						"min_size": "",
-						"max_width": "",
-						"max_height": "",
-						"max_size": "",
-						"mime_types": "",
-						"key": "field_5750871e8400d",
-						"label": "Ad Image",
-						"name": "ad_image",
-						"type": "image",
-						"instructions": "",
-						"required": 1,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						}
-					}
-				],
-				"min": 0,
-				"max": 0,
-				"layout": "block",
-				"button_label": "Add new ad",
-				"collapsed": "",
-				"key": "field_575086e88400b",
-				"label": "Ads",
-				"name": "ads",
-				"type": "repeater",
-				"instructions": "",
-				"required": 1,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "page",
-					"operator": "==",
-					"value": "5"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_574c9bd85a3bc",
-		"title": "Logos",
-		"fields": [
-			{
-				"return_format": "array",
-				"preview_size": "thumbnail",
-				"library": "all",
-				"min_width": "",
-				"min_height": "",
-				"min_size": "",
-				"max_width": "",
-				"max_height": "",
-				"max_size": "",
-				"mime_types": "",
-				"key": "field_574c9bdc70a96",
-				"label": "Main Logo",
-				"name": "main_logo",
-				"type": "image",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"return_format": "array",
-				"preview_size": "thumbnail",
-				"library": "all",
-				"min_width": "",
-				"min_height": "",
-				"min_size": "",
-				"max_width": "",
-				"max_height": "",
-				"max_size": "",
-				"mime_types": "",
-				"key": "field_574c9bee70a97",
-				"label": "Footer Logo",
-				"name": "footer_logo",
-				"type": "image",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "post"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_576e90784e278",
-		"title": "Map Coordinates",
-		"fields": [
-			{
-				"default_value": "",
-				"maxlength": "",
-				"placeholder": "30.046278",
-				"prepend": "",
-				"append": "",
-				"key": "field_576e908101bad",
-				"label": "lat",
-				"name": "lat",
-				"type": "text",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				},
-				"readonly": 0,
-				"disabled": 0
-			},
-			{
-				"default_value": "",
-				"maxlength": "",
-				"placeholder": "31.240712",
-				"prepend": "",
-				"append": "",
-				"key": "field_576e90b101bae",
-				"label": "Long",
-				"name": "long",
-				"type": "text",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				},
-				"readonly": 0,
-				"disabled": 0
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "page",
-					"operator": "==",
-					"value": "19"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "side",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_574c8fc8d069b",
-		"title": "Nights",
-		"fields": [
-			{
-				"sub_fields": [
-					{
-						"return_format": "array",
-						"preview_size": "thumbnail",
-						"library": "all",
-						"min_width": "",
-						"min_height": "",
-						"min_size": "",
-						"max_width": "",
-						"max_height": "",
-						"max_size": "",
-						"mime_types": "",
-						"key": "field_574c8feb20168",
-						"label": "Logo",
-						"name": "logo",
-						"type": "image",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						}
-					},
-					{
-						"tabs": "all",
-						"toolbar": "full",
-						"media_upload": 1,
-						"default_value": "",
-						"delay": 0,
-						"key": "field_574c900920169",
-						"label": "Description",
-						"name": "description",
-						"type": "wysiwyg",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						}
-					},
-					{
-						"width": 270,
-						"height": 150,
-						"key": "field_574c90412016a",
-						"label": "Soundcloud",
-						"name": "soundcloud",
-						"type": "oembed",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						}
-					},
-					{
-						"default_value": "",
-						"key": "field_574c90996a0ec",
-						"label": "Background Color",
-						"name": "background_color",
-						"type": "color_picker",
-						"instructions": "",
-						"required": 1,
-						"conditional_logic": "",
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						}
-					}
-				],
-				"min": 0,
-				"max": 0,
-				"layout": "block",
-				"button_label": "Add New Night",
-				"collapsed": "",
-				"key": "field_574c8fd820167",
-				"label": "Nights",
-				"name": "nights",
-				"type": "repeater",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "page",
-					"operator": "==",
-					"value": "13"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_574c9b4d9b010",
-		"title": "Social Accounts",
-		"fields": [
-			{
-				"default_value": "",
-				"placeholder": "http:\/\/",
-				"key": "field_574c9b928cb70",
-				"label": "Facebook",
-				"name": "facebook",
-				"type": "url",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"default_value": "",
-				"placeholder": "http:\/\/",
-				"key": "field_574c9baa8cb71",
-				"label": "Twitter",
-				"name": "twitter",
-				"type": "url",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			},
-			{
-				"default_value": "",
-				"placeholder": "http:\/\/",
-				"key": "field_574c9bc38cb72",
-				"label": "Youtube",
-				"name": "youtube",
-				"type": "url",
-				"instructions": "",
-				"required": 0,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "options_page",
-					"operator": "==",
-					"value": "acf-options-theme-options"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 1,
-		"description": "",
-		"local": "php"
-	},
-	{
-		"key": "group_581d0975c3e90",
-		"title": "Video",
-		"fields": [
-			{
-				"default_value": "",
-				"placeholder": "",
-				"key": "field_581fac17865cd",
-				"label": "Video link",
-				"name": "video_link",
-				"type": "url",
-				"instructions": "Youtube (URL) or Vimeo (URL)",
-				"required": 1,
-				"conditional_logic": 0,
-				"wrapper": {
-					"width": "",
-					"class": "",
-					"id": ""
-				}
-			}
-		],
-		"location": [
-			[
-				{
-					"param": "post_type",
-					"operator": "==",
-					"value": "video"
-				}
-			]
-		],
-		"menu_order": 0,
-		"position": "normal",
-		"style": "default",
-		"label_placement": "top",
-		"instruction_placement": "label",
-		"hide_on_screen": "",
-		"active": 0,
-		"description": "",
-		"local": "php"
-	}
+    {
+        "key": "group_576db312e4653",
+        "title": "Artist Meta Data",
+        "fields": [
+            {
+                "width": "",
+                "height": 150,
+                "key": "field_576db31746207",
+                "label": "Soundcloud",
+                "name": "soundcloud",
+                "type": "oembed",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "width": "",
+                "height": "",
+                "key": "field_581e08870bdb9",
+                "label": "Video",
+                "name": "Video",
+                "type": "oembed",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "sub_fields": [
+                    {
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ".jpg, .png, .gif",
+                        "key": "field_576db37246209",
+                        "label": "Icon",
+                        "name": "icon",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        }
+                    },
+                    {
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "key": "field_576db3ab4620a",
+                        "label": "Text",
+                        "name": "text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "readonly": 0,
+                        "disabled": 0
+                    },
+                    {
+                        "default_value": "",
+                        "placeholder": "",
+                        "key": "field_576db3b94620b",
+                        "label": "URL",
+                        "name": "url",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        }
+                    }
+                ],
+                "min": 3,
+                "max": 3,
+                "layout": "table",
+                "button_label": "Add New Link",
+                "collapsed": "",
+                "key": "field_576db35d46208",
+                "label": "Links",
+                "name": "links",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "artists"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_57587e30c13df",
+        "title": "Artist Status",
+        "fields": [
+            {
+                "layout": "vertical",
+                "choices": {
+                    "Yes": "Yes"
+                },
+                "default_value": [],
+                "allow_custom": 0,
+                "save_custom": 0,
+                "toggle": 0,
+                "return_format": "value",
+                "key": "field_57587e3664eb4",
+                "label": "Visiting Artist",
+                "name": "visiting_artist",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "artists"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 0,
+        "description": ""
+    },
+    {
+        "key": "group_576daf36ee8b4",
+        "title": "Cancellation Policy",
+        "fields": [
+            {
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "default_value": "",
+                "delay": 0,
+                "key": "field_576daf5642cb7",
+                "label": "Cancellation Policy",
+                "name": "cancellation_policy",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-theme-options"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_574f1e967e6a2",
+        "title": "Contact Information",
+        "fields": [
+            {
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "default_value": "",
+                "delay": 0,
+                "key": "field_574f1e9efb819",
+                "label": "Address",
+                "name": "address",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "default_value": "",
+                "delay": 0,
+                "key": "field_574f1ebafb81a",
+                "label": "Emails",
+                "name": "emails",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "key": "field_574f1ed6fb81b",
+                "label": "Phone",
+                "name": "phone",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-theme-options"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_57487dcde1bb1",
+        "title": "Content",
+        "fields": [
+            {
+                "layouts": [
+                    {
+                        "key": "57487de699f3b",
+                        "name": "right_hand_image",
+                        "label": "Right Hand Image",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": "",
+                                "default_value": "",
+                                "delay": 0,
+                                "key": "field_57487e0f38048",
+                                "label": "Text",
+                                "name": "text",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": "",
+                                "conditional_logic": "",
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                }
+                            },
+                            {
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "key": "field_57487e2e38049",
+                                "label": "Image",
+                                "name": "image",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                }
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "57487e5c3804a",
+                        "name": "left_hand_image",
+                        "label": "Left Hand Image",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": "",
+                                "default_value": "",
+                                "delay": 0,
+                                "key": "field_57487e5c3804b",
+                                "label": "Text",
+                                "name": "text",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": "",
+                                "conditional_logic": "",
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                }
+                            },
+                            {
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "key": "field_57487e5c3804c",
+                                "label": "Image",
+                                "name": "image",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                }
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "57487e713804d",
+                        "name": "wysiwyg",
+                        "label": "WYSIWYG",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "default_value": "",
+                                "delay": 0,
+                                "key": "field_57487e7a3804e",
+                                "label": "Text",
+                                "name": "text",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                }
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                ],
+                "min": "",
+                "max": "",
+                "button_label": "Add Layout",
+                "key": "field_57487dda38047",
+                "label": "Page Content",
+                "name": "page_content",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "7"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_589503122ec7c",
+        "title": "Event",
+        "fields": [
+            {
+                "default_value": "",
+                "new_lines": "br",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": "",
+                "key": "field_5895032b1386e",
+                "label": "Description",
+                "name": "description",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "post_type": [
+                    "artists"
+                ],
+                "taxonomy": [],
+                "min": "",
+                "max": "",
+                "filters": [
+                    "search",
+                    "post_type",
+                    "taxonomy"
+                ],
+                "elements": [
+                    "featured_image"
+                ],
+                "return_format": "object",
+                "key": "field_5895035f1386f",
+                "label": "Performing Artists",
+                "name": "performing_artists",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "display_format": "Y-m-d",
+                "return_format": "Y-m-d",
+                "first_day": 0,
+                "key": "field_5895038913870",
+                "label": "Date",
+                "name": "date",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "default_value": 0,
+                "message": "",
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "key": "field_589a352106436",
+                "label": "private",
+                "name": "private",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "avent"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_582379ebc9e1f",
+        "title": "Featured",
+        "fields": [
+            {
+                "default_value": 0,
+                "message": "Yes",
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": "",
+                "key": "field_58237a7ecfe58",
+                "label": "Featured",
+                "name": "Featured",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "video"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "albums"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "artists"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_574f17b73fb32",
+        "title": "Footer Message",
+        "fields": [
+            {
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "default_value": "",
+                "delay": 0,
+                "key": "field_574f17bee9a61",
+                "label": "Message",
+                "name": "message",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "default_value": "",
+                "placeholder": "http:\/\/",
+                "key": "field_574f17f5e9a62",
+                "label": "iOS App link",
+                "name": "ios_app",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "default_value": "",
+                "placeholder": "http:\/\/",
+                "key": "field_574f181ee9a63",
+                "label": "Android App link",
+                "name": "android_app",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-theme-options"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_574f293f9f919",
+        "title": "Gallery",
+        "fields": [
+            {
+                "library": "all",
+                "min": "",
+                "max": "",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "insert": "append",
+                "key": "field_574f294504ed2",
+                "label": "Images",
+                "name": "images",
+                "type": "gallery",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "preview_size": "thumbnail"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "album"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 0,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_575086e296aaa",
+        "title": "Image Ads",
+        "fields": [
+            {
+                "sub_fields": [
+                    {
+                        "default_value": "",
+                        "placeholder": "http:\/\/",
+                        "key": "field_575086fd8400c",
+                        "label": "Ad Link",
+                        "name": "ad_link",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        }
+                    },
+                    {
+                        "return_format": "array",
+                        "preview_size": "large",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "key": "field_5750871e8400d",
+                        "label": "Ad Image",
+                        "name": "ad_image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        }
+                    }
+                ],
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add new ad",
+                "collapsed": "",
+                "key": "field_575086e88400b",
+                "label": "Ads",
+                "name": "ads",
+                "type": "repeater",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "5"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_574c9bd85a3bc",
+        "title": "Logos",
+        "fields": [
+            {
+                "return_format": "array",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "key": "field_574c9bdc70a96",
+                "label": "Main Logo",
+                "name": "main_logo",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "return_format": "array",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "key": "field_574c9bee70a97",
+                "label": "Footer Logo",
+                "name": "footer_logo",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_576e90784e278",
+        "title": "Map Coordinates",
+        "fields": [
+            {
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "30.046278",
+                "prepend": "",
+                "append": "",
+                "key": "field_576e908101bad",
+                "label": "lat",
+                "name": "lat",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "31.240712",
+                "prepend": "",
+                "append": "",
+                "key": "field_576e90b101bae",
+                "label": "Long",
+                "name": "long",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "19"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_574c8fc8d069b",
+        "title": "Nights",
+        "fields": [
+            {
+                "sub_fields": [
+                    {
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "key": "field_574c8feb20168",
+                        "label": "Logo",
+                        "name": "logo",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        }
+                    },
+                    {
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 1,
+                        "default_value": "",
+                        "delay": 0,
+                        "key": "field_574c900920169",
+                        "label": "Description",
+                        "name": "description",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        }
+                    },
+                    {
+                        "width": 270,
+                        "height": 150,
+                        "key": "field_574c90412016a",
+                        "label": "Soundcloud",
+                        "name": "soundcloud",
+                        "type": "oembed",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        }
+                    },
+                    {
+                        "default_value": "",
+                        "key": "field_574c90996a0ec",
+                        "label": "Background Color",
+                        "name": "background_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": "",
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        }
+                    }
+                ],
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Add New Night",
+                "collapsed": "",
+                "key": "field_574c8fd820167",
+                "label": "Nights",
+                "name": "nights",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "13"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_574c9b4d9b010",
+        "title": "Social Accounts",
+        "fields": [
+            {
+                "default_value": "",
+                "placeholder": "http:\/\/",
+                "key": "field_574c9b928cb70",
+                "label": "Facebook",
+                "name": "facebook",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "default_value": "",
+                "placeholder": "http:\/\/",
+                "key": "field_574c9baa8cb71",
+                "label": "Twitter",
+                "name": "twitter",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "default_value": "",
+                "placeholder": "http:\/\/",
+                "key": "field_574c9bc38cb72",
+                "label": "Youtube",
+                "name": "youtube",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-theme-options"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": "",
+        "local": "php"
+    },
+    {
+        "key": "group_581d0975c3e90",
+        "title": "Video",
+        "fields": [
+            {
+                "default_value": "",
+                "placeholder": "",
+                "key": "field_581fac17865cd",
+                "label": "Video link",
+                "name": "video_link",
+                "type": "url",
+                "instructions": "Youtube (URL) or Vimeo (URL)",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "video"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 0,
+        "description": "",
+        "local": "php"
+    }
 ]

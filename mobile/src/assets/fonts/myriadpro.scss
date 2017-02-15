@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: "myriad-pro";
+	font-weight: bold;
+	font-style: normal;
+	src: url('../assets/fonts/myriadproboldcondIt.eot');
+	src: 
+		url('../assets/fonts/myriadproboldcondIt.eot') format("embedded-opentype"), 
+		url('../assets/fonts/myriadproboldcondIt.woff2') format("woff2"), 
+		url('../assets/fonts/myriadproboldcondIt.woff') format("woff"), 
+		url('../assets/fonts/myriadproboldcondIt.ttf') format("truetype"), 
+		url('../assets/fonts/myriadproboldcondIt.svg#myriadproboldcondIt') format("svg");
+}
+
+@font-face {
+	font-family: "myriad-pro";
+	font-weight: 600;
+	font-style: normal;
+	src: url('../assets/fonts/myriadprosemibold.eot');
+	src: 
+		url('../assets/fonts/myriadprosemibold.eot') format("embedded-opentype"), 
+		url('../assets/fonts/myriadprosemibold.woff2') format("woff2"), 
+		url('../assets/fonts/myriadprosemibold.woff') format("woff"), 
+		url('../assets/fonts/myriadprosemibold.ttf') format("truetype"), 
+		url('../assets/fonts/myriadprosemibold.svg#myriadprosemibold') format("svg");
+}
+
+.font-myriadpro-bold {
+	font-family: myriad-pro;
+	font-weight: bold;
+}
+
+.font-myriadpro-semibold {
+	font-family: myriad-pro;
+	font-weight: 600;
+}

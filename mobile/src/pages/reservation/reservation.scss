@@ -1,3 +1,40 @@
-page-reservation {
+/*** General STYLING ***/
 
+page-reservation {
+    ion-grid {
+        padding: 0;
+        height: 100%;
+    }
+    .ion-modal-content {
+        width: 100%;
+        position: relative;
+        border-style: solid;
+        border-width: 35px 50px 50px 40px;
+        -o-border-image: url(../assets/img/modal.png) 88 71 76 55;
+        border-image: url(../assets/img/modal.png) 88 71 76 55 fill;
+    }
+    .spinner-button {
+        margin: auto;
+        width: 33px;
+        height: 30px;
+        text-align: right;
+    }
+}
+
+
+/*** ANDROID STYLING ***/
+
+.md {
+    page-reservation {
+        .content-md {}
+    }
+}
+
+
+/*** IOS STYLING ***/
+
+.ios {
+    page-reservation {
+        .content-ios {}
+    }
 }

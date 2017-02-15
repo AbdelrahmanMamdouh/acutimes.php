@@ -10,8 +10,7 @@ import { CustomizerService, Customizer } from '../../providers/customizer-servic
 */
 @Component({
 	selector: 'page-contact-us',
-	templateUrl: 'contact-us.html',
-	providers: [CustomizerService]
+	templateUrl: 'contact-us.html'
 })
 export class ContactUsPage {
 
@@ -24,19 +23,16 @@ export class ContactUsPage {
 	constructor(public navCtrl: NavController, public navParams: NavParams, customizerService: CustomizerService) {
 
 		customizerService.getAll().subscribe(
-			function (customizer: Customizer) {
+			(customizer: Customizer) => {
 
 				this.address = customizer.identity.address;
 				this.email = customizer.identity.email;
 				this.phone = customizer.identity.phone;
 
-			}.bind(this),
-			function (err) {
-
+			}, (err) => {
 				this.error = err;
 				console.warn(err);
-
-			}.bind(this));
+			});
 
 	}
 

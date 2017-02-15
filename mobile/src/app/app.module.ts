@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import {  MetaSliderImagesService } from '../providers/meta-slider-images-service';
+import { MetaSliderImagesService } from '../providers/meta-slider-images-service';
 import { EventsService } from '../providers/events-service';
 
 import { LandingPage } from '../pages/landing/landing';
@@ -17,6 +17,10 @@ import { ReservationPage } from '../pages/reservation/reservation';
 import { CjcFooter } from '../components/cjc-footer/cjc-footer';
 import { CjcHeader } from '../components/cjc-header/cjc-header';
 import { CjcUserCircle } from '../components/cjc-user-circle/cjc-user-circle';
+import { CachingService } from '../providers/caching-service';
+import { CustomizerService } from '../providers/customizer-service';
+import { FacebookService } from '../providers/facebook-service';
+import { StaticPagesService } from '../providers/static-pages-service';
 
 
 @NgModule({
@@ -38,7 +42,9 @@ import { CjcUserCircle } from '../components/cjc-user-circle/cjc-user-circle';
 	imports: [
 		IonicModule.forRoot(MyApp)
 	],
-	bootstrap: [IonicApp],
+	bootstrap: [
+		IonicApp
+	],
 	entryComponents: [
 		MyApp,
 		LandingPage,
@@ -54,6 +60,14 @@ import { CjcUserCircle } from '../components/cjc-user-circle/cjc-user-circle';
 		CjcFooter,
 		CjcUserCircle
 	],
-	providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, MetaSliderImagesService, EventsService]
+	providers: [
+		{ provide: ErrorHandler, useClass: IonicErrorHandler },
+		MetaSliderImagesService,
+		EventsService,
+		CachingService,
+		CustomizerService,
+		FacebookService,
+		StaticPagesService
+	]
 })
 export class AppModule { }

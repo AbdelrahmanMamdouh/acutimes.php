@@ -4,15 +4,72 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-content scroll="false">
 
-	<ion-navbar>
-		<ion-title>reservation</ion-title>
-	</ion-navbar>
+    <ion-grid>
 
-</ion-header>
+        <ion-row class="modal-image">
+            <ion-col text-center>
+                <img [src]="targetEvent.modalImg" />
+            </ion-col>
+        </ion-row>
 
+        <ion-row center>
+            <ion-col text-center *ngFor="let artist of artists">
+                <div class="mfp-artists">
+                    <div class="artist">
+                        <div class="media-box">
+                            <div class="media-box__img">
+                                <div class="circle circle--xs circle--center">
+                                    <div class="circle__content">
+                                        <img [src]="artist.image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media-box__content">
+                                <h4 class="artist__name">
+                                    {{ artist.title }}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-modal-content" center>
+            <ion-col text-center>
+                <ion-row center>
+                    <ion-col text-center>
+                        <p>Number of people</p>
+                    </ion-col>
+                </ion-row>
 
-<ion-content padding>
+                <ion-row center>
+                    <ion-col width-20 offset-20>
+                        <button ion-button small icon-only (click)="decrementNumberOfPeople()">
+                  <ion-icon name="remove"></ion-icon>
+                </button>
+                    </ion-col>
+                    <ion-col width-10>
+                        <input type="number" [value]="numberOfPeople" disabled class="spinner-button">
+                    </ion-col>
+                    <ion-col width-10 offset-10>
+                        <button ion-button small icon-only (click)="incrementNumberOfPeople()">
+                  <ion-icon name="add"></ion-icon>
+                </button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row center>
+                    <ion-col text-center>
+                        <button ion-button>
+                  CONFIRM
+                </button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
 
 </ion-content>

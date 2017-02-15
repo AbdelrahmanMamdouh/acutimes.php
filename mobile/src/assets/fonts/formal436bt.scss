@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'formal436bt';
+	font-weight: normal;
+	font-style: normal;
+	src: url('../assets/fonts/formal436bt.eot');
+	src: 
+		url('../assets/fonts/formal436bt.eot') format("embedded-opentype"), 
+		url('../assets/fonts/formal436bt.woff2') format("woff2"), 
+		url('../assets/fonts/formal436bt.woff') format("woff"), 
+		url('../assets/fonts/formal436bt.ttf') format("truetype"), 
+		url('../assets/fonts/formal436bt.svg#formal436bt') format("svg");
+}
+
+.font-formal436bt {
+	font-family: formal436bt;
+}

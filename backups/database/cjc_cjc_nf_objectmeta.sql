@@ -28,7 +28,7 @@ CREATE TABLE `cjc_nf_objectmeta` (
   `meta_key` varchar(255) NOT NULL,
   `meta_value` longtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `cjc_nf_objectmeta` (
 
 LOCK TABLES `cjc_nf_objectmeta` WRITE;
 /*!40000 ALTER TABLE `cjc_nf_objectmeta` DISABLE KEYS */;
-INSERT INTO `cjc_nf_objectmeta` VALUES (7,3,'date_updated','2017-02-03 16:35:32'),(8,3,'clear_complete','1'),(9,3,'hide_complete','1'),(10,3,'show_title','0'),(11,3,'status',''),(12,3,'form_title','Contact Us'),(13,3,'append_page',''),(14,3,'ajax','1'),(15,3,'logged_in','0'),(16,3,'not_logged_in_msg',''),(17,3,'sub_limit_number','3'),(18,3,'sub_limit_msg','You can only submit 3 times at a time'),(19,4,'date_updated','2017-02-08 16:57:19'),(20,4,'clear_complete','1'),(21,4,'hide_complete','1'),(22,4,'show_title','1'),(23,4,'status',''),(24,4,'form_title','Stay in touch'),(25,4,'append_page',''),(26,4,'ajax','1'),(27,4,'logged_in','0'),(28,4,'not_logged_in_msg',''),(29,4,'sub_limit_number',''),(30,4,'sub_limit_msg',''),(31,4,'bti_layout_master','a:2:{s:4:\"cols\";s:1:\"1\";s:9:\"rendering\";s:0:\"\";}'),(32,4,'last_sub','6'),(55,9,'date_updated','2017-02-03'),(56,9,'active','1'),(57,9,'name','Success Message'),(58,9,'type','success_message'),(59,9,'from_name',''),(60,9,'from_address',''),(61,9,'to',''),(62,9,'email_subject',''),(63,9,'email_message',''),(64,9,'attach_csv','0'),(65,9,'email_format','html'),(66,9,'reply_to',''),(67,9,'cc',''),(68,9,'bcc',''),(69,9,'redirect_url',''),(70,9,'success_msg','<h2>thank you for registration</h2>');
+INSERT INTO `cjc_nf_objectmeta` VALUES (7,3,'date_updated','2017-02-14 16:02:11'),(8,3,'clear_complete','1'),(9,3,'hide_complete','1'),(10,3,'show_title','0'),(11,3,'status',''),(12,3,'form_title','Contact Us'),(13,3,'append_page',''),(14,3,'ajax','1'),(15,3,'logged_in','0'),(16,3,'not_logged_in_msg',''),(17,3,'sub_limit_number','3'),(18,3,'sub_limit_msg','You can only submit 3 times at a time'),(19,4,'date_updated','2017-02-11 00:26:52'),(20,4,'clear_complete','1'),(21,4,'hide_complete','1'),(22,4,'show_title','1'),(23,4,'status',''),(24,4,'form_title','Stay in touch'),(25,4,'append_page',''),(26,4,'ajax','1'),(27,4,'logged_in','0'),(28,4,'not_logged_in_msg',''),(29,4,'sub_limit_number',''),(30,4,'sub_limit_msg',''),(31,4,'bti_layout_master','a:2:{s:4:\"cols\";s:1:\"1\";s:9:\"rendering\";s:0:\"\";}'),(32,4,'last_sub','12'),(55,9,'date_updated','2017-02-03'),(56,9,'active','1'),(57,9,'name','Success Message'),(58,9,'type','success_message'),(59,9,'from_name',''),(60,9,'from_address',''),(61,9,'to',''),(62,9,'email_subject',''),(63,9,'email_message',''),(64,9,'attach_csv','0'),(65,9,'email_format','html'),(66,9,'reply_to',''),(67,9,'cc',''),(68,9,'bcc',''),(69,9,'redirect_url',''),(70,9,'success_msg','<h2>thank you for registration</h2>'),(76,11,'date_updated','2017-02-14'),(77,11,'active','1'),(78,11,'name','mail'),(79,11,'type','email'),(80,11,'from_name','mohammed'),(81,11,'from_address','mohammed.magdy.ali.96@gmail.com'),(82,11,'to','mohammed.magdy.ali.96@gmail.com'),(83,11,'email_subject','field_2'),(84,11,'email_message','this is a test massage'),(85,11,'attach_csv','0'),(86,11,'email_format','html'),(87,11,'reply_to',''),(88,11,'cc',''),(89,11,'bcc',''),(90,11,'redirect_url',''),(91,11,'success_msg','');
 /*!40000 ALTER TABLE `cjc_nf_objectmeta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-09  2:11:23
+-- Dump completed on 2017-02-15  1:59:49

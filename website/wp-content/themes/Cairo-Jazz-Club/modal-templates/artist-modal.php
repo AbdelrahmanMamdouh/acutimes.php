@@ -60,7 +60,7 @@
 						?>
 						
 						<div class='col-md-4'>
-							<a href='<?php the_sub_field("url") ?>' style='display: inline-block; width: 100%;'>
+							<a target="_blank" href='<?php the_sub_field("url") ?>' style='display: inline-block; width: 100%;'>
 
 								<span class='vertical-middle' style='max-width: 50%;' ><img src='<?php echo $icon ?>' alt=''></span>
 								<h4 class='vertical-middle' style='max-width: 50%; margin-left: 1rem;'><?php the_sub_field("text") ?></h4>
