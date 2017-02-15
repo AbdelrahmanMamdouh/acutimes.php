@@ -12,10 +12,16 @@
 <ion-content padding class="has-footer">
         <ion-col text-center>
             <h1 class="cal-header">Events</h1>
-            
+            <div class="clndr-controls">
+                
+                 <h2 calss="clndr-controls month">{{month}}</h2>
+                <a href="javascript:void(0)" (click)="previous()" class="clndr-previous-button"></a>
+                <a href="javascript:void(0)" (click)="next()" class="clndr-next-button"></a>
+            </div>
+           <div *ngIf="(month_events | json) != '[]'">
             <div class="events-slider">
                 
-                <div *ngFor="let event of events; let last = last">
+               <div *ngFor="let event of month_events; let last = last">
                         <div >
                             <div class="date-contaner">
                                 <div class="date">
@@ -31,8 +37,13 @@
                         </div>
                     {{(last && doinitSlick) ? initSlick() : ''}}
                 </div>
+                </div>
+                
             </div>
-
+            <div *ngIf="(month_events | json) === '[]'">
+                     <h2 calss="clndr-controls month">Sorry No Events this Month</h2>
+            </div>
+             
         </ion-col>
 </ion-content>
 <ion-footer>

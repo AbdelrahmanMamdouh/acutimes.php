@@ -38,3 +38,35 @@ line-height: 3rem;
     height: 32px;
     font-size: larger;
 }
+.clndr-previous-button{
+    width: 35px;
+height: 45px;
+background: url("../../assets/img/prev-month-a.png") no-repeat;
+    
+    padding-left: 161px;
+padding-top: 66px;
+margin-right: 119px;
+}
+.clndr-next-button{
+    width: 35px;
+height: 45px;
+background: url("../../assets/img/next-month-a.png") no-repeat;
+    
+    padding-top: 84px;
+padding-right: 38px;
+margin-left: 132px;
+margin-bottom: 35px;
+padding-bottom: 6px;
+}
+.clndr-controls{
+    display: block;
+text-align: center;
+width: 100%;
+margin-bottom: 3rem;
+}
+.clndr-controls .month{
+    text-align: center;
+padding: 0 6rem;
+color: #97a8a9;
+}
+    

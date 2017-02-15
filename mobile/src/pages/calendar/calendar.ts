@@ -21,11 +21,15 @@ import { Event } from '../../providers/events-service';
 export class CalendarPage {
 
 	events: Event[];
-	all: Array<string>=["January","February","March","April","May","June","July","August","September","October","November","December"];
+	month_events: Event[];
+	all: Array<string>=["","January","February","March","April","May","June","July","August","September","October","November","December"];
 	now = moment().format('MMMM');
-
+	month: any;
+	v_month: any;
 	constructor(public navCtrl: NavController, public navParams: NavParams , private eventsService: EventsService){
-			var thisMonth = moment().format('MMMM'); //get the current month
+			var currentmonth = moment().format('M');
+			this.v_month = Number(currentmonth);
+			this.month = this.all[this.v_month];
 			eventsService.getEvents("all").subscribe(events => { //get the events from the api
 			this.events = events;
 			var i=0;
@@ -36,11 +40,14 @@ export class CalendarPage {
 				 i++;
 			}
 			i=0;
-		})
+			this.month_events = this.events;
+			this.setFilteredItems();
+		});
+			
+			
 	}
 
 	doinitSlick = true; // initialize it to true for the first run
-
 
 	initSlick(): void {
 		$('.events-slider').slick({
@@ -50,7 +57,46 @@ export class CalendarPage {
 			centerPadding: '70px'
 		});
 		this.doinitSlick = false; // set it to false until you need to trigger again
+		
+	}	
+	desSlick(): void{
+		$('.events-slider').slick('unslick');
+		this.doinitSlick = true;
 	}
+	next(): void{
+		this.v_month=this.v_month+1;
+		if(this.v_month == 13) {
+			this.v_month=1;
+		}
+		this.month = this.all[this.v_month];
+		this.setFilteredItems();
+		this.desSlick();
+	}
+	previous(): void{
+		this.v_month=this.v_month-1;
+		if(this.v_month == 0) {
+			this.v_month=12;
+		}
+		this.month = this.all[this.v_month];
+		console.log(this.month_events);
+		this.setFilteredItems();
+		this.desSlick();
+	}
+
+	filterItems(){
+		if(typeof this.events != 'undefined'){
+        return this.events.filter((event) => {
+            return event.month.toLowerCase().indexOf(this.month.toLowerCase()) > -1;
+                    
+        });     
+    }
+
+    }
+    setFilteredItems() {
+        this.month_events = this.filterItems();
+ 
+    }
+
 
 
 
