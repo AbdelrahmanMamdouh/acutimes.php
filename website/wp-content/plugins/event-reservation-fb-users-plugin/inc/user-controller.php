@@ -7,6 +7,8 @@ class RFB_UserController {
 	 * update user data from post
 	 */
 	static function UpdateUserStatus(){
+		global $wpdb;
+		
 		if (isset($_POST['user_status_change'])) {
 			$user_id = filter_input(INPUT_POST, 'id');
 			$user_fb_id = filter_input(INPUT_POST, 'user_id');

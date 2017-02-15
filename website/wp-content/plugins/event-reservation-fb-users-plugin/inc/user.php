@@ -220,22 +220,22 @@ class RFB_User extends Facebook\Facebook {
 
 	public static function getPendingUsers() {
 		global $wpdb;
-		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()."rfb_users WHERE user_status IS NULL ", OBJECT);
+		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()." WHERE user_status IS NULL ", OBJECT);
 	}
 
 	public static function getApprovedUsers() {
 		global $wpdb;
-		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()."rfb_users WHERE user_status = 1 ", OBJECT);
+		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()." WHERE user_status = 1 ", OBJECT);
 	}
 
 	public static function getDeclinedUsers() {
 		global $wpdb;
-		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()."rfb_users WHERE user_status = 0", OBJECT);
+		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()." WHERE user_status = 0", OBJECT);
 	}
 
 	public static function getAllUsers() {
 		global $wpdb;
-		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()."rfb_users", OBJECT);
+		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable(), OBJECT);
 	}
 
 	public function isApproved() {
