@@ -1,6 +1,6 @@
 <?php
 global $wpdb;
-$users = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}events_users WHERE user_status IS NULL", OBJECT);
+$users = RFB_User::getPendingUsers();
 ?>
 <h2>Pending Users</h2>
 <?php

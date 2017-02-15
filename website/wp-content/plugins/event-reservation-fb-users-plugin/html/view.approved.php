@@ -1,7 +1,6 @@
 <?php
 global $wpdb;
-$users = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}events_users WHERE user_status = 1", OBJECT);
-
+$users = RFB_User::getApprovedUsers();
 ?>
 <h2>Approved Users</h2>
 <?php
@@ -12,10 +11,10 @@ foreach ($users as $user):
 			<img src="<?php echo $user->user_picture ?>" alt="<?php echo $user->user_name; ?>"/>
 		</td>
 		<td>
-	<?php echo $user->user_name; ?>
+			<?php echo $user->user_name; ?>
 		</td>
 		<td>
-	<?php echo $user->user_email; ?>
+			<?php echo $user->user_email; ?>
 		</td>
 		<td>
 			<a href="<?php echo $user->user_profile; ?>" target="_blank">Vist Profile</a>

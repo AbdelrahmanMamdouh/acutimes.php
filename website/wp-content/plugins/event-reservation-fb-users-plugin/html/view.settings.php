@@ -6,16 +6,16 @@ if (isset($_POST['update_settings'])) {
 	$appSecret = filter_input(INPUT_POST, 'app_secret');
 	$notify_email = filter_input(INPUT_POST, 'notify_email');
 
-	update_option('FB-APP-KEY', $appKey);
-	update_option('FB-APP-SECRET', $appSecret);
-	update_option('NOTIFY_EMAIL', $notify_email);
+	update_option('RFP_FB_APP_KEY', $appKey);
+	update_option('RFP_FB_APP_SECRET', $appSecret);
+	update_option('RFP_NOTIFY_EMAIL', $notify_email);
 
 	echo "Options Saved";
 }
 
-$appKey = get_option('FB-APP-KEY');
-$appSecret = get_option('FB-APP-SECRET');
-$notify_email =  get_option('NOTIFY_EMAIL');
+$appKey = get_option('RFP_FB_APP_KEY');
+$appSecret = get_option('RFP_FB_APP_SECRET');
+$notify_email =  get_option('RFP_NOTIFY_EMAIL');
 ?>
 
 

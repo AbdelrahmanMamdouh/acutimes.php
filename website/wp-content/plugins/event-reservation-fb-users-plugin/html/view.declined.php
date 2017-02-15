@@ -1,11 +1,6 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 global $wpdb;
-$users = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}events_users WHERE user_status = 0", OBJECT);
+$users = RFB_User::getDeclinedUsers();
 ?>
 <h2>Declined Users</h2>
 <?php

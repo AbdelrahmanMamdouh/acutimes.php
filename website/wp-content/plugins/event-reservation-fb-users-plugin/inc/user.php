@@ -11,7 +11,7 @@
  *
  * @author Exception Software Solution
  */
-class fb_login extends Facebook\Facebook {
+class RFB_User extends Facebook\Facebook {
 
 	public $helper;
 	public $permission;
@@ -21,20 +21,53 @@ class fb_login extends Facebook\Facebook {
 	private $tableName;
 	private $userInfo;
 
+	static $activeUser;
+
+	static function GetDBTable(){
+		global $wpdb;
+		return $wpdb->prefix . "rfb_users";
+	}
+
+	static function CreateDBTable(){
+		global $wpdb;
+		
+		$charset_collate = $wpdb->get_charset_collate();
+		$table_name = static::GetDBTable();
+
+		dbDelta( "CREATE TABLE IF NOT EXISTS $table_name (
+						`id` int(11) NOT NULL AUTO_INCREMENT,
+						`user_name` varchar(512) NOT NULL,
+						`user_picture` varchar(2048) NOT NULL,
+						`user_profile` varchar(1024) NOT NULL,
+						`user_email` varchar(45) NOT NULL,
+						`user_id` varchar(512) NOT NULL,
+						`user_status` bit(1) DEFAULT NULL,
+						PRIMARY KEY (`id`)
+					) $charset_collate;");
+	}
+
+	public static function ActiveUser(){
+		try {
+			return isset(static::$activeUser) ? static::$activeUser : new RFB_User();
+		} catch (Exception $e) {
+			return null; // if the api key is unset
+		}
+	}
+
 	public function __construct() {
 
 		global $wpdb;
 		parent::__construct([
-			'app_id' => APP_KEY,
-			'app_secret' => APP_SECRET,
+			'app_id' => RFP_FB_APP_KEY,
+			'app_secret' => RFP_FB_APP_SECRET,
 			'default_graph_version' => 'v2.5',
-			'default_access_token' => isset($_SESSION['fb_access_token']) ? $_SESSION['fb_access_token'] : APP_KEY . "|" . APP_SECRET
+			'default_access_token' => isset($_SESSION['fb_access_token']) ? $_SESSION['fb_access_token'] : RFP_FB_APP_KEY . "|" . APP_SECRET
 		]);
 		$this->helper = $this->getRedirectLoginHelper();
 		$this->scope = array('email', 'public_profile');
 		$this->redirectUrl = site_url('/login/');
 
-		$this->tableName = "{$wpdb->prefix}events_users";
+		$this->tableName = "{$wpdb->prefix}rfb_users";
 		$this->userInfo = [];
 		//self::$instance = $this;
 	}
@@ -90,7 +123,7 @@ class fb_login extends Facebook\Facebook {
 		$oAuth2Client = $this->getOAuth2Client();
 		$tokenMetadata = $oAuth2Client->debugToken($this->accessToken);
 
-		$tokenMetadata->validateAppId(APP_KEY);
+		$tokenMetadata->validateAppId(RFP_FB_APP_KEY);
 		$tokenMetadata->validateExpiration();
 
 		if (!$this->accessToken->isLongLived()) {
@@ -126,17 +159,17 @@ class fb_login extends Facebook\Facebook {
 			throw $e;
 		}
 		if (!$this->IsExist($userData["user_id"])) {
-			$wpdb->insert($this->tableName, $userData, ['%s', '%s', '%s', '%s', '%s', '%d']);
+			$wpdb->insert(static::GetDBTable(), $userData, ['%s', '%s', '%s', '%s', '%s', '%d']);
 		} else {
 			//$user = $this->getUserDetails();
 			//$userData['user_status'] = $user->user_status;
-			$wpdb->update($this->tableName, $userData, ["user_id" => $userData["user_id"]], ['%s', '%s', '%s', '%s', '%s', '%d'], ['%s']);
+			$wpdb->update(static::GetDBTable(), $userData, ["user_id" => $userData["user_id"]], ['%s', '%s', '%s', '%s', '%s', '%d'], ['%s']);
 		}
 	}
 
 	public function IsExist($userId) {
 		global $wpdb;
-		$count = $wpdb->get_var("select count(*) from {$this->tableName} where user_id = '{$userId}'");
+		$count = $wpdb->get_var("select count(*) from ".static::GetDBTable()." where user_id = '{$userId}'");
 		var_dump((int) $count);
 		return ((int) $count > 0) ? TRUE : FALSE;
 	}
@@ -185,28 +218,24 @@ class fb_login extends Facebook\Facebook {
 		return "";
 	}
 
-	public function getPendingUsers() {
+	public static function getPendingUsers() {
 		global $wpdb;
-		$pending = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}events_users WHERE user_status IS NULL ", OBJECT);
-		return $pending;
+		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()."rfb_users WHERE user_status IS NULL ", OBJECT);
 	}
 
-	public function getApprovedUsers() {
+	public static function getApprovedUsers() {
 		global $wpdb;
-		$approved = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}events_users WHERE user_status IS 1 ", OBJECT);
-		return $approved;
+		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()."rfb_users WHERE user_status = 1 ", OBJECT);
 	}
 
-	public function getDeclinedUsers() {
+	public static function getDeclinedUsers() {
 		global $wpdb;
-		$declined = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}events_users WHERE user_status IS 0 ", OBJECT);
-		return $declined;
+		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()."rfb_users WHERE user_status = 0", OBJECT);
 	}
 
-	public function getAllUsers() {
+	public static function getAllUsers() {
 		global $wpdb;
-		$all = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}events_users", OBJECT);
-		return $all;
+		return $wpdb->get_results("SELECT * FROM ".static::GetDBTable()."rfb_users", OBJECT);
 	}
 
 	public function isApproved() {
@@ -219,7 +248,7 @@ class fb_login extends Facebook\Facebook {
 			$response = $this->get('/me?fields=id');
 			$userNode = $response->getGraphUser();
 
-			$user = $wpdb->get_results("select * from {$this->tableName} where user_id = '{$userNode['id']}'");
+			$user = $wpdb->get_results("select * from ".static::GetDBTable()." where user_id = '{$userNode['id']}'");
 			if (isset($user) && count($user) > 0) {
 				return $user[0]->user_status == 1;
 			}
@@ -238,7 +267,7 @@ class fb_login extends Facebook\Facebook {
 			$response = $this->get('/me?fields=id');
 			$userNode = $response->getGraphUser();
 
-			$user = $wpdb->get_results("select * from {$this->tableName} where user_id = '{$userNode['id']}'");
+			$user = $wpdb->get_results("select * from ".static::GetDBTable()." where user_id = '{$userNode['id']}'");
 			if (isset($user) && count($user) > 0) {
 				return $user[0];
 			}

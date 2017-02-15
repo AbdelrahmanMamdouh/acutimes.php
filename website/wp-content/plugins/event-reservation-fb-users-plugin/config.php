@@ -8,8 +8,9 @@ cjc_auto_define('CJC_RFP_PATH', plugin_dir_path( __FILE__ ));
 
 cjc_auto_define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/fb-api/');
 
-cjc_auto_define('APP_KEY',		get_option('FB-APP-KEY'));
-cjc_auto_define('APP_SECRET',	get_option('FB-APP-SECRET'));
+cjc_auto_define('RFP_FB_APP_KEY',		get_option('RFP_FB_APP_KEY'));
+cjc_auto_define('RFP_FB_APP_SECRET',	get_option('RFP_FB_APP_SECRET'));
+cjc_auto_define('RFP_NOTIFY_EMAIL',	get_option('RFP_NOTIFY_EMAIL'));
 
 cjc_auto_define('NotFound_MESSAGE',		__("The event you have select can't be found either you have followed an outdated bookmark or wrong copied link"));
 cjc_auto_define('Succeeded_MESSAGE',	__("Thanks! Your reservation has been sent."));
