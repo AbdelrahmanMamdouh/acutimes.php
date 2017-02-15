@@ -9,17 +9,8 @@
 /**
  * Description of fb_handler
  *
- * @author Magdy
+ * @author Exception Software Solution
  */
-session_start();
-
-if (!defined('FACEBOOK_SDK_V4_SRC_DIR')) {
-	define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/fb-api/');
-}
-
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/fb-api/autoload.php';
-
 class fb_login extends Facebook\Facebook {
 
 	public $helper;
@@ -69,11 +60,11 @@ class fb_login extends Facebook\Facebook {
 
 			$this->prepareTheStage();
 		} catch (Facebook\Exceptions\FacebookResponseException $e) {
-// When Graph returns an error
+			// When Graph returns an error
 			echo 'Graph returned an error: ' . $e->getMessage();
 			exit;
 		} catch (Facebook\Exceptions\FacebookSDKException $e) {
-// When validation fails or other local issues
+			// When validation fails or other local issues
 			echo 'Facebook SDK returned an error: ' . $e->getMessage();
 			exit;
 		}
@@ -161,13 +152,13 @@ class fb_login extends Facebook\Facebook {
 		}
 
 		/*
-		* In order to kill the session altogether, like to log the user out, the session id must also be unset. If a cookie is used to propagate the session id
-		* (default behavior), then the session cookie must be deleted. setcookie() may be used for that.
-		*/
+		 * In order to kill the session altogether, like to log the user out, the session id must also be unset. If a cookie is used to propagate the session id
+		 * (default behavior), then the session cookie must be deleted. setcookie() may be used for that.
+		 */
 		session_unset();
 		session_destroy();
 		session_write_close();
-		setcookie(session_name(),'',0,'/');
+		setcookie(session_name(), '', 0, '/');
 		session_regenerate_id(true);
 	}
 
