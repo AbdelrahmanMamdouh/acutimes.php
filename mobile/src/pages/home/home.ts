@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { NavController, ModalController } from 'ionic-angular';
+
+import { Facebook, NativeStorage } from 'ionic-native';
+
+import { ReservationPage } from '../reservation/reservation';
+import { LandingPage } from '../landing/landing';
 
 import * as $ from "jquery";
 import 'slick-carousel/slick/slick';
@@ -8,6 +14,7 @@ import { EventsService } from '../../providers/events-service';
 
 import { SliderImage } from '../../providers/meta-slider-images-service';
 import { Event } from '../../providers/events-service';
+
 
 /*
   Generated class for the Home page.
@@ -20,11 +27,11 @@ import { Event } from '../../providers/events-service';
 	templateUrl: 'home.html'
 })
 export class HomePage {
-
+	
 	sliderImages: SliderImage[] = []; // Initialize the array to avoid undefined behaviour with ionic/angular directives.
 	events: Event[];
 
-	constructor(private metaSliderImagesService: MetaSliderImagesService, private eventsService: EventsService) {
+	constructor(public navCtrl: NavController, public modalCtrl: ModalController, private metaSliderImagesService: MetaSliderImagesService, private eventsService: EventsService) {
 		// Get all images of the wp meta slider that have the id 1777.
 		metaSliderImagesService.getSliderImages(1777).subscribe(sliderImages => {
 			this.sliderImages = sliderImages;
@@ -45,6 +52,11 @@ export class HomePage {
 			centerPadding: '90px',
 		});
 		this.doinitSlick = false; // set it to false until you need to trigger again
+	}
+
+	openReservationModal(event): void {
+		let modal = this.modalCtrl.create(ReservationPage, { event: event });
+		modal.present();
 	}
 
 	ionViewDidLoad() {

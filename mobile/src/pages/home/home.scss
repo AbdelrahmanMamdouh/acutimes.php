@@ -1,8 +1,20 @@
-page-home {
-    ion-slides.slides {
+            page-home {
+                scroll-content {
+                    display: flex;
+                    flex-direction: column;
+                }
+                ion-grid {
+                    padding: 0;
+                    height: 100%;
+                }
+                ion-row {
+                    flex: 1;
+                }
+            }
+            /*ion-slides.slides {
         height: inherit;
     }
-    ion-slides.slides img {
+     ion-slides.slides img {
         height: 45vh !important;
         width: auto !important;
     }
@@ -15,5 +27,4 @@ page-home {
         margin-top: -250px;
         position: relative;
         z-index: 5000;
-    }
-}
+    }*/
