@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav } from 'ionic-angular';
+import { NativeStorage } from 'ionic-native';
 
 import { FacebookService, User } from '../../providers/facebook-service';
+
+import { LandingPage } from '../../pages/landing/landing';
+
 
 /*
   Generated class for the CjcUserCircle page.
@@ -11,18 +15,32 @@ import { FacebookService, User } from '../../providers/facebook-service';
 */
 @Component({
 	selector: 'cjc-user-circle',
-	templateUrl: 'cjc-user-circle.html'
+	templateUrl: 'cjc-user-circle.html',
 })
 export class CjcUserCircle {
+	@ViewChild(Nav) nav: Nav;
 
 	public user: User;
 
-	constructor(/*public navCtrl: NavController, public navParams: NavParams*/ facebookService: FacebookService) {
-		this.user = facebookService.getUser();
+	constructor(private facebookService: FacebookService) {
+		this.facebookService.getUser().then(user => {
+			this.user = user;
+		}, () => { });
+	}
+
+	onFBLogoutClick(): void {
+		this.facebookService.doFbLogout().then(response => {
+			//user logged out so we will remove him from the NativeStorage
+			NativeStorage.remove('user');
+			this.nav.setRoot(LandingPage, {}, { animate: true, direction: 'back' });
+		}, error => {
+			console.log(error);
+		})
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad CjcUserCirclePage');
 	}
-
+	ionViewCanEnter() {
+	}
 }

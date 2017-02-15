@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Facebook } from 'ionic-native';
+import { NativeStorage } from 'ionic-native';
 
 import CONFIG from '../../app/config.json';
 import { HomePage } from '../home/home';
+
+import { FacebookService } from '../../providers/facebook-service';
+import { User } from '../../providers/facebook-service';
 
 @Component({
 	selector: 'page-landing',
@@ -18,35 +21,17 @@ export class LandingPage {
 		{ image: "assets/img/landing-slide-1.png" },
 		{ image: "assets/img/landing-slide-1.png" }
 	];
+	constructor(public navCtrl: NavController, public navParams: NavParams, private facebookService: FacebookService) { }
 
-	faceBookToken;
-	faceBookUserId;
-
-	constructor(public navCtrl: NavController, public navParams: NavParams) { }
-
-	onFBLoginClick() {
-
-		if (CONFIG.DEV.SKIP_LOGIN) {
-
-			this.navCtrl.setRoot(HomePage);
-
-		} else {
-			Facebook.login(['email']).then(data => {
-				this.faceBookToken = data.authResponse.accessToken;
-				this.faceBookUserId = data.authResponse.userID;
-
-				this.onGetDetailsClick();
-			});
-		}
-
+	onFBLoginClick(): void {
+		this.facebookService.doFbLogin().subscribe(user => {
+			//now we have the users info, let's save it in the NativeStorage
+			NativeStorage.setItem('user', user)
+				.then(() => {
+					this.navCtrl.setRoot(HomePage, {}, { animate: true, direction: 'forward' });
+				}, function (error) {
+					console.log(error);
+				})
+		})
 	}
-
-	onGetDetailsClick() {
-
-		Facebook.api(this.faceBookUserId + "/?fields=name,email,birthday,gender", ['public_profile']).then(data => {
-			alert(JSON.stringify(data));
-		});
-
-	}
-
 }
