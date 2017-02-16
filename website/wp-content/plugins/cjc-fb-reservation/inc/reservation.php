@@ -67,7 +67,6 @@ class FBR_Reservation {
 		return $wpdb->insert(
 			static::GetDBTable(), 
 			array(
-				'reserv_date'	=> $this->Ev,
 				'user_id'		=> $this->user_id,
 				'state'			=> $this->state,
 				'attendees'		=> $this->attendees
