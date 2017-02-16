@@ -1,8 +1,8 @@
 <?php
 
-global $init;
+global $FBR_User_init;
 
-$init->fbLogout();
+$FBR_User_init->fbLogout();
 
 $premalink = site_url();
 

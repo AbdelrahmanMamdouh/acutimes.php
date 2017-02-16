@@ -30,9 +30,6 @@ class FBR_ReservationController implements FBR_Controller  {
 	}
 
 
-
-
-
 	/**
 	 * wp-json/fbr/reservation/
 	 * POST

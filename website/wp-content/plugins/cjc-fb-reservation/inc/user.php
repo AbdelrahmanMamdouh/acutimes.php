@@ -66,7 +66,7 @@ class FBR_User extends Facebook\Facebook {
 			'app_id' => FBR_FB_APP_KEY,
 			'app_secret' => FBR_FB_APP_SECRET,
 			'default_graph_version' => 'v2.5',
-			'default_access_token' => isset($_SESSION['fb_access_token']) ? $_SESSION['fb_access_token'] : FBR_FB_APP_KEY . "|" . APP_SECRET
+			'default_access_token' => isset($_SESSION['fb_access_token']) ? $_SESSION['fb_access_token'] : FBR_FB_APP_KEY . "|" . FBR_FB_APP_SECRET
 		]);
 		$this->helper = $this->getRedirectLoginHelper();
 		$this->scope = array('email', 'public_profile');
