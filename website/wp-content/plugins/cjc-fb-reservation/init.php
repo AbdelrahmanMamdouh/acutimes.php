@@ -21,9 +21,11 @@ register_activation_hook(__FILE__, function () {
 
 	FBR_MenuController::onActivate();
 	FBR_UserController::onActivate();
+	FBR_PreferenceController::onActivate();
 	FBR_ReservationController::onActivate();
 });
 
 FBR_MenuController::onInit();
 FBR_UserController::onInit();
+FBR_PreferenceController::onInit();
 FBR_ReservationController::onInit();
