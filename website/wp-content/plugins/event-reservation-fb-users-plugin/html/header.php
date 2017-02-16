@@ -1,24 +1,14 @@
 <div class="wrap">
 	<div class="Header"><h2><?php _e("Event Reservation Users Settings", 'evnet_users') ?></h2></div>
-	<div class="users-list">
-		<table class="wp-list-table widefat" cellspacing="0">
-			<thead>
-				<tr>
-					<th>
-						<span>Profile Picture</span>
-					</th>
-					<th>
-						<span>Name</span>
-					</th>
-					<th>
-						<span>Email</span>
-					</th>
-					<th>
-						<span>Profile</span>
-					</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
 
+	<table class="wp-list-table widefat fixed striped users">
+		<thead>
+			<tr>
+				<th scope="col" class="manage-column">Name</th>
+				<th scope="col" class="manage-column">Email</th>
+				<th scope="col" class="manage-column">Phone</th>
+				<th scope="col" class="manage-column">Status</th>
+			</tr>
+		</thead>
 
+		<tbody id="the-list">
