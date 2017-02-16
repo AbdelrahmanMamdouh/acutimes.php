@@ -1,5 +1,5 @@
 <div class="wrap">
-	<div class="Header"><h2><?php _e("Event Reservation Users Settings", 'evnet_users') ?></h2></div>
+	<div class="Header"><h1><?php _e("Event Reservation Users Settings", 'evnet_users') ?></h1></div>
 
 	<table class="wp-list-table widefat fixed striped users">
 		<thead>

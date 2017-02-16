@@ -11,26 +11,27 @@
 
 require_once 'config.php';
 require_once FBR_PATH.'fb-api/autoload.php';
+// models
 require_once FBR_PATH.'inc/user.php';
 require_once FBR_PATH.'inc/reservation.php';
+// controllers
 require_once FBR_PATH.'inc/user-controller.php';
-require_once FBR_PATH.'menu_handler.php';
-require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+require_once FBR_PATH.'inc/reservation-controller.php';
+require_once FBR_PATH.'inc/menu-controller.php';
+
+require_once ABSPATH .'wp-admin/includes/upgrade.php';
 
 
-register_activation_hook(FBR_PATH, 
-	function () {
-		global $wp_rewrite;
-		//my_plugin_add_rewrite_rules();
-		$wp_rewrite->flush_rules();
+register_activation_hook(__FILE__, function () {
+	//global $wp_rewrite;
+	//my_plugin_add_rewrite_rules();
+	//$wp_rewrite->flush_rules();
 
-		FBR_User::CreateDBTable();
-		FBR_Reservation::CreateDBTable();
-	}
-);
+	FBR_MenuController::onActivate();
+	FBR_UserController::onActivate();
+	FBR_ResrvationController::onActivate();
+});
 
-if (is_admin()) {
-	add_action('admin_menu', 'menu_setup');
-}
-
-FBR_UserController::UpdateUserStatus();
+FBR_MenuController::onInit();
+FBR_UserController::onInit();
+FBR_ResrvationController::onInit();

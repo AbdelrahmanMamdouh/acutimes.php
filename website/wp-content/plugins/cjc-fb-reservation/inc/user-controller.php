@@ -2,6 +2,13 @@
 
 class FBR_UserController {
 
+	static function onActivate(){
+		FBR_User::CreateDBTable();
+	}
+
+	static function onInit(){
+		static::UpdateUserStatus();
+	}
 
 	/**
 	 * update user data from post
