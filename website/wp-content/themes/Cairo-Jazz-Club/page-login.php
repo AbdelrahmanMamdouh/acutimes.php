@@ -2,10 +2,10 @@
 
 $events = get_page_by_title('events');
 
-$fb = new fb_login();
+global $FBR_User_init;
 
 try {
-    $fb->getUserInfo();
+    $FBR_User_init->getUserInfo();
 } catch (Exception $exc) {
     
 }

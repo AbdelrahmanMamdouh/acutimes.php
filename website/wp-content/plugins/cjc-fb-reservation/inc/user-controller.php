@@ -7,13 +7,13 @@ class FBR_UserController implements FBR_Controller  {
 	}
 
 	static function onInit(){
-		static::UpdateUserStatus();
+		static::POST_UpdateUserStatus();
 	}
 
 	/**
 	 * update user data from post
 	 */
-	static function UpdateUserStatus(){
+	static function POST_UpdateUserStatus(){
 		global $wpdb;
 		
 		if (isset($_POST['user_status_change'])) {

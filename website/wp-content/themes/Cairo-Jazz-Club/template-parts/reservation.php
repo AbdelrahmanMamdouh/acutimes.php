@@ -25,7 +25,7 @@
 			<h2>Welcome! <?php echo @$FBR_User_data->user_name ?></h2>
             <img src="<?php echo get_template_directory_uri()?>/img/eye.png"></img>
 			<p><?php echo __('unfortunately reservations are now unavailable!')?></p>
-			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/cjc-logout/') ?>">logout</a>
+			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/logout/') ?>">logout</a>
 
 		<?php else: ?>
 
