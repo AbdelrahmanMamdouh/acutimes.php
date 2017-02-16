@@ -5,14 +5,17 @@ class FBR_Reservation {
 	public $user_id;
 	public $event_id;
 	public $state = 0;
+	public $attendees;
 
 	public static $DataFormat = 
 	array(
-		'reserv_date'=> '%s' ,
-		'user_id'=> '%d' ,
-		'event_id'=> '%d' ,
-		'state'=> '%d' 
+		'reserv_date'	=> '%s',
+		'user_id'		=> '%d',
+		'event_id'		=> '%d',
+		'state'			=> '%d',
+		'attendees'		=> '%d'
 	);
+
 	public static $PK = ['user_id', 'event_id'];
 
 	const STATE_PENDING = 0;
@@ -35,6 +38,7 @@ class FBR_Reservation {
 						`user_id` INT NOT NULL,
 						`event_id` INT NOT NULL,
 						`state` INT NOT NULL,
+						`attendees` INT NOT NULL,
 						`reserv_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 						PRIMARY KEY (`user_id`,`event_id`)
 					) $charset_collate;");
@@ -60,25 +64,29 @@ class FBR_Reservation {
 	function create(){
 		global $wpdb;
 
-		$wpdb->insert(
+		return $wpdb->insert(
 			static::GetDBTable(), 
 			array(
-				'reserv_date'=> $this->Ev,
-				'user_id'=> $this->user_id,
-				'state'=> $this->state,
+				'reserv_date'	=> $this->Ev,
+				'user_id'		=> $this->user_id,
+				'state'			=> $this->state,
+				'attendees'		=> $this->attendees
 			),
 			['%d', '%d', '%d']);
 	}
 
 	function update(){
-		$wpdb->update( 
+		return $wpdb->update( 
 			static::GetDBTable(), 
-			array('state' => $this->state),
+			array(
+				'state' 	=>	$this->state,
+				'attendees' =>	$this->attendees
+			),
 			array( 
-				'user_id' => $this->user_id,
-				'event_id' => $this->event_id 
-				), 
-			['%d'],
+				'user_id'	=> $this->user_id,
+				'event_id'	=> $this->event_id 
+			), 
+			['%d', '%d'],
 			['%d', '%d'] 
 		);
 	}
@@ -101,6 +109,41 @@ class FBR_Reservation {
 
 	function sendMail(){
 
+		$headers = array();
+		$to = array(get_option('admin_email'), 'hello@youakeem.com');
+		
+		$userData = FBR_User::ActiveUser()->getUserDetails();
+		$subject = "New CJC reservation from {$userData->user_email}";
+		$link = get_permalink($this->event_id);
+		
+		$message = 	"User Full Name : {$userData->user_name}\n".
+					"User Email     : {$userData->user_email}\n".
+					"Profile        : {$userData->user_profile}\n".
+					"Event Title    : {$event->post_title}\n".
+					"Event Link     : {$link}\n".
+					"Attendees      : {$this->attendees}\n";
+
+		return wp_mail($to, $subject, $message, $headers);	
 	}
 
+	function getEvent(){
+		get_post($this->event_id);
+	}
+
+	function getUser(){
+		
+	}
+
+	function isValidEvent(){
+		$ev = $this->getEvent();
+		return $ev != null && $ev->post_type == "avent" ; // && event rervation is on
+	}
+
+	function isValidUser(){
+		return FBR_User::ActiveUser()->IsLogged();// && has permission
+	}
+
+	function isValidAttendess(){
+		return is_numeric($this->attendees) && $this->attendees >0;
+	}
 }
