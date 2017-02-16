@@ -1,5 +1,5 @@
 <?php
-class RFB_Reservation {
+class FBR_Reservation {
 
 	public $reserv_date;
 	public $user_id;
@@ -21,7 +21,7 @@ class RFB_Reservation {
 
 	static function GetDBTable(){
 		global $wpdb;
-		return $wpdb->prefix . "rfb_reservations";
+		return $wpdb->prefix . "fbr_reservations";
 	}
 
 

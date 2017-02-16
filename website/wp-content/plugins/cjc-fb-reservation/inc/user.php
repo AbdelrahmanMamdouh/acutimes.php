@@ -11,7 +11,7 @@
  *
  * @author Exception Software Solution
  */
-class RFB_User extends Facebook\Facebook {
+class FBR_User extends Facebook\Facebook {
 
 	public $helper;
 	public $permission;
@@ -25,7 +25,7 @@ class RFB_User extends Facebook\Facebook {
 
 	static function GetDBTable(){
 		global $wpdb;
-		return $wpdb->prefix . "rfb_users";
+		return $wpdb->prefix . "fbr_users";
 	}
 
 	static function CreateDBTable(){
@@ -49,11 +49,11 @@ class RFB_User extends Facebook\Facebook {
 
 	/**
 	 * singleton
-	 * @return {RFB_User} current active user
+	 * @return {FBR_User} current active user
 	 */
 	public static function ActiveUser(){
 		try {
-			return isset(static::$activeUser) ? static::$activeUser : new RFB_User();
+			return isset(static::$activeUser) ? static::$activeUser : new FBR_User();
 		} catch (Exception $e) {
 			return null; // if the api key is unset
 		}
@@ -63,16 +63,16 @@ class RFB_User extends Facebook\Facebook {
 
 		global $wpdb;
 		parent::__construct([
-			'app_id' => RFP_FB_APP_KEY,
-			'app_secret' => RFP_FB_APP_SECRET,
+			'app_id' => FBR_FB_APP_KEY,
+			'app_secret' => FBR_FB_APP_SECRET,
 			'default_graph_version' => 'v2.5',
-			'default_access_token' => isset($_SESSION['fb_access_token']) ? $_SESSION['fb_access_token'] : RFP_FB_APP_KEY . "|" . APP_SECRET
+			'default_access_token' => isset($_SESSION['fb_access_token']) ? $_SESSION['fb_access_token'] : FBR_FB_APP_KEY . "|" . APP_SECRET
 		]);
 		$this->helper = $this->getRedirectLoginHelper();
 		$this->scope = array('email', 'public_profile');
 		$this->redirectUrl = site_url('/login/');
 
-		$this->tableName = "{$wpdb->prefix}rfb_users";
+		$this->tableName = "{$wpdb->prefix}fbr_users";
 		$this->userInfo = [];
 		//self::$instance = $this;
 	}
@@ -128,7 +128,7 @@ class RFB_User extends Facebook\Facebook {
 		$oAuth2Client = $this->getOAuth2Client();
 		$tokenMetadata = $oAuth2Client->debugToken($this->accessToken);
 
-		$tokenMetadata->validateAppId(RFP_FB_APP_KEY);
+		$tokenMetadata->validateAppId(FBR_FB_APP_KEY);
 		$tokenMetadata->validateExpiration();
 
 		if (!$this->accessToken->isLongLived()) {

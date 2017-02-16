@@ -8,13 +8,13 @@ function registerd_users_handler() {
 		case 'approved':
 		case 'declined':
 		case 'pending':
-			require_once CJC_RFP_PATH.'/html/header.php';
-			require_once CJC_RFP_PATH."/html/view.{$file}.php";
-			require_once CJC_RFP_PATH.'/html/footer.php';
+			require_once FBR_PATH.'/html/header.php';
+			require_once FBR_PATH."/html/view.{$file}.php";
+			require_once FBR_PATH.'/html/footer.php';
 			break;
 		default:
 			$file = 'settings';
-			require_once CJC_RFP_PATH."/html/view.{$file}.php";
+			require_once FBR_PATH."/html/view.{$file}.php";
 			break;
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 global $wpdb;
-$users = RFB_User::getDeclinedUsers();
+$users = FBR_User::getDeclinedUsers();
 ?>
 <h2>Declined Users</h2>
 <?php foreach ($users as $user): ?>

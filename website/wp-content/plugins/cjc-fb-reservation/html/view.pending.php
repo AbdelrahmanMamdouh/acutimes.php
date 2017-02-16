@@ -1,6 +1,6 @@
 <?php
 global $wpdb;
-$users = RFB_User::getPendingUsers();
+$users = FBR_User::getPendingUsers();
 ?>
 <h2>Pending Users</h2>
 <?php foreach ($users as $user): ?>

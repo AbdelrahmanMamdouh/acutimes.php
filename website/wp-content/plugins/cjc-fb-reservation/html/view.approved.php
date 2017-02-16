@@ -1,6 +1,6 @@
 <?php
 global $wpdb;
-$users = RFB_User::getApprovedUsers();
+$users = FBR_User::getApprovedUsers();
 ?>
 <h2>Approved Users</h2>
 <?php foreach ($users as $user): ?>
