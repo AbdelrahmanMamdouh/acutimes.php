@@ -12,18 +12,20 @@
 require_once 'config.php';
 require_once CJC_RFP_PATH.'fb-api/autoload.php';
 require_once CJC_RFP_PATH.'inc/user.php';
+require_once CJC_RFP_PATH.'inc/reservation.php';
 require_once CJC_RFP_PATH.'inc/user-controller.php';
-require_once 'menu_handler.php';
+require_once CJC_RFP_PATH.'menu_handler.php';
 require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
 
 register_activation_hook(CJC_RFP_PATH, 
 	function () {
 		global $wp_rewrite;
-		my_plugin_add_rewrite_rules();
+		//my_plugin_add_rewrite_rules();
 		$wp_rewrite->flush_rules();
 
 		RFB_User::CreateDBTable();
+		RFB_Reservation::CreateDBTable();
 	}
 );
 

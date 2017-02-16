@@ -36,6 +36,7 @@ class RFB_User extends Facebook\Facebook {
 
 		dbDelta( "CREATE TABLE IF NOT EXISTS $table_name (
 						`id` int(11) NOT NULL AUTO_INCREMENT,
+						`phone` varchar(12),
 						`user_name` varchar(512) NOT NULL,
 						`user_picture` varchar(2048) NOT NULL,
 						`user_profile` varchar(1024) NOT NULL,
@@ -46,6 +47,10 @@ class RFB_User extends Facebook\Facebook {
 					) $charset_collate;");
 	}
 
+	/**
+	 * singleton
+	 * @return {RFB_User} current active user
+	 */
 	public static function ActiveUser(){
 		try {
 			return isset(static::$activeUser) ? static::$activeUser : new RFB_User();
