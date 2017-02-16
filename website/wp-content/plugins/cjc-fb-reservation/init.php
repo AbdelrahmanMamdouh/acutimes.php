@@ -11,16 +11,8 @@
 
 require_once 'config.php';
 require_once FBR_PATH.'fb-api/autoload.php';
-// models
-require_once FBR_PATH.'inc/user.php';
-require_once FBR_PATH.'inc/reservation.php';
-// controllers
-require_once FBR_PATH.'inc/user-controller.php';
-require_once FBR_PATH.'inc/reservation-controller.php';
-require_once FBR_PATH.'inc/menu-controller.php';
-
+require_once FBR_PATH.'inc/autoload.php';
 require_once ABSPATH .'wp-admin/includes/upgrade.php';
-
 
 register_activation_hook(__FILE__, function () {
 	//global $wp_rewrite;
@@ -29,9 +21,9 @@ register_activation_hook(__FILE__, function () {
 
 	FBR_MenuController::onActivate();
 	FBR_UserController::onActivate();
-	FBR_ResrvationController::onActivate();
+	FBR_ReservationController::onActivate();
 });
 
 FBR_MenuController::onInit();
 FBR_UserController::onInit();
-FBR_ResrvationController::onInit();
+FBR_ReservationController::onInit();

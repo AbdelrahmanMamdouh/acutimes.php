@@ -1,6 +1,6 @@
 <?php
 
-class FBR_UserController {
+class FBR_UserController implements FBR_Controller  {
 
 	static function onActivate(){
 		FBR_User::CreateDBTable();

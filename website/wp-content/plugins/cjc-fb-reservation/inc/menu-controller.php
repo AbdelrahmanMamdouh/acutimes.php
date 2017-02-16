@@ -1,6 +1,6 @@
 <?php
 
-class FBR_MenuController {
+class FBR_MenuController implements FBR_Controller  {
 
 	static function onActivate(){ }
 
