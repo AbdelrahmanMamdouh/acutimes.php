@@ -1,6 +1,5 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 // models
 require_once FBR_PATH.'inc/user.php';
 require_once FBR_PATH.'inc/reservation.php';

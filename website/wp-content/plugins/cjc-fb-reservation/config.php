@@ -1,6 +1,7 @@
 <?php
 
 function FBR_define($key, $value) {
+	$value = $value ? $value : '';
 	!defined($key) ? define($key, $value):null;
 }
 
