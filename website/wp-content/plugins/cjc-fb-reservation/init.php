@@ -1,7 +1,7 @@
 <?php
 
 /*
-  Plugin Name: CJC Reservation & FB Users
+  Plugin Name: CJC Facebook Reservation
   Description: Handles the reservation requests, facebook login, and keep track of users preference
   Author: Exception Software Solution
   Version: 2.0
