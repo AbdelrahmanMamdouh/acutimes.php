@@ -2,10 +2,18 @@
 class RFB_Reservation {
 
 	public $reserv_date;
-	public $id;
 	public $user_id;
 	public $event_id;
 	public $state = 0;
+
+	public static $DataFormat = 
+	array(
+		'reserv_date'=> '%s' ,
+		'user_id'=> '%d' ,
+		'event_id'=> '%d' ,
+		'state'=> '%d' 
+	);
+	public static $PK = ['user_id', 'event_id'];
 
 	const STATE_PENDING = 0;
 	const STATE_APPROVED = 1;
@@ -21,26 +29,32 @@ class RFB_Reservation {
 		global $wpdb;
 		
 		$charset_collate = $wpdb->get_charset_collate();
-		$table_name = RFB_Reservation::GetDBTable();
+		$table_name = static::GetDBTable();
 
 		dbDelta( "CREATE TABLE IF NOT EXISTS $table_name (
-					`user_id` INT NOT NULL,
-					`event_id` INT NOT NULL,
-					`state` INT NOT NULL,
-					`reserv_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-					PRIMARY KEY (`user_id`,`event_id`)
+						`user_id` INT NOT NULL,
+						`event_id` INT NOT NULL,
+						`state` INT NOT NULL,
+						`reserv_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+						PRIMARY KEY (`user_id`,`event_id`)
 					) $charset_collate;");
 	}
 
-	private function toData(){
-		return array(
-				'reserv_date'=> $this->Ev,
-				'user_id'=> $this->user_id,
-				'state'=> $this->state,
-			);
+	private function parseData($data){
+		$this->reserv_date = $data['reserv_date'] ? new Date($data['reserv_date']) : null;
+		$this->user_id = (int) $data['user_id'];
+		$this->event_id = (int) $data['event_id'];
+		$this->state = (int) $data['state'];
 	}
-	private function toDataFormat(){
-		return ['%d', '%d', '%d'];
+
+	static private function parseMultiData($data){
+		$result = [];
+		foreach($data as $event){
+			$temp = new static();
+			$temp->parseData($event);
+			array_push($result, $temp);
+		}
+		return $result;
 	}
 
 	function create(){
@@ -48,8 +62,12 @@ class RFB_Reservation {
 
 		$wpdb->insert(
 			static::GetDBTable(), 
-			$this->toData(),
-			$this->toDataFormat());
+			array(
+				'reserv_date'=> $this->Ev,
+				'user_id'=> $this->user_id,
+				'state'=> $this->state,
+			),
+			['%d', '%d', '%d']);
 	}
 
 	function update(){
@@ -65,16 +83,24 @@ class RFB_Reservation {
 		);
 	}
 
+	function select($user_id, $event_id){
+		global $wpdb;
+		$this->parseData($wpdb->get_results($wpdb->prepare(
+			"SELECT * FROM ".static::GetDBTable." WHERE user_id = %d AND event_id = %d",
+			$user_id, $event_id), object));
+
+	}
+
+	public static function selectMulti($att = null, $key = null){
+		global $wpdb;
+
+		return static::parseMultiData( $wpdb->get_results($wpdb->prepare(
+			"SELECT * FROM ".static::GetDBTable." WHERE {$att} = ".static::$DataFormat[$att],
+			$key), object));
+	}
 
 	function sendMail(){
 
 	}
 
-	static function reserve($user, $event){
-		$reserv = new RFB_Reservation();
-		//$reserv->event_id = $event->;
-		//$reserv->user_id = $user->;
-		$reserv->create();
-		$reserv->sendMail();
-	}
 }
