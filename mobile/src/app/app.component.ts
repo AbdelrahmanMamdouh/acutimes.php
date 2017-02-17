@@ -17,7 +17,7 @@ import { FacebookService } from '../providers/facebook-service';
 export class MyApp {
 	@ViewChild(Nav) nav: Nav;
 
-	rootPage: any = LandingPage;
+	rootPage: any = HomePage;
 
 	pages: Array<{ title: string, component: any }>;
 
@@ -44,9 +44,9 @@ export class MyApp {
 			this.facebookService.getUser().then(user => {
 				// user is previously logged and we have his data
 				// we will let him access the app
-				this.facebookService.setUser(user);
-				this.nav.setRoot(HomePage);
+				this.nav.setRoot(this.rootPage);
 				Splashscreen.hide();
+				this.facebookService.setUser(user);
 			}, (error) => {
 				//we don't have the user data so we will ask him to log in
 				this.nav.setRoot(LandingPage);
