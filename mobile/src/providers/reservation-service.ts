@@ -1,0 +1,42 @@
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import CONFIG from '../app/config.json';
+/*
+  Generated class for the Reservation provider.
+
+  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+  for more info on providers and Angular 2 DI.
+*/
+@Injectable()
+export class ReservationService {
+
+  constructor(public http: Http ) {
+    console.log('Hello Reservation Provider');
+  }
+ 
+  getUserReservation(userid: string): Observable<reservation[]> {
+		return this.http.get(`${CONFIG.API_URL}fbr/reservation/user/${userid}`)
+			.map(res => <reservation[]>res.json());
+	}
+
+
+	getEventReservation(eventid: string): Observable<reservation[]> {
+		return this.http.get(`${CONFIG.API_URL}fbr/reservation/user/${eventid}`)
+			.map(res => <reservation[]>res.json());
+	}
+	reserve(event_id : string , user_id : string){
+		var data = "event_id="+ event_id + "&user_id=" + user_id;
+		return this.http.post('http://localhost:3001/sessions/create',data)
+    .map(res => res.json());
+	}
+
+}
+export interface reservation{
+	reserv_date : string;
+	user_id : number;
+	event_id : number;
+	state : number;
+	attendees : number;
+}

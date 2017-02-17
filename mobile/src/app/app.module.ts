@@ -22,6 +22,8 @@ import { CustomizerService } from '../providers/customizer-service';
 import { FacebookService } from '../providers/facebook-service';
 import { StaticPagesService } from '../providers/static-pages-service';
 import { NotificationService } from '../providers/Notification-Service';
+import { ReservationService } from '../providers/Reservation-Service';
+import { PrefrenceService } from '../providers/prefrence-service';
 
 
 @NgModule({
@@ -69,7 +71,9 @@ import { NotificationService } from '../providers/Notification-Service';
 		CustomizerService,
 		FacebookService,
 		StaticPagesService,
-		NotificationService
+		NotificationService,
+		ReservationService,
+		PrefrenceServce
 	]
 })
 export class AppModule { }
