@@ -12,7 +12,7 @@
 			</div>
 		<?php endif; ?>
 		<div>
-			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/cjc-logout/') ?>">logout</a><br>
+			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/logout/') ?>">logout</a><br>
 		</div>
 	</div>
 

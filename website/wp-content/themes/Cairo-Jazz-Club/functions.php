@@ -221,10 +221,10 @@ require get_template_directory() . '/ess-grid-mods/init.php';
 require get_template_directory().'/rest-api/init.php';
 
 try {
-	if( class_exists('fb_login') ) {
-		$init = new fb_login();
-		$fbUser = $init->getUserDetails();
+	if( class_exists('FBR_User') ) {
+		@$FBR_User_init =  FBR_User::ActiveUser();
+		@$FBR_User_data = @$FBR_User_init ?@$FBR_User_init->getUserDetails():null;
 	}
 } catch (Exception $e) {
-	$init = $fbUser = null; // if the api key is unset
+	@$FBR_User_init = @$FBR_User_data = null; // if the api key is unset
 }
