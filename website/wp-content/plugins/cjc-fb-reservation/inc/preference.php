@@ -51,7 +51,7 @@ class FBR_Preference {
 			$key), object));
 	}
 
-	public function getSelectedAsBoolean($data){
+	public function getSelectedAsBoolean(){
 		$result = array();
 		foreach($this->pref_ids as $pref_id){
 			$result[$pref_id] = true;
@@ -59,7 +59,7 @@ class FBR_Preference {
 		return $result;
 	}
 
-	public function getSelectedGenre($data){
+	public function getSelectedGenre(){
 		$result = [];
 		foreach($this->pref_ids as $pref_id){
 			$genre = static::getGenreByID( $pref_id );
