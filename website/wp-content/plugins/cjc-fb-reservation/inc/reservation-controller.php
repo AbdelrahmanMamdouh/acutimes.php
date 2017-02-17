@@ -7,8 +7,8 @@ class FBR_ReservationController implements FBR_Controller  {
 	}
 
 	static function onInit(){
-		static::API_Reserve();
-		static::API_getReservations();
+		static::API_POST();
+		static::API_GET();
 	}
 
 
@@ -19,17 +19,21 @@ class FBR_ReservationController implements FBR_Controller  {
 	 * POST
 	 * body{ user_id,event_id } json format
 	 */
-	static function API_getReservations(){
+	static function API_GET(){
 		
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'reservation/user/(?P<id>\d+)', array( 'methods' => 'GET', 'callback' => function($request = null){
+
 				return FBR_Reservation::selectMulti('user_id',$request['id']);
+
 			}));
 		});	
 
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'reservation/event/(?P<id>\d+)', array( 'methods' => 'GET', 'callback' => function($request = null){
+
 				return FBR_Reservation::selectMulti('event_id',$request['id']);
+
 			}));
 		});	
 	}
@@ -39,15 +43,25 @@ class FBR_ReservationController implements FBR_Controller  {
 	 * wp-json/fbr/reservation/
 	 * POST		user_id ,  event_id
 	 */
-	static function API_Reserve(){
+	static function API_POST(){
 		
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'reservation/', array( 'methods' => 'POST', 'callback' => function($request = null){
 
+				return static::Reserve($_POST["event_id"],$_POST["user_id"],$_POST["attendees"]);
+				
+			}));
+		});	
+
+	}
+
+public static function Reserve($event_id, $user_id, $attendees){
+
 				$reserv = new FBR_Reservation();
 		
-				$reserv->event_id	= $_POST["event_id"];
-				$reserv->user_id	= $_POST["user_id"];
+				$reserv->event_id	= $event_id;
+				$reserv->user_id	= $user_id;
+				$reserv->attendees	= $attendees;
 
 				if ( !$reserv->isValidUser() ) {
 					return json_encode(array("status" => "Unauthorized", "message" => FBR_MESSSAGE_UNAUTORIZED));
@@ -68,11 +82,6 @@ class FBR_ReservationController implements FBR_Controller  {
 					return json_encode(array("status" => "Error", 'message' => FBR_MESSSAGE_ERR));
 				}
 
-			}));
-		});	
-
-	}
-
-
+			}
 
 }
