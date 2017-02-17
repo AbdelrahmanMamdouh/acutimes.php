@@ -93,7 +93,7 @@ class FBR_Reservation {
 	function select($user_id, $event_id){
 		global $wpdb;
 		$this->parseData($wpdb->get_results($wpdb->prepare(
-			"SELECT * FROM ".static::GetDBTable." WHERE user_id = %d AND event_id = %d",
+			"SELECT * FROM ".static::GetDBTable()." WHERE user_id = %d AND event_id = %d",
 			$user_id, $event_id), object));
 
 	}
@@ -102,7 +102,7 @@ class FBR_Reservation {
 		global $wpdb;
 
 		return static::parseMultiData( $wpdb->get_results($wpdb->prepare(
-			"SELECT * FROM ".static::GetDBTable." WHERE {$att} = ".static::$DataFormat[$att],
+			"SELECT * FROM ".static::GetDBTable()." WHERE {$att} = ".static::$DataFormat[$att],
 			$key), object));
 	}
 
