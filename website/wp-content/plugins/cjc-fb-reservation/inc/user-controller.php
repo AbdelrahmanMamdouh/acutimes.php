@@ -8,6 +8,7 @@ class FBR_UserController implements FBR_Controller  {
 
 	static function onInit(){
 		static::POST_UpdateUserStatus();
+		static::API_POST_MobileUserAccessToken();
 	}
 
 	/**
@@ -33,5 +34,27 @@ class FBR_UserController implements FBR_Controller  {
 		}
 	}
 
-
+	/**
+	 * wp-json/fbr/mobile/users/
+	 * POST
+	 * body{ users } json format
+	 */
+	static function API_POST_MobileUserAccessToken() {
+		
+		add_action( 'rest_api_init', function() {
+			register_rest_route( 'fbr/', 'mobile/users/', array( 'methods' => 'POST', 'callback' => function($request = null) {
+				$mobileUser = (array) json_decode( file_get_contents('php://input') );
+				$user = array(
+								"phone" => NULL,
+							  	"user_name" => $mobileUser["name"],
+							  	"user_picture" => $mobileUser["img"],
+							  	"user_profile" => $mobileUser["link"],
+							  	"user_email" => $mobileUser["email"],
+							  	"user_id" => $mobileUser["id"],
+							  	"user_status" => NULL
+							  );
+				return json_encode( FBR_User::storeMobileUser($user) );
+			}));
+		});
+	}
 }
