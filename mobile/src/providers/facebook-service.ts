@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { NavController, NavParams } from 'ionic-angular';
 import { Facebook, NativeStorage } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+
+import CONFIG from '../app/config.json';
 
 /*
   Generated class for the FacebookService provider.
@@ -33,6 +37,19 @@ export class FacebookService {
 		this._user = user;
 	}
 
+	private _sendUser(): void {
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers });
+		let user = this._user;
+
+		this.http.post(`${CONFIG.API_URL}fbr/mobile/users/`, { user }, options)
+			.map(res => res.json())
+			//...errors if any
+			.catch((error: any) => Observable.throw(error.json().error || 'Server error'))
+			.subscribe(data => { this._user.siteId = data.id })
+
+	}
+
 	public doFbLogin(): Observable<User> {
 		let permissions: string[];
 
@@ -47,10 +64,11 @@ export class FacebookService {
 					let params: string[];
 
 					//Getting name and email properties
-					Facebook.api("/me?fields=name,email", params)
+					Facebook.api("/me?fields=name,email,link", params)
 						.then((user) => {
 							user.img = `https://graph.facebook.com/${userId}/picture?type=large`;
 							this._user = user;
+							this._sendUser();
 							observer.next(this._user);
 						})
 				}, function (error) {
@@ -66,7 +84,10 @@ export class FacebookService {
 }
 
 export class User {
+	id: number;
+	siteId: number;
 	name: string;
 	email: string;
+	link: string;
 	img: string;
 }
