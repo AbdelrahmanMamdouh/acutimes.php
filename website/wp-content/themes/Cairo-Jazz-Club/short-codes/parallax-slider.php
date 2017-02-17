@@ -15,7 +15,7 @@ $cjcParallaxSlider->callback = function ( $atts, $content = null ) {
         <div class="parallax <?php echo $a['class']; ?>" id="<?php echo $a['id']; ?>">
             <div class="parallax__content">
 
-                <img src="<?php echo get_template_directory_uri();?>/img/events-top.png" alt="">
+                <img src="<?php echo get_template_directory_uri();?>/img/events-top.png" alt="" style="margin-bottom: -1px;">
 
                 <div class="events-content">
 
