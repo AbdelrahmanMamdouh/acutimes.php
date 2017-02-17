@@ -1,7 +1,7 @@
 <?php
 class FBR_Preference {
 
-	public $pref_id;
+	public $pref_ids;
 	public $user_id;
 
 	public static $DataFormat = 
@@ -33,51 +33,69 @@ class FBR_Preference {
 	}
 
 	private function parseData($data){
-		$this->user_id = (int) $data['user_id'];
-		$this->pref_id = (int) $data['pref_id'];
+		$this->user_id = (int) $data[1]['user_id'];
+		$this->pref_ids = array();
+		//$this->pref_id = (int) $data['pref_id'];
+
+		foreach($data as $da){
+			//$genre = get_term_by('id' , $temp->pref_ids[i], 'genre' );
+			array_push($this->pref_ids, $da['pref_id']);
+		}
 	}
 
-	static private function parseMultiData($data){
+	public function select($att = null, $key = null){
+		global $wpdb;
+
+		$this->parseData( $wpdb->get_results($wpdb->prepare(
+			"SELECT * FROM ".static::GetDBTable()." WHERE {$att} = ".static::$DataFormat[$att],
+			$key), object));
+	}
+
+	public function getSelectedAsBoolean($data){
+		$result = array();
+		foreach($this->pref_ids as $pref_id){
+			$result[$pref_id] = true;
+		}
+		return $result;
+	}
+
+	public function getSelectedGenre($data){
 		$result = [];
-		foreach($data as $da){
-			$temp = new static();
-			$temp->parseData($da);
-			$genre = get_term_by('id' , $temp->pref_id, 'genre' );
+		foreach($this->pref_ids as $pref_id){
+			$genre = static::getGenreByID( $pref_id );
 			$genre ? array_push($result, $genre) : null;
 		}
 		return $result;
 	}
 
-	function create(){
+	public static function getAllGenres(){
+		return get_terms( 'genre' );
+	}
+
+	public static function getGenreByID($id){
+		return get_term_by('id' , $id, 'genre' );
+	}
+
+	private function _create_single($pref_id){
 		global $wpdb;
 
 		return $wpdb->insert(
 			static::GetDBTable(), 
 			array(
-				'pref_id'	=> $this->pref_id,
+				'pref_id'	=> $pref_id,
 				'user_id'	=> $this->user_id,
 			),
 			['%d', '%d']);
 	}
 
-	public static function createMulti($user_id, $pref_ids){
+	public function create(){
 		global $wpdb;
-		wpdb::delete( static::GetDBTable(), array( 'user_id' => $user_id ), array( '%d' ) );
-		foreach($pref_id as $p_id){
-			$temp = new static();
-			$temp->user_id = $user_id;
-			$temp->pref_id = $p_id;
-			$temp->create();
+		$wpdb->delete( static::GetDBTable(), array( 'user_id' => $this->user_id ), array( '%d' ) );
+
+		foreach($this->pref_ids as $p_id){
+			$this->_create_single($p_id);
 		}
 
-	}
-
-	public static function selectMulti($att = null, $key = null){
-		global $wpdb;
-
-		return static::parseMultiData( $wpdb->get_results($wpdb->prepare(
-			"SELECT * FROM ".static::GetDBTable." WHERE {$att} = ".static::$DataFormat[$att],
-			$key), object));
 	}
 
 }

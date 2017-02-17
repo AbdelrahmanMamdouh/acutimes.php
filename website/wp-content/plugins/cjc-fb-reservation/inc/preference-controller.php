@@ -7,8 +7,8 @@ class FBR_PreferenceController implements FBR_Controller  {
 	}
 
 	static function onInit(){
-		static::API_GETpreferences();
-		static::API_POSTpreferences();
+		static::API_GET();
+		static::API_POST();
 	}
 
 
@@ -18,25 +18,33 @@ class FBR_PreferenceController implements FBR_Controller  {
 	 * wp-json/fbr/preference/all
 	 * GET
 	 */
-	static function API_GETpreferences(){
+	private static function API_GET(){
 		
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'preference/user/(?P<id>\d+)', array( 'methods' => 'GET', 'callback' => function($request = null){
 					
-					return FBR_preference::selectMulti('user_id',$request['id']);
+					return static::getByUser($request['id'])->pref_ids;
 
 			}));
-		});	
+		});
 
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'preference/all', array( 'methods' => 'GET', 'callback' => function($request = null){
 
-					return get_terms( 'genre' );
+					return FBR_Preference::getAllGenres();
 
 			}));
 		});	
 
 	}
+
+	public static function getByUser($user_id){
+		$pref = new FBR_Preference();
+		return $pref->select('user_id', $user_id);
+	}
+
+
+
 
 	/**
 	 * later should remove the id and use FB user
@@ -44,12 +52,12 @@ class FBR_PreferenceController implements FBR_Controller  {
 	 * POST
 	 * [prefs : JSON ARRAY]
 	 */
-	static function API_POSTpreferences(){
+	private static function API_POST(){
 	
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'preference/user/(?P<id>\d+)', array( 'methods' => 'GET', 'callback' => function($request = null){
-					
-					if( FBR_preference::selectMulti($request['id'],json_decode( $_POST['prefs'])) ){
+
+					if( Update($request['id'], $_POST['prefs']) ){
 						return json_encode(array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS));
 					} else {
 						return json_encode(array("status" => "Error", 'message' => FBR_MESSSAGE_ERR));
@@ -60,5 +68,11 @@ class FBR_PreferenceController implements FBR_Controller  {
 	
 	}
 
+	public static function Update($user_id, $pref_ids){
+		$pref = new FBR_Preference();
+		$pref->user_id = $user_id;
+		$pref->pref_ids = $pref_ids;
+		return $pref->create();
+	}
 
 }
