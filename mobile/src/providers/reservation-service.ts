@@ -28,7 +28,7 @@ export class ReservationService {
 	}
 	reserve(event_id : string , user_id : string){
 		var data = "event_id="+ event_id + "&user_id=" + user_id;
-		return this.http.post('http://localhost:3001/sessions/create',data)
+		return this.http.post('${CONFIG.API_URL}fbr/reservation/',data)
     .map(res => res.json());
 	}
 
