@@ -15,7 +15,7 @@ import { CalendarPage } from '../pages/calendar/calendar';
 export class MyApp {
 	@ViewChild(Nav) nav: Nav;
 
-	rootPage: any = LandingPage;
+	rootPage: any = CalendarPage;
 
 	pages: Array<{ title: string, component: any }>;
 

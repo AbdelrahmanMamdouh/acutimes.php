@@ -21,6 +21,7 @@ import { CachingService } from '../providers/caching-service';
 import { CustomizerService } from '../providers/customizer-service';
 import { FacebookService } from '../providers/facebook-service';
 import { StaticPagesService } from '../providers/static-pages-service';
+import { NotificationService } from '../providers/Notification-Service';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { StaticPagesService } from '../providers/static-pages-service';
 		CachingService,
 		CustomizerService,
 		FacebookService,
-		StaticPagesService
+		StaticPagesService,
+		NotificationService
 	]
 })
 export class AppModule { }
