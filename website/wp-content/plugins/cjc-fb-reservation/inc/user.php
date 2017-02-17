@@ -107,8 +107,8 @@ class FBR_User extends Facebook\Facebook {
 			exit;
 		}
 	}
-
-	private function prepareTheStage() {
+	
+	public function prepareTheStage() {
 		if (!isset($this->accessToken)) {
 			if ($this->helper->getError()) {
 				header('HTTP/1.0 401 Unauthorized');
@@ -130,7 +130,7 @@ class FBR_User extends Facebook\Facebook {
 
 		$tokenMetadata->validateAppId(FBR_FB_APP_KEY);
 		$tokenMetadata->validateExpiration();
-
+		
 		if (!$this->accessToken->isLongLived()) {
 			try {
 				$this->accessToken = $oAuth2Client->getLongLivedAccessToken($this->accessToken);
@@ -172,10 +172,9 @@ class FBR_User extends Facebook\Facebook {
 		}
 	}
 
-	public function IsExist($userId) {
+	public static function IsExist($userId) {
 		global $wpdb;
 		$count = $wpdb->get_var("select count(*) from ".static::GetDBTable()." where user_id = '{$userId}'");
-		var_dump((int) $count);
 		return ((int) $count > 0) ? TRUE : FALSE;
 	}
 
@@ -281,4 +280,13 @@ class FBR_User extends Facebook\Facebook {
 		return "";
 	}
 
+	public static function storeMobileUser($userData) {
+		global $wpdb;
+		if (!static::IsExist($userData["user_id"]) && $wpdb->insert(static::GetDBTable(), $userData, ['%s', '%s', '%s', '%s', '%s', '%d']) ) {
+				return array("id" => $wpdb->insert_id);
+		}
+		else {
+			return FALSE;
+		}
+	}
 }
