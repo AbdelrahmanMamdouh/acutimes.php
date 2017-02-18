@@ -43,12 +43,12 @@ function eg_add_post_content($meta_value, $meta, $post_id, $post) {
 	if ($meta === 'genres_list') {
 
 		$genres = wp_get_post_terms( $post_id, 'genre');
-
+		$ret = '';
 		foreach ($genres as $genre)	{	
-			$genres_names[] = $genre->name;
+			$ret.= $genre->name . ", ";
 		}
 
-		return implode(", ", $genres_names);
+		return $ret;
 	}
 
 }
