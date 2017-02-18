@@ -13,25 +13,8 @@ var Init = (function ($) {
 			Init.MagnificPopup();
 			Init.HomeParallaxSlider();
 			Init.Footer();
-			Init.SetEmail();
 
 		});
-	}
-
-	/**
-	 * set the email feild of ninja forms preffrence
-	 */
-	Init.SetEmail = function () {
-		// get hiden feild email value
-		var emailHF = document.getElementById("User_email");
-		// get ninja forms feil
-		var email = document.getElementById("ninja_forms_field_91");
-		// if found both email
-		if (emailHF && email) {
-			email.value = emailfeild.value;
-		} else {
-			console.warn("ninja form email feild not found")
-		}
 	}
 
 	Init.ResponsiveMenu = function () {
@@ -185,3 +168,29 @@ var Init = (function ($) {
 })(jQuery);
 
 Init.AutoRun();
+
+
+var Forms = (function ($) {
+	var Forms = {};
+
+	Forms.ReserveEvent = function (form_submit_to) {
+
+		var form = $("#form_reserve_ticket");
+		var respon = $("#form_reserve_ticket_responce");
+
+		$.post(form_submit_to, form.serialize())
+			.done(function () {
+				form.hide('slow');
+				respon.text('thank you, your request is beeing processed');
+			})
+			.fail(function () {
+				form.hide('slow');
+				respon.text('an error happened pls try again later');
+			})
+			.always(function () {
+
+			});
+	};
+
+	return Forms;
+})(jQuery);

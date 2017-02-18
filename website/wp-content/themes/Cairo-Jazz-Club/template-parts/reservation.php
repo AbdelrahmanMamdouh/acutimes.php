@@ -18,17 +18,18 @@ $eventDate = new DateTime($date);
 			<div id="respond-<?php echo $event_id ?>">
 				<?php //echo $response; ?>
 				
-				<div id="reserve-ticket">                
+				<form id="form_reserve_ticket">                
 					<p><label for="attendees">Number of people</label></p>
 					<p class="attendees">
 						<input type="text" name="attendees"  id="attendees" value="1" class="attendees-field num-organ">
 					</p>
 					<input type="hidden" name="event_id" id="event_id" value="<?php echo $event_id ?>"/>
 					<input type="hidden" name="user_id"  id="user_id"  value="<?php echo $FBR_User_data['id'] ?>"/>
-					<input type="button" class="btn btn-primary" value='submit' onclick="">
-				</div>
+					<input type="button" class="btn btn-primary" value='submit' 
+							onclick="Forms.ReserveEvent('<?php echo get_site_url() . '/wp-json/fbr/reservation/' ?>')">
+				</form>
 
-				<div class="form-response" id="reserv-form-responce"></div>
+				<div class="form-response" id="form_reserve_ticket_responce"></div>
 			</div>
 
 		<?php elseif ($FBR_User_data['is_loged']): ?>
