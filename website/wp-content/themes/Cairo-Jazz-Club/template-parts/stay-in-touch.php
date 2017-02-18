@@ -20,43 +20,18 @@
 	</div>
 	<h3>Choose your genre</h3>
 	<div class="row">
-		<div class="col-md-4">
-			<p>
-				<input type="checkbox" id="test1">
-				<label for="test1">Avant-garde</label>
-			</p>
-			<p>
-				<input type="checkbox" id="test2" checked="checked">
-				<label for="test2">Blues</label>
-			</p>
-			<p>
-				<input type="checkbox" id="test3">
-				<label for="test3">Caribbean</label>
-			</p>
-			<p>
-				<input type="checkbox" id="test4">
-				<label for="test4">Country</label>
-			</p>
-		</div>
+		
+		<?php $genres = get_terms( 'genre',array('hide_empty' => 0) ); ?>
 
-		<div class="col-md-5">
-			<p>
-				<input type="checkbox" id="test5">
-				<label for="test5">R&amp;B and soul</label>
-			</p>
-			<p>
-				<input type="checkbox" id="test6">
-				<label for="test6">Rock</label>
-			</p>
-			<p>
-				<input type="checkbox" id="test7" checked="checked">
-				<label for="test7">Electronic</label>
-			</p>
-			<p>
-				<input type="checkbox" id="test8">
-				<label for="test8">Folk</label>
-			</p>
-		</div>
+
+           
+                <?php   foreach($genres as $genre){
+                    $id = $genres.'-'.$genre->term_id;
+                    echo "<label for='$genre->term_id'>";
+                    echo "<input type='checkbox' style='position: static' float: left"."value='$genre->term_id' />$genre->name";
+                   echo "</label>";
+                }?>
+           
 	</div>
 
 	<submit class="btn btn-supporting btn-wide">Submit</submit>
