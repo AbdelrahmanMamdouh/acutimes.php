@@ -22,7 +22,7 @@ import { CustomizerService } from '../providers/customizer-service';
 import { FacebookService } from '../providers/facebook-service';
 import { StaticPagesService } from '../providers/static-pages-service';
 import { NotificationService } from '../providers/Notification-Service';
-import { ReservationService } from '../providers/Reservation-Service';
+import { ReservationService } from '../providers/reservation-service';
 import { PrefrenceService } from '../providers/prefrence-service';
 
 
@@ -73,7 +73,7 @@ import { PrefrenceService } from '../providers/prefrence-service';
 		StaticPagesService,
 		NotificationService,
 		ReservationService,
-		PrefrenceServce
+		PrefrenceService
 	]
 })
 export class AppModule { }

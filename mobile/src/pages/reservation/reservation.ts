@@ -20,8 +20,8 @@ import { reservation } from '../../providers/reservation-service';
 export class ReservationPage {
 
 	numberOfPeople: number = 1;
-	targetEvent: Event;
-	eventid =  '1744';
+	userid:string = '1';
+	targetEvent: any;
 	reserve : ReservationService;
 	reservation : reservation[];
 	artists = [
@@ -36,7 +36,8 @@ export class ReservationPage {
 	];
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private eventsService: EventsService) {
-		//this.targetEvent = navParams.get('event');
+		this.targetEvent = navParams.get('eventparm');
+		console.log(this.targetEvent);
 	}
 
 	incrementNumberOfPeople() {
@@ -44,10 +45,14 @@ export class ReservationPage {
 	}
 
 	decrementNumberOfPeople() {
-		if(this.numberOfPeople != 0)
+		if(this.numberOfPeople != 1)
 		{
 			this.numberOfPeople -= 1;
 		}
+	}
+	doreserve(){
+		this.reserve.reserve(this.targetEvent.id,'1');
+		console.log(this.reserve.getUserReservation('1'));
 	}
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReservationPage');

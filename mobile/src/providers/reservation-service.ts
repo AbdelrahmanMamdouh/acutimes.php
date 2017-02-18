@@ -7,6 +7,7 @@ import CONFIG from '../app/config.json';
   Generated class for the Reservation provider.
 
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
@@ -35,8 +36,8 @@ export class ReservationService {
 }
 export interface reservation{
 	reserv_date : string;
-	user_id : number;
-	event_id : number;
-	state : number;
-	attendees : number;
+	user_id : string;
+	event_id : string;
+	state : any;
+	attendees : any;
 }

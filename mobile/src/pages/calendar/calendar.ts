@@ -8,6 +8,7 @@ import { EventsService } from '../../providers/events-service';
 import { Event } from '../../providers/events-service';
 import { NotificationService } from '../../providers/Notification-Service';
 import { LocalNotifications } from 'ionic-native';
+import { ReservationPage } from '../reservation/reservation';
 
 /*
   Generated class for the Calendar page.
@@ -27,7 +28,7 @@ export class CalendarPage {
 	now = moment().format('MMMM');
 	month: any;
 	v_month: any;
-	constructor(public navCtrl: NavController, public navParams: NavParams , private eventsService: EventsService , private Alert : AlertController){
+	constructor(public navCtrller: NavController, public navParams: NavParams , private eventsService: EventsService , private Alert : AlertController){
 		/*	
 			LocalNotifications.on("click", (notification, state) => {
             let alert = Alert.create({
@@ -118,6 +119,12 @@ export class CalendarPage {
     setFilteredItems() {
         this.month_events = this.filterItems();
  
+    }
+    goToEvent(event:Event){
+    	console.log(event);
+    	this.navCtrller.push(ReservationPage,{
+    		eventparm :  event
+    	});
     }
 
 
