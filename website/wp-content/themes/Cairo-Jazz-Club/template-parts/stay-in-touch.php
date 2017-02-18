@@ -12,11 +12,11 @@ $CJC_genres = get_terms( 'genre' );
 
 <!--<p>Integer vitae libero ac risus egestas placerat.</p>-->
 
-<form action="/">
+<form id="form_prefs">
 	<div class="form-group">
 		<div class="input input--reverse">
 			<!--<label for="email">Type Your Email</label>-->
-			<input type="email" class="form-control" id="foote_email" placeholder='Type Your Email' value='<?php echo $FBR_User_data['email'] ?>'>
+			<input type="email" class="form-control" id="foote_email" placeholder='Type Your Email' required value='<?php echo $FBR_User_data['email'] ?>'>
 		</div>
 	</div>
 	<h3>Choose your genre</h3>
@@ -28,6 +28,7 @@ $CJC_genres = get_terms( 'genre' );
 				<p>
 					<input type="checkbox" 
 						id="<?php echo $gen->term_id ?>" 
+						name="pref_check"
 						<?php if(isset($FBR_User_data['genre_bol'][$gen->term_id])) echo 'checked' ?>
 					>
 					<label for="<?php echo $gen->term_id ?>" ><?php echo $gen->name ?></label>
@@ -38,5 +39,8 @@ $CJC_genres = get_terms( 'genre' );
 
 	</div>
 
-	<submit class="btn btn-supporting btn-wide">Submit</submit>
+	<submit class="btn btn-supporting btn-wide" onclick='Forms.Prefs("<?php echo get_site_url() . '/wp-json/fbr/preference/user/'.$FBR_User_data['id'] ?>")'>Submit</submit>
 </form>
+<div id="form_prefs_responce">
+
+</div>

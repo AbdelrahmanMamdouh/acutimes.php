@@ -190,6 +190,53 @@ var Forms = (function ($) {
 			.always(function () {
 
 			});
+		return false;
+	};
+
+	Forms.PrefsClick = function () {
+		$('#form_prefs').submit(function (evt) {
+			evt.preventDefault();
+			//window.history.back();
+		});
+	}
+
+	Forms.Prefs = function (form_submit_to) {
+		var form = $("#form_prefs");
+		var respon = $("#form_prefs_responce");
+
+		var data = [];
+
+		var CheckBoxes = document.getElementsByName("pref_check");
+
+		for (var key in CheckBoxes) {
+			if (CheckBoxes.hasOwnProperty(key)) {
+				var element = CheckBoxes[key];
+				if (element.checked) {
+					data.push(element.id);
+				}
+			}
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: form_submit_to,
+			data: JSON.stringify(data),
+			contentType: "application/json",
+			dataType: 'json'
+		})
+			.done(function () {
+				form.hide('slow');
+				respon.text('thank you, your preference have been saved');
+			})
+			.fail(function () {
+				form.hide('slow');
+				respon.text('an error happened pls try again later');
+			})
+			.always(function () {
+
+			});
+
+		return false;
 	};
 
 	return Forms;
