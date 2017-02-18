@@ -59,9 +59,9 @@ public static function Reserve($event_id, $user_id, $attendees){
 
 				$reserv = new FBR_Reservation();
 		
-				$reserv->event_id	= $event_id;
-				$reserv->user_id	= $user_id;
-				$reserv->attendees	= $attendees;
+				$reserv->event_id	= (int) $event_id;
+				$reserv->user_id	= (int) $user_id;
+				$reserv->attendees	= (int) $attendees;
 
 				if ( !$reserv->isValidUser() ) {
 					return json_encode(array("status" => "Unauthorized", "message" => FBR_MESSSAGE_UNAUTORIZED));

@@ -5,7 +5,8 @@ global	$FBR_User_data,
 		$today,
 		$todayDate,
 		$time,
-		$this_time;
+		$this_time,
+		$event_id;
 $todayNow = new DateTime();
 $eventDate = new DateTime($date);
 ?>
@@ -24,7 +25,7 @@ $eventDate = new DateTime($date);
 						<input type="text" name="attendees"  id="attendees" value="1" class="attendees-field num-organ">
 					</p>
 					<input type="hidden" name="event_id" id="event_id" value="<?php echo $event_id ?>"/>
-					<input type="hidden" name="user_id"  id="user_id"  value="<?php echo $FBR_User_data['id'] ?>"/>
+					<input type="hidden" name="user_id"  id="user_id"  value="<?php echo $FBR_User_data['id'].'1' ?>"/>
 					<input type="button" class="btn btn-primary" value='submit' 
 							onclick="Forms.ReserveEvent('<?php echo get_site_url() . '/wp-json/fbr/reservation/' ?>')">
 				</form>

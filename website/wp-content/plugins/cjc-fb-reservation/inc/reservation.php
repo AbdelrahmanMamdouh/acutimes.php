@@ -45,10 +45,10 @@ class FBR_Reservation {
 	}
 
 	private function parseData($data){
-		$this->reserv_date = $data['reserv_date'] ? new Date($data['reserv_date']) : null;
-		$this->user_id = (int) $data['user_id'];
-		$this->event_id = (int) $data['event_id'];
-		$this->state = (int) $data['state'];
+		$this->reserv_date = $data->reserv_date;
+		$this->user_id = (int) $data->user_id;
+		$this->event_id = (int) $data->event_id;
+		$this->state = (int) $data->state;
 	}
 
 	static private function parseMultiData($data){
@@ -68,10 +68,11 @@ class FBR_Reservation {
 			static::GetDBTable(), 
 			array(
 				'user_id'		=> $this->user_id,
+				'event_id'		=> $this->user_id,
 				'state'			=> $this->state,
 				'attendees'		=> $this->attendees
 			),
-			['%d', '%d', '%d']);
+			['%d', '%d', '%d', '%d']);
 	}
 
 	function update(){
@@ -122,11 +123,11 @@ class FBR_Reservation {
 					"Event Link     : {$link}\n".
 					"Attendees      : {$this->attendees}\n";
 
-		return wp_mail($to, $subject, $message, $headers);	
+		return true || wp_mail($to, $subject, $message, $headers);	
 	}
 
 	function getEvent(){
-		get_post($this->event_id);
+		return get_post($this->event_id);
 	}
 
 	function getUser(){

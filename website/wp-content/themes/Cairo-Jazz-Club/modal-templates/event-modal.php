@@ -1,7 +1,7 @@
 <?php
 	require_once('../../../../wp-load.php');
 	$event = get_post($_GET["eventId"]);
-
+	$event_id = $_GET["eventId"];
     $thumb_id = get_post_thumbnail_id($event->ID);
     $image_url_array = wp_get_attachment_image_src($thumb_id, 'hero-mfp', true);
     $image_url = $image_url_array[0];
