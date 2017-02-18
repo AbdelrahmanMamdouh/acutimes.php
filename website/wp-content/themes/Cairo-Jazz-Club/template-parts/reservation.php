@@ -2,21 +2,33 @@
 global	$FBR_User_data, 
 		$private,
 		$date,
+		$today,
 		$todayDate,
 		$time,
 		$this_time;
+$todayNow = new DateTime();
+$eventDate = new DateTime($date);
 ?>
 
 <div>
-	
-	<?php if (($today-$date)<'1' || ($today-$date)==='1' ):  ?>
+	<?php if ( (($eventDate->getTimestamp()+ 20*60*60) - $todayNow->getTimestamp() ) > 0 ):  ?>
 
-		<?php if ($FBR_User_data['is_loged'] && $FBR_User_data['is_approved'] && ($private==='0'||$private===null) && !($date===$todayDate && ($time < $this_time ||$time === $this_time))): ?> 
+		<?php if (true || $FBR_User_data['is_loged'] && $FBR_User_data['is_approved'] && ($private==='0'||$private===null)): ?> 
 
 			<div id="respond-<?php echo $event_id ?>">
-				<?php echo $response; ?>
-				<?php echo do_shortcode( '[contact-form-7 id="1679" title="Event Reservation"]' ); ?>
-				<div class="form-response"></div>
+				<?php //echo $response; ?>
+				
+				<div id="reserve-ticket">                
+					<p><label for="attendees">Number of people</label></p>
+					<p class="attendees">
+						<input type="text" name="attendees"  id="attendees" value="1" class="attendees-field num-organ">
+					</p>
+					<input type="hidden" name="event_id" id="event_id" value="<?php echo $event_id ?>"/>
+					<input type="hidden" name="user_id"  id="user_id"  value="<?php echo $FBR_User_data['id'] ?>"/>
+					<input type="button" class="btn btn-primary" value='submit' onclick="">
+				</div>
+
+				<div class="form-response" id="reserv-form-responce"></div>
 			</div>
 
 		<?php elseif ($FBR_User_data['is_loged']): ?>
