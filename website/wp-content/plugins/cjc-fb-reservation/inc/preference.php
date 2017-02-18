@@ -33,13 +33,12 @@ class FBR_Preference {
 	}
 
 	private function parseData($data){
-		$this->user_id = (int) $data[1]['user_id'];
+		$this->user_id = (int) $data[1]->user_id;
 		$this->pref_ids = array();
 		//$this->pref_id = (int) $data['pref_id'];
 
 		foreach($data as $da){
-			//$genre = get_term_by('id' , $temp->pref_ids[i], 'genre' );
-			array_push($this->pref_ids, $da['pref_id']);
+			array_push($this->pref_ids, $da->pref_id);
 		}
 	}
 
@@ -95,7 +94,7 @@ class FBR_Preference {
 		foreach($this->pref_ids as $p_id){
 			$this->_create_single($p_id);
 		}
-
+		return true;
 	}
 
 }

@@ -40,7 +40,8 @@ class FBR_PreferenceController implements FBR_Controller  {
 
 	public static function getByUser($user_id){
 		$pref = new FBR_Preference();
-		return $pref->select('user_id', $user_id);
+		$pref->select('user_id', $user_id);
+		return $pref;
 	}
 
 
@@ -55,9 +56,9 @@ class FBR_PreferenceController implements FBR_Controller  {
 	private static function API_POST(){
 	
 		add_action( 'rest_api_init', function() {
-			register_rest_route( 'fbr/', 'preference/user/(?P<id>\d+)', array( 'methods' => 'GET', 'callback' => function($request = null){
+			register_rest_route( 'fbr/', 'preference/user/(?P<id>\d+)', array( 'methods' => 'POST', 'callback' => function($request = null){
 
-					if( Update($request['id'], $_POST['prefs']) ){
+					if( static::Update($request['id'], json_decode(file_get_contents('php://input'))) ){
 						return json_encode(array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS));
 					} else {
 						return json_encode(array("status" => "Error", 'message' => FBR_MESSSAGE_ERR));
