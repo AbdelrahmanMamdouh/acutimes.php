@@ -24,7 +24,7 @@ $CJC_genres = get_terms( 'genre' );
 
 		<?php foreach($CJC_genres as $gen) { ?>
 
-			<div class="col-md-4" style="overflow: hidden; max-height: 2.5rem; margin: 8px 0">
+			<div class="col-md-4 col-sm-6" style="overflow: hidden; max-height: 2.5rem; margin: 8px 0">
 				<p>
 					<input type="checkbox" 
 						id="<?php echo $gen->term_id ?>" 
