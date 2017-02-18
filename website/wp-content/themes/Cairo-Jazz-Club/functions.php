@@ -7,6 +7,11 @@
  * @package cjc
  */
 
+if(WP_DEBUG){
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+}
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -222,9 +227,25 @@ require get_template_directory().'/rest-api/init.php';
 
 try {
 	if( class_exists('FBR_User') ) {
-		@$FBR_User_init =  FBR_User::ActiveUser();
-		@$FBR_User_data = @$FBR_User_init ?@$FBR_User_init->getUserDetails():null;
+		$FBR_User_data = FBR_User::ActiveUser()->getUserDetails();
+		// fix more feilds here
+	} else {
+		// plugin didn't load'
 	}
 } catch (Exception $e) {
-	@$FBR_User_init = @$FBR_User_data = null; // if the api key is unset
+	
 }
+
+$FBR_User_data = array(
+	'plugin_load'	=> true,
+	'id'			=> 5,
+	'fb_id'			=> 'asdasdae',
+	'is_loged'		=> true,
+	'is_approved'	=> true, //@$FBR_User_init->isApproved()
+	'name'			=> 'Kevin Cheng',
+	'img'			=> 'https://s3.amazonaws.com/uifaces/faces/twitter/k/128.jpg',
+	'email'			=> 'test@mail.com',
+	'genre_ids'		=> [65, 62],
+	'genre_bol'		=> array('65'=>true, '62'=>true), //FBR_PreferenceController::getByUser($user_id)->getSelectedAsBoolean() : [];
+	'login_url'		=> '' //htmlspecialchars(getLoginURl(get_the_permalink()))
+);

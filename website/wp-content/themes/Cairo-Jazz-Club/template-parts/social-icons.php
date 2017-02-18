@@ -7,7 +7,7 @@
  * @package cjc
  */
 
-global $FBR_User_init, $FBR_User_data;
+global $FBR_User_data;
 
 $facebook	= get_theme_mod('cjc-social-media-facebook');
 $twitter	= get_theme_mod('cjc-social-media-twitter');
@@ -15,11 +15,13 @@ $youtube	= get_theme_mod('cjc-social-media-youtube');
 ?>
 <ul class="social-icons">
 
-	<?php if( @$FBR_User_init && !@$FBR_User_init->IsLogged() ) { ?>
+	<?php if( !$FBR_User_data['is_loged']) { ?>
 		<li><a class="account modal-link-inline" href="#login-modal">Account</a></li>
 	<?php } else { ?>
-		<li><a class="account-loged-in modal-link-inline" href="#logout-modal" style = 'background-image: url(<?php echo @$FBR_User_data->user_picture ?>); '><?php echo @$FBR_User_data->user_name ?></a></li>
-    <input type="hidden" id="User_email" value='<?php echo(@$FBR_User_data->user_email);?>'>
+		<li><a class="account-loged-in modal-link-inline" href="#logout-modal" style = 'background-image: url(<?php echo $FBR_User_data['img'] ?>); '>
+			<?php echo $FBR_User_data['name'] ?>
+		</a></li>
+    	<input type="hidden" id="User_email" value='<?php echo $FBR_User_data['email'];?>'>
 	<?php }?>
 
 	<?php if($facebook) { ?>

@@ -7,7 +7,7 @@
  * @package cjc
  */
 
-global $FBR_User_init;
+global $FBR_User_data;
 get_header(); ?>
 
 <main class="inner" id="primary">
@@ -46,12 +46,12 @@ get_header(); ?>
 							<?php the_content(); ?>
 
 							<h3>Reservation</h3>
-							<?php if (@$FBR_User_init->IsLogged()): ?>
+							<?php if ($FBR_User_data['is_loged']): ?>
 								<?php include get_template_directory() . '/template-parts/reservation.php'; ?>
 							<?php else: ?>
 								<p>You need to be logged in before you can reserve!</p>
 								<div class="button-twin">
-									<a class="btn btn-facebook" href="<?php echo htmlspecialchars(@$FBR_User_init->getLoginURl(get_the_permalink())) ?>">Login</a>
+									<a class="btn btn-facebook" href="<?php echo $FBR_User_data['login_url'] ?>">Login</a>
 								</div>
 
 							<?php endif; ?>

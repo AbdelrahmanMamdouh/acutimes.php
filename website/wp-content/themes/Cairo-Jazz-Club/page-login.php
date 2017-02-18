@@ -2,10 +2,8 @@
 
 $events = get_page_by_title('events');
 
-global $FBR_User_init;
-
 try {
-    $FBR_User_init->getUserInfo();
+    FBR_User::ActiveUser()->getUserInfo();
 } catch (Exception $exc) {
     
 }

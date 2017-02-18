@@ -22,7 +22,7 @@ $img = array(
 	<?php for ( $advCount=0; $advCount<count($img); $advCount++){ ?>
 		<?php if ( $img[$advCount] ){ ?>
 			<div class="half">
-				<a href="<?php echo $url[$advCount] ?>">
+				<a href="<?php echo $urls[$advCount] ?>">
 					<img src="<?php echo $img[$advCount] ?>" alt="">
 				</a>
 			</div>

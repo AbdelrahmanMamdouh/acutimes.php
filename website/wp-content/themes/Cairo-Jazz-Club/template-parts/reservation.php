@@ -1,10 +1,17 @@
-<?php global $FBR_User_init , $FBR_User_data; ?>
+<?php 
+global	$FBR_User_data, 
+		$private,
+		$date,
+		$todayDate,
+		$time,
+		$this_time;
+?>
 
 <div>
 	
 	<?php if (($today-$date)<'1' || ($today-$date)==='1' ):  ?>
 
-		<?php if (@$FBR_User_init && @$FBR_User_init->IsLogged() && @$FBR_User_init->isApproved() && ($private==='0'||$private===null) && !($date===$todayDate && ($time < $this_time ||$time === $this_time))): ?> 
+		<?php if ($FBR_User_data['is_loged'] && $FBR_User_data['is_approved'] && ($private==='0'||$private===null) && !($date===$todayDate && ($time < $this_time ||$time === $this_time))): ?> 
 
 			<div id="respond-<?php echo $event_id ?>">
 				<?php echo $response; ?>
@@ -12,17 +19,17 @@
 				<div class="form-response"></div>
 			</div>
 
-		<?php elseif (@$FBR_User_init && @$FBR_User_init->IsLogged()): ?>
+		<?php elseif ($FBR_User_data['is_loged']): ?>
 
 			<div class="media-box__img">
 				<div class="circle circle--sm circle--center">
 					<div class="circle__content">
-						<img width=280px src="<?php echo @$FBR_User_data->user_picture ?>" alt="<?php echo @$FBR_User_data->user_name ?>">
+						<img width=280px src="<?php echo $FBR_User_data['img'] ?>" alt="<?php echo $FBR_User_data['name'] ?>">
 					</div>
 				</div>
 			</div>
 
-			<h2>Welcome! <?php echo @$FBR_User_data->user_name ?></h2>
+			<h2>Welcome! <?php echo $FBR_User_data['name'] ?></h2>
             <img src="<?php echo get_template_directory_uri()?>/img/eye.png"></img>
 			<p><?php echo __('unfortunately reservations are now unavailable!')?></p>
 			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/logout/') ?>">logout</a>
@@ -31,7 +38,7 @@
 
 			<p><?php echo __('You need to be logged in before you can reserve!')?></p>
 			<div class="button-twin">
-				<a class="btn btn-facebook" href="<?php echo htmlspecialchars(@$FBR_User_init->getLoginURl(get_the_permalink(get_page_by_title( 'Events' )))) ?>">Login</a>
+				<a class="btn btn-facebook" href="<?php echo htmlspecialchars(@FBR_User::ActiveUser()->getLoginURl(get_the_permalink(get_page_by_title( 'Events' )))) ?>">Login</a>
 			</div>
 
 		<?php endif; ?>

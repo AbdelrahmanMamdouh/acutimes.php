@@ -1,4 +1,5 @@
 <?php
+	global $event_id;
     $artists = get_field('performing_artists', $event_id, false);
 ?>
 
