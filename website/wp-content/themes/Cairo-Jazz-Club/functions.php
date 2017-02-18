@@ -8,7 +8,7 @@
  */
 
 if(WP_DEBUG){
-	error_reporting(E_ALL);
+	error_reporting(E_ALL ^ E_DEPRECATED);
 	ini_set('display_errors', 1);
 }
 
@@ -225,27 +225,5 @@ require get_template_directory() . '/ess-grid-mods/init.php';
 // Load rest api modifications.
 require get_template_directory().'/rest-api/init.php';
 
-try {
-	if( class_exists('FBR_User') ) {
-		$FBR_User_data = FBR_User::ActiveUser()->getUserDetails();
-		// fix more feilds here
-	} else {
-		// plugin didn't load'
-	}
-} catch (Exception $e) {
-	
-}
-
-$FBR_User_data = array(
-	'plugin_load'	=> true,
-	'id'			=> 5,
-	'fb_id'			=> 'asdasdae',
-	'is_loged'		=> true,
-	'is_approved'	=> true, //@$FBR_User_init->isApproved()
-	'name'			=> 'Kevin Cheng',
-	'img'			=> 'https://s3.amazonaws.com/uifaces/faces/twitter/k/128.jpg',
-	'email'			=> 'test@mail.com',
-	'genre_ids'		=> [65, 62],
-	'genre_bol'		=> array('65'=>true, '62'=>true), //FBR_PreferenceController::getByUser($user_id)->getSelectedAsBoolean() : [];
-	'login_url'		=> '' //htmlspecialchars(getLoginURl(get_the_permalink()))
-);
+// load facebook vars.
+require_once get_template_directory() . '/inc/cjc-fb-reservation.php';
