@@ -6,6 +6,7 @@ class FBR_Reservation {
 	public $event_id;
 	public $state = 0;
 	public $attendees;
+	public $accessToken;
 
 	public static $DataFormat = 
 	array(

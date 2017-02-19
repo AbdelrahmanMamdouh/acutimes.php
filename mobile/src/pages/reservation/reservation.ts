@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { EventsService } from '../../providers/events-service';
-
-import { Event } from '../../providers/events-service';
+import { EventsService, Event } from '../../providers/events-service';
 import { ReservationService, Reservation } from '../../providers/reservation-service';
+import { FacebookService, User } from '../../providers/facebook-service';
 
 /*
   Generated class for the Reservation page.
@@ -19,10 +18,9 @@ import { ReservationService, Reservation } from '../../providers/reservation-ser
 export class ReservationPage {
 
 	numberOfPeople: number = 1;
-	userid:string = '1';
+	user: User;
 	targetEvent: any;
-	reserve : ReservationService;
-	reservation : Reservation[];
+	reservation: Reservation[];
 	artists = [
 		{
 			image: "http://104.40.211.237/Cairo-Jazz-Club.wp/website/wp-content/uploads/2017/02/12112119_1102935619792763_118435785410598425_n-280x280.jpg",
@@ -34,9 +32,11 @@ export class ReservationPage {
 		}
 	];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private eventsService: EventsService) {
-		this.targetEvent = navParams.get('eventparm');
-		console.log(this.targetEvent);
+	constructor(public navCtrl: NavController, public navParams: NavParams, private eventsService: EventsService, private reservationService: ReservationService, private facebookService: FacebookService) {
+		this.targetEvent = navParams.get('event');
+		this.facebookService.getUser().then(user => {
+			this.user = user;
+		}, () => { });
 	}
 
 	incrementNumberOfPeople() {
@@ -44,17 +44,18 @@ export class ReservationPage {
 	}
 
 	decrementNumberOfPeople() {
-		if(this.numberOfPeople != 1)
-		{
+		if (this.numberOfPeople != 1) {
 			this.numberOfPeople -= 1;
 		}
 	}
-	doreserve(){
-		this.reserve.reserve(this.targetEvent.id,'1');
-		console.log(this.reserve.getUserReservation('1'));
+	doReserve() {
+		this.reservationService.reserve(this.targetEvent.id, this.user.siteId, this.numberOfPeople, this.user.accessToken).subscribe(res => {
+			console.log(res);
+		});
+		console.log(this.reservationService.getUserReservation(this.user.siteId));
 	}
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReservationPage');
 	}
-	
+
 }

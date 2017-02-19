@@ -60,12 +60,14 @@ export class FacebookService {
 			Facebook.login(permissions)
 				.then((response) => {
 					let userId = response.authResponse.userID;
+					let userAccessToken = response.authResponse.accessToken;
 					let params: string[];
 
 					//Getting name and email properties
 					Facebook.api("/me?fields=name,email,link", params)
 						.then((user) => {
 							user.img = `https://graph.facebook.com/${userId}/picture?type=large`;
+							user.accessToken = userAccessToken;
 							FacebookService._user = user;
 							this._sendUser().subscribe(data => {
 								FacebookService._user.siteId = data.id;
@@ -96,4 +98,5 @@ export class User {
 	email: string;
 	link: string;
 	img: string;
+	accessToken: string;
 }

@@ -20,7 +20,7 @@ export class EventsService {
 	/**
 	* Get all events that passes the given filter.
 	* @param {string} filter - Used to change the args param passed to the WP_QUERY. ('all': Gets all events, 'upcoming': Gets the next 7 events from today).
-	* @returns Observable SliderImage[]
+	* @returns Observable Event[]
 	*/
 	getEvents(filter: string): Observable<Event[]> {
 		return this.cachingService.http_get(`${CONFIG.API_URL}cjc/calendar/events/${filter}`)
@@ -29,10 +29,12 @@ export class EventsService {
 }
 
 export interface Event {
+	id: number;
 	title: string;
 	startDate: Date;
 	img: string;
 	type: string;
+	url: string;
 	day: string;
 	month: string;
 	iday: string;
