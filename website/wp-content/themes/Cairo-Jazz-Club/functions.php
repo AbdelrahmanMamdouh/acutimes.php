@@ -168,6 +168,8 @@ add_action( 'wp_enqueue_scripts', function () {
 			array( 'bootstrap', 'bootstrap-theme' ) );
 	}
 
+	wp_enqueue_script( 'underscore-js', 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js', 
+		array('jquery'), null, true );
 	// TweenMax js
 	wp_enqueue_script( 'tweenmax-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', 
 		array('jquery'), null, true );
@@ -176,7 +178,7 @@ add_action( 'wp_enqueue_scripts', function () {
 		array('jquery'), null, true ); // may have to change it to footer
 	// clndr-js
 	wp_enqueue_script( 'clndr-js', 'https://cdnjs.cloudflare.com/ajax/libs/clndr/1.4.7/clndr.min.js', 
-		array('jquery'), null, true ); // may have to change it to footer
+		array('jquery', 'underscore-js'), null, true ); // may have to change it to footer
 	// ScrollMagic js
 	wp_enqueue_script( 'scrollmagic-js', 'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', 
 		array('jquery'), null, true );

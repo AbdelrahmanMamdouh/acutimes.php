@@ -48,12 +48,12 @@ function restapi_cjc_calendar_events($request){
 
 		// Add a event entry
 		$events[] = array(
-			'title' => get_the_title(),
-			'startDate' => get_field('date'),
-			'img' => $thumb_url,
-			'url' => get_the_permalink(),
-			'id' => $event_id,
-			'type' => $term_list[0]->slug
+			'title' 		=> get_the_title(),
+			'startDate' 	=> get_field('date'),
+			'img' 			=> $thumb_url,
+			'url' 			=> get_the_permalink(),
+			'id' 			=> $event_id,
+			'type' 			=> isset($term_list[0]) ? $term_list[0]->slug : null
 		);
 	
 	endwhile;
