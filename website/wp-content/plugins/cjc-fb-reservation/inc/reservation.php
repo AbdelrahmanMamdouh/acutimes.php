@@ -68,7 +68,7 @@ class FBR_Reservation {
 			static::GetDBTable(), 
 			array(
 				'user_id'		=> $this->user_id,
-				'event_id'		=> $this->user_id,
+				'event_id'		=> $this->event_id,
 				'state'			=> $this->state,
 				'attendees'		=> $this->attendees
 			),
@@ -98,6 +98,14 @@ class FBR_Reservation {
 			$user_id, $event_id), object));
 
 	}
+	function isReserved(){
+		global $wpdb;
+		$result = $wpdb->get_results($wpdb->prepare(
+			"SELECT * FROM ".static::GetDBTable()." WHERE user_id = %d AND event_id = %d",
+			$this->user_id, $this->event_id), object);
+
+		return isset($result) && count( $result)>0;
+	}
 
 	public static function selectMulti($att = null, $key = null){
 		global $wpdb;
@@ -110,8 +118,8 @@ class FBR_Reservation {
 	function sendMail(){
 
 		$headers = array();
-		$to = array(get_option('admin_email'), 'hello@youakeem.com');
-		
+		$to = array(get_option('admin_email'), FBR_NOTIFY_EMAIL);
+		$event = $this->getEvent();
 		$userData = FBR_User::ActiveUser()->getUserDetails();
 		$subject = "New CJC reservation from {$userData->user_email}";
 		$link = get_permalink($this->event_id);
@@ -123,7 +131,7 @@ class FBR_Reservation {
 					"Event Link     : {$link}\n".
 					"Attendees      : {$this->attendees}\n";
 
-		return true || wp_mail($to, $subject, $message, $headers);	
+		return true ;// wp_mail($to, $subject, $message, $headers);	
 	}
 
 	function getEvent(){

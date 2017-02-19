@@ -72,12 +72,12 @@ public static function Reserve($event_id, $user_id, $attendees){
 				} else if ( !$reserv->isValidAttendess() ) {
 					return json_encode(array("status" => 'Illegal', "message" => FBR_MESSSAGE_ILLEGAL));
 
-				} else if ( $reserv->sendMail() ) { // if mail sent success
-					if($reserv->create()){ // save in db
-						return json_encode(array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS));
-					} else {
-						return json_encode(array("status" => "AlreadyReserved", 'message' => 'you have already reserved'));
-					}
+				} else if ( $reserv->isReserved() ) { // if mail sent success
+					return json_encode(array("status" => "AlreadyReserved", 'message' => 'you have already reserved'));
+
+				} else if($reserv->sendMail() && $reserv->create()){
+					return json_encode(array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS));
+				
 				} else {
 					return json_encode(array("status" => "Error", 'message' => FBR_MESSSAGE_ERR));
 				}
