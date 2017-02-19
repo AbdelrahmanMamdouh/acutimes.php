@@ -25,13 +25,7 @@ export class LandingPage {
 
 	onFBLoginClick(): void {
 		this.facebookService.doFbLogin().subscribe(user => {
-			//now we have the users info, let's save it in the NativeStorage
-			NativeStorage.setItem('user', user)
-				.then(() => {
-					this.navCtrl.setRoot(HomePage, {}, { animate: true, direction: 'forward' });
-				}, function (error) {
-					console.log(error);
-				})
+			this.navCtrl.setRoot(HomePage, {}, { animate: true, direction: 'forward' });
 		})
 	}
 }

@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { NavController, NavParams } from 'ionic-angular';
 import { Facebook, NativeStorage } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -37,17 +38,15 @@ export class FacebookService {
 		this._user = user;
 	}
 
-	private _sendUser(): void {
+	private _sendUser(): Observable<any> {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
 		let user = this._user;
 
-		this.http.post(`${CONFIG.API_URL}fbr/mobile/users/`, { user }, options)
+		return this.http.post(`${CONFIG.API_URL}fbr/mobile/users/`, { user }, options)
 			.map(res => res.json())
 			//...errors if any
 			.catch((error: any) => Observable.throw(error.json().error || 'Server error'))
-			.subscribe(data => { this._user.siteId = data.id })
-
 	}
 
 	public doFbLogin(): Observable<User> {
@@ -68,8 +67,15 @@ export class FacebookService {
 						.then((user) => {
 							user.img = `https://graph.facebook.com/${userId}/picture?type=large`;
 							this._user = user;
-							this._sendUser();
-							observer.next(this._user);
+							this._sendUser().subscribe(data => {
+								this._user.siteId = data.id;
+								NativeStorage.setItem('user', this._user)
+									.then(function () {
+									}, function (error) {
+										console.log(error);
+									})
+								observer.next(this._user);
+							});
 						})
 				}, function (error) {
 					console.log(error);
@@ -79,12 +85,12 @@ export class FacebookService {
 	}
 
 	public doFbLogout(): Promise<any> {
-		return Facebook.logout();
+		return NativeStorage.remove('user');
 	}
 }
 
 export class User {
-	id: number;
+	id: string;
 	siteId: number;
 	name: string;
 	email: string;
