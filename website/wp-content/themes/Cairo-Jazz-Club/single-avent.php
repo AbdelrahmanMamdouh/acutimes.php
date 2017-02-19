@@ -51,7 +51,7 @@ get_header(); ?>
 							<?php else: ?>
 								<p>You need to be logged in before you can reserve!</p>
 								<div class="button-twin">
-									<a class="btn btn-facebook" href="<?php echo $FBR_User_data['login_url'] ?>">Login</a>
+									<a class="btn btn-facebook" href="<?php if($FBR_User_data['plugin_load']) echo htmlspecialchars(FBR_User::ActiveUser()->getLoginURl(get_permalink())) ?>">Login</a>
 								</div>
 
 							<?php endif; ?>

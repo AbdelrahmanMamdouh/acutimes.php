@@ -14,7 +14,7 @@ $eventDate = new DateTime($date);
 <div>
 	<?php if ( (($eventDate->getTimestamp()+ 20*60*60) - $todayNow->getTimestamp() ) > 0 ):  ?>
 
-		<?php if (true || $FBR_User_data['is_loged'] && $FBR_User_data['is_approved'] && ($private==='0'||$private===null)): ?> 
+		<?php if ($FBR_User_data['is_loged'] && $FBR_User_data['is_approved'] && ($private==='0'||$private===null)): ?> 
 
 			<div id="respond-<?php echo $event_id ?>">
 				<?php //echo $response; ?>
