@@ -5,11 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-	<ion-navbar>
-		<ion-title>preference</ion-title>
-	</ion-navbar>
-
+    <cjc-header></cjc-header>
 </ion-header>
 
 
@@ -17,256 +13,52 @@
 	<form>
 
 		<div>
-			<h4 class="middle-content">Additional information</h4>
+			<h2 class="page-title">Stay in touch</h2>
 		</div>
 
-		<div padding>
-			<ion-input type="text" class="input-form" placeholder="Email"> </ion-input>
+		<p class="middle-content" style="color: #b0bbbb; font-size: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+		<!--<div padding>
+			<ion-input type="text" class="input-form" placeholder="phonenumber"> </ion-input>
+		</div>-->
+
+		<div class="form-group">
+			<div class="input">
+				<!--<label for="email">Type Your Email</label>-->
+				<input type="text" class="form-control" id="foote_email" placeholder='Type your phone number'>
+			</div>
 		</div>
+		<br><br>
 
-
-
-		<div padding>
-			<ion-input type="text" class="input-form" placeholder="phonenumber" style="bottom: 25px !important"> </ion-input>
-		</div>
-
-
+		<h5 class="middle-content">Choose your genres</h5>
+		<!--<ion-col width-50>
+			<ion-item class="item-form">
+				<ion-label class="label-form">African</ion-label>
+				<ion-checkbox class="checkbox-form"></ion-checkbox>
+			</ion-item>
+		</ion-col>
+		<ion-col>
+			<ion-item class="item-form">
+				<ion-label class="label-form">Alternative</ion-label>
+				<ion-checkbox class="checkbox-form"></ion-checkbox>
+			</ion-item>
+		</ion-col>-->
 
 		<div>
-			<h4 class="middle-content" style="bottom: 10px;">Stay In Touch</h4>
+
+			<div class="checkbox-container" *ngFor="let gen of genres">
+				<div>
+					<p>
+						<input type="checkbox" [id]='gen.term_id' [name]='gen.term_id' [(ngModel)]="gen.isChecked">
+						<label [for]="gen.term_id">{{gen.name}}</label>
+					</p>
+				</div>
+			</div>
+
 		</div>
-
-		<p class="middle-content" style="color: #b0bbbb; font-size: 15px;">lorem ipsum test</p>
-
-		<div>
-			<ion-input type="text" class="input-form" placeholder="input your Email"> </ion-input>
+		<div style="margin: 0 auto">
+			<button class="btn btn-supporting btn-wide" (click)="onSubmit()">submit</button>
 		</div>
-
-		<h5 class="middle-content">choose your genres</h5>
-
-		<ion-grid>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">African</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Alternative</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Arabic</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Arabic Indie</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Blues</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Contemporary Arabic</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Deep House</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Electro Pop</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Electro Shaabi</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Electronic</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Experimental</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Folk </ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Funk/ Disco</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Fusion</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">House</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Indie</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Jazz</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Nu Disco</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Pop</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Progressive House</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Reggae</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">RnB/ Hip Hop</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Rock</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Rock n’Roll/ Rockabilly</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-			<ion-row>
-				<ion-col width-50>
-					<ion-item class="item-form">
-						<ion-label class="label-form">Tech House</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-				</ion-col>
-				<ion-col>
-					<ion-item class="item-form">
-						<ion-label class="label-form">World Music</ion-label>
-						<ion-checkbox class="checkbox-form"></ion-checkbox>
-					</ion-item>
-
-
-				</ion-col>
-			</ion-row>
-
-		</ion-grid>
 	</form>
 
 </ion-content>
