@@ -33,7 +33,7 @@ class FBR_Preference {
 	}
 
 	private function parseData($data){
-		$this->user_id = (int) $data[1]->user_id;
+		$this->user_id = isset($data[0]) ? (int) $data[0]->user_id : null;
 		$this->pref_ids = array();
 		//$this->pref_id = (int) $data['pref_id'];
 
