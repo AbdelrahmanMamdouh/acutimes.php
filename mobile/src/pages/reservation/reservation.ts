@@ -4,8 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { EventsService } from '../../providers/events-service';
 
 import { Event } from '../../providers/events-service';
-import { ReservationService } from '../../providers/reservation-service';
-import { reservation } from '../../providers/reservation-service';
+import { ReservationService, Reservation } from '../../providers/reservation-service';
 
 /*
   Generated class for the Reservation page.
@@ -23,7 +22,7 @@ export class ReservationPage {
 	userid:string = '1';
 	targetEvent: any;
 	reserve : ReservationService;
-	reservation : reservation[];
+	reservation : Reservation[];
 	artists = [
 		{
 			image: "http://104.40.211.237/Cairo-Jazz-Club.wp/website/wp-content/uploads/2017/02/12112119_1102935619792763_118435785410598425_n-280x280.jpg",

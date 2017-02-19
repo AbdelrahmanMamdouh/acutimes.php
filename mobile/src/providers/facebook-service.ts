@@ -17,16 +17,16 @@ import CONFIG from '../app/config.json';
 */
 @Injectable()
 export class FacebookService {
-	private _user: User;
+	private static _user: User;
 
 	constructor(public http: Http) {
 		console.log('Hello FacebookService Provider');
 	}
 
-	public getUser(): Promise<any> {
-		if (this._user) {
+	public getUser(): Promise<User> {
+		if (FacebookService._user) {
 			let promise = new Promise((resolve, reject) => {
-				resolve(this._user);
+				resolve(FacebookService._user);
 			});
 			// Returns a custom User Promise.
 			return promise;
@@ -35,13 +35,13 @@ export class FacebookService {
 	}
 
 	public setUser(user: User): void {
-		this._user = user;
+		FacebookService._user = user;
 	}
 
 	private _sendUser(): Observable<any> {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
-		let user = this._user;
+		let user = FacebookService._user;
 
 		return this.http.post(`${CONFIG.API_URL}fbr/mobile/users/`, { user }, options)
 			.map(res => res.json())
@@ -66,15 +66,15 @@ export class FacebookService {
 					Facebook.api("/me?fields=name,email,link", params)
 						.then((user) => {
 							user.img = `https://graph.facebook.com/${userId}/picture?type=large`;
-							this._user = user;
+							FacebookService._user = user;
 							this._sendUser().subscribe(data => {
-								this._user.siteId = data.id;
-								NativeStorage.setItem('user', this._user)
+								FacebookService._user.siteId = data.id;
+								NativeStorage.setItem('user', FacebookService._user)
 									.then(function () {
 									}, function (error) {
 										console.log(error);
 									})
-								observer.next(this._user);
+								observer.next(FacebookService._user);
 							});
 						})
 				}, function (error) {
