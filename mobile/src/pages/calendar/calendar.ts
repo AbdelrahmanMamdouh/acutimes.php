@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams , AlertController } from 'ionic-angular';
 import * as $ from "jquery";
 import 'slick-carousel/slick/slick';
 import * as moment from 'moment';
 
 import { EventsService } from '../../providers/events-service';
-
 import { Event } from '../../providers/events-service';
+import { NotificationService } from '../../providers/Notification-Service';
+import { LocalNotifications } from 'ionic-native';
+import { ReservationPage } from '../reservation/reservation';
 
 /*
   Generated class for the Calendar page.
@@ -26,11 +28,22 @@ export class CalendarPage {
 	now = moment().format('MMMM');
 	month: any;
 	v_month: any;
-	constructor(public navCtrl: NavController, public navParams: NavParams , private eventsService: EventsService){
+	constructor(public navCtrller: NavController, public navParams: NavParams , private eventsService: EventsService , private Alert : AlertController){
+		/*	
+			LocalNotifications.on("click", (notification, state) => {
+            let alert = Alert.create({
+                title: "Notification Clicked",
+                subTitle: "You just clicked the scheduled notification",
+                buttons: ["OK"]
+            });
+            alert.present();
+            console.log("test");
+        });
+*/
 			var currentmonth = moment().format('M');
 			this.v_month = Number(currentmonth);
 			this.month = this.all[this.v_month];
-			eventsService.getEvents("all").subscribe(events => { //get the events from the api
+			eventsService.getEvents("all").subscribe(events => { //get the events from the api 
 			this.events = events;
 			var i=0;
 			for (var event in this.events) {
@@ -42,11 +55,23 @@ export class CalendarPage {
 			i=0;
 			this.month_events = this.events;
 			this.setFilteredItems();
-		});
-			
-			
+		});		
 	}
+	/*
+	public schedule() {
+        LocalNotifications.schedule({
+            title: "Test Title",
+            text: "Delayed Notification",
+            at: new Date(new Date().getTime() + 5 * 1000),
+            sound: null
+        });
+    }
+		setNotification(notification : NotificationService):void
+		{	
+			notification.schedule_Notifications("Test","This is atest massage");
+		}
 
+		*/
 	doinitSlick = true; // initialize it to true for the first run
 
 	initSlick(): void {
@@ -78,7 +103,6 @@ export class CalendarPage {
 			this.v_month=12;
 		}
 		this.month = this.all[this.v_month];
-		console.log(this.month_events);
 		this.setFilteredItems();
 		this.desSlick();
 	}
@@ -95,6 +119,12 @@ export class CalendarPage {
     setFilteredItems() {
         this.month_events = this.filterItems();
  
+    }
+    goToEvent(event:Event){
+    	console.log(event);
+    	this.navCtrller.push(ReservationPage,{
+    		eventparm :  event
+    	});
     }
 
 

@@ -30,7 +30,7 @@
                                 
                             </div>
                             <div>
-                                <img [src]="event.img" alt="">
+                                <img [src]="event.img" alt="" (click)="goToEvent(event)">
                             <span class="day-number-container"><span class="day-number">{{ event.iday }}</span></span>
                             </div>
                             

@@ -21,6 +21,9 @@ import { CachingService } from '../providers/caching-service';
 import { CustomizerService } from '../providers/customizer-service';
 import { FacebookService } from '../providers/facebook-service';
 import { StaticPagesService } from '../providers/static-pages-service';
+import { NotificationService } from '../providers/Notification-Service';
+import { ReservationService } from '../providers/reservation-service';
+import { PrefrenceService } from '../providers/prefrence-service';
 
 
 @NgModule({
@@ -67,7 +70,10 @@ import { StaticPagesService } from '../providers/static-pages-service';
 		CachingService,
 		CustomizerService,
 		FacebookService,
-		StaticPagesService
+		StaticPagesService,
+		NotificationService,
+		ReservationService,
+		PrefrenceService
 	]
 })
 export class AppModule { }
