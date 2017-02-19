@@ -131,7 +131,42 @@ class FBR_Reservation {
 					"Event Link     : {$link}\n".
 					"Attendees      : {$this->attendees}\n";
 
-		return true ;// wp_mail($to, $subject, $message, $headers);	
+		if(wp_mail($to, $subject, $message, $headers)){
+			return true ;
+		} else {
+
+
+			$mail = new PHPMailer();
+
+			//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+			$mail->isSMTP();                                      // Set mailer to use SMTP
+			$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                               // Enable SMTP authentication
+			$mail->Username = 'poparab11@gmail.com';                 // SMTP username
+			$mail->Password = '33151732';                           // SMTP password
+			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 587;                                    // TCP port to connect to
+
+			$mail->setFrom('poparab11@gmail.com', 'Mailer');
+			$mail->addAddress(get_option('admin_email'));
+			$mail->addAddress(FBR_NOTIFY_EMAIL);
+			//$mail->addReplyTo('info@example.com', 'Information');
+
+
+			//$mail->isHTML(true);                                  // Set email format to HTML
+
+			$mail->Subject = $subject;
+			$mail->Body    = $message;
+			$mail->AltBody = $message;
+
+			if(!$mail->send()) {
+				echo 'Mailer Error: ' . $mail->ErrorInfo;
+				return false;
+			} else {
+				return true;
+			}
+		}
 	}
 
 	function getEvent(){
