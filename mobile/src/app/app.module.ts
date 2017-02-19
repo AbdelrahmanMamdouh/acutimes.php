@@ -23,7 +23,7 @@ import { FacebookService } from '../providers/facebook-service';
 import { StaticPagesService } from '../providers/static-pages-service';
 import { NotificationService } from '../providers/Notification-Service';
 import { ReservationService } from '../providers/reservation-service';
-import { PrefrenceService } from '../providers/prefrence-service';
+import { PreferenceService } from '../providers/preference-service';
 
 
 @NgModule({
@@ -73,7 +73,7 @@ import { PrefrenceService } from '../providers/prefrence-service';
 		StaticPagesService,
 		NotificationService,
 		ReservationService,
-		PrefrenceService
+		PreferenceService
 	]
 })
 export class AppModule { }
