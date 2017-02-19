@@ -43,17 +43,16 @@ class FBR_UserController implements FBR_Controller  {
 		
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'mobile/users/', array( 'methods' => 'POST', 'callback' => function($request = null) {
-				$mobileUser = (array) json_decode( file_get_contents('php://input') );
+				$data = json_decode( file_get_contents('php://input') );
+				$mobileUser = $data->user;
 				$user = array(
-								"phone" => NULL,
-							  	"user_name" => $mobileUser["name"],
-							  	"user_picture" => $mobileUser["img"],
-							  	"user_profile" => $mobileUser["link"],
-							  	"user_email" => $mobileUser["email"],
-							  	"user_id" => $mobileUser["id"],
-							  	"user_status" => NULL
+							  	"user_name" => $mobileUser->name,
+							  	"user_picture" => $mobileUser->img,
+							  	"user_profile" => $mobileUser->link,
+							  	"user_email" => $mobileUser->email,
+							  	"user_id" => $mobileUser->id
 							  );
-				return json_encode( FBR_User::storeMobileUser($user) );
+				return FBR_User::storeMobileUser($user);
 			}));
 		});
 	}

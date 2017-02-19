@@ -280,9 +280,23 @@ class FBR_User extends Facebook\Facebook {
 		return "";
 	}
 
+	public function getUserId() {
+			global $wpdb;
+			$res = $wpdb->get_results("select id from ".static::GetDBTable()." where user_id = '{$this->userInfo['user_id']}'");
+			if (isset($id) && count($id) > 0) {
+				return $res[0];
+			}
+			return $res;
+	}
+
+	public function storeUserPhone($Id, $Phone) {
+		global $wpdb;
+		return $wpdb->update(static::GetDBTable(), ["phone" => $Phone], ["id" => $Id], ['%s'], ['%d']);
+	}
+
 	public static function storeMobileUser($userData) {
 		global $wpdb;
-		if (!static::IsExist($userData["user_id"]) && $wpdb->insert(static::GetDBTable(), $userData, ['%s', '%s', '%s', '%s', '%s', '%d']) ) {
+		if (!static::IsExist($userData["user_id"]) && $wpdb->insert(static::GetDBTable(), $userData, ['%s', '%s', '%s', '%s', '%s']) ) {
 				return array("id" => $wpdb->insert_id);
 		}
 		else {

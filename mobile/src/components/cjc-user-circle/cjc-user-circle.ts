@@ -31,8 +31,7 @@ export class CjcUserCircle {
 	onFBLogoutClick(): void {
 		this.facebookService.doFbLogout().then(response => {
 			//user logged out so we will remove him from the NativeStorage
-			NativeStorage.remove('user');
-			this.nav.setRoot(LandingPage, {}, { animate: true, direction: 'back' });
+			//this.nav.setRoot(LandingPage, {}, { animate: true, direction: 'back' });
 		}, error => {
 			console.log(error);
 		})
