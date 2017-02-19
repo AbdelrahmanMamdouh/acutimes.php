@@ -40,6 +40,16 @@
 	        <?php echo $artist->post_content;?>
     	</div>
         
+
+		<?php if(get_field("Video", $artist->ID)): ?>
+	        <div class='c-section c-section--short'>
+		        <div class='responsive-embed'>
+		        	<?php the_field("Video", $artist->ID) ?>
+		        </div>
+	        </div>
+	    <?php endif; ?>
+
+
         <?php if(get_field("soundcloud", $artist->ID)): ?>
 	        <div class='c-section c-section--short'>
 		        <div class='responsive-embed'>
@@ -47,6 +57,9 @@
 		        </div>
 	        </div>
 	    <?php endif; ?>
+
+
+		
 
         
     	<?php if( have_rows("links", $artist->ID) ): ?>
