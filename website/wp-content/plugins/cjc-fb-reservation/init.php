@@ -10,6 +10,7 @@
 !isset($_SESSION) ? session_start():null;
 
 require_once 'config.php';
+require_once FBR_PATH.'phpmailer/PHPMailerAutoload.php';
 require_once FBR_PATH.'fb-api/autoload.php';
 require_once FBR_PATH.'inc/autoload.php';
 require_once ABSPATH .'wp-admin/includes/upgrade.php';
