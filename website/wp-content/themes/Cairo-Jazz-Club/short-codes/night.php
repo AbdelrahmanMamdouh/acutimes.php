@@ -28,7 +28,29 @@ $cjcNight->callback = function ( $atts, $content = null ) {
 				<div class="col-sm-12 col-md-3">
 					<div class="soundcloud">
 						<?php if($a['embed']){ ?>
-							<iframe width="100%" src="<?php echo $a['embed'] ?>" frameborder="0" scrolling="no" allowfullscreen></iframe>
+							<?php if(preg_match('(soundcloud)',$a['embed'])){ 
+									//Get the SoundCloud URL
+										
+										//Get the JSON data of song details with embed code from SoundCloud oEmbed
+										$getValues=file_get_contents('http://soundcloud.com/oembed?format=js&url='.$a['embed'].'&iframe=true');
+										//Clean the Json to decode
+										$decodeiFrame=substr($getValues, 1, -2);
+										//json decode to convert it as an array
+										$jsonObj = json_decode($decodeiFrame);
+
+										//Change the height of the embed player if you want else uncomment below line
+										// echo $jsonObj->html;
+										//Print the embed player to the page
+										echo str_replace('height="400"', 'height="140"', $jsonObj->html);}
+								else{
+
+										echo preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<iframe width=\"100%\" src=\"//www.youtube.com/embed/$1\" frameborder=\"0\" allowfullscreen></iframe>", $a['embed']);
+								}
+								?>
+
+							
+							
+							
 						<?php } ?>
 					</div>
 				</div>
@@ -79,3 +101,4 @@ $cjcNight
 	->addvcContent();
 
 $cjcNight->register();
+?>
