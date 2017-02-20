@@ -12,8 +12,34 @@ $CJC_genres = get_terms( 'genre' );
 ?>
 
 
-<div class='mfp-hide mfp-modal' id="preference-modal" style="display : block !important">
+<div class=' mfp-modal' id="preference-modal">
 
+	<div class='modal-head'>
+		<img src='<?php echo get_template_directory_uri() ?>/img/modal-head.png' alt='' class='modal-image'>
+
+		<div class='modal-head__content'>
+			<div class='media-box'>
+					<div class='media-box__img'>
+						<div class='circle circle--sm'>
+
+				            <div class='circle__content'>
+
+
+				                <img src='<?php echo $FBR_User_data['img'] ?>' alt=''>
+							
+				            </div>
+				            
+				        </div>
+					</div>
+
+					<div class='media-box__content'>
+						<h1 class='modal-head__title'><?php echo $FBR_User_data['name'] ?></h1>
+					</div>
+                        </div>
+                </div>
+
+				
+        </div>
 	<div class="mfp-modal-content">
 
 	<form id="form_prefs_modal">
@@ -52,3 +78,4 @@ $CJC_genres = get_terms( 'genre' );
 	</div>
 
 </div>
+                

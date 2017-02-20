@@ -14,10 +14,10 @@
 
 get_header(); 
  global $FBR_User_data;
-if( !is_home() &&  is_front_page() && $FBR_User_data['is_loged']){
+//if( !is_home() &&  is_front_page() && $FBR_User_data['is_loged']){
 
-$firstLogin = count($FBR_User_data['genre_bol'])>0 ? 0:1;
-}
+$firstLogin = count($FBR_User_data['genre_bol'])>0 ? 1:0;
+//}
 ?>
 
 
