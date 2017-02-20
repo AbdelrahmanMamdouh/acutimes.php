@@ -13,9 +13,13 @@ var Init = (function ($) {
 			Init.MagnificPopup();
 			Init.HomeParallaxSlider();
 			Init.Footer();
+			Init.Modal();
+		
 
 		});
 	}
+		
+	
 
 	Init.ResponsiveMenu = function () {
 		$(".main-menu").mmenu({
@@ -140,6 +144,19 @@ var Init = (function ($) {
 			}
 		});
 	}
+	Init.Modal = function() {
+		var firstlogin = document.getElementById("filled").value;
+		if(firstlogin == 1){
+    $(window).load(function () {
+        $.magnificPopup.open({
+            items: {
+                src: 'wp-content/themes/Cairo-Jazz-Club/modal-templates/preference-modal.php',
+				type: 'ajax'
+				
+	 }
+        					});
+   								 });}
+}
 
 	Init.Event = function (ApiURL) {
 		// Calendar
@@ -238,6 +255,55 @@ var Forms = (function ($) {
 
 		return false;
 	};
+
+
+	Forms.PrefsClickModal = function () {
+		$('#form_prefs_modal').submit(function (evt) {
+			evt.preventDefault();
+			//window.history.back();
+		});
+	}
+
+	Forms.PrefsModal = function (form_submit_to) {
+		var form = $("#form_prefs_modal");
+		var respon = $("#form_prefs_responce_modal");
+
+		var data = [];
+
+		var CheckBoxes = document.getElementsByName("pref_check_modal");
+
+		for (var key in CheckBoxes) {
+			if (CheckBoxes.hasOwnProperty(key)) {
+				var element = CheckBoxes[key];
+				if (element.checked) {
+					data.push(element.id);
+				}
+			}
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: form_submit_to,
+			data: JSON.stringify(data),
+			contentType: "application/json",
+			dataType: 'json'
+		})
+			.done(function () {
+				form.hide('slow');
+				respon.text('thank you, your preference have been saved');
+			})
+			.fail(function () {
+				form.hide('slow');
+				respon.text('an error happened pls try again later');
+			})
+			.always(function () {
+
+			});
+
+		return false;
+	};
+
+
 
 	return Forms;
 })(jQuery);
