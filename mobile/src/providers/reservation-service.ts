@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import CONFIG from '../app/config.json';
+
 /*
   Generated class for the Reservation provider.
 
@@ -17,27 +18,30 @@ export class ReservationService {
 		console.log('Hello Reservation Provider');
 	}
 
-	getUserReservation(userid: string): Observable<Reservation[]> {
+	getUserReservation(userid: number): Observable<Reservation[]> {
 		return this.http.get(`${CONFIG.API_URL}fbr/reservation/user/${userid}`)
 			.map(res => <Reservation[]>res.json());
 	}
 
 
-	getEventReservation(eventid: string): Observable<Reservation[]> {
+	getEventReservation(eventid: number): Observable<Reservation[]> {
 		return this.http.get(`${CONFIG.API_URL}fbr/reservation/user/${eventid}`)
 			.map(res => <Reservation[]>res.json());
 	}
-	reserve(event_id: string, user_id: string) {
-		var data = "event_id=" + event_id + "&user_id=" + user_id;
-		return this.http.post('${CONFIG.API_URL}fbr/reservation/', data)
+	reserve(event_id: number, user_id: number, attendees: number, accessToken: string) {
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers });
+
+		let data = { "event_id": event_id, "user_id": user_id, "attendees": attendees, "accessToken": accessToken };
+		return this.http.post(`${CONFIG.API_URL}fbr/reservation/`, data, options)
 			.map(res => res.json());
 	}
 
 }
 export interface Reservation {
 	reserv_date: string;
-	user_id: string;
-	event_id: string;
+	user_id: number;
+	event_id: number;
 	state: any;
-	attendees: any;
+	attendees: number;
 }

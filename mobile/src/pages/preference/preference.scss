@@ -1,75 +1,72 @@
 page-preference {
+	
+	.checkbox-container{
+		width: 50%;
+		float: left;
+		/* max-height: 4rem; */
+		overflow: hidden;
+		text-overflow: clip;
+		font-size: 15px;
+	}
 
-        .middle-content{
-        text-align:center;
-        font-size: 20px;
-        color: #e6e2a3;
-    }
-    .input-form{
-        background-color:rgba(83, 114, 118, 0.5);
-        
-        
-        
-        
-    }
+/* rest is bullshit */
 
-    .text-input{
-        height: 13px;
-    }
+	.middle-content{
+		text-align: center;
+		font-size: 20px;
+		color: #e6e2a3;
+	}
 
-    .input-div-form{
+	.input-form{
+		background-color: rgba(83, 114, 118, 0.5);
+	}
 
+	.text-input{
+		height: 13px;
+	}
 
-    }
+	.input-div-form{
 
-    .label-form{
-        padding-right: 30px !important;
-        color: #f2ead8;
-        text-decoration-line: none;
-        word-wrap: break-word !important;
-        white-space: initial !important;
-        
-    }
-    
-    .item-form{
+	}
 
-        background: none !important;
-        margin:0px 0px -30px 0px;
-    }
-    .checkbox-form{
-        margin-right: 10px;
-    }
-    .checkbox-md{
-        width: 0px;
-            margin: 9px 20px 9px 0px !important;
-            
-    }
-    
-    .item-inner{
+	.label-form{
+		padding-right: 30px !important;
+		color: #f2ead8;
+		text-decoration-line: none;
+		word-wrap: break-word !important;
+		white-space: initial !important;
+	}
+	
+	.item-form{
+		background: none !important;
+		margin: 0px 0px -30px 0px;
+	}
 
-        overflow: visible;
-        border-bottom: none !important;
-        font-size: 13px;
-    }
+	.checkbox-form{
+		margin-right: 10px;
+	}
 
-    .checkbox-icon{
-            background-color: rgba(90, 118, 120, 0.5) !important;
-            border: none;
-            list-style-color: red !important;
+	.checkbox-md{
+		width: 0px;
+		margin: 9px 20px 9px 0px !important;	
+	}
+	
+	.item-inner{
+		overflow: visible;
+		border-bottom: none !important;
+		font-size: 13px;
+	}
 
-            
+	.checkbox-icon{
+		background-color: rgba(90, 118, 120, 0.5) !important;
+		border: none;
+		list-style-color: red !important;
+	}
 
-    }
-    .checkbox-checked{
-        border: none !important;
-        list-style-color: red !important;
-
-        
-
-
-    }
-
-
+	.checkbox-checked{
+		border: none !important;
+		list-style-color: red !important;
+	}
 
 
 }
