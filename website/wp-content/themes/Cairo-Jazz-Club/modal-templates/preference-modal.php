@@ -46,8 +46,21 @@ $CJC_genres = get_terms( 'genre' );
 	<div class="form-group">
 		<div class="input input--reverse">
 			<!--<label for="email">Type Your Email</label>-->
-			<input type="email" class="form-control" id="foote_email" placeholder='Type Your Email' required value='<?php echo $FBR_User_data['email'] ?>'>
-		</div>
+			<div class="row footer-form-in">
+            	<div class="col-sm-6">
+					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Email' required value='<?php echo $FBR_User_data['email'] ?>'>
+            	</div>
+                <div class="col-sm-6">
+					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Phone NO.' required value='<?php echo $FBR_User_data['email'] ?>'>
+            	</div>
+                <div class="col-sm-6">
+					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Address' required value='<?php echo $FBR_User_data['email'] ?>'>
+            	</div>
+                <div class="col-sm-6">
+					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Age' required value='<?php echo $FBR_User_data['email'] ?>'>
+            	</div>
+            </div>
+			</div>
 	</div>
 <h3>Choose your genre</h3>
 	<div class="row">
