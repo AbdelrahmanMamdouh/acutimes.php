@@ -26,10 +26,12 @@ class FBR_UserController implements FBR_Controller  {
 			if (isset($user)) {
 				$user = $user[0];
 				$user_status = filter_input(INPUT_POST, 'user_status');
-				$user_status = ($user_status == 'null') ? NULL : $user_status;
-				$user['user_status'] = $user_status;
+
+				$save=array(
+					'user_status'=>($user_status == 'null') ? NULL : (int) $user_status
+					);
 				
-				$wpdb->update("{$wpdb->prefix}fbr_users", $user, ["user_id" => $user["user_id"]], ['%s', '%s', '%s', '%s', '%s', '%s', '%d'], ['%s']);
+				$wpdb->update("{$wpdb->prefix}fbr_users", $save, ["user_id" => $user["user_id"]], ['%d'], ['%s']);
 			}
 		}
 	}

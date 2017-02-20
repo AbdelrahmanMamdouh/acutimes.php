@@ -76,4 +76,12 @@ class FBR_PreferenceController implements FBR_Controller  {
 		return $pref->create();
 	}
 
+	public static function getGenreName($user_id){
+		$Genres = static::getByUser($user_id)->getSelectedGenre();
+		$ret = [];
+		foreach ($Genres as $gen) {
+			array_push($ret, $gen->name);
+		}
+		return $ret;
+	}
 }
