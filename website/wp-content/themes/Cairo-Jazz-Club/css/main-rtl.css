@@ -5269,85 +5269,6 @@ form span {
   }
 }
 /*******************************************
- *	Website
- *******************************************/
-/*******************************************
- *	navbar & admin bar
- *******************************************/
-.admin-bar #masthead {
-  top: 32px;
-}
-
-@media screen and (max-width: 783px) {
-  .admin-bar #masthead {
-    top: 46px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .admin-bar #masthead {
-    top: 0px;
-  }
-
-  #wpadminbar {
-    top: -44px;
-    z-index: 999;
-  }
-}
-#masthead {
-  z-index: 1000;
-}
-
-/*******************************************
- *	removes the space above the content
- *******************************************/
-.hentry {
-  margin: 0;
-}
-
-.entry-content,
-.entry-summary {
-  margin: 0;
-}
-
-.eg-text-and-image-nostyle-element-10 > div {
-  width: 30%;
-  height: 100%;
-  float: left;
-  background-size: cover;
-}
-
-/**************************************************
- *	fix magnific popup conflixt bug with scrolling
-***************************************************/
-.hide-horizontal-scrollbar {
-  overflow-x: hidden !important;
-}
-
-/*********************************
- *	Artist modal (Small Screens)
-**********************************/
-@media screen and (max-width: 768px) {
-  .media-box__img {
-    margin-right: 1rem;
-  }
-
-  .media-box__content {
-    float: none;
-    width: inherit;
-    margin-top: 2.5rem;
-  }
-
-  .modal-head .media-box {
-    margin-left: 0px;
-    margin-top: 10px;
-  }
-
-  .modal-head__title {
-    width: inherit !important;
-    font-size: 2.5rem !important;
-  }
-}
-/*******************************************
  *	FORMS
  *******************************************/
 .ninja-forms-form-wrap input {
@@ -5715,4 +5636,108 @@ input.eg-search-input[type="text"] {
 
 .event-modal {
   width: 100%;
+}
+
+/*******************************************
+ *	Website
+ *******************************************/
+/*******************************************
+ *	navbar & admin bar
+ *******************************************/
+.admin-bar #masthead {
+  top: 32px;
+}
+
+@media screen and (max-width: 783px) {
+  .admin-bar #masthead {
+    top: 46px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .admin-bar #masthead {
+    top: 0px;
+  }
+
+  #wpadminbar {
+    top: -44px;
+    z-index: 999;
+  }
+}
+#masthead {
+  z-index: 1000;
+}
+
+/*******************************************
+ *	removes the space above the content
+ *******************************************/
+.hentry {
+  margin: 0;
+}
+
+.entry-content,
+.entry-summary {
+  margin: 0;
+}
+
+.eg-text-and-image-nostyle-element-10 > div {
+  width: 30%;
+  height: 100%;
+  float: left;
+  background-size: cover;
+}
+
+/**************************************************
+ *	fix magnific popup conflixt bug with scrolling
+***************************************************/
+.hide-horizontal-scrollbar {
+  overflow-x: hidden !important;
+}
+
+/*********************************
+ *	Artist modal (Small Screens)
+**********************************/
+@media screen and (max-width: 768px) {
+  .media-box__img {
+    margin-right: 1rem;
+  }
+
+  .media-box__content {
+    float: none;
+    width: inherit;
+    margin-top: 2.5rem;
+  }
+
+  .modal-head .media-box {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .modal-head__title {
+    width: inherit !important;
+    font-size: 2.5rem !important;
+  }
+}
+/*********************************
+ *	Ibrahim
+**********************************/
+.circle--xs {
+  width: 90px;
+  height: 90px;
+  -o-border-image: url(../img/circular-border.png) 34 33 34 35 stretch;
+  border-image: url(../img/circular-border.png) 34 33 34 35 fill stretch;
+}
+
+.circle--xs img {
+  height: 85px;
+  width: 85px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.entry-content {
+  margin-top: -1px;
+}
+
+.footer-container {
+  padding: 3rem 6rem;
 }

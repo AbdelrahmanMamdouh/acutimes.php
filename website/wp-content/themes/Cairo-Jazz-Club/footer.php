@@ -19,17 +19,15 @@
 			<div class="container-fluid">
 				<div class="footer-container">
 					<div class="row">
-						<div class="cjc-summary col-md-12 col-lg-4">
-							<?php dynamic_sidebar( 'footer-widget-left' ); ?>
-						</div>
 
-						<div class="subscribe col-md-6 col-lg-5">
-							<?php dynamic_sidebar( 'footer-widget-center' ); ?>
+						<div class="subscribe col-md-12 col-lg-9">
+							<?php dynamic_sidebar( 'footer-widget-left' ); ?>
 						</div>
 
 						<div class="contact-information col-md-6 col-lg-3">
 							<?php dynamic_sidebar( 'footer-widget-right' ); ?>
 						</div>
+
 					</div>
 				</div>
 			</div>

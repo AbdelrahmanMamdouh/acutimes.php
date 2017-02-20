@@ -47,22 +47,32 @@ class FBR_ReservationController implements FBR_Controller  {
 		
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'reservation/', array( 'methods' => 'POST', 'callback' => function($request = null){
+				$data = json_decode( file_get_contents('php://input') );
+				
+				$event_id =  isset( $_POST["event_id"] )  ?  $_POST["event_id"] : $data->event_id;
+				$user_id =   isset( $_POST["user_id"] )   ? $_POST["user_id"]   : $data->user_id;
+				$attendees = isset( $_POST["attendees"] ) ? $_POST["attendees"] : $data->attendees;
+				$acessToken = isset( $data->accessToken ) ? $data->accessToken : NULL;
 
-				return static::Reserve($_POST["event_id"],$_POST["user_id"],$_POST["attendees"]);
+				return static::Reserve($event_id, $user_id, $attendees, $acessToken);
 				
 			}));
 		});	
 
 	}
 
-public static function Reserve($event_id, $user_id, $attendees){
+public static function Reserve($event_id, $user_id, $attendees, $accessToken = NULL){
 
 				$reserv = new FBR_Reservation();
 		
 				$reserv->event_id	= (int) $event_id;
 				$reserv->user_id	= (int) $user_id;
 				$reserv->attendees	= (int) $attendees;
-
+				$reserv->accessToken = $accessToken;
+				if(! is_null($reserv->accessToken)) {
+					$_SESSION['fb_access_token'] = $reserv->accessToken;
+				}
+				
 				if ( !$reserv->isValidUser() ) {
 					return json_encode(array("status" => "Unauthorized", "message" => FBR_MESSSAGE_UNAUTORIZED));
 					

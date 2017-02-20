@@ -262,12 +262,12 @@ class FBR_User extends Facebook\Facebook {
 
 	public function getUserDetails() {
 		if ($this->IsLogged()) {
-
+			
 			global $wpdb;
 			$accessToken = $_SESSION['fb_access_token'];
 
 			$this->setDefaultAccessToken($accessToken);
-
+			
 			$response = $this->get('/me?fields=id');
 			$userNode = $response->getGraphUser();
 

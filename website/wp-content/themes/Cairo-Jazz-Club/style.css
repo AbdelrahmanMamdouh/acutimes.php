@@ -19,3 +19,42 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 */
+
+/*
+header{
+	transition:all 0.3s ease-in-out;	
+}
+header .logo img{
+	transition:all 0.3s ease-in-out;
+}
+div:not([id^="mm-"]) .main-menu ul{
+	transition:all 0.3s ease-in-out;
+}
+.top-icons .social-icons{
+	transition:all 0.3s ease-in-out;
+}
+*/
+.bottom-footer::before {
+    content: '';
+    position: absolute;
+    top: auto;
+    top: -2px;
+    left: 0;
+    right: 0;
+    border-top-width: 5px;
+    border-style: solid;
+    -o-border-image: url("img/border-top.png") 30 30 round;
+    border-image: url("img/border-top.png") 30 30 round;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    -o-border-image: url("img/border-white-top.png") 30 30 round;
+    border-image: url("img/border-white-top.png") 30 30 round;
+}
+
+.footer-form-in input{
+	margin-bottom:5px;	
+}
+.entry-content .vc_row-fluid:last-child{
+		
+}

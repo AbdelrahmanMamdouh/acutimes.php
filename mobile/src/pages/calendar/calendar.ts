@@ -123,7 +123,7 @@ export class CalendarPage {
     goToEvent(event:Event){
     	console.log(event);
     	this.navCtrller.push(ReservationPage,{
-    		eventparm :  event
+    		event :  event
     	});
     }
 
