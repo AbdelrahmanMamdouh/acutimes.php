@@ -33,19 +33,21 @@ function cairo_jazz_club_customize_register( $wp_customize ) {
 	// 'description'		=> '',
 	) );
 
-	 QuickCustomizer::add_SocialMedia($wp_customize,'facebook','add your facebook page url here');
-	 QuickCustomizer::add_SocialMedia($wp_customize,'twitter','add your twitter page url here');
-	 QuickCustomizer::add_SocialMedia($wp_customize,'youtube','add your youtube chanel page url here');
+	QuickCustomizer::add_SocialMedia($wp_customize,'facebook','add your facebook page url here');
+	QuickCustomizer::add_SocialMedia($wp_customize,'twitter','add your twitter page url here');
+	QuickCustomizer::add_SocialMedia($wp_customize,'youtube','add your youtube chanel page url here');
+	QuickCustomizer::add_SocialMedia($wp_customize,'soundcloud','add your Soundcloud page url here');
+	QuickCustomizer::add_SocialMedia($wp_customize,'instagram','add your instagram page url here');
 
-	 QuickCustomizer::add_SiteIdentety($wp_customize,'phone','Phone Number','','text');
-	 QuickCustomizer::add_SiteIdentety($wp_customize,'email','E-Mail','','email');
-	 QuickCustomizer::add_SiteIdentety($wp_customize,'address','Address','','text');
+	QuickCustomizer::add_SiteIdentety($wp_customize,'phone','Phone Number','','text');
+	QuickCustomizer::add_SiteIdentety($wp_customize,'email','E-Mail','','email');
+	QuickCustomizer::add_SiteIdentety($wp_customize,'address','Address','','text');
 
-	 QuickCustomizer::add_SiteIdentety($wp_customize,'android','Android Store','google play store link','url');
-	 QuickCustomizer::add_SiteIdentety($wp_customize,'ios','IOS Store','ios store link','url');
+	QuickCustomizer::add_SiteIdentety($wp_customize,'android','Android Store','google play store link','url');
+	QuickCustomizer::add_SiteIdentety($wp_customize,'ios','IOS Store','ios store link','url');
 
-	 QuickCustomizer::add_adver_img($wp_customize, '1');
-	 QuickCustomizer::add_adver_img($wp_customize, '2');
+	QuickCustomizer::add_adver_img($wp_customize, '1');
+	QuickCustomizer::add_adver_img($wp_customize, '2');
 
 	$wp_customize->add_setting('cjc-identity-footer-logo', array(
 		'default'		=> '',

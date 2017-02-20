@@ -12,6 +12,8 @@ $FBR_User_data = array(
 	'img'			=> '',
 	'email'			=> '',
 	'phone'			=> '',
+	'age'			=> null,
+	'address'		=> '',
 	'profile'		=> '',
 
 	'genre_ids'		=> [],
@@ -37,6 +39,8 @@ try {
 
 			$FBR_User_data['id']		 = $user_detail->id;
 			$FBR_User_data['phone']		 = $user_detail->phone;
+			$FBR_User_data['age']		 = $user_detail->age;
+			$FBR_User_data['address']	 = $user_detail->address;
 
 			$FBR_User_data['genre_bol']	 = FBR_PreferenceController::getByUser($FBR_User_data['id'])->getSelectedAsBoolean();
 		}
