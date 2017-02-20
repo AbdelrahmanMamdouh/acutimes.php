@@ -37,11 +37,13 @@ class FBR_User extends Facebook\Facebook {
 		dbDelta( "CREATE TABLE IF NOT EXISTS $table_name (
 						`id` int(11) NOT NULL AUTO_INCREMENT,
 						`phone` varchar(12),
-						`user_name` varchar(512) NOT NULL,
-						`user_picture` varchar(2048) NOT NULL,
-						`user_profile` varchar(1024) NOT NULL,
-						`user_email` varchar(45) NOT NULL,
-						`user_id` varchar(512) NOT NULL,
+						`address` varchar(255),
+						`age` int(11),
+						`user_name` varchar(512),
+						`user_picture` varchar(2048),
+						`user_profile` varchar(1024),
+						`user_email` varchar(45),
+						`user_id` varchar(512),
 						`user_status` bit(1) DEFAULT NULL,
 						PRIMARY KEY (`id`)
 					) $charset_collate;");
@@ -163,18 +165,24 @@ class FBR_User extends Facebook\Facebook {
 		} catch (Facebook\Exceptions\FacebookSDKException $e) {
 			throw $e;
 		}
-		if (!$this->IsExist($userData["user_id"])) {
-			$wpdb->insert(static::GetDBTable(), $userData, ['%s', '%s', '%s', '%s', '%s', '%d']);
+		if (!$this->IsExistByEmail($userData["user_email"])) {
+			$wpdb->insert(static::GetDBTable(), $userData, ['%s', '%s', '%s', '%s', '%s']);
 		} else {
 			//$user = $this->getUserDetails();
 			//$userData['user_status'] = $user->user_status;
-			$wpdb->update(static::GetDBTable(), $userData, ["user_id" => $userData["user_id"]], ['%s', '%s', '%s', '%s', '%s', '%d'], ['%s']);
+			$wpdb->update(static::GetDBTable(), $userData, ["user_email" => $userData["user_email"]], ['%s', '%s', '%s', '%s', '%s'], ['%s']);
 		}
 	}
 
 	public static function IsExist($userId) {
 		global $wpdb;
 		$count = $wpdb->get_var("select count(*) from ".static::GetDBTable()." where user_id = '{$userId}'");
+		return ((int) $count > 0) ? TRUE : FALSE;
+	}
+
+	public static function IsExistByEmail($userEmail) {
+		global $wpdb;
+		$count = $wpdb->get_var("select count(*) from ".static::GetDBTable()." where user_email = '{$userEmail}'");
 		return ((int) $count > 0) ? TRUE : FALSE;
 	}
 
@@ -289,6 +297,22 @@ class FBR_User extends Facebook\Facebook {
 			return $res;
 	}
 
+	public function getUserIdByEmail($userEmail) {
+			global $wpdb;
+			$res = $wpdb->get_results("select id from ".static::GetDBTable()." where user_email = '{$userEmail}'");
+			if (isset($res) && count($res) > 0) {
+				return intval($res[0]->id);
+			}
+			return NULL;
+	}
+
+	public static function storeUserFields($userFields) {
+		 global $wpdb;
+		 if( $wpdb->insert(static::GetDBTable(), $userFields, ['%s', '%s', '%s', '%s', '%s']) ) {
+			 return array("id" => $wpdb->insert_id);
+		 }
+	}
+
 	public function storeUserPhone($Id, $Phone) {
 		global $wpdb;
 		return $wpdb->update(static::GetDBTable(), ["phone" => $Phone], ["id" => $Id], ['%s'], ['%d']);
@@ -296,11 +320,11 @@ class FBR_User extends Facebook\Facebook {
 
 	public static function storeMobileUser($userData) {
 		global $wpdb;
-		if (!static::IsExist($userData["user_id"]) && $wpdb->insert(static::GetDBTable(), $userData, ['%s', '%s', '%s', '%s', '%s']) ) {
+		if (!static::IsExistByEmail($userData["user_email"]) && $wpdb->insert(static::GetDBTable(), $userData, ['%s', '%s', '%s', '%s', '%s']) ) {
 				return array("id" => $wpdb->insert_id);
 		}
 		else {
-			return FALSE;
+			$wpdb->update(static::GetDBTable(), $userData, ["user_email" => $userData["user_email"]], ['%s', '%s', '%s', '%s', '%s'], ['%s']);
 		}
 	}
 }

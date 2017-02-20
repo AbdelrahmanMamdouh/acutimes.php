@@ -18,16 +18,16 @@ $CJC_genres = get_terms( 'genre' );
 
             <div class="row footer-form-in">
             	<div class="col-sm-6">
-					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Email' required value='<?php echo $FBR_User_data['email'] ?>'>
+					<input type="email" name="user_fields" class="form-control" id="foote_email" placeholder='Type Your Email' required value='<?php echo $FBR_User_data['email'] ?>'>
             	</div>
                 <div class="col-sm-6">
-					<input type="tel" class="form-control" id="foote_phone" placeholder='Type Your Phone NO.' required value='<?php echo $FBR_User_data['phone'] ?>'>
+					<input type="tel" name="user_fields" class="form-control" id="foote_phone" placeholder='Type Your Phone NO.' required value='<?php echo $FBR_User_data['phone'] ?>'>
             	</div>
                 <div class="col-sm-6">
-					<input type="text" class="form-control" id="foote_address" placeholder='Type Your Address' value='<?php echo $FBR_User_data['address'] ?>'>
+					<input type="text" name="user_fields" class="form-control" id="foote_address" placeholder='Type Your Address' value='<?php echo $FBR_User_data['address'] ?>'>
             	</div>
                 <div class="col-sm-6">
-					<input type="number" class="form-control" id="foote_age" placeholder='Type Your Age' min=21 max=100 required value='<?php echo $FBR_User_data['age'] ?>'>
+					<input type="number" name="user_fields" class="form-control" id="foote_age" placeholder='Type Your Age' min=21 max=100 required value='<?php echo $FBR_User_data['age'] ?>'>
             	</div>
             </div>
 
@@ -53,7 +53,7 @@ $CJC_genres = get_terms( 'genre' );
 
 	</div>
 
-	<submit class="btn btn-supporting btn-wide" onclick='Forms.Prefs("<?php echo get_site_url() . '/wp-json/fbr/preference/user/'.$FBR_User_data['id'] ?>")'>Submit</submit>
+	<submit class="btn btn-supporting btn-wide" onclick='Forms.Prefs("<?php echo get_site_url() . '/wp-json/fbr/preference/user/' ?>")'>Submit</submit>
 </form>
 <div id="form_prefs_responce">
 

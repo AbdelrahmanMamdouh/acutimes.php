@@ -56,13 +56,33 @@ class FBR_PreferenceController implements FBR_Controller  {
 	private static function API_POST(){
 	
 		add_action( 'rest_api_init', function() {
-			register_rest_route( 'fbr/', 'preference/user/(?P<id>\d+)', array( 'methods' => 'POST', 'callback' => function($request = null){
+			register_rest_route( 'fbr/', 'preference/user/', array( 'methods' => 'POST', 'callback' => function($request = null){
+				global $wpdb;
+				$data = json_decode( file_get_contents('php://input') );
 
-					if( static::Update($request['id'], json_decode(file_get_contents('php://input'))) ){
-						return json_encode(array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS));
-					} else {
-						return json_encode(array("status" => "Error", 'message' => FBR_MESSSAGE_ERR));
+				$checkBoxes = $data->checkBoxes;
+				$userFields = array(
+						  		"user_email" => $data->userFields->foote_email,
+							  	"phone" => $data->userFields->foote_phone,
+							  	"address" => $data->userFields->foote_address,
+							  	"age" => $data->userFields->foote_age
+							  );
+
+				if (isset($userFields['user_email'])) {
+					$userId = FBR_User::getUserIdByEmail($userFields['user_email']);
+
+					if (! isset($userId) ) {
+						$userId = FBR_User::storeUserFields($userFields);
 					}
+				}
+
+				if (isset($userId)) {
+					if( static::Update($userId, $checkBoxes) ){
+							return json_encode(array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS));
+						} else {
+							return json_encode(array("status" => "Error", 'message' => FBR_MESSSAGE_ERR));
+						} 
+				}
 					
 			}));
 		});
