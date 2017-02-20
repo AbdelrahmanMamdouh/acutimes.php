@@ -5716,3 +5716,24 @@ input.eg-search-input[type="text"] {
 .event-modal {
   width: 100%;
 }
+
+/* Ibrahim */
+
+.circle--xs{
+	width: 90px;
+	height: 90px;
+	-o-border-image: url(../img/circular-border.png) 34 33 34 35 stretch;
+	border-image: url(../img/circular-border.png) 34 33 34 35 fill stretch;
+}
+.circle--xs img {
+    height: 85px;
+    width: 85px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.entry-content{
+	margin-top:-1px;	
+}
+.footer-container{
+	padding: 3rem 6rem;
+}

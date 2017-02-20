@@ -16,7 +16,20 @@ $CJC_genres = get_terms( 'genre' );
 	<div class="form-group">
 		<div class="input input--reverse">
 			<!--<label for="email">Type Your Email</label>-->
-			<input type="email" class="form-control" id="foote_email" placeholder='Type Your Email' required value='<?php echo $FBR_User_data['email'] ?>'>
+            <div class="row footer-form-in">
+            	<div class="col-sm-6">
+					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Email' required value='<?php echo $FBR_User_data['email'] ?>'>
+            	</div>
+                <div class="col-sm-6">
+					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Phone NO.' required value='<?php echo $FBR_User_data['email'] ?>'>
+            	</div>
+                <div class="col-sm-6">
+					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Address' required value='<?php echo $FBR_User_data['email'] ?>'>
+            	</div>
+                <div class="col-sm-6">
+					<input type="email" class="form-control" id="foote_email" placeholder='Type Your Age' required value='<?php echo $FBR_User_data['email'] ?>'>
+            	</div>
+            </div>
 		</div>
 	</div>
 	<h3>Choose your genre</h3>
@@ -24,7 +37,7 @@ $CJC_genres = get_terms( 'genre' );
 
 		<?php foreach($CJC_genres as $gen) { ?>
 
-			<div class="col-md-4 col-sm-6" style="overflow: hidden; max-height: 2.5rem; margin: 8px 0">
+			<div class="col-md-3 col-sm-4 footer-select-in" style="overflow: hidden; max-height: 2.5rem; margin: 4px 0">
 				<p>
 					<input type="checkbox" 
 						id="<?php echo $gen->term_id ?>" 
