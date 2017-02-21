@@ -28,6 +28,34 @@ class FBR_User extends Facebook\Facebook {
 		return $wpdb->prefix . "fbr_users";
 	}
 
+	public static $DataFormat = 
+	array(
+
+		'id'			=>'%d',
+		'phone'			=>'%s',
+		'address'		=>'%s',
+		'age'			=>'%d',
+		'user_name'		=>'%s',
+		'user_picture'	=>'%s',
+		'user_profile'	=>'%s',
+		'user_email'	=>'%s',
+		'user_id'		=>'%s',
+		'user_status'	=>'%d',
+
+	);
+
+	public static $PK = ['id'];
+
+	public static function GetFeilds($user_data){
+		$ret = [];
+		foreach ($user_data as $key => $value) {
+			if(isset(static::$DataFormat[$key])){
+				array_push($ret,static::$DataFormat[$key]);
+			}
+		}
+		return $ret;
+	}
+
 	static function CreateDBTable(){
 		global $wpdb;
 		
@@ -74,9 +102,7 @@ class FBR_User extends Facebook\Facebook {
 		$this->scope = array('email', 'public_profile');
 		$this->redirectUrl = site_url('/login/');
 
-		$this->tableName = "{$wpdb->prefix}fbr_users";
 		$this->userInfo = [];
-		//self::$instance = $this;
 	}
 
 	public function fb() {
@@ -289,26 +315,26 @@ class FBR_User extends Facebook\Facebook {
 	}
 
 	public function getUserId() {
-			global $wpdb;
-			$res = $wpdb->get_results("select id from ".static::GetDBTable()." where user_id = '{$this->userInfo['user_id']}'");
-			if (isset($id) && count($id) > 0) {
-				return $res[0];
-			}
-			return $res;
+		global $wpdb;
+		$res = $wpdb->get_results("select id from ".static::GetDBTable()." where user_id = '{$this->userInfo['user_id']}'");
+		if (isset($id) && count($id) > 0) {
+			return $res[0];
+		}
+		return $res;
 	}
 
 	public function getUserIdByEmail($userEmail) {
-			global $wpdb;
-			$res = $wpdb->get_results("select id from ".static::GetDBTable()." where user_email = '{$userEmail}'");
-			if (isset($res) && count($res) > 0) {
-				return intval($res[0]->id);
-			}
-			return NULL;
+		global $wpdb;
+		$res = $wpdb->get_results("select id from ".static::GetDBTable()." where user_email = '{$userEmail}'");
+		if (isset($res) && count($res) > 0) {
+			return intval($res[0]->id);
+		}
+		return NULL;
 	}
 
 	public static function storeUserFields($userFields) {
 		 global $wpdb;
-		 if( $wpdb->insert(static::GetDBTable(), $userFields, ['%s', '%s', '%s', '%s', '%s']) ) {
+		 if( $wpdb->insert(static::GetDBTable(), $userFields, static::GetFeilds($userFields)) ) {
 			 return array("id" => $wpdb->insert_id);
 		 }
 	}
