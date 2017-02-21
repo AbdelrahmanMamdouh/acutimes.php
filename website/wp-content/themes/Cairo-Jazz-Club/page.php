@@ -12,11 +12,27 @@
  * @package cjc
  */
 
-get_header(); ?>
+get_header(); 
+ global $FBR_User_data;
+if( !is_home() &&  is_front_page() && $FBR_User_data['is_loged']){
+
+$firstLogin = count($FBR_User_data['genre_bol'])>0 ? 1:0;
+}
+?>
+
+
+
+
+<input type=hidden id="filled" value="<?php echo $firstLogin ?>">
+
+	
+
 <?php if( !(!is_home() &&  is_front_page())){ ?>
 	<main class="inner" id="primary">
 		<section>
 			<div class="container-fluid">
+
+	
 <?php } ?>	
 				<?php
 				while ( have_posts() ) : the_post();
