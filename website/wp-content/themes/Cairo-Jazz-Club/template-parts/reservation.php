@@ -58,8 +58,8 @@ $eventDate = new DateTime($date);
 		<?php endif; ?>
 
 	<?php else: ?>
-
-		<p><?php echo __('Event Ended')?></p>
+		<img src="<?php echo get_template_directory_uri()?>/img/eye.png"></img>
+		<p><?php echo __('Sorry, this event has ended.')?></p>
 
 	<?php endif; ?>
 
