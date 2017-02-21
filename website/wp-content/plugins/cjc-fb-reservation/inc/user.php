@@ -140,6 +140,10 @@ class FBR_User {
 		);
 	}
 
+	function save(){
+		return (isset($this->id)) ? $this->update() : $this->create();
+	}
+
 	function select(){
 		global $wpdb;
 

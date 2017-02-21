@@ -69,11 +69,10 @@ class FBR_PreferenceController implements FBR_Controller  {
 				$usr->address = $data->userFields->foote_address;
 				$usr->age = $data->userFields->foote_age;
 				
-				// check if both user update & pref update passes
-				$passed = (isset($usr->id)) ? $usr->update() : $usr->create();
-				var_dump($usr);
+				$usr->save();
 
-				if( $passed && static::Update($usr->id, $data->checkBoxes) ){
+				if( isser($usr->id)){
+					static::UpdatePrefs($usr->id, $data->checkBoxes);
 					return array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS);
 				} else {
 					return array("status" => "Error", 'message' => FBR_MESSSAGE_ERR);
@@ -84,8 +83,7 @@ class FBR_PreferenceController implements FBR_Controller  {
 	
 	}
 
-	public static function Update($user_id, $pref_ids){
-		var_dump($pref_ids);var_dump($user_id);
+	public static function UpdatePrefs($user_id, $pref_ids){
 		$pref = new FBR_Preference();
 		$pref->user_id = $user_id;
 		$pref->pref_ids = $pref_ids;

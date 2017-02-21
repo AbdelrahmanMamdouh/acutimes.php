@@ -14,7 +14,6 @@
 class FBR_FBhandler extends Facebook\Facebook {
 
 	public $helper;
-	public $permission;
 	private $redirectUrl;
 	private $scope;
 	private $accessToken;
@@ -48,7 +47,7 @@ class FBR_FBhandler extends Facebook\Facebook {
 
 	}
 
-	public function fb() {
+	public function getFB() {
 		return $this;
 	}
 
@@ -169,8 +168,6 @@ class FBR_FBhandler extends Facebook\Facebook {
 		session_regenerate_id(true);
 	}
 
-
-
 	public function getUser() {
 		if ($this->IsLogged()) {
 			
@@ -191,24 +188,4 @@ class FBR_FBhandler extends Facebook\Facebook {
 		return "";
 	}
 
-
-	public function getUserDataFromFBapi() {
-		if ($this->IsLogged()) {
-
-			$accessToken = $_SESSION['fb_access_token'];
-
-			$this->setDefaultAccessToken($accessToken);
-
-			$response = $this->get('/me?fields=id,name,picture,link,email');
-			$userNode = $response->getGraphUser();
-			return [
-				"user_name" => $userNode["name"],
-				"user_picture" => $userNode["picture"]["url"],
-				"user_profile" => $userNode["link"],
-				"user_id" => "{$userNode['id']}",
-				"user_email" => $userNode['email']
-			];
-		}
-		return null;
-	}
 }
