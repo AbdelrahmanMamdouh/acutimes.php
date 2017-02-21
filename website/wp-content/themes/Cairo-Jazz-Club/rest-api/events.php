@@ -54,8 +54,8 @@ function restapi_cjc_calendar_events($request){
 			'img' 			=> $thumb_url,
 			'url' 			=> get_the_permalink(),
 			'id' 			=> $event_id,
-			'type' 			=> isset($term_list[0]) ? $term_list[0]->slug : null
-            'artists'       => $artists;
+			'type' 			=> isset($term_list[0]) ? $term_list[0]->slug : null,
+            'artists'       => $artists
 		);
 	
 	endwhile;
