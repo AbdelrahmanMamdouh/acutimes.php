@@ -46,6 +46,7 @@ function restapi_cjc_calendar_events($request){
 
 		$term_list = wp_get_post_terms($event_id, 'night-type');
 
+        $artists = get_field('performing_artists', $event->ID, false);
 		// Add a event entry
 		$events[] = array(
 			'title' 		=> get_the_title(),
@@ -54,6 +55,7 @@ function restapi_cjc_calendar_events($request){
 			'url' 			=> get_the_permalink(),
 			'id' 			=> $event_id,
 			'type' 			=> isset($term_list[0]) ? $term_list[0]->slug : null
+            'artists'       => $artists;
 		);
 	
 	endwhile;
