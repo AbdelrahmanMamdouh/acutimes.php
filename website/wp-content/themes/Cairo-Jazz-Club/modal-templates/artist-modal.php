@@ -13,18 +13,18 @@
 					<div class='media-box__img'>
 						<div class='circle circle--sm'>
 
-				            <div class='circle__content'>
+							<div class='circle__content'>
 
-				                <?php
-                                    $artist_image_id = get_post_thumbnail_id( $artist->ID );
-                                    $artist_image = wp_get_attachment_image_src($artist_image_id, 'circle', true);
-                                    $artist_image_url = $artist_image[0];        
-				                ?>
+								<?php
+									$artist_image_id = get_post_thumbnail_id( $artist->ID );
+									$artist_image = wp_get_attachment_image_src($artist_image_id, 'circle', true);
+									$artist_image_url = $artist_image[0];		
+								?>
 
-				                <img src='<?php echo $artist_image_url; ?>' alt=''>
-				            </div>
-				            
-				        </div>
+								<img src='<?php echo $artist_image_url; ?>' alt=''>
+							</div>
+							
+						</div>
 					</div>
 
 					<div class='media-box__content'>
@@ -33,43 +33,43 @@
 			</div>	
 		</div>
 	</div>
-    
-    
-    <div class='mfp-modal-content'>
-    	<div class='c-section c-section--short'>
-	        <?php echo $artist->post_content;?>
-    	</div>
-        
+	
+	
+	<div class='mfp-modal-content'>
+		<div class='c-section c-section--short'>
+			<?php echo $artist->post_content;?>
+		</div>
+		
 
 		<?php if(get_field("Video", $artist->ID)): ?>
-	        <div class='c-section c-section--short'>
-		        <div class='responsive-embed'>
-		        	<?php the_field("Video", $artist->ID) ?>
-		        </div>
-	        </div>
-	    <?php endif; ?>
+			<div class='c-section c-section--short'>
+				<div class='responsive-embed'>
+					<?php the_field("Video", $artist->ID) ?>
+				</div>
+			</div>
+		<?php endif; ?>
 
 
-        <?php if(get_field("soundcloud", $artist->ID)): ?>
-	        <div class='c-section c-section--short'>
-		        <div class='responsive-embed'>
-		        	<?php the_field("soundcloud", $artist->ID) ?>
-		        </div>
-	        </div>
-	    <?php endif; ?>
+		<?php if(get_field("soundcloud", $artist->ID)): ?>
+			<div class='c-section c-section--short'>
+				<div class='responsive-embed'>
+					<?php the_field("soundcloud", $artist->ID) ?>
+				</div>
+			</div>
+		<?php endif; ?>
 
 
 		
 
-        
-    	<?php if( have_rows("links", $artist->ID) ): ?>
+		
+		<?php if( have_rows("links", $artist->ID) ): ?>
 			<div class='c-section c-section--short'>
 				<div class='row'>
 
-	        		<?php while ( have_rows("links", $artist->ID) ) : the_row(); ?>
+					<?php while ( have_rows("links", $artist->ID) ) : the_row(); ?>
 						<?php 
-						    $icon = get_sub_field("icon");
-						    $icon = $icon['sizes']['icon'];
+							$icon = get_sub_field("icon");
+							$icon = $icon['sizes']['icon'];
 						?>
 						
 						<div class='col-md-4'>
@@ -80,17 +80,17 @@
 
 							</a>
 						</div>
-	        		<?php endwhile; ?>
-	        		
+					<?php endwhile; ?>
+					
 				</div>
 			</div>
-    	<?php endif; ?>
-        
+		<?php endif; ?>
+		
 
-        <div>
-        	<h2>Upcoming Event</h2>
+		<div>
+			<h2>Upcoming Event</h2>
 			
-        	<?php
+			<?php
 
 				$events = get_posts(array(
 					'post_type' => 'avent',
@@ -102,66 +102,66 @@
 							'compare' => 'LIKE'
 						),
 						array(
-					        'key'		=> 'date',
-					        'compare'	=> '>=',
-					        'value'		=>  current_time("Ymd") // today's date
-	    				)
+							'key'		=> 'date',
+							'compare'	=> '>=',
+							'value'		=>  current_time("Ymd") // today's date
+						)
 					)
 				));
 
 			?>
 
 			<?php if( $events ): ?>
-	            <?php foreach( $events as $post): // variable must be called $post (IMPORTANT) ?>
-	                <?php setup_postdata($post); ?>
+				<?php foreach( $events as $post): // variable must be called $post (IMPORTANT) ?>
+					<?php setup_postdata($post); ?>
 
-	                <?php
+					<?php
 
-	                    $thumb_id = get_post_thumbnail_id();
-	                    $thumb_url_array = wp_get_attachment_image_src($thumb_id, "modal-bleed", true);
-	                    $thumb_url = $thumb_url_array[0];
-	                    $event_id = get_the_id();
+						$thumb_id = get_post_thumbnail_id();
+						$thumb_url_array = wp_get_attachment_image_src($thumb_id, "modal-bleed", true);
+						$thumb_url = $thumb_url_array[0];
+						$event_id = get_the_id();
 
-	                ?>
+					?>
 					
 					<div class='modal-bleed c-section c-section--short'>
-						<a    href="<?php echo get_template_directory_uri()?>/modal-templates/event-modal.php?eventId= <?php echo $event_id?>" class="modal-link event-link container_link">
+						<a	href="<?php echo get_template_directory_uri()?>/modal-templates/event-modal.php?eventId= <?php echo $event_id?>" class="modal-link event-link container_link">
 							<img  src='<?php echo $thumb_url ?>' style="width:100%" alt=''>
 						</a>
 					</div>
-	                
+					
 
-	                <div class='row'>
+					<div class='row'>
 						<!-- <div class='col-md-7'>
-	                		<?php // get_template_part("templates/cancellation-policy" ); ?>
-	                	</div> -->
-	                	<div class='col-md-7'>
-	                	<?php $description = get_field('description', false, false); ?>
+							<?php // get_template_part("templates/cancellation-policy" ); ?>
+						</div> -->
+						<div class='col-md-7'>
+						<?php $description = get_field('description', false, false); ?>
 						<?php if ($description) : ?>
 							<div class="media-box__content">
-								<h3>Description</h3>
+								<!-- <h3>Description</h3> -->
 								<p> <?php echo $description ?> </p>
 							</div>
 						<?php endif; ?>
-	                	</div>
-	                	<div class='col-md-5'>
-	                	<?php $date = get_field('date', false); ?>
+						</div>
+						<div class='col-md-5'>
+						<?php $date = get_field('date', false); ?>
 						<?php if ($date) : ?>
 							<div class="media-box__content">
 								<p> <?php echo $date ?> </p>
 							</div>
 						<?php endif; ?>
-	                		<h3>Reserve</h3>
-	                		<div class='stacked-twin'>
-	                			<?php include(locate_template("template-parts/reservation.php")); ?>
-	                		</div>
-	                	</div>
-	                </div>
-	                
+							<h3>Reserve</h3>
+							<div class='stacked-twin'>
+								<?php include(locate_template("template-parts/reservation.php")); ?>
+							</div>
+						</div>
+					</div>
+					
 
-	            <?php endforeach; ?>
-			    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+				<?php endforeach; ?>
+				<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 			<?php endif; ?>
-        </div>
-    </div>
+		</div>
+	</div>
 </div>

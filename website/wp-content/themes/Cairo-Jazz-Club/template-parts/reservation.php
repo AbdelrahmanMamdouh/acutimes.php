@@ -19,7 +19,7 @@ $eventDate = new DateTime($date);
 			<div id="respond-<?php echo $event_id ?>">
 				<?php //echo $response; ?>
 				
-				<form id="form_reserve_ticket">                
+				<form id="form_reserve_ticket">				
 					<p><label for="attendees">Number of people</label></p>
 					<p class="attendees">
 						<input type="text" name="attendees"  id="attendees" value="1" class="attendees-field num-organ">
@@ -44,7 +44,7 @@ $eventDate = new DateTime($date);
 			</div>
 
 			<h2>Welcome! <?php echo $FBR_User_data['name'] ?></h2>
-            <img src="<?php echo get_template_directory_uri()?>/img/eye.png"></img>
+			<img src="<?php echo get_template_directory_uri()?>/img/eye.png"></img>
 			<p><?php echo __('unfortunately reservations are now unavailable!')?></p>
 			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/logout/') ?>">logout</a>
 

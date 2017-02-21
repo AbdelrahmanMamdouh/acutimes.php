@@ -3386,6 +3386,7 @@ h3, .h3 {
   padding-bottom: 30%;
   height: 0;
   overflow: hidden;
+  min-height: 400px;
   max-width: 100%;
 }
 .responsive-embed iframe,
@@ -3639,7 +3640,7 @@ body {
   margin: 0 auto;
   margin-top: 78px;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .page-container {
     margin-top: 200px;
   }
@@ -3647,6 +3648,14 @@ body {
 @media screen and (min-width: 1200px) {
   .page-container {
     margin-top: 120px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .home .page-container {
+    padding-top: 200px;
+    background-color: #fff;
+    margin-top: 0;
   }
 }
 
@@ -4012,6 +4021,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 
 .footer-menu {
+  margin: 5px 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -4028,6 +4038,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 
 .copyrights-menu {
+  margin: 5px 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -4100,7 +4111,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
   background: #44686b url("../img/events-body.png") no-repeat center right 30px;
   background-size: cover;
   padding: 3rem;
-  height: 500px;
+  height: 680px;
 }
 @media screen and (max-width: 768px) {
   .events-content {
@@ -5061,6 +5072,8 @@ form span {
   width: 35px;
   height: 45px;
   background: url("../img/prev-month-a.png") no-repeat;
+  background-position: center;
+  margin-top: -15px;
 }
 
 .calendar .clndr .clndr-controls .month {
@@ -5070,7 +5083,7 @@ form span {
 }
 @media screen and (max-width: 550px) {
   .calendar .clndr .clndr-controls .month {
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding: 0 2rem;
   }
 }
@@ -5079,6 +5092,8 @@ form span {
   width: 35px;
   height: 45px;
   background: url("../img/next-month-a.png") no-repeat;
+  background-position: center;
+  margin-top: -15px;
 }
 
 .calendar .clndr .clndr-grid {
@@ -5845,4 +5860,50 @@ input.eg-search-input[type="text"] {
 
 .footer-container {
   padding: 3rem 6rem;
+}
+
+.modal-head {
+  height: 180px;
+}
+
+.calendar .day-number-container {
+  bottom: 5px;
+  right: 5px;
+}
+
+.mfp-close-btn-in .mfp-close {
+  right: 20px;
+  top: 10px;
+}
+
+.calendar {
+  margin: 10px auto 30px auto;
+}
+
+header .right-panel {
+  float: right;
+}
+
+.logo {
+  text-align: left;
+}
+
+.soundcloud {
+  overflow-x: hidden;
+}
+
+.esgbox-prev span {
+  background-position: center !important;
+}
+
+.esgbox-next span {
+  background-position: center !important;
+}
+
+footer .btn-supporting {
+  margin-top: 20px;
+}
+
+footer .block {
+  margin-bottom: 2.3rem;
 }

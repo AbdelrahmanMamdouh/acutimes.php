@@ -9,7 +9,7 @@ $cjcCricleEvents->callback = function ( $atts, $content = null ) {
 
 	ob_start();// start buffer
 
-    get_template_part('template-parts/parallax-event-circles' );
+	get_template_part('template-parts/parallax-event-circles' );
 
 	return  ob_get_clean();// return buffer
 };

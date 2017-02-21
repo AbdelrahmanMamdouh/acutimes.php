@@ -23,7 +23,7 @@ $instagram	= get_theme_mod('cjc-social-media-instagram');
 		<li><a class="account-loged-in modal-link-inline" href="#logout-modal" style = 'background-image: url(<?php echo $FBR_User_data['img'] ?>); '>
 			<?php echo $FBR_User_data['name'] ?>
 		</a></li>
-    	<input type="hidden" id="User_email" value='<?php echo $FBR_User_data['email'];?>'>
+		<input type="hidden" id="User_email" value='<?php echo $FBR_User_data['email'];?>'>
 	<?php }?>
 
 	<?php if($facebook) { ?>

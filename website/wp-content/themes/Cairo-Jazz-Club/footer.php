@@ -15,7 +15,7 @@
 
 	<footer id="colophon" role="contentinfo">
 
-		<section>
+		<section class="top-footer">
 			<div class="container-fluid">
 				<div class="footer-container">
 					<div class="row">
@@ -58,9 +58,9 @@
 							'items_wrap' => '%3$s',
 						));
 					?>
-					<li>&copy; <?php echo date("Y"); ?> <?php echo get_bloginfo('name'); ?></li>
+					
 				</ul>
-				<p class="centered">All rights reserved</p>
+				<p class="centered">&copy; <?php echo date("Y"); ?> <?php echo get_bloginfo('name'); ?>, All rights reserved</p>
 			</div>
 
 		</section>
@@ -69,6 +69,7 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
 
 </body>
 </html>

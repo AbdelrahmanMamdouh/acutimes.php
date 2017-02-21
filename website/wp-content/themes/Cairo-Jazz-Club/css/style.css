@@ -55,7 +55,9 @@ div:not([id^="mm-"]) .main-menu ul{
 .footer-form-in input{
 	margin-bottom:5px;	
 }
-
+.events-content{
+	min-height:680px;	
+}
 
 .footer-form-in input::-webkit-input-placeholder {
   color: #bccacd;
