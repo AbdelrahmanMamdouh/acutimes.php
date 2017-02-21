@@ -129,19 +129,19 @@ class FBR_FBhandler extends Facebook\Facebook {
 
 
 		// get the users by email
-		$usrList = FBR_User::selectMulti('user_email',$userNode['email'] );
+		$userList = FBR_User::selectMulti('user_email',$userNode['email'] );
 		
 		// if the result has 1 user or more use the first one else make a new one
-		$usr = (count($usrList)>=1) ? $usr = $usrList[0] : new FBR_User();
+		$user = (count($userList)>=1) ? $user = $userList[0] : new FBR_User();
 
-		$usr->user_name = $userNode["name"];
-		$usr->user_picture = $userNode["picture"]["url"];
-		$usr->user_profile = $userNode["link"];
-		$usr->user_email = $userNode['email'];
-		$usr->user_id = "{$userNode['id']}";
+		$user->user_name = $userNode["name"];
+		$user->user_picture = $userNode["picture"]["url"];
+		$user->user_profile = $userNode["link"];
+		$user->user_email = $userNode['email'];
+		$user->user_id = "{$userNode['id']}";
 
 		// check if both user update & pref update passes
-		$passed = (isset($usr->id)) ? $usr->update() : $usr->create();
+		$passed = (isset($user->id)) ? $user->update() : $user->create();
 		return $passed;
 	}
 
@@ -179,10 +179,10 @@ class FBR_FBhandler extends Facebook\Facebook {
 			$response = $this->get('/me?fields=id');
 			$userNode = $response->getGraphUser();
 
-			$usrList = FBR_User::selectMulti('user_id',$userNode['id']);
+			$userList = FBR_User::selectMulti('user_id',$userNode['id']);
 
-			if (isset($usrList) && count($usrList) > 0) {
-				return $usrList[0];
+			if (isset($userList) && count($userList) > 0) {
+				return $userList[0];
 			}
 		}
 		return "";

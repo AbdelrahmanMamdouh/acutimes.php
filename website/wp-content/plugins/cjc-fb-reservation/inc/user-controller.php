@@ -18,17 +18,17 @@ class FBR_UserController implements FBR_Controller  {
 		
 		if (isset($_POST['user_status_change'])) {
 
-			$usr = new FBR_User();
-			$usr->id = (int) filter_input(INPUT_POST, 'id');
-			$usr->user_id = filter_input(INPUT_POST, 'user_id');
+			$user = new FBR_User();
+			$user->id = (int) filter_input(INPUT_POST, 'id');
+			$user->user_id = filter_input(INPUT_POST, 'user_id');
 
-			$usr->select();
+			$user->select();
 			
 			$status = filter_input(INPUT_POST, 'user_status');
-			$usr->user_status = $status == 'null' ? NULL : (int) $status;
+			$user->user_status = $status == 'null' ? NULL : (int) $status;
 			
-			if(isset($usr->id)){
-				$usr->update();
+			if(isset($user->id)){
+				$user->update();
 			}
 
 		}
@@ -44,15 +44,22 @@ class FBR_UserController implements FBR_Controller  {
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'mobile/users/', array( 'methods' => 'POST', 'callback' => function($request = null) {
 				$data = json_decode( file_get_contents('php://input') );
-				$mobileUser = $data->user;
 
-				$usr->user_name = $mobileUser->name;
-				$usr->user_picture = $mobileUser->img;
-				$usr->user_profile = $mobileUser->link;
-				$usr->user_email = $mobileUser->email;
-				$usr->user_id = $mobileUser->id;
+				// get the users by email
+				$userList = FBR_User::selectMulti('user_email',$data->user->email );
+				
+				// if the result has 1 user or more use the first one else make a new one
+				$user = (count($userList)>=1) ? $user = $userList[0] : new FBR_User();
 
-				return $usr->create();
+				$user->user_name 		= $data->user->name;
+				$user->user_picture 	= $data->user->img;
+				$user->user_profile 	= $data->user->link;
+				$user->user_email 		= $data->user->email;
+				$user->user_id 			= $data->user->id;
+
+				$user->save();
+
+				return $user;
 			}));
 		});
 	}

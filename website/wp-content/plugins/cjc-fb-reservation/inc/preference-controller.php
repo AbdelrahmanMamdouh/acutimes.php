@@ -73,20 +73,20 @@ class FBR_PreferenceController implements FBR_Controller  {
 				$data = json_decode( file_get_contents('php://input') );
 
 				// get the users by email
-				$usrList = FBR_User::selectMulti('user_email',$data->userFields->foote_email );
+				$userList = FBR_User::selectMulti('user_email',$data->userFields->foote_email );
 				
 				// if the result has 1 user or more use the first one else make a new one
-				$usr = (count($usrList)>=1) ? $usr = $usrList[0] : new FBR_User();
+				$user = (count($userList)>=1) ? $user = $userList[0] : new FBR_User();
 
-				$usr->user_email = $data->userFields->foote_email;
-				$usr->phone = $data->userFields->foote_phone;
-				$usr->address = $data->userFields->foote_address;
-				$usr->age = $data->userFields->foote_age;
+				$user->user_email = $data->userFields->foote_email;
+				$user->phone = $data->userFields->foote_phone;
+				$user->address = $data->userFields->foote_address;
+				$user->age = $data->userFields->foote_age;
 				
-				$usr->save();
+				$user->save();
 
-				if( isser($usr->id)){
-					static::UpdatePrefs($usr->id, $data->checkBoxes);
+				if( isser($user->id)){
+					static::UpdatePrefs($user->id, $data->checkBoxes);
 					return array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS);
 				} else {
 					return array("status" => "Error", 'message' => FBR_MESSSAGE_ERR);

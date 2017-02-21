@@ -147,7 +147,6 @@ class FBR_User {
 	function select(){
 		global $wpdb;
 
-		$data = 
 		$this->parseData($wpdb->get_row($wpdb->prepare(
 			"SELECT * FROM ".static::GetDBTable()." WHERE id = %d", $this->id), object));
 
