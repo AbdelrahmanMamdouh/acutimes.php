@@ -16,14 +16,14 @@ import { FacebookService, User } from '../../providers/facebook-service';
 export class PreferencePage {
 
 	public genres: Genre[] = [];
-	public user_id: number;
+	public user: User;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public prefService: PreferenceService, public fbService: FacebookService) {
 
 		fbService.getUser()
 			.then((user: User) => {
-				this.user_id = user.siteId;
-				prefService.get(this.user_id).subscribe(
+				this.user.siteId = user.siteId;
+				prefService.get(this.user.siteId).subscribe(
 					(data: Genre[]) => {
 						this.genres = data;
 					}, (err) => console.warn(err)
@@ -34,10 +34,10 @@ export class PreferencePage {
 
 
 	onSubmit() {
-		if (!this.user_id) {
+		if (!this.user.siteId) {
 			return;
 		}
-		this.prefService.send(this.user_id, this.genres);
+		this.prefService.send(this.user.siteId, this.genres);
 	}
 
 	ionViewDidLoad() {
