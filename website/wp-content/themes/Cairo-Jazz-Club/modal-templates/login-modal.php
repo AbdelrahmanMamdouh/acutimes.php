@@ -13,7 +13,7 @@
 			</div>
 		<?php endif; ?>
 		<div>
-			<a class="btn btn-facebook" style="width:100%" href="<?php if($FBR_User_data['plugin_load']) echo htmlspecialchars(FBR_User::ActiveUser()->getLoginURl(get_permalink())) ?>">Sign in with facebook</a><br>
+			<a class="btn btn-facebook" style="width:100%" href="<?php if($FBR_User_data['plugin_load']) echo htmlspecialchars(FBR_FBhandler::Init()->getLoginURl(get_permalink())) ?>">Sign in with facebook</a><br>
 		</div>
 		<div>
 			<small> 

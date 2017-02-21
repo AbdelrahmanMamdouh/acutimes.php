@@ -121,7 +121,7 @@ class FBR_Reservation {
 		$headers = array();
 		$to = array(get_option('admin_email'), FBR_NOTIFY_EMAIL);
 		$event = $this->getEvent();
-		$userData = FBR_User::ActiveUser()->getUserDetails();
+		$userData = FBR_FBhandler::Init()->getUser();
 		$subject = "New CJC reservation from {$userData->user_email}";
 		$link = get_permalink($this->event_id);
 		
@@ -184,7 +184,7 @@ class FBR_Reservation {
 	}
 
 	function isValidUser(){
-		return FBR_User::ActiveUser()->IsLogged();// && has permission
+		return FBR_FBhandler::Init()->IsLogged();// && has permission
 	}
 
 	function isValidAttendess(){

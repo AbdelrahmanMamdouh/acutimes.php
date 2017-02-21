@@ -52,7 +52,7 @@ $eventDate = new DateTime($date);
 
 			<p><?php echo __('You need to be logged in before you can reserve!')?></p>
 			<div class="button-twin">
-				<a class="btn btn-facebook" href="<?php echo htmlspecialchars(@FBR_User::ActiveUser()->getLoginURl(get_the_permalink(get_page_by_title( 'Events' )))) ?>">Login</a>
+				<a class="btn btn-facebook" href="<?php echo htmlspecialchars(@FBR_FBhandler::Init()->getLoginURl(get_the_permalink(get_page_by_title( 'Events' )))) ?>">Login</a>
 			</div>
 
 		<?php endif; ?>

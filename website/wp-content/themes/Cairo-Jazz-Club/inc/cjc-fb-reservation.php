@@ -24,12 +24,12 @@ $FBR_User_data = array(
 try {
 	if( class_exists('FBR_User') ) {
 		$FBR_User_data['plugin_load']	 = true;
-		$FBR_User_data['is_loged']		 = FBR_User::ActiveUser()->IsLogged();
+		$FBR_User_data['is_loged']		 = FBR_FBhandler::Init()->IsLogged();
 
 		if($FBR_User_data['is_loged']){
-			$user_detail = FBR_User::ActiveUser()->getUserDetails();
+			$user_detail = FBR_FBhandler::Init()->getUser();
 
-			$FBR_User_data['is_approved'] = FBR_User::ActiveUser()->isApproved();
+			$FBR_User_data['is_approved'] = $user_detail->isApproved();
 
 			$FBR_User_data['fb_id']		 = $user_detail->user_id;
 			$FBR_User_data['name']		 = $user_detail->user_name;

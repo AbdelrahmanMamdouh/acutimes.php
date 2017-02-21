@@ -1,6 +1,7 @@
 <?php 
 
 // models
+require_once FBR_PATH.'inc/fb-handler.php';
 require_once FBR_PATH.'inc/user.php';
 require_once FBR_PATH.'inc/reservation.php';
 require_once FBR_PATH.'inc/preference.php';
