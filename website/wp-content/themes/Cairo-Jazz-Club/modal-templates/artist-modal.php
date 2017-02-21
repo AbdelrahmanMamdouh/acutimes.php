@@ -139,7 +139,7 @@
 	                	<?php $description = get_field('description', false, false); ?>
 						<?php if ($description) : ?>
 							<div class="media-box__content">
-								<h3>Description</h3>
+								<!-- <h3>Description</h3> -->
 								<p> <?php echo $description ?> </p>
 							</div>
 						<?php endif; ?>

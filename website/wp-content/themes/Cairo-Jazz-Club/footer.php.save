@@ -15,7 +15,7 @@
 
 	<footer id="colophon" role="contentinfo">
 
-		<section class="top-footer">
+		<section>
 			<div class="container-fluid">
 				<div class="footer-container">
 					<div class="row">
@@ -58,9 +58,9 @@
 							'items_wrap' => '%3$s',
 						));
 					?>
-					
+					<li>&copy; <?php echo date("Y"); ?> <?php echo get_bloginfo('name'); ?></li>
 				</ul>
-				<p class="centered">&copy; <?php echo date("Y"); ?> <?php echo get_bloginfo('name'); ?>, All rights reserved</p>
+				<p class="centered">All rights reserved</p>
 			</div>
 
 		</section>
@@ -69,6 +69,41 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+
+<script>
+	
+	(function ($) {
+	  $(document).ready(function() {
+
+		
+		var secfixedheight = $('.home .photogallery .vc_column-inner').height();
+		$('.home .photogallery').css({"height":secfixedheight});
+		
+		var secfixedheightb = $('.home .bn-in .bnwarp').height();
+		$('.home .bn-in').css({"height":secfixedheightb});
+		
+		
+		var topspacebeforfixed = $('.metaslider').height() + 300 ;
+		$(window).on('scroll', function () {
+			var scrollTop = $(window).scrollTop();
+			if (scrollTop > topspacebeforfixed) {
+				
+				$('.home .photogallery .vc_column-inner').css({"position":"fixed","top":"0"});
+				$('.home .bn-in .bnwarp').css({"position":"fixed","top":secfixedheight});
+				
+			} else{
+				$('.home .photogallery .vc_column-inner').css({"position":"relative","top":"auto"});
+				$('.home .bn-in .bnwarp').css({"position":"relative","top":"auto"});
+			}
+			
+		});
+		
+		
+	  });
+	})(jQuery);
+	
+</script>
 
 
 </body>
