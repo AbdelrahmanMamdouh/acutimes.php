@@ -45,8 +45,6 @@ class FBR_PreferenceController implements FBR_Controller  {
 	}
 
 
-
-
 	/**
 	 * later should remove the id and use FB user
 	 * wp-json/fbr/preference/{user_id}
@@ -60,28 +58,25 @@ class FBR_PreferenceController implements FBR_Controller  {
 				global $wpdb;
 				$data = json_decode( file_get_contents('php://input') );
 
-				$checkBoxes = $data->checkBoxes;
-				$userFields = array(
-						  		"user_email" => $data->userFields->foote_email,
-							  	"phone" => $data->userFields->foote_phone,
-							  	"address" => $data->userFields->foote_address,
-							  	"age" => $data->userFields->foote_age
-							  );
+				// get the users by email
+				$usrList = FBR_User::selectMulti('user_email',$data->userFields->foote_email );
+				
+				// if the result has 1 user or more use the first one else make a new one
+				$usr = (count($usrList)>=1) ? $usr = $usrList[0] : new FBR_User();
 
-				if (isset($userFields['user_email'])) {
-					$userId = FBR_User::getUserIdByEmail($userFields['user_email']);
+				$usr->user_email = $data->userFields->foote_email;
+				$usr->phone = $data->userFields->foote_phone;
+				$usr->address = $data->userFields->foote_address;
+				$usr->age = $data->userFields->foote_age;
+				
+				// check if both user update & pref update passes
+				$passed = (isset($usr->id)) ? $usr->update() : $usr->create();
+				var_dump($usr);
 
-					if (! isset($userId) ) {
-						$userId = FBR_User::storeUserFields($userFields);
-					}
-				}
-
-				if (isset($userId)) {
-					if( static::Update($userId, $checkBoxes) ){
-							return json_encode(array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS));
-						} else {
-							return json_encode(array("status" => "Error", 'message' => FBR_MESSSAGE_ERR));
-						} 
+				if( $passed && static::Update($usr->id, $data->checkBoxes) ){
+					return array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS);
+				} else {
+					return array("status" => "Error", 'message' => FBR_MESSSAGE_ERR);
 				}
 					
 			}));
@@ -90,6 +85,7 @@ class FBR_PreferenceController implements FBR_Controller  {
 	}
 
 	public static function Update($user_id, $pref_ids){
+		var_dump($pref_ids);var_dump($user_id);
 		$pref = new FBR_Preference();
 		$pref->user_id = $user_id;
 		$pref->pref_ids = $pref_ids;

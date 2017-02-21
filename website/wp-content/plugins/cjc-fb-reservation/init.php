@@ -7,6 +7,11 @@
   Version: 2.0
  */
 
+if(WP_DEBUG){
+	error_reporting(E_ALL ^ E_DEPRECATED);
+	ini_set('display_errors', 1);
+}
+
 !isset($_SESSION) ? session_start():null;
 
 require_once 'config.php';

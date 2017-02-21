@@ -121,7 +121,7 @@ class FBR_Reservation {
 		$headers = array();
 		$to = array(get_option('admin_email'), FBR_NOTIFY_EMAIL);
 		$event = $this->getEvent();
-		$userData = FBR_User::ActiveUser()->getUserDetails();
+		$userData = FBR_User::ActiveUser()->getUser();
 		$subject = "New CJC reservation from {$userData->user_email}";
 		$link = get_permalink($this->event_id);
 		
