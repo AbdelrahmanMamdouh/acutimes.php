@@ -70,8 +70,17 @@
                                             <a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo get_the_ID() ?>" class="modal-link"  class="event__link modal-link"><?php the_title() ?></a>
                                         </h3>
                                         <div class="artist__desc">
-                                            <?php echo the_content() ?>
+                                            <?php 
+                                            $arr = explode(" ", get_the_content(), 100);
+                                            
+                                            for ($i = 0; $i < 15; $i++) {
+                                            echo $arr[$i] . " ";
+                                            }
+                                            
+                                            echo ".....";?>
                                         </div>
+                                        <a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo get_the_ID() ?>" class="modal-link"  class="event__link modal-link">READ MORE</a>
+                                     
                                     </div>
                                 </div>
                             </div>
