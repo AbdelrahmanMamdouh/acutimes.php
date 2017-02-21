@@ -3,7 +3,7 @@
 $events = get_page_by_title('events');
 
 try {
-    FBR_User::ActiveUser()->getUserInfo();
+    FBR_FBhandler::Init()->getUserInfo();
 } catch (Exception $exc) {
     
 }

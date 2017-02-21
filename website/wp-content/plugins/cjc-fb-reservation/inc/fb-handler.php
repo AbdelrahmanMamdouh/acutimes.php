@@ -19,15 +19,15 @@ class FBR_FBhandler extends Facebook\Facebook {
 	private $scope;
 	private $accessToken;
 
-	static $activeUser;
+	static $init;
 
 	/**
 	 * singleton
 	 * @return {FBR_User} current active user
 	 */
-	public static function ActiveUser(){
+	public static function Init(){
 		try {
-			return isset(static::$activeUser) ? static::$activeUser : new FBR_FBhandler();
+			return isset(static::$init) ? static::$init : new FBR_FBhandler();
 		} catch (Exception $e) {
 			return null; // if the api key is unset
 		}

@@ -1,6 +1,6 @@
 <?php
 
-FBR_User::ActiveUser()->fbLogout();
+FBR_FBhandler::Init()->fbLogout();
 
 $premalink = site_url();
 
