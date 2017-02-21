@@ -84,11 +84,12 @@
 					
 				</div>
 			</div>
+			
 		<?php endif; ?>
 		
 
 		<div>
-			<h2>Upcoming Event</h2>
+			
 			
 			<?php
 
@@ -112,6 +113,7 @@
 			?>
 
 			<?php if( $events ): ?>
+			<h2>Upcoming Event</h2>
 				<?php foreach( $events as $post): // variable must be called $post (IMPORTANT) ?>
 					<?php setup_postdata($post); ?>
 
