@@ -46,7 +46,7 @@
 						</a>
 					</div>
 
-					<div class="main-menu col-sm-8 col-md-7" id="main-menu">
+					<div class="main-menu col-sm-7 col-md-6" id="main-menu">
 						<ul>
 							<?php
 								wp_nav_menu( array(
@@ -59,7 +59,7 @@
 						</ul>
 					</div> <!-- /.main-menu -->
 
-					<div class="top-icons col-sm-4 col-md-3">
+					<div class="top-icons col-sm-5 col-md-4">
 						<?php get_template_part('template-parts/social-icons' ); ?>
 					</div> <!-- /.top-icons -->  
 				</div>
