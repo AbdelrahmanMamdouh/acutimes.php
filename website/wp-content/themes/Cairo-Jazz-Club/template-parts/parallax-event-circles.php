@@ -42,17 +42,17 @@ $ArtistPositions = array(
 $i = 0;
 ?>
 <div class="desktop-events hidden-xs">
-    <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();?>
+	<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();?>
 
-            <div class="event circle <?php echo $positions[$i++] ?>">
-                <?php get_template_part('template-parts/event-circle'); ?>
-            </div>
+			<div class="event circle <?php echo $positions[$i++] ?>">
+				<?php get_template_part('template-parts/event-circle'); ?>
+			</div>
 
-    <?php endwhile; else: ?>
+	<?php endwhile; else: ?>
 
-        <p>Sorry, there are no events to display</p>
+		<p>Sorry, there are no events to display</p>
 
-    <?php endif; ?>
+	<?php endif; ?>
 </div> <!-- /.desktop-events -->
 
 <?php
@@ -68,7 +68,7 @@ $i = 0;
 			<?php get_template_part('template-parts/event-artist-circle'); ?>
 		</div>
 
-    <?php endwhile; endif; ?>
+	<?php endwhile; endif; ?>
 </div> <!-- /.rand-artists -->
 
 <?php
@@ -78,23 +78,23 @@ $i = 0;
 ?>
 
 <div class="mobile-events visible-xs">
-    <div class="events-slider">
+	<div class="events-slider">
 
-    <?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();?>
+	<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();?>
 
-        <div>
-            <div class="circle circle--md">
-                <?php get_template_part('template-parts/event-circle' ); ?>
-            </div>
-        </div>
+		<div>
+			<div class="circle circle--md">
+				<?php get_template_part('template-parts/event-circle' ); ?>
+			</div>
+		</div>
 
-    <?php endwhile; else: ?>
+	<?php endwhile; else: ?>
 
-        <p>Sorry, there are no events to display</p>
+		<p>Sorry, there are no events to display</p>
 
-    <?php endif; ?>
+	<?php endif; ?>
 
-    </div>
+	</div>
 </div> <!-- /.mobile-events -->
 
 <?php wp_reset_postdata();?>

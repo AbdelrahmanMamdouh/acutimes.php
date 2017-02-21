@@ -1,14 +1,14 @@
 <?php
 add_action( 'rest_api_init', function() {
-    register_rest_field( 'page', 'shortcodes', array(
-        'get_callback' => function( $page ) {
+	register_rest_field( 'page', 'shortcodes', array(
+		'get_callback' => function( $page ) {
 
 			cjc_scew_shortcodes();
 			do_shortcode( $page['content']['raw'] );
 			global $cjc_all_codes;
 			return  $cjc_all_codes;
-        }
-    ) );
+		}
+	) );
 } );
 
 $cjc_all_codes = [];

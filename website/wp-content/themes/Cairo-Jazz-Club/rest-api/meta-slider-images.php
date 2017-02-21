@@ -19,12 +19,12 @@ function get_slider_images_urls($request) {
 
 	if(preg_match_all("/$regexp/", $slider_content, $matches, PREG_SET_ORDER)) {
 
-	    if( !empty($matches) ) {
-	        foreach ($matches as $image_url) {  
-	            $image_urls[]['url'] = $image_url[0];
-	        }
-	        return $image_urls;
-	    }
+		if( !empty($matches) ) {
+			foreach ($matches as $image_url) {  
+				$image_urls[]['url'] = $image_url[0];
+			}
+			return $image_urls;
+		}
 	}
 }
 

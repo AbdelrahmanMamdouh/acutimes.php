@@ -3,7 +3,7 @@
 function getArtistsNames () {
 
 	$artists = get_posts( array(
-		'post_type'      => 'artists',
+		'post_type'	  => 'artists',
 		'posts_per_page' => '3',
 		'meta_key'		 => 'Featured',
 		'meta_value'	 => 1 // get Featured Artists only
@@ -34,18 +34,18 @@ $cjcCircleArtist->callback = function ( $atts, $content = null ) {
 
 	ob_start();// start buffer
 	?>
-	    <div class="artist circle <?php echo $a['size_pos'] ?>">
-	    		<a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo $artist->ID ?>" class="modal-link"><h3 class="artist__name">
-                    <div class="circle__content">
-                            <?php
-                                $artist_image_id = get_post_thumbnail_id( $artist->ID );
-                                $artist_image = wp_get_attachment_image_src($artist_image_id, 'circle', true);
-                                $artist_image_url = $artist_image[0];
-                            ?>
-                        <img src="<?php echo $artist_image_url ?>" alt="">
-                    </div>
-                </a>
-            </div>
+		<div class="artist circle <?php echo $a['size_pos'] ?>">
+				<a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo $artist->ID ?>" class="modal-link"><h3 class="artist__name">
+					<div class="circle__content">
+							<?php
+								$artist_image_id = get_post_thumbnail_id( $artist->ID );
+								$artist_image = wp_get_attachment_image_src($artist_image_id, 'circle', true);
+								$artist_image_url = $artist_image[0];
+							?>
+						<img src="<?php echo $artist_image_url ?>" alt="">
+					</div>
+				</a>
+			</div>
 	<?php
 	return  ob_get_clean();// return buffer
 };
@@ -67,19 +67,19 @@ $cjcCircleArtist
 		"heading" 		=> __("Circle Size and Circle Position"),
 		"param_name"	=> "size_pos",
 		"value" 		=> array(
-	        'circle--xs pos-1',
-	        'circle--xs pos-2',
-	        'circle--xs pos-3',
-	       	'circle--sm pos-5',
-	        'circle--sm pos-7',
-	        'circle--sm pos-8',
-            'circle--sm pos-9',
-	        'circle--md pos-1',	
-	        'circle--md pos-2',
-	        'circle--md pos-3',
-	        'circle--md pos-4',
-	        'circle--md pos-6'
-	    ),
+			'circle--xs pos-1',
+			'circle--xs pos-2',
+			'circle--xs pos-3',
+		   	'circle--sm pos-5',
+			'circle--sm pos-7',
+			'circle--sm pos-8',
+			'circle--sm pos-9',
+			'circle--md pos-1',	
+			'circle--md pos-2',
+			'circle--md pos-3',
+			'circle--md pos-4',
+			'circle--md pos-6'
+		),
 		"description" 	=> __("Select the circle size and the circle position on the slider")
 	));
 

@@ -21,13 +21,13 @@ $img = array(
 <div class="custom-row bn-in">
 	<div class="bnwarp">
 		<?php for ( $advCount=0; $advCount<count($img); $advCount++){ ?>
-            <?php if ( $img[$advCount] ){ ?>
-                <div class="half">
-                    <a href="<?php echo $urls[$advCount] ?>">
-                        <img src="<?php echo $img[$advCount] ?>" alt="">
-                    </a>
-                </div>
-            <?php } ?>
-        <?php } ?>
-    </div>
+			<?php if ( $img[$advCount] ){ ?>
+				<div class="half">
+					<a href="<?php echo $urls[$advCount] ?>">
+						<img src="<?php echo $img[$advCount] ?>" alt="">
+					</a>
+				</div>
+			<?php } ?>
+		<?php } ?>
+	</div>
 </div>
