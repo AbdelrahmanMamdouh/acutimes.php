@@ -8,12 +8,13 @@ var Init = (function($) {
      */
     Init.AutoRun = function() {
         $(document).ready(function() {
-
+            Init.Modal();
             Init.ResponsiveMenu();
             Init.MagnificPopup();
             Init.HomeParallaxSlider();
             Init.Footer();
             Init.Header();
+
 
         });
     }
@@ -73,6 +74,7 @@ var Init = (function($) {
     }
 
     Init.HomeParallaxSlider = function() {
+
         // build controller
         var controller = new ScrollMagic.Controller({ vertical: true });
         var tween;
@@ -127,6 +129,20 @@ var Init = (function($) {
                 }
             }]
         });
+    }
+
+    Init.Modal = function() {
+        var firstlogin = document.getElementById("filled").value;
+        if (firstlogin == 1) {
+
+            $.magnificPopup.open({
+                items: {
+                    src: 'wp-content/themes/Cairo-Jazz-Club/modal-templates/preference-modal.php',
+                    type: 'ajax'
+                }
+            });
+
+        }
     }
 
 
@@ -279,6 +295,61 @@ var Forms = (function($) {
 
         return false;
     };
+
+
+    Forms.PrefsClick = function() {
+        $('#form_prefs_modal').submit(function(evt) {
+            evt.preventDefault();
+            //window.history.back();
+        });
+    }
+
+    Forms.Prefs = function(form_submit_to) {
+        var form = $("#form_prefs_modal");
+        var respon = $("#form_prefs_responce_modal");
+
+        var data = { checkBoxes: [], userFields: {} };
+
+        $('input[name="user_fields_modal"]').each(function() {
+            if (this.value) {
+                data.userFields[this.id] = this.value;
+            }
+        });
+
+        var CheckBoxes = document.getElementsByName("pref_check_modal");
+
+        for (var key in CheckBoxes) {
+            if (CheckBoxes.hasOwnProperty(key)) {
+                var element = CheckBoxes[key];
+                if (element.checked) {
+                    data.checkBoxes.push(element.id);
+                }
+            }
+        }
+
+        $.ajax({
+                type: 'POST',
+                url: form_submit_to,
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                dataType: 'json'
+            })
+            .done(function() {
+                form.hide('slow');
+                respon.text('thank you, your preference have been saved');
+            })
+            .fail(function() {
+                form.hide('slow');
+                respon.text('an error happened pls try again later');
+            })
+            .always(function() {
+
+            });
+
+        return false;
+    };
+
+
 
     return Forms;
 })(jQuery);
