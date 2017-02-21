@@ -76,7 +76,7 @@ class FBR_PreferenceController implements FBR_Controller  {
 				$userList = FBR_User::selectMulti('user_email',$data->userFields->foote_email );
 				
 				// if the result has 1 user or more use the first one else make a new one
-				$user = (count($userList)>=1) ? $user = $userList[0] : new FBR_User();
+				$user = (count($userList)>=1) ? $userList[0] : new FBR_User();
 
 				$user->user_email = $data->userFields->foote_email;
 				$user->phone = $data->userFields->foote_phone;
@@ -85,7 +85,7 @@ class FBR_PreferenceController implements FBR_Controller  {
 				
 				$user->save();
 
-				if( isser($user->id)){
+				if( isset($user->id)){
 					static::UpdatePrefs($user->id, $data->checkBoxes);
 					return array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS);
 				} else {
