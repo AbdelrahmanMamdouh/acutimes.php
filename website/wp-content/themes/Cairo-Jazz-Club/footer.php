@@ -20,11 +20,11 @@
 				<div class="footer-container">
 					<div class="row">
 
-						<div class="subscribe col-md-12 col-lg-9">
+						<div class="subscribe col-md-12 col-lg-8">
 							<?php dynamic_sidebar( 'footer-widget-left' ); ?>
 						</div>
 
-						<div class="contact-information col-md-6 col-lg-3">
+						<div class="contact-information col-md-6 col-lg-4">
 							<?php dynamic_sidebar( 'footer-widget-right' ); ?>
 						</div>
 
