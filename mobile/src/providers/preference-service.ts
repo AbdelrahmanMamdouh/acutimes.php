@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import CONFIG from '../app/config.json';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 /*
@@ -20,48 +18,10 @@ export class PreferenceService {
 	}
 
 	get(user_id: number): Observable<Genre[]> {
-		let subsc = new ReplaySubject(1);
 
-		var selected = [];
-		var genres: Genre[] = [];
-
-		var doneOne = false; // if one of them is complete
-		var done = function () {
-			if (doneOne) {
-
-				for (var key in genres) {
-					let pk = genres[key].term_id;
-					genres[key].isChecked = selected[pk] ? true : false;
-
-				}
-
-				subsc.next(genres);
-			} else { doneOne = true; }
-		}
-
-		this.http.get(`${CONFIG.API_URL}fbr/preference/user/${user_id}`).subscribe(
-			data => {
-				data = data.json();
-				for (var key in data) {
-					selected[data[key]] = true
-				}
-				done();
-
-			}, error => subsc.error(error)
-		);
-
-		this.http.get(`${CONFIG.API_URL}fbr/preference/all`).subscribe(
-			(data) => {
-				genres = data.json();
-				done();
-
-			}, error => subsc.error(error)
-		);
-
-		return subsc.asObservable();
+		return this.http.get(`${CONFIG.API_URL}fbr/preference/user/merged/${user_id}`)
+			.map(res => res.json());
 	}
-
-
 
 	send(user_id, gens: Genre[]) {
 

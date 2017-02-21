@@ -36,6 +36,20 @@ class FBR_PreferenceController implements FBR_Controller  {
 			}));
 		});	
 
+		add_action( 'rest_api_init', function() {
+			register_rest_route( 'fbr/', 'preference/user/merged/(?P<id>\d+)', array( 'methods' => 'GET', 'callback' => function($request = null){
+
+					$Genres = FBR_Preference::getAllGenres();
+					$Selected = static::getByUser($request['id'])->getSelectedAsBoolean();
+
+					foreach ($Genres as $key => $gen) {
+						$Genres[$key]->isChecked = isset($Selected[$gen->term_id]) ? true : false;
+					}
+
+					return $Genres;
+			}));
+		});	
+
 	}
 
 	public static function getByUser($user_id){
