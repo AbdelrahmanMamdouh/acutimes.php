@@ -477,6 +477,8 @@ $slick-opacity-not-active: 0.25 !default;
     width: 35px;
     height: 45px;
     background: url('../img/prev-month-a.png') no-repeat;
+	background-position:center;
+	margin-top:-15px;
 }
 
 .calendar .clndr .clndr-controls .month {
@@ -484,8 +486,8 @@ $slick-opacity-not-active: 0.25 !default;
     padding: 0 6rem;
     color: #97a8a9;
     @media screen and (max-width: 550px) {
-        font-size: 3rem;
-        padding: 0 2rem;
+		font-size: 2.5rem;
+		padding: 0 2rem;
     }
 }
 
@@ -493,6 +495,8 @@ $slick-opacity-not-active: 0.25 !default;
     width: 35px;
     height: 45px;
     background: url('../img/next-month-a.png') no-repeat;
+	background-position:center;
+	margin-top:-15px;
 }
 
 .calendar .clndr .clndr-grid {

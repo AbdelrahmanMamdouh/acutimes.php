@@ -14,12 +14,19 @@ body {
 
 	margin-top: 78px;
 
-	@media screen and (min-width: 1024px) {
+	@media screen and (min-width: 1025px) {
 		margin-top: 200px;
 	}
 
 	@media screen and (min-width: 1200px) {
 		margin-top: 120px;
+	}
+}
+.home .page-container {
+	@media screen and (min-width: 1025px) {
+		padding-top: 120px;
+		background-color: #fff;
+		margin-top: 0;
 	}
 }
 
@@ -370,10 +377,12 @@ footer {
 }
 
 .footer-menu {
+	margin: 5px 0;
 	@include h-menu(center);
 }
 
 .copyrights-menu {
+	margin: 5px 0;
 	@include h-menu(center);
 
 	li {
@@ -437,11 +446,11 @@ footer {
 
 .events-content {
 	position: relative;
-background: #44686b url('../img/events-body.png') no-repeat center right 30px;
+	background: #44686b url('../img/events-body.png') no-repeat center right 30px;
 	background-size: cover;
 	padding: 3rem;
 
-	height: 500px;
+	height: 680px;
 
 	@media screen and (max-width: 768px) {
 		height: auto;

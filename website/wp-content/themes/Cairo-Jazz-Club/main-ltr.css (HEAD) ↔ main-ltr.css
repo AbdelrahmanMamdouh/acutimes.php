@@ -3338,11 +3338,11 @@ h3, .h3 {
 }
 
 .align-right {
-  text-align: left;
+  text-align: right;
 }
 
 .align-left {
-  text-align: right;
+  text-align: left;
 }
 
 .centered {
@@ -3356,15 +3356,15 @@ h3, .h3 {
 
 @media screen and (min-width: 992px) {
   .left-line {
-    border-right: 2px solid #bccacd;
-    padding-right: 2rem;
+    border-left: 2px solid #bccacd;
+    padding-left: 2rem;
   }
 }
 
 @media screen and (min-width: 992px) {
   .right-line {
-    border-left: 2px solid #bccacd;
-    padding-left: 2rem;
+    border-right: 2px solid #bccacd;
+    padding-right: 2rem;
   }
 }
 
@@ -3386,7 +3386,6 @@ h3, .h3 {
   padding-bottom: 30%;
   height: 0;
   overflow: hidden;
-  min-height: 400px;
   max-width: 100%;
 }
 .responsive-embed iframe,
@@ -3435,7 +3434,7 @@ textarea.form-control {
 .select-wrap:after {
   content: '\25bc';
   position: absolute;
-  left: 0;
+  right: 0;
   padding: 5px;
   font-size: 1.2rem;
   color: #bccacd;
@@ -3459,7 +3458,7 @@ select {
   position: absolute;
   font-weight: normal;
   font-size: 1.4rem;
-  right: 2rem;
+  left: 2rem;
   margin-bottom: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -3471,7 +3470,7 @@ select {
 .input.focused label, .input.have-data label {
   font-size: 0.9rem;
   top: 0;
-  right: 1rem;
+  left: 1rem;
   color: #fff;
   background: #214e58;
   padding: 0 5px;
@@ -3492,7 +3491,7 @@ select {
 }
 
 .input--modern label {
-  right: 0;
+  left: 0;
 }
 .input--modern .form-control {
   background: none;
@@ -3503,18 +3502,18 @@ select {
   border-bottom: 1px solid #bccacd;
 }
 .input--modern#focused label {
-  right: 0;
+  left: 0;
   padding: 0;
 }
 
 .no-js .input label {
   font-size: 1.4rem;
   position: relative;
-  right: 0;
+  left: 0;
   -webkit-transform: none;
           transform: none;
   display: block;
-  text-align: right;
+  text-align: left;
 }
 
 /* Base for label styling */
@@ -3640,7 +3639,7 @@ body {
   margin: 0 auto;
   margin-top: 78px;
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
   .page-container {
     margin-top: 200px;
   }
@@ -3648,14 +3647,6 @@ body {
 @media screen and (min-width: 1200px) {
   .page-container {
     margin-top: 120px;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .home .page-container {
-    padding-top: 200px;
-    background-color: #fff;
-    margin-top: 0;
   }
 }
 
@@ -3713,14 +3704,14 @@ main.inner {
 
 @media screen and (min-width: 768px) {
   .half {
-    float: right ;
+    float: left ;
     width: 50%;
   }
 }
 
 @media screen and (min-width: 768px) {
   .third {
-    float: right ;
+    float: left ;
     width: 33.33333333%;
   }
 }
@@ -3757,7 +3748,7 @@ div:not([id^="mm-"]) .main-menu ul a {
 }
 @media screen and (max-width: 1200px) {
   div:not([id^="mm-"]) .main-menu ul {
-    text-align: right;
+    text-align: left;
   }
 }
 div:not([id^="mm-"]) .main-menu ul li > a {
@@ -3788,13 +3779,13 @@ div:not([id^="mm-"]) .main-menu ul .sub-menu a {
   position: relative;
   display: block;
   color: #752225;
-  padding-right: 4rem;
-  padding-left: 2rem;
+  padding-left: 4rem;
+  padding-right: 2rem;
 }
 div:not([id^="mm-"]) .main-menu ul .sub-menu a:before {
   content: '\25b6';
   position: absolute;
-  right: 1.5rem;
+  left: 1.5rem;
 }
 div:not([id^="mm-"]) .main-menu ul .sub-menu a:hover {
   background: #faaf43;
@@ -3848,7 +3839,7 @@ header .container-fluid {
 }
 header .left-panel,
 header .right-panel {
-  float: right ;
+  float: left ;
   width: 30%;
 }
 @media screen and (min-width: 1025px) {
@@ -3858,11 +3849,11 @@ header .right-panel {
   }
 }
 header .left-panel {
-  text-align: right;
+  text-align: left;
   padding-top: 0.5rem;
 }
 header .right-panel {
-  text-align: left;
+  text-align: right;
   padding-top: 1.5rem;
 }
 
@@ -3875,7 +3866,7 @@ header .right-panel {
 @media screen and (max-width: 1024px) {
   .logo {
     width: 40%;
-    float: right ;
+    float: left ;
   }
   .logo img {
     max-width: 60px;
@@ -3894,7 +3885,7 @@ header .right-panel {
 }
 .top-icons .social-icons {
   margin-top: 2rem;
-  text-align: left;
+  text-align: right;
 }
 
 footer h2, footer .h2, footer h3, footer .h3 {
@@ -3969,7 +3960,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  text-align: right;
+  text-align: left;
   font-size: 0;
 }
 .download-app ul li {
@@ -3981,7 +3972,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
   padding: 1rem;
 }
 .download-app ul li {
-  margin-left: 2rem;
+  margin-right: 2rem;
 }
 .download-app ul a {
   padding: 0;
@@ -3994,7 +3985,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 .contact-us li {
   margin-bottom: 2rem;
-  padding-right: 45px;
+  padding-left: 45px;
   min-height: 45px;
   background-repeat: no-repeat;
 }
@@ -4021,7 +4012,6 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 
 .footer-menu {
-  margin: 5px 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -4038,7 +4028,6 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 
 .copyrights-menu {
-  margin: 5px 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -4111,7 +4100,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
   background: #44686b url("../img/events-body.png") no-repeat center right 30px;
   background-size: cover;
   padding: 3rem;
-  height: 680px;
+  height: 500px;
 }
 @media screen and (max-width: 768px) {
   .events-content {
@@ -4249,10 +4238,10 @@ footer h2, footer .h2, footer h3, footer .h3 {
   background: #e4722c;
 }
 .circle--md .circle__content .date {
-  right: -20px;
+  left: -20px;
 }
 .circle--sm .circle__content .date {
-  right: -30px;
+  left: -30px;
 }
 .circle--center {
   margin-left: auto;
@@ -4335,16 +4324,16 @@ footer h2, footer .h2, footer h3, footer .h3 {
   clear: both;
 }
 .artists-filter label {
-  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .artists-filter .field-group {
-  margin-left: 5rem;
+  margin-right: 5rem;
 }
 @media screen and (max-width: 850px) {
   .artists-filter .field-group {
     width: 100%;
     margin-top: 1rem;
-    margin-left: 0;
+    margin-right: 0;
   }
 }
 @media screen and (max-width: 768px) {
@@ -4353,7 +4342,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
   }
 }
 .artists-filter .field-group.last {
-  float: left ;
+  float: right ;
   margin-right: 0;
 }
 @media screen and (max-width: 1030px) {
@@ -4401,7 +4390,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
 @media screen and (max-width: 768px) {
   .artists .artist__image {
     float: none;
-    margin-left: 0;
+    margin-right: 0;
   }
 }
 .artists .artist__name {
@@ -4414,9 +4403,9 @@ footer h2, footer .h2, footer h3, footer .h3 {
 }
 @media screen and (min-width: 768px) {
   .artists .artist__name {
-    text-align: right;
+    text-align: left;
     margin-top: 60px;
-    margin-right: 20px;
+    margin-left: 20px;
   }
 }
 
@@ -4427,7 +4416,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
   margin: 20px auto;
 }
 .mfp-modal .modal-image {
-  margin-right: 16px;
+  margin-left: 16px;
   width: 723px;
 }
 .mfp-modal-content {
@@ -4486,7 +4475,7 @@ footer h2, footer .h2, footer h3, footer .h3 {
   padding-right: 0;
 }
 .feup-pure-form-aligned .feup-pure-control-group label {
-  text-align: right;
+  text-align: left;
 }
 .feup-pure-form-aligned .ewd-feup-label-description {
   display: none;
@@ -4599,13 +4588,13 @@ form span {
 }
 .modal-head .media-box {
   display: inline-block;
-  margin-right: 80px;
+  margin-left: 80px;
   margin-top: 40px;
 }
 
 .modal-bleed {
-  margin-right: -40px;
-  margin-left: -60px;
+  margin-left: -40px;
+  margin-right: -60px;
 }
 
 /* Slider */
@@ -4767,15 +4756,15 @@ form span {
   clear: both;
 }
 .media-box__img {
-  float: right ;
-  margin-left: 3rem;
+  float: left ;
+  margin-right: 3rem;
 }
 .media-box__content {
   overflow: hidden;
 }
 @media screen and (max-width: 768px) {
   .media-box__content {
-    float: right ;
+    float: left ;
     width: 100%;
     margin-top: 2rem;
   }
@@ -4993,7 +4982,7 @@ form span {
   margin-bottom: 0;
   position: absolute;
   bottom: 2rem;
-  right: 4rem;
+  left: 4rem;
 }
 .card--bg .card__link {
   position: absolute;
@@ -5072,8 +5061,6 @@ form span {
   width: 35px;
   height: 45px;
   background: url("../img/prev-month-a.png") no-repeat;
-  background-position: center;
-  margin-top: -15px;
 }
 
 .calendar .clndr .clndr-controls .month {
@@ -5083,7 +5070,7 @@ form span {
 }
 @media screen and (max-width: 550px) {
   .calendar .clndr .clndr-controls .month {
-    font-size: 2.5rem;
+    font-size: 3rem;
     padding: 0 2rem;
   }
 }
@@ -5092,8 +5079,6 @@ form span {
   width: 35px;
   height: 45px;
   background: url("../img/next-month-a.png") no-repeat;
-  background-position: center;
-  margin-top: -15px;
 }
 
 .calendar .clndr .clndr-grid {
@@ -5860,50 +5845,4 @@ input.eg-search-input[type="text"] {
 
 .footer-container {
   padding: 3rem 6rem;
-}
-
-.modal-head {
-  height: 180px;
-}
-
-.calendar .day-number-container {
-  bottom: 5px;
-  right: 5px;
-}
-
-.mfp-close-btn-in .mfp-close {
-  right: 20px;
-  top: 10px;
-}
-
-.calendar {
-  margin: 10px auto 30px auto;
-}
-
-header .right-panel {
-  float: right;
-}
-
-.logo {
-  text-align: left;
-}
-
-.soundcloud {
-  overflow-x: hidden;
-}
-
-.esgbox-prev span {
-  background-position: center !important;
-}
-
-.esgbox-next span {
-  background-position: center !important;
-}
-
-footer .btn-supporting {
-  margin-top: 20px;
-}
-
-footer .block {
-  margin-bottom: 2.3rem;
 }
