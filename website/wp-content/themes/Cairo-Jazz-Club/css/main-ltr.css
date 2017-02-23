@@ -4053,7 +4053,7 @@ body {
 
 .page-container {
     padding: 1px;
-    max-width: 1600px;
+    /*max-width: 1600px;*/
     margin: 0 auto;
     margin-top: 78px;
 }
@@ -6725,4 +6725,8 @@ footer .block {
 #preference-modal .btn-supporting:focus {
     background: #666;
     color: #fff;
+}
+
+.parallaximgwarp {
+    width: 100%;
 }
