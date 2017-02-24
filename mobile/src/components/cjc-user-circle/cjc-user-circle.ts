@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav } from 'ionic-angular';
+import { Nav , NavController } from 'ionic-angular';
 import { NativeStorage } from 'ionic-native';
 
 import { FacebookService, User } from '../../providers/facebook-service';
 
 import { LandingPage } from '../../pages/landing/landing';
-
+import { PreferencePage } from '../../pages/preference/preference';
 
 /*
   Generated class for the CjcUserCircle page.
@@ -22,12 +22,12 @@ export class CjcUserCircle {
 
 	public user: User;
 
-	constructor(private facebookService: FacebookService) {
+	constructor(private facebookService: FacebookService ,private navctrl :NavController) {
 		this.facebookService.getUser().then(user => {
 			this.user = user;
 		}, () => { });
 	}
-
+/*
 	onFBLogoutClick(): void {
 		this.facebookService.doFbLogout().then(response => {
 			//user logged out so we will remove him from the NativeStorage
@@ -36,7 +36,10 @@ export class CjcUserCircle {
 			console.log(error);
 		})
 	}
-
+*/
+	onPrefernceClick(): void{
+		this.navctrl.push(PreferencePage);
+	}
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad CjcUserCirclePage');
 	}

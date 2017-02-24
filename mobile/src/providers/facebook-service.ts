@@ -99,4 +99,5 @@ export class User {
 	link: string;
 	img: string;
 	accessToken: string;
+	pref:any;
 }

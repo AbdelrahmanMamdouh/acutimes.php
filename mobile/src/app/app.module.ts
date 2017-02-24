@@ -21,7 +21,7 @@ import { CachingService } from '../providers/caching-service';
 import { CustomizerService } from '../providers/customizer-service';
 import { FacebookService } from '../providers/facebook-service';
 import { StaticPagesService } from '../providers/static-pages-service';
-import { NotificationService } from '../providers/Notification-Service';
+import { NotificationService } from '../providers/notification-service';
 import { ReservationService } from '../providers/reservation-service';
 import { PreferenceService } from '../providers/preference-service';
 
