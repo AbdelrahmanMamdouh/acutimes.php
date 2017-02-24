@@ -16,30 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cjc_revslider_css`
+-- Table structure for table `cjc_fbr_preferences`
 --
 
-DROP TABLE IF EXISTS `cjc_revslider_css`;
+DROP TABLE IF EXISTS `cjc_fbr_preferences`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cjc_revslider_css` (
-  `id` int(9) NOT NULL AUTO_INCREMENT,
-  `handle` text COLLATE utf8_unicode_ci NOT NULL,
-  `settings` longtext COLLATE utf8_unicode_ci,
-  `hover` longtext COLLATE utf8_unicode_ci,
-  `advanced` longtext COLLATE utf8_unicode_ci,
-  `params` text COLLATE utf8_unicode_ci NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `cjc_fbr_preferences` (
+  `user_id` int(11) NOT NULL,
+  `pref_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`,`pref_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cjc_revslider_css`
+-- Dumping data for table `cjc_fbr_preferences`
 --
 
-LOCK TABLES `cjc_revslider_css` WRITE;
-/*!40000 ALTER TABLE `cjc_revslider_css` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cjc_revslider_css` ENABLE KEYS */;
+LOCK TABLES `cjc_fbr_preferences` WRITE;
+/*!40000 ALTER TABLE `cjc_fbr_preferences` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cjc_fbr_preferences` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-15  1:57:34
+-- Dump completed on 2017-02-24 11:40:27
