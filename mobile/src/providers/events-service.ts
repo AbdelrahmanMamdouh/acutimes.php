@@ -38,4 +38,5 @@ export interface Event {
 	day: string;
 	month: string;
 	iday: string;
+	genres: any;
 }
