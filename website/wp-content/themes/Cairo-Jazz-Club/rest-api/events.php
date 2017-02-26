@@ -49,7 +49,7 @@ function restapi_cjc_calendar_events($request){
         $artists = get_field('performing_artists',$event_id, false);
         $number_of_genres=0;  //the number of all the genres for one event
         
-        if($artists != ""){
+         if($artists != ""){
         for($j=0;$j<count($artists);$j++) //looping throw all the artists in one event
         {
             $test = count($artists);
@@ -62,7 +62,6 @@ function restapi_cjc_calendar_events($request){
         
         }
         }
-        */
 		// Add a event entry
 		$events[] = array(
 			'title' 		=> get_the_title(),
