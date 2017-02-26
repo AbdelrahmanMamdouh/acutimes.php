@@ -48,13 +48,18 @@ function restapi_cjc_calendar_events($request){
 
         $artists = get_field('performing_artists',$event_id, false);
         $number_of_genres=0;  //the number of all the genres for one event
+        
+        if($artists != ""){
         for($j=0;$j<count($artists);$j++) //looping throw all the artists in one event
         {
-            $genre=wp_get_post_terms($artists[0]->ID,'genre');  // getting the genre taxonomy from the artist
+            $test = count($artists);
+            $genre=wp_get_post_terms($artists[$j]->ID,'genre');  // getting the genre taxonomy from the artist
         for($i=0;$i<count($genre);$i++) // looping throw the genres and get the name of each one
         {
             $genres[$i]=$genre[$i]->name;
             $number_of_genres++;
+        }
+        
         }
         }
         
@@ -66,7 +71,7 @@ function restapi_cjc_calendar_events($request){
 			'url' 			=> get_the_permalink(),
 			'id' 			=> $event_id,
 			'type' 			=> isset($term_list[0]) ? $term_list[0]->slug : null,
-            //'genres'       =>  $genres
+            'genres'       =>  isset($genres) ? $genres: null
 		);
 	
 	endwhile;
