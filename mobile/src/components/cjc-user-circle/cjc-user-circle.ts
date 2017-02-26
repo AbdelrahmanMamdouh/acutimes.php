@@ -22,7 +22,7 @@ export class CjcUserCircle {
 
 	public user: User;
 
-	constructor(private facebookService: FacebookService ,private navctrl :NavController) {
+	constructor(private facebookService: FacebookService) {
 		this.facebookService.getUser().then(user => {
 			this.user = user;
 		}, () => { });
@@ -38,7 +38,7 @@ export class CjcUserCircle {
 	}
 */
 	onPrefernceClick(): void{
-		this.navctrl.push(PreferencePage);
+		//this.navctrl.push(PreferencePage);
 	}
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad CjcUserCirclePage');
