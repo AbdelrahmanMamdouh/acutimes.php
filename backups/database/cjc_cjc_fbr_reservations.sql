@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cjc_revslider_static_slides`
+-- Table structure for table `cjc_fbr_reservations`
 --
 
-DROP TABLE IF EXISTS `cjc_revslider_static_slides`;
+DROP TABLE IF EXISTS `cjc_fbr_reservations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cjc_revslider_static_slides` (
-  `id` int(9) NOT NULL AUTO_INCREMENT,
-  `slider_id` int(9) NOT NULL,
-  `params` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `layers` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `settings` text COLLATE utf8_unicode_ci NOT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `cjc_fbr_reservations` (
+  `user_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `state` int(11) NOT NULL,
+  `attendees` int(11) NOT NULL,
+  `reserv_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`,`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cjc_revslider_static_slides`
+-- Dumping data for table `cjc_fbr_reservations`
 --
 
-LOCK TABLES `cjc_revslider_static_slides` WRITE;
-/*!40000 ALTER TABLE `cjc_revslider_static_slides` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cjc_revslider_static_slides` ENABLE KEYS */;
+LOCK TABLES `cjc_fbr_reservations` WRITE;
+/*!40000 ALTER TABLE `cjc_fbr_reservations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cjc_fbr_reservations` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-15  1:59:45
+-- Dump completed on 2017-02-24 11:39:33

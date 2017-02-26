@@ -29,7 +29,7 @@ function cptui_register_my_cpts() {
 		"query_var" => true,
 		"menu_position" => 20,
 		"supports" => array( "title", "editor", "thumbnail" ),
-		"taxonomies" => array( "night-type" ),
+		"taxonomies" => array( "genre", "night-type" ),
 	);
 
 	register_post_type( "avent", $args );

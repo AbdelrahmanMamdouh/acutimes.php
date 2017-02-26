@@ -62,7 +62,7 @@ function restapi_cjc_calendar_events($request){
         
         }
         }
-        
+        */
 		// Add a event entry
 		$events[] = array(
 			'title' 		=> get_the_title(),

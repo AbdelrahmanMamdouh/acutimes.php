@@ -30,6 +30,7 @@
 			"thumbnail"
 		],
 		"taxonomies": [
+			"genre",
 			"night-type"
 		],
 		"labels": {

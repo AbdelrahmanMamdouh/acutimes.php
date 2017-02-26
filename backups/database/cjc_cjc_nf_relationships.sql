@@ -29,7 +29,7 @@ CREATE TABLE `cjc_nf_relationships` (
   `child_type` varchar(255) NOT NULL,
   `parent_type` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `cjc_nf_relationships` (
 
 LOCK TABLES `cjc_nf_relationships` WRITE;
 /*!40000 ALTER TABLE `cjc_nf_relationships` DISABLE KEYS */;
-INSERT INTO `cjc_nf_relationships` VALUES (1,9,4,'notification','form'),(2,11,3,'notification','form');
+INSERT INTO `cjc_nf_relationships` VALUES (2,11,3,'notification','form'),(3,13,3,'notification','form');
 /*!40000 ALTER TABLE `cjc_nf_relationships` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-15  1:59:57
+-- Dump completed on 2017-02-24 11:40:34
