@@ -47,7 +47,7 @@ function restapi_cjc_calendar_events($request){
 		$term_list = wp_get_post_terms($event_id, 'night-type');
 
         $artists = get_field('performing_artists',$event_id, false);
-        $number_of_genres=0;  //the number of all the genres for one event
+     /*   $number_of_genres=0;  //the number of all the genres for one event
         for($j=0;$j<count($artists);$j++) //looping throw all the artists in one event
         {
             $genre=wp_get_post_terms($artists[0]->ID,'genre');  // getting the genre taxonomy from the artist
@@ -57,7 +57,7 @@ function restapi_cjc_calendar_events($request){
             $number_of_genres++;
         }
         }
-        
+        */
 		// Add a event entry
 		$events[] = array(
 			'title' 		=> get_the_title(),
