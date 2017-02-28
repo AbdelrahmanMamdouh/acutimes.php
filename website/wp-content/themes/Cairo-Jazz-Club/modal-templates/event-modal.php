@@ -42,7 +42,7 @@
 				));
 				?>
 
-				<?php if ($query->have_posts()&& $artists != null) : ?>
+				<?php if ($query->have_posts()&& $artists != null)  : ?>
 
 					<div class="mfp-artists">
 
@@ -75,10 +75,12 @@
 										</h3>
 										<div class="artist__desc">
                                             <?php 
-                                            $arr = explode(" ", get_the_content(), 100);
                                             
+                                            $arr = explode(" ", get_the_content(), 100);
+                                            if($arr[0] != ""){
                                             for ($i = 0; $i < 15; $i++) {
                                             echo $arr[$i] . " ";
+                                            }
                                             }
                                             
                                             echo "...";?>
