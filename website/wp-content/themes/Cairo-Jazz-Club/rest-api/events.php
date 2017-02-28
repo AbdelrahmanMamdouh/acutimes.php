@@ -1,13 +1,47 @@
 <?php
+//	wp-json/cjc/calendar/events/{id}/artists
+add_action( 'rest_api_init', function() {
+	register_rest_route( 'cjc/', 'calendar/events/(?P<id>\d+)/artists', array(
+			'methods' => 'GET',
+			'callback' => 'restapi_cjc_calendar_events_performing_artists',
+		) );
+} );	
+
 //	wp-json/cjc/calendar/events/
 add_action( 'rest_api_init', function() {
 	register_rest_route( 'cjc/', 'calendar/events/(?P<filter>\w+)', array(
 			'methods' => 'GET',
 			'callback' => 'restapi_cjc_calendar_events',
 		) );
-} );	
+} );
 
-function restapi_cjc_calendar_events($request){
+function restapi_cjc_calendar_events_performing_artists($request) {
+	$event_id = $request['id'];
+	$artists_ids = get_field('performing_artists', $event_id, false);
+
+	$args = array(
+				'post_type' => 'artists',
+				'post__in' => $artists_ids,
+				'post_status' => 'any',
+				'orderby' => 'post__in',
+			);
+	$artists = get_posts( $args );
+	
+	foreach( $artists as $artist ) {
+		$link = get_permalink( $artist->ID );
+		$img = wp_get_attachment_image_src(get_post_thumbnail_id($artist->ID), "circle", true)[0];
+		
+		$artists_data[] = array(
+							'id' => $artist->ID,
+							'title' => $artist->post_title,
+							'img' => $img,
+							'url' => $link
+						);
+	}
+	return $artists_data;
+}
+
+function restapi_cjc_calendar_events($request) {
 
 	$filter = $request['filter'];
 
