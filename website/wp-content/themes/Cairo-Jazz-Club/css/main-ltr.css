@@ -4052,8 +4052,8 @@ body {
 }
 
 .page-container {
-    padding: 1px;
-    /*max-width: 1600px;*/
+    /*padding: 1px;
+    max-width: 1600px;*/
     margin: 0 auto;
     margin-top: 78px;
 }
@@ -5508,7 +5508,7 @@ form span {
 
 .footer-container .social-icons a.soundcloud:hover {
     background-image: url(../img/spritesheet.png);
-    background-position: -161px -40px;
+    background-position: -162px -40px;
     background-size: 242px 120px;
 }
 
@@ -6320,7 +6320,6 @@ input.eg-search-input[type="text"],
 
 .artist__name {
     color: #fff !important;
-    width: 250px !important;
 }
 
 .genres-list {
@@ -6730,4 +6729,127 @@ footer .block {
 
 .parallaximgwarp {
     width: 100%;
+}
+.contact-right-col p{
+	padding-left:15px;	
+}
+@media (min-width:1600px){
+	.events-content .desktop-events .circle--lg,.events-content .desktop-events .circle--md,.events-content .desktop-events .circle--sm,.events-content .desktop-events .circle--xs{
+		-ms-transform:scale(1.5);
+		-webkit-transform:scale(1.5);
+		transform:scale(1.5);	
+	}
+	.events-content .artist.pos-4{
+		top: 26%;
+		left: 32%;
+	}
+	.events-content{
+		height:780px;
+	}
+}
+
+
+@-webkit-keyframes bounceIn {
+	from, 20%, 40%, 60%, 80%, to {
+	  -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	  animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	}
+  
+	0% {
+	  opacity: 0;
+	  -webkit-transform: scale3d(.3, .3, .3);
+	  transform: scale3d(.3, .3, .3);
+	}
+  
+	20% {
+	  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+	  transform: scale3d(1.1, 1.1, 1.1);
+	}
+  
+	40% {
+	  -webkit-transform: scale3d(.9, .9, .9);
+	  transform: scale3d(.9, .9, .9);
+	}
+  
+	60% {
+	  opacity: 1;
+	  -webkit-transform: scale3d(1.03, 1.03, 1.03);
+	  transform: scale3d(1.03, 1.03, 1.03);
+	}
+  
+	80% {
+	  -webkit-transform: scale3d(.97, .97, .97);
+	  transform: scale3d(.97, .97, .97);
+	}
+  
+	to {
+	  opacity: 1;
+	  -webkit-transform: scale3d(1, 1, 1);
+	  transform: scale3d(1, 1, 1);
+	}
+  }
+  
+  @keyframes bounceIn {
+	from, 20%, 40%, 60%, 80%, to {
+	  -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	  animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	}
+  
+	0% {
+	  opacity: 0;
+	  -webkit-transform: scale3d(.3, .3, .3);
+	  transform: scale3d(.3, .3, .3);
+	}
+  
+	20% {
+	  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+	  transform: scale3d(1.1, 1.1, 1.1);
+	}
+  
+	40% {
+	  -webkit-transform: scale3d(.9, .9, .9);
+	  transform: scale3d(.9, .9, .9);
+	}
+  
+	60% {
+	  opacity: 1;
+	  -webkit-transform: scale3d(1.03, 1.03, 1.03);
+	  transform: scale3d(1.03, 1.03, 1.03);
+	}
+  
+	80% {
+	  -webkit-transform: scale3d(.97, .97, .97);
+	  transform: scale3d(.97, .97, .97);
+	}
+  
+	to {
+	  opacity: 1;
+	  -webkit-transform: scale3d(1, 1, 1);
+	  transform: scale3d(1, 1, 1);
+	}
+  }
+	
+@media (min-width:1025px){
+	
+	
+	.bounceIn {
+	  -webkit-animation-name: bounceIn;
+	  animation-name: bounceIn;
+	}
+	.desktop-events .event{
+	  -webkit-animation-duration: .75s;
+	  animation-duration: .75s;
+	  -webkit-animation-fill-mode: both;
+	  animation-fill-mode: both;
+	display: none;
+	
+	}
+	.rand-artists .artist{
+	  -webkit-animation-duration: .75s;
+	  animation-duration: .75s;
+	  -webkit-animation-fill-mode: both;
+	  animation-fill-mode: both;
+	display: none;
+	
+	}	
 }

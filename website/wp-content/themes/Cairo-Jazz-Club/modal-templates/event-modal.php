@@ -49,7 +49,7 @@
 								<div class="media-box">
 									<div class="media-box__img">
 										<div class="circle circle--md circle--center">
-											<a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo get_the_ID() ?>" class="modal-link"><h3 class="event__link artist__name">
+											<a href="<?php echo get_template_directory_uri() ?>/modal-templates/artist-modal.php?artistId=<?php echo get_the_ID() ?>" class="modal-link"><div class="event__link artist__name">
 												<div class="circle__content">
 													<?php
 
@@ -61,6 +61,7 @@
 
 													<img src="<?php echo $thumb_url ?>" alt="">
 												</div>
+                                                </div>
 											</a>
 										</div>
 									</div>
@@ -84,6 +85,7 @@
 									</div>
 								</div>
 							</div>
+                            
 
 					  <?php endwhile; ?>
 

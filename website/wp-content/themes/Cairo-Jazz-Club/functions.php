@@ -153,6 +153,10 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css');
 	wp_enqueue_script( 'slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js', 
 		array('jquery', ), null, true);
+	
+	// Waypoints 	
+	wp_enqueue_script( 'waypoints ', 'https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js', 
+	array('jquery', ), null, true);
 
 	if(is_rtl()){
 		// Load Bootstrap RTL theme from RawGit
