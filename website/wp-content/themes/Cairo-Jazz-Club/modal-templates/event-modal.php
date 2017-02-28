@@ -31,6 +31,9 @@
 
 				<?php
 				$artists = get_field('performing_artists', $event->ID, false);
+                if(empty($artists) == 1){
+                    $artists=null;
+                }
 				$query = new WP_Query(array(
 					'post_type' => 'artists',
 					'post__in' => $artists,
@@ -39,7 +42,7 @@
 				));
 				?>
 
-				<?php if ($query->have_posts()) : ?>
+				<?php if ($query->have_posts()&& $artists != null) : ?>
 
 					<div class="mfp-artists">
 
