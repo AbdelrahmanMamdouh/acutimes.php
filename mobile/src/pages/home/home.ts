@@ -18,6 +18,7 @@ import { Event } from '../../providers/events-service';
 import { User } from '../../providers/facebook-service';
 import { NotificationService }from '../../providers/notification-service';
 import { PreferenceService, Genre } from '../../providers/preference-service';
+import { PreferencePage } from '../../pages/preference/preference';
 
 
 /*
@@ -45,11 +46,13 @@ export class HomePage {
 		// Get all upcoming events.
 		eventsService.getEvents("upcoming").subscribe(events => {
 			this.events = events;
-			console.log(this.events[0]);
 			let notif= new NotificationService();
 			let name= this.navparm.get('username');
 			let id=this.navparm.get('userid');
 			let prefs=this.navparm.get('userprefs');
+			if(prefs == null){
+				this.navCtrl.push(PreferencePage);
+			}
 			preference.get(id).subscribe(
 					(data: Genre[]) => {
 						this.prefs = data;
@@ -99,12 +102,12 @@ export class HomePage {
 
 	}
 }
-
-//export interface testuser{
-//	id:string;
-//	name:string;
-//	siteId:number;
-//	email:string;
-//	pref: any;
-//}
-
+/*
+export interface testuser{
+	id:string;
+	name:string;
+	siteId:number;
+email:string;
+pref: any;
+}
+*/
