@@ -12,7 +12,6 @@ $cjcNight->callback = function () {
 					'orderby' => 'post__in',
 				));
 
-	$a = $atts;
 	if ( has_post_thumbnail() ) {
 	$thumb_id = get_post_thumbnail_id();
 	$thumb_url_array = wp_get_attachment_image_src($thumb_id , true);
