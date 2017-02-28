@@ -45,12 +45,12 @@ $eventDate = new DateTime($date);
 
 			<h2>Welcome! <?php echo $FBR_User_data['name'] ?></h2>
 			<img src="<?php echo get_template_directory_uri()?>/img/eye.png"></img>
-			<p><?php echo __('unfortunately reservations are now unavailable!')?></p>
+			<p><?php echo __('Sorry, no reservations are allowed for this event')?></p>
 			<a class="btn btn-facebook" style="width:100%" href="<?php echo site_url('/logout/') ?>">logout</a>
 
 		<?php else: ?>
 
-			<p><?php echo __('You need to be logged in before you can reserve!')?></p>
+			<p><?php echo __('Sorry, no reservations are allowed for this event')?></p>
 			<div class="button-twin">
 				<a class="btn btn-facebook" href="<?php echo htmlspecialchars(@FBR_FBhandler::Init()->getLoginURl(get_the_permalink(get_page_by_title( 'Events' )))) ?>">Login</a>
 			</div>
