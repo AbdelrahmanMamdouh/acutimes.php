@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { EventsService, Event } from '../../providers/events-service';
+import { EventsService, Event, Artist } from '../../providers/events-service';
 import { ReservationService, Reservation } from '../../providers/reservation-service';
 import { FacebookService, User } from '../../providers/facebook-service';
 
@@ -19,24 +19,21 @@ export class ReservationPage {
 
 	numberOfPeople: number = 1;
 	user: User;
-	targetEvent: any;
+	targetEvent: Event;
 	reservation: Reservation[];
-	artists = [
-		{
-			image: "http://104.40.211.237/Cairo-Jazz-Club.wp/website/wp-content/uploads/2017/02/12112119_1102935619792763_118435785410598425_n-280x280.jpg",
-			title: "El Dor El Awal"
-		},
-		{
-			image: "http://104.40.211.237/Cairo-Jazz-Club.wp/website/wp-content/uploads/2017/02/171497_1548962564637_748791_o-280x280.jpg",
-			title: "Gaser"
-		}
-	];
+	artists: Artist[];
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private eventsService: EventsService, private reservationService: ReservationService, private facebookService: FacebookService) {
 		this.targetEvent = navParams.get('event');
 		this.facebookService.getUser().then(user => {
 			this.user = user;
 		}, () => { });
+
+		// Get all images of the wp meta slider that have the id 1777.
+		eventsService.getPerformingArtists(this.targetEvent.id).subscribe(artists => {
+			this.artists = artists;
+			console.log(artists);
+		})
 	}
 
 	incrementNumberOfPeople() {

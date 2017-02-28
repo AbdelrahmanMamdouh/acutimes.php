@@ -26,6 +26,17 @@ export class EventsService {
 		return this.cachingService.http_get(`${CONFIG.API_URL}cjc/calendar/events/${filter}`)
 			.map(res => <Event[]>res.json());
 	}
+
+	/**
+	* Get all performing artists for the given event.
+	* @param {string} eventId
+	* @returns Observable Artist[]
+	*/
+	getPerformingArtists(eventId: number): Observable<Artist[]> {
+		return this.cachingService.http_get(`${CONFIG.API_URL}cjc/calendar/events/${eventId}/artists`)
+			.map(res => <Artist[]>res.json());
+	}
+
 }
 
 export interface Event {
@@ -39,4 +50,11 @@ export interface Event {
 	month: string;
 	iday: string;
 	genres: any;
+}
+
+export interface Artist {
+	id: number;
+	title: string;
+	img: string;
+	url: string;
 }
