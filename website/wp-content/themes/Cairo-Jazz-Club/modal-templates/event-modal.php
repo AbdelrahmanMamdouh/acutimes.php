@@ -8,7 +8,7 @@
 	$private = get_field('private',$event->ID,false);
 	$date = get_field('date',$event->ID,false);
 	$today= date("Ymd");
-	$time = '20:00:00';
+	$time = '18:00:00';
 	$thistime=current_time("G:i:s");
 ?>
 
