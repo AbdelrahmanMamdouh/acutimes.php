@@ -19,7 +19,7 @@ export class ReservationPage {
 
 	numberOfPeople: number = 1;
 	user: User;
-	targetEvent: any;
+	targetEvent: Event;
 	reservation: Reservation[];
 	artists: Artist[];
 
@@ -30,7 +30,7 @@ export class ReservationPage {
 		}, () => { });
 
 		// Get all images of the wp meta slider that have the id 1777.
-		eventsService.getPerformingArtists(1777).subscribe(artists => {
+		eventsService.getPerformingArtists(this.targetEvent.id).subscribe(artists => {
 			this.artists = artists;
 			console.log(artists);
 		})
