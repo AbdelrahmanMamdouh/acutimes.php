@@ -47,8 +47,10 @@ function eg_add_post_content($meta_value, $meta, $post_id, $post) {
 		foreach ($genres as $genre)	{	
 			$ret.= $genre->name . ", ";
 		}
+		$tobereturned = rtrim($ret,', ');
 
-		return $ret;
+		return $tobereturned;
+		
 	}
 
 }

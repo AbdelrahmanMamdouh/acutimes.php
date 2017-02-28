@@ -6320,6 +6320,7 @@ input.eg-search-input[type="text"],
 
 .artist__name {
     color: #fff !important;
+    width: 250px !important;
 }
 
 .genres-list {
