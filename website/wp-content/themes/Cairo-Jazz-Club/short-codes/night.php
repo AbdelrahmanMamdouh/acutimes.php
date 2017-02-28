@@ -4,17 +4,34 @@ $cjcNight =  new CJC_ShortCode();
 
 $cjcNight->base = 'cjc_night';
 $cjcNight->displayName = 'CJC Night';
-
-$cjcNight->callback = function ( $atts, $content = null ) {
+$cjcNight->callback = function () {
+	
+	$query = new WP_Query(array(
+					'post_type' => 'night',
+					'post_status' => 'any',
+					'orderby' => 'post__in',
+				));
 
 	$a = $atts;
+	if ( has_post_thumbnail() ) {
+	$thumb_id = get_post_thumbnail_id();
+	$thumb_url_array = wp_get_attachment_image_src($thumb_id , true);
+	$img = $thumb_url_array[0];
+     }
+	
+if ($query->have_posts()) : 
+while ($query->have_posts()) : $query->the_post(); 
 
-	$img = $a['img']? wp_get_attachment_url($a['img'] ):'';
-
-	ob_start();// start buffer
+if ( has_post_thumbnail() ) {
+	$thumb_id = get_post_thumbnail_id();
+	$thumb_url_array = wp_get_attachment_image_src($thumb_id , true);
+	$img = $thumb_url_array[0];
+     }
+	ob_start();
+	// start buffer
 	?>
 	<ul class="nights">
-		<li class="night" style="background-color: <?php echo $a['color'] ?>">
+		<li class="night" style="background-color: <?php the_field('color'); ?>">
 			<div class="row">
 
 				<div class="col-sm-4 col-md-3">
@@ -22,36 +39,15 @@ $cjcNight->callback = function ( $atts, $content = null ) {
 				</div>
 
 				<div class="col-sm-8 col-md-6">
-					<?php echo $content ?>
+					<?php echo the_content() ?>
 				</div>
 
 				<div class="col-sm-12 col-md-3">
 					<div class="soundcloud">
-						<?php if($a['embed']){ ?>
-							<?php if(preg_match('(soundcloud)',$a['embed'])){ 
-									//Get the SoundCloud URL
-										
-										//Get the JSON data of song details with embed code from SoundCloud oEmbed
-										$getValues=file_get_contents('http://soundcloud.com/oembed?format=js&url='.$a['embed'].'&iframe=true');
-										//Clean the Json to decode
-										$decodeiFrame=substr($getValues, 1, -2);
-										//json decode to convert it as an array
-										$jsonObj = json_decode($decodeiFrame);
+					
+<?php the_field('embed'); ?>
 
-										//Change the height of the embed player if you want else uncomment below line
-										// echo $jsonObj->html;
-										//Print the embed player to the page
-										echo str_replace('height="400"', 'height="140"', $jsonObj->html);}
-								else{
-
-										echo preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<iframe width=\"100%\" src=\"//www.youtube.com/embed/$1\" frameborder=\"0\" allowfullscreen></iframe>", $a['embed']);
-								}
-								?>
-
-							
-							
-							
-						<?php } ?>
+		
 					</div>
 				</div>
 
@@ -59,6 +55,9 @@ $cjcNight->callback = function ( $atts, $content = null ) {
 		</li>
 	</ul>
 	<?php
+	endwhile;
+	endif; 
+	 wp_reset_postdata(); 
 	return  ob_get_clean();// return buffer
 };
 $cjcNight
