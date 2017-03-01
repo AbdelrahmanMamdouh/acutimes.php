@@ -2,6 +2,7 @@ MySQL migration
 ================
 1. import db from 'backups\database'
 2. run the following SQL query to set the siteurl & home
+
 	```SQL
 	UPDATE `cjc`.`cjc_options` 
 	SET `option_value` = 'http://website/'
