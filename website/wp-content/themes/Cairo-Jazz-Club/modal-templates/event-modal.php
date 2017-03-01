@@ -44,6 +44,8 @@
 
 				<?php if ($query->have_posts()&& $artists != null)  : ?>
 
+				<h2>Performing Artists</h2>
+
 					<div class="mfp-artists">
 
 						<?php while ($query->have_posts()) : $query->the_post(); ?>
@@ -96,8 +98,6 @@
 
 					</div>
 
-				<?php else: ?>
-					<p>Sorry, there are no artists to display</p>
 				<?php endif; ?>
 				<?php wp_reset_postdata(); ?>
 			</div>
