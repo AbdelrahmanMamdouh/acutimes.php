@@ -2,8 +2,10 @@ MySQL migration
 ================
 1. import db from 'backups\database'
 2. run the following SQL query to set the siteurl & home
-	```
-	UPDATE `cjc`.`cjc_options` SET `option_value`='http:// website url/' WHERE `option_name`='siteurl' OR `option_name`='home';
+	```SQL
+	UPDATE `cjc`.`cjc_options` 
+	SET `option_value` = 'http://website/'
+	WHERE `option_name` in ('siteurl','home');
 	```
 
 
@@ -53,11 +55,11 @@ Mobile
 
 5. Build iOS or Android
 
-	```
+	```shell
 	$ ionic platform add ios
 	$ ionic build ios
 	```
-	```
+	```shell
 	$ ionic platform add android
 	$ ionic build android
 	```
