@@ -29,7 +29,7 @@ export class ReservationPage {
 		let eventdate = new Date(this.targetEvent.startDate);
 		let today = new Date();
 		eventdate.setHours(14,0,0);
-		if(eventdate.getTime() < today.getTime()){
+		if((eventdate.getTime() < today.getTime()) && (this.user.user_status == 1)){
 			this.open=false;
 		}
 		else{

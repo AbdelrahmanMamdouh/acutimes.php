@@ -100,4 +100,5 @@ export class User {
 	img: string;
 	accessToken: string;
 	pref:any;
+	user_status:any;
 }
