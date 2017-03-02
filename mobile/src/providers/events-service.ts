@@ -50,6 +50,7 @@ export interface Event {
 	month: string;
 	iday: string;
 	genres: any;
+	private: any;
 }
 
 export interface Artist {

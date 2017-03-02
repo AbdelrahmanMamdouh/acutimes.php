@@ -37,11 +37,12 @@
                 </div>
             </ion-col>
         </ion-row>
-        <ion-row class="ion-modal-content" center>
+
+        <ion-row *ngIf="((targetEvent.private) != 1) && open == true" class="ion-modal-content" center>
             <ion-col text-center>
                 <ion-row center>
                     <ion-col text-center>
-                        <p>Number of people</p>
+                        <p>{{targetEvent.private}}</p>
                     </ion-col>
                 </ion-row>
 
@@ -70,6 +71,15 @@
                 </ion-row>
             </ion-col>
         </ion-row>
+        <ion-row *ngIf="((targetEvent.private) == 1) ||  open == false" class="ion-modal-content" center>
+            
+            <ion-row center>
+                <ion-col class="reservation-eye">
+                    
+                    </ion-col>
+            </ion-row>
+        </ion-row>
+            
 
     </ion-grid>
 
