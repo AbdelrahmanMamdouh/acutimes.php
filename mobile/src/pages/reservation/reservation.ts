@@ -22,9 +22,19 @@ export class ReservationPage {
 	targetEvent: Event;
 	reservation: Reservation[];
 	artists: Artist[];
+	open : boolean;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private eventsService: EventsService, private reservationService: ReservationService, private facebookService: FacebookService) {
 		this.targetEvent = navParams.get('event');
+		let eventdate = new Date(this.targetEvent.startDate);
+		let today = new Date();
+		eventdate.setHours(14,0,0);
+		if(eventdate.getTime() < today.getTime()){
+			this.open=false;
+		}
+		else{
+			this.open=true;
+		}
 		this.facebookService.getUser().then(user => {
 			this.user = user;
 		}, () => { });

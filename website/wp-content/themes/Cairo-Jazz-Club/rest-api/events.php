@@ -96,6 +96,7 @@ function restapi_cjc_calendar_events($request) {
             $genres[$i]=$genre[$i]->name;
             $number_of_genres++;
         }
+		$private = get_field('private',$event_id, false);
         
         }
         }
@@ -107,7 +108,8 @@ function restapi_cjc_calendar_events($request) {
 			'url' 			=> get_the_permalink(),
 			'id' 			=> $event_id,
 			'type' 			=> isset($term_list[0]) ? $term_list[0]->slug : null,
-            'genres'       =>  isset($genres) ? $genres: null
+            'genres'       =>  isset($genres) ? $genres: null,
+		 	'private'       => isset($private) ?$private: "0" 
 		);
 	
 	endwhile;
