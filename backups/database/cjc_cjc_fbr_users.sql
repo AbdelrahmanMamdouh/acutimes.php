@@ -34,7 +34,7 @@ CREATE TABLE `cjc_fbr_users` (
   `user_id` varchar(512) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `user_status` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `cjc_fbr_users` (
 
 LOCK TABLES `cjc_fbr_users` WRITE;
 /*!40000 ALTER TABLE `cjc_fbr_users` DISABLE KEYS */;
+INSERT INTO `cjc_fbr_users` VALUES (9,NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL),(10,'224274','8 haridy st',22,NULL,NULL,NULL,'poparab11@gmail.com',NULL,NULL),(11,NULL,NULL,0,'Nader Elewa','https://scontent.xx.fbcdn.net/v/t1.0-1/c0.9.50.50/p50x50/13061971_10154772221653154_8488119638168953176_n.jpg?oh=ce56d88dc5db036f553c80a16fb6c9fe&oe=592FEAE5','https://www.facebook.com/app_scoped_user_id/10155773700048154/','nader.elewa@gmail.com','10155773700048154',NULL),(12,NULL,NULL,0,'Abdo Mamdouh Ali','https://graph.facebook.com/1410221429028652/picture?type=large','https://www.facebook.com/app_scoped_user_id/1410221429028652/','poparab_2012@yahoo.com','1410221429028652',NULL);
 /*!40000 ALTER TABLE `cjc_fbr_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-24 11:37:32
+-- Dump completed on 2017-03-02 16:54:59

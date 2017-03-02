@@ -53,7 +53,6 @@ CREATE TABLE `cjc_comments` (
 
 LOCK TABLES `cjc_comments` WRITE;
 /*!40000 ALTER TABLE `cjc_comments` DISABLE KEYS */;
-INSERT INTO `cjc_comments` VALUES (1,1,'A WordPress Commenter','wapuu@wordpress.example','https://wordpress.org/','','2017-01-25 14:28:47','2017-01-25 14:28:47','Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.',0,'post-trashed','','',0,0);
 /*!40000 ALTER TABLE `cjc_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -66,4 +65,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-24 11:37:47
+-- Dump completed on 2017-03-02 16:55:14

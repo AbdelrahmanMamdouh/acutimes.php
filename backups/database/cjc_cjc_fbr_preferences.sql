@@ -35,6 +35,7 @@ CREATE TABLE `cjc_fbr_preferences` (
 
 LOCK TABLES `cjc_fbr_preferences` WRITE;
 /*!40000 ALTER TABLE `cjc_fbr_preferences` DISABLE KEYS */;
+INSERT INTO `cjc_fbr_preferences` VALUES (9,43),(9,53),(10,40),(10,57);
 /*!40000 ALTER TABLE `cjc_fbr_preferences` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-24 11:40:27
+-- Dump completed on 2017-03-02 16:57:47
