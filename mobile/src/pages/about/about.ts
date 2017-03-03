@@ -19,7 +19,11 @@ export class AboutPage {
 	public sections: Array<AboutSection>;
 	public error;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public staticPagesService: StaticPagesService) {
+	constructor(
+		public navCtrl: NavController,
+		public navParams: NavParams,
+		public staticPagesService: StaticPagesService) {
+
 		this.sections = [];
 		staticPagesService.PageAboutus().subscribe(
 			(page: StaticPage) => {

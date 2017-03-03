@@ -12,19 +12,19 @@ ion-content, .content-md, .content-ios, .content-wp {
 	color: $text;
 }
 
-.footer-md::before, .footer-ios::before, .footer-wp::before{
+.footer-md::before, .footer-ios::before, .footer-wp::before {
 	display: none;
 }
 
-.page-title{
+.page-title {
 	font-family: $formal436bt-font;
 	text-align: center;
 	color: $secondary-color;
 }
 
-.logo-img{
-	div{
-		background-image: url('../../assets/img/logo.png');
+.logo-img {
+	div {
+		background-image: url('../assets/img/logo.png');
 		background-size: cover ;
 		height: 45px;
 		width:45px;

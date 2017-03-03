@@ -20,7 +20,11 @@ export class ContactUsPage {
 
 	public error;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, customizerService: CustomizerService) {
+	constructor(
+		public navCtrl: NavController,
+		public navParams: NavParams,
+		customizerService: CustomizerService
+	) {
 
 		customizerService.getAll().subscribe(
 			(customizer: Customizer) => {

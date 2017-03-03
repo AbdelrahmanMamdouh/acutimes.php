@@ -1,18 +1,21 @@
 page-landing {
 
-	ion-content{
+	ion-content {
 		background-color: #FFF !important;
 	}
 
 	.swiper-container {
 		height: 57% !important;
 	}
+
 	.slides {
 		display: inline !important;
     }
+
     .swiper-pagination-bullet-active {
         background: #fcb034;
     }
+
     ion-content {
         background-color: #fff !important;
 	}
@@ -21,12 +24,15 @@ page-landing {
 		background-color: $facebook;
 
 		&-sub-text{
-    }
-    .swiper-pagination-bullet-active {
-        background: #fcb034;
-    }
-    ion-content {
-        background-color: #fff !important;
+
+		}
+
+		.swiper-pagination-bullet-active {
+			background: #fcb034;
+		}
+
+		ion-content {
+			background-color: #fff !important;
 			color: $black !important;
 		}
 	}
