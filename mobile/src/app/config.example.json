@@ -1,9 +1,5 @@
 {
 	"API_URL": "http://104.40.211.237/Cairo-Jazz-Club.wp/website/wp-json/",
 	"WEBSITE_URL": "http://104.40.211.237/Cairo-Jazz-Club.wp/website/",
-	"DEV": {
-		"RELEASE": false,
-		"DEBUG": true,
-		"SKIP_LOGIN": true
-	}
+	"RELEASE": false
 }
