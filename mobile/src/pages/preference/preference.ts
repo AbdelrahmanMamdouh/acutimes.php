@@ -18,25 +18,25 @@ export class PreferencePage {
 	public genres: Genre[] = [];
 	public user: User;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public prefService: PreferenceService, public fbService: FacebookService) {
+	constructor(
+		public navCtrl: NavController,
+		public navParams: NavParams,
+		public prefService: PreferenceService,
+		public fbService: FacebookService) {
 
-		fbService.getUser()
-			.then((user: User) => {
-				this.user.siteId = user.siteId;
-				prefService.get(this.user.siteId).subscribe(
-					(data: Genre[]) => {
-						this.genres = data;
-					}, (err) => console.warn(err)
-				);
-			}, (err) => console.warn(err));
+		fbService.getUser().then((user: User) => {
+			this.user = user;
+			prefService.get(this.user).subscribe(
+				(data) => this.genres = data,
+				(err) => console.warn(err)
+			);
+		}, (err) => console.warn(err));
 
 	}
 
 
 	onSubmit() {
-		if (!this.user.siteId) {
-			return;
-		}
+		if (!this.user.siteId) { return; }
 		this.prefService.send(this.user.siteId, this.genres);
 	}
 

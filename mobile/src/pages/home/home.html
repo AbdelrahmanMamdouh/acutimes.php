@@ -1,53 +1,51 @@
 <ion-header>
-    <cjc-header></cjc-header>
+	<cjc-header></cjc-header>
 </ion-header>
 
 
 <ion-content scroll="false">
+	<ion-grid>
 
-    <ion-grid>
-        <ion-row center>
-            <ion-col text-center>
-                <ion-slides class="slides" autoplay="5000" loop="true" *ngIf="sliderImages.length">
-                    <ion-slide *ngFor="let sliderImage of sliderImages">
-                        <img [src]="sliderImage.url" />
-                    </ion-slide>
-                </ion-slides>
-            </ion-col>
-        </ion-row>
+		<ion-row center>
+			<ion-col text-center>
+				<ion-slides class="slides" autoplay="5000" loop="true" *ngIf="sliderImages.length">
+					<ion-slide *ngFor="let sliderImage of sliderImages">
+						<img [src]="sliderImage.url" />
+					</ion-slide>
+				</ion-slides>
+			</ion-col>
+		</ion-row>
 
-        <ion-row>
-            <ion-col text-center>
-                <img src="assets/img/BG.png" />
-            </ion-col>
-        </ion-row>
+		<ion-row>
+			<ion-col text-center>
+				<img src="assets/img/BG.png" />
+			</ion-col>
+		</ion-row>
 
-        <ion-row center>
-            <ion-col text-center>
-                <div class="events-slider">
-                    <div *ngFor="let event of events; let last = last">
-                        <a (click)="openReservationModal">
-                            <div class="circle circle--md" (click)="openReservationModal(event)">
-                                <div class="circle__content">
-                                    <div class="date">
-                                        {{ event.startDate | date: 'dd MMM' }}
-                                    </div>
-                                    <img [src]="event.img" alt="">
-                                </div>
-                            </div>
-                        </a>
-                        {{(last && doinitSlick) ? initSlick() : ''}}
-                    </div>
-                </div>
+		<ion-row center>
+			<ion-col text-center>
+				<div class="events-slider">
+					<div *ngFor="let event of events; let last = last">
+						<a (click)="openReservationModal">
+							<div class="circle circle--md" (click)="openReservationModal(event)">
+								<div class="circle__content">
+									<div class="date">
+										{{ event.startDate | date: 'dd MMM' }}
+									</div>
+									<img [src]="event.img" alt="">
+								</div>
+							</div>
+						</a>
+						{{(last) ? initSlick() : ''}}
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
 
-            </ion-col>
-        </ion-row>
-
-    </ion-grid>
-
+	</ion-grid>
 </ion-content>
 
 
 <ion-footer>
-    <cjc-footer></cjc-footer>
+	<cjc-footer></cjc-footer>
 </ion-footer>

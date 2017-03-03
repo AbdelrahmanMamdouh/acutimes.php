@@ -4,6 +4,7 @@ import CONFIG from '../app/config.json';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { User } from './facebook-service';
 /*
   Generated class for the PreferenceService provider.
 
@@ -17,9 +18,9 @@ export class PreferenceService {
 		console.log('Hello PreferenceServce Provider');
 	}
 
-	get(user_id: number): Observable<Genre[]> {
-
-		return this.http.get(`${CONFIG.API_URL}fbr/preference/user/merged/${user_id}`)
+	get(user: User): Observable<Genre[]> {
+		var url = `${CONFIG.API_URL}fbr/preference/user/merged/${user.siteId}`;
+		return this.http.get(url)
 			.map(res => res.json());
 	}
 

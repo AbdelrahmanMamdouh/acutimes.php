@@ -25,13 +25,10 @@ export class FacebookService {
 
 	public getUser(): Promise<User> {
 		if (FacebookService._user) {
-			let promise = new Promise((resolve, reject) => {
-				resolve(FacebookService._user);
-			});
-			// Returns a custom User Promise.
-			return promise;
+			return new Promise((resolve, reject) => resolve(FacebookService._user));
+		} else {
+			return NativeStorage.getItem('user'); // Returns a NativeStorage Promise.
 		}
-		return NativeStorage.getItem('user'); // Returns a NativeStorage Promise.
 	}
 
 	public setUser(user: User): void {
@@ -74,13 +71,13 @@ export class FacebookService {
 								NativeStorage.setItem('user', FacebookService._user)
 									.then(function () {
 									}, function (error) {
-										console.log(error);
+										console.warn(error);
 									})
 								observer.next(FacebookService._user);
 							});
 						})
 				}, function (error) {
-					console.log(error);
+					console.warn(error);
 				});
 		})
 		return observable;
@@ -99,6 +96,6 @@ export class User {
 	link: string;
 	img: string;
 	accessToken: string;
-	pref:any;
-	user_status:any;
+	pref: any;
+	user_status: any;
 }

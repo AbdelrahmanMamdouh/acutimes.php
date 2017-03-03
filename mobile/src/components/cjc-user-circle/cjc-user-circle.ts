@@ -27,16 +27,16 @@ export class CjcUserCircle {
 			this.user = user;
 		}, () => { });
 	}
-/*
+	/*
 	onFBLogoutClick(): void {
 		this.facebookService.doFbLogout().then(response => {
 			//user logged out so we will remove him from the NativeStorage
 			//this.nav.setRoot(LandingPage, {}, { animate: true, direction: 'back' });
 		}, error => {
-			console.log(error);
+			console.warn(error);
 		})
 	}
-*/
+	*/
 	onPrefernceClick(): void{
 		//this.navctrl.push(PreferencePage);
 	}
