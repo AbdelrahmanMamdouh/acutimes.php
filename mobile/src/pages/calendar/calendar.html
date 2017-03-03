@@ -10,41 +10,43 @@
 
 
 <ion-content padding class="has-footer">
-        <ion-col text-center>
-            <h1 class="cal-header">Events</h1>
-            <div class="clndr-controls">
-                
-                 <h2 calss="clndr-controls month">{{month}}</h2>
-                <a href="javascript:void(0)" (click)="previous()" class="clndr-previous-button"></a>
-                <a href="javascript:void(0)" (click)="next()" class="clndr-next-button"></a>
-            </div>
-           <div *ngIf="(month_events | json) != '[]'">
-            <div class="events-slider">
-                
-               <div *ngFor="let event of month_events; let last = last">
-                        <div >
-                            <div class="date-contaner">
-                                <div class="date">
-                                    {{ event.day }}
-                                </div>
-                                
-                            </div>
-                            <div>
-                                <img [src]="event.img" alt="" (click)="goToEvent(event)">
-                            <span class="day-number-container"><span class="day-number">{{ event.iday }}</span></span>
-                            </div>
-                            
-                        </div>
-                    {{(last && doinitSlick) ? initSlick() : ''}}
-                </div>
-                </div>
-                
-            </div>
-            <div *ngIf="(month_events | json) === '[]'">
-                     <h2 calss="clndr-controls month">Sorry No Events this Month</h2>
-            </div>
-             
-        </ion-col>
+	<ion-col text-center>
+		
+		<h1 class="page-title">Calendar</h1>
+
+		<div class="clndr-controls">
+			<h2 class="sub-title clndr-controls">{{month}}</h2>
+			<a href="javascript:void(0)" (click)="previous()" class="clndr-previous-button"></a>
+			<a href="javascript:void(0)" (click)="next()" class="clndr-next-button"></a>
+		</div>
+
+		<div *ngIf="(month_events | json) != '[]'">
+			<div class="events-slider">
+
+				<div *ngFor="let event of month_events; let last = last">
+					
+					<div>
+						<div class="date-contaner">
+							<div class="date">
+								{{ event.day }}
+							</div>
+						</div>
+						<div>
+							<img [src]="event.img" alt="" (click)="goToEvent(event)">
+							<span class="day-number-container"><span class="day-number">{{ event.iday }}</span></span>
+						</div>
+					</div>
+
+					{{(last) ? initSlick() : ''}}
+				</div>
+			</div>
+
+		</div>
+		<div *ngIf="(month_events | json) === '[]'">
+			<h2 calss="clndr-controls month">Sorry No Events yet, come back later.</h2>
+		</div>
+
+	</ion-col>
 </ion-content>
 <ion-footer>
 	<cjc-footer></cjc-footer>

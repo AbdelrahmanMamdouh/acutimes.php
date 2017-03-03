@@ -6,8 +6,6 @@ import * as moment from 'moment';
 
 import { EventsService } from '../../providers/events-service';
 import { Event } from '../../providers/events-service';
-import { NotificationService } from '../../providers/Notification-Service';
-import { LocalNotifications } from 'ionic-native';
 import { ReservationPage } from '../reservation/reservation';
 
 /*
@@ -32,24 +30,14 @@ export class CalendarPage {
 		public navCtrller: NavController,
 		public navParams: NavParams,
 		private eventsService: EventsService,
-		private Alert: AlertController
-	) {
-		/*	
-		LocalNotifications.on("click", (notification, state) => {
-            let alert = Alert.create({
-                title: "Notification Clicked",
-                subTitle: "You just clicked the scheduled notification",
-                buttons: ["OK"]
-            });
-            alert.present();
-        });
-		*/
+		private Alert: AlertController) {
+
 		var currentmonth = moment().format('M');
 		this.v_month = Number(currentmonth);
 		this.month = this.all[this.v_month];
 		eventsService.getEvents("all").subscribe(events => { //get the events from the api 
 			this.events = events;
-			
+
 			for (var i in this.events) {
 				this.events[i]['day'] = moment(this.events[i]['startDate']).format('dddd');
 				this.events[i]['month'] = moment(this.events[i]['startDate']).format('MMMM');
@@ -60,37 +48,26 @@ export class CalendarPage {
 			this.setFilteredItems();
 		});
 	}
-	/*
-	public schedule() {
-        LocalNotifications.schedule({
-            title: "Test Title",
-            text: "Delayed Notification",
-            at: new Date(new Date().getTime() + 5 * 1000),
-            sound: null
-        });
-    }
-		setNotification(notification : NotificationService):void
-		{	
-			notification.schedule_Notifications("Test","This is atest massage");
-		}
 
-		*/
 	doinitSlick = true; // initialize it to true for the first run
 
 	initSlick(): void {
-		$('.events-slider').slick({
-			arrows: false,
-			mobileFirst: true,
-			centerMode: true,
-			centerPadding: '70px'
-		});
-		this.doinitSlick = false; // set it to false until you need to trigger again
-
+		if (this.month_events && this.doinitSlick) {
+			$('.events-slider').slick({
+				arrows: false,
+				mobileFirst: true,
+				centerMode: true,
+				centerPadding: '70px'
+			});
+			this.doinitSlick = false; // set it to false until you need to trigger again
+		}
 	}
+
 	desSlick(): void {
 		$('.events-slider').slick('unslick');
 		this.doinitSlick = true;
 	}
+
 	next(): void {
 		this.v_month = this.v_month + 1;
 		if (this.v_month == 13) {
@@ -100,6 +77,7 @@ export class CalendarPage {
 		this.setFilteredItems();
 		this.desSlick();
 	}
+
 	previous(): void {
 		this.v_month = this.v_month - 1;
 		if (this.v_month == 0) {
@@ -119,10 +97,12 @@ export class CalendarPage {
 		}
 
 	}
+
 	setFilteredItems() {
 		this.month_events = this.filterItems();
 
 	}
+
 	goToEvent(event: Event) {
 		console.log(event);
 		this.navCtrller.push(ReservationPage, {
@@ -130,14 +110,8 @@ export class CalendarPage {
 		});
 	}
 
-
-
-
-
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad CalendarPage');
-
-
 	}
 
 }
