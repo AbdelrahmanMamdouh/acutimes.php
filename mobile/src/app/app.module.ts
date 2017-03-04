@@ -16,7 +16,7 @@ import { ReservationPage } from '../pages/reservation/reservation';
 
 import { CjcFooter } from '../components/cjc-footer/cjc-footer';
 import { CjcHeader } from '../components/cjc-header/cjc-header';
-import { CjcUserCircle } from '../components/cjc-user-circle/cjc-user-circle';
+
 import { CachingService } from '../providers/caching-service';
 import { CustomizerService } from '../providers/customizer-service';
 import { FacebookService } from '../providers/facebook-service';
@@ -39,8 +39,7 @@ import { PreferenceService } from '../providers/preference-service';
 		ReservationPage,
 
 		CjcHeader,
-		CjcFooter,
-		CjcUserCircle
+		CjcFooter
 	],
 	imports: [
 		IonicModule.forRoot(MyApp)
@@ -60,8 +59,7 @@ import { PreferenceService } from '../providers/preference-service';
 		ReservationPage,
 
 		CjcHeader,
-		CjcFooter,
-		CjcUserCircle
+		CjcFooter
 	],
 	providers: [
 		{ provide: ErrorHandler, useClass: IonicErrorHandler },

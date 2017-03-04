@@ -6,11 +6,6 @@
 -->
 <ion-navbar>
 
-	<!--<ion-title></ion-title>
-		<img class="logo-img">
-		<div class="user-img"><img src="http://placehold.it/150x150"></div>-->
-
-
 	<button ion-button end menuToggle right>
 		<ion-icon name="menu"></ion-icon>
 	</button>
@@ -19,6 +14,12 @@
 		<div></div>
 	</div>
 
-<cjc-user-circle></cjc-user-circle>
+	<button ion-button start class="user-img">
+		<div *ngIf="user"><img [src]="user.img" (click)="onPrefernceClick()"></div>
+	</button>
+	
+	<div *ngIf="user" class="user-name button">
+		<div>{{user.name}}</div>
+	</div>
 
 </ion-navbar>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { FacebookService, User } from '../../providers/facebook-service';
+import { PreferencePage } from '../../pages/preference/preference';
 /*
   Generated class for the CjcHeader page.
 
@@ -13,7 +14,22 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CjcHeader {
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) { }
+	public user: User;
+
+	constructor(
+		public navCtrl: NavController,
+		public navParams: NavParams,
+		private facebookService: FacebookService) {
+
+		this.facebookService.getUser().then(user => {
+			this.user = user;
+		}, () => { });
+
+	}
+
+	onPrefernceClick() {
+		this.navCtrl.push(PreferencePage);
+	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad CjcHeaderPage');

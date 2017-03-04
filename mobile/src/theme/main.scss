@@ -46,3 +46,43 @@ ion-content, .content-md, .content-ios, .content-wp {
     width: 100%;
     height: 100%;
 }
+
+
+.user{
+	&-img{
+
+	background: none;
+	background-color: transparent !important;
+	border-radius: 50%;
+	box-shadow: none;
+	height: 100%;
+	padding: 0;
+
+		div{
+			height: 100%;
+			width: 100%;
+
+			img{
+				height: 45px;
+				width: 45px;
+				border-radius: 50%;
+			}
+		}
+
+	}
+
+	&-name{
+		max-width: 20%;
+		white-space:nowrap;
+		overflow:hidden;
+
+		color:$primary-color;
+		font-family: $myriadpro-font;
+		font-weight: bold;
+		/*
+		position: absolute;
+		top: 34%;
+		left: 60px;
+		*/
+	}
+}
