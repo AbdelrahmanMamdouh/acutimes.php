@@ -69,6 +69,7 @@
 	<preference name="SplashScreen" value="screen"/>
 	<preference name="SplashScreenDelay" value="15000"/>
 	<preference name="orientation" value="portrait"/>
+	<preference name="ShowSplashScreenSpinner" value="true"/>
 	<feature name="StatusBar">
 		<param name="ios-package" onload="true" value="CDVStatusBar"/>
 	</feature>
@@ -80,8 +81,8 @@
 	<plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
 	<plugin name="cordova-plugin-nativestorage" spec="~2.2.1"/>
 	<plugin name="cordova-plugin-facebook4" spec="~1.7.4">
-		<variable name="APP_ID" value="1720561821587311" />
-		<variable name="APP_NAME" value="cjc" />
+		<variable name="APP_ID" value="1720561821587311"/>
+		<variable name="APP_NAME" value="cjc"/>
 	</plugin>
 	<icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
 </widget>

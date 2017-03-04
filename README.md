@@ -51,6 +51,9 @@ Mobile
 3. Install Cordova/PhoneGap plugins (cordovaPlugins pakage.json branch dependencies)
 	* `$ ionic state restore`
 
+4. to generate the splash screen and icon
+	* `$ ionic resources`
+
 4. Test your app on multiple screen sizes and platform types by starting a local development server
 	* `$ ionic serve --lab `
 
