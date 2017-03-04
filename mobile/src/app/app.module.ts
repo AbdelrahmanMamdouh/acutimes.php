@@ -14,8 +14,9 @@ import { CalendarPage } from '../pages/calendar/calendar';
 import { PreferencePage } from '../pages/preference/preference';
 import { ReservationPage } from '../pages/reservation/reservation';
 
-import { CjcFooter } from '../components/cjc-footer/cjc-footer';
 import { CjcHeader } from '../components/cjc-header/cjc-header';
+import { CjcHeaderBasic } from '../components/cjc-header-basic/cjc-header-basic';
+import { CjcFooter } from '../components/cjc-footer/cjc-footer';
 
 import { CachingService } from '../providers/caching-service';
 import { CustomizerService } from '../providers/customizer-service';
@@ -39,6 +40,7 @@ import { PreferenceService } from '../providers/preference-service';
 		ReservationPage,
 
 		CjcHeader,
+		CjcHeaderBasic,
 		CjcFooter
 	],
 	imports: [
@@ -59,6 +61,7 @@ import { PreferenceService } from '../providers/preference-service';
 		ReservationPage,
 
 		CjcHeader,
+		CjcHeaderBasic,
 		CjcFooter
 	],
 	providers: [

@@ -10,7 +10,13 @@
 				<div></div>
 			</div>
 
-			<!--<cjc-user-circle></cjc-user-circle>-->
+			<button ion-button start  menuClose class="user-img">
+				<div *ngIf="user"><img [src]="user.img" (click)="onPrefernceClick()"></div>
+			</button>
+			
+			<div *ngIf="user" class="user-name button">
+				<div>{{user.name}}</div>
+			</div>
 
 		</ion-toolbar>
 	</ion-header>

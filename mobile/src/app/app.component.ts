@@ -7,8 +7,9 @@ import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { CalendarPage } from '../pages/calendar/calendar';
+import { PreferencePage } from '../pages/preference/preference';
 
-import { FacebookService } from '../providers/facebook-service';
+import { FacebookService, User } from '../providers/facebook-service';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class MyApp {
 
 	pages: Array<{ title: string, component: any }>;
 
+	public user: User;
+
 	constructor(public platform: Platform, private facebookService: FacebookService) {
 		this.initializeApp();
 
@@ -31,6 +34,10 @@ export class MyApp {
 			{ title: 'Schedule', component: CalendarPage },
 			{ title: 'Contact us', component: ContactUsPage }
 		];
+
+		this.facebookService.getUser().then(user => {
+			this.user = user;
+		}, () => { });
 
 	}
 
@@ -60,5 +67,9 @@ export class MyApp {
 		// Reset the content nav to have just this page
 		// we wouldn't want the back button to show in this scenario
 		this.nav.setRoot(page.component);
+	}
+
+	onPrefernceClick() {
+		this.nav.push(PreferencePage);
 	}
 }
