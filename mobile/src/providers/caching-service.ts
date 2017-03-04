@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { NativeStorage } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -25,16 +24,12 @@ export class CachingService {
 		let subsc = new ReplaySubject(1);
 
 		this._getFromStorage(url,
-			data => {
-				subsc.next(data);
-			}, error => {
+			(data) => subsc.next(data),
+			(error) => {
 
 				this._getFromAPI(url,
-					data => {
-						subsc.next(data);
-					}, error => {
-						subsc.error(error);
-					});
+					(data) => subsc.next(data),
+					(error) => subsc.error(error));
 
 			});
 		return subsc.asObservable();
@@ -45,7 +40,7 @@ export class CachingService {
 	 */
 	private _getFromAPI(url: string, success: Function, fail: Function) {
 		return this.http.get(url).subscribe(
-			data => {
+			(data) => {
 				NativeStorage.setItem(url,
 					<CacheReponce>{
 						value: data,
@@ -54,10 +49,7 @@ export class CachingService {
 						isValid: true
 					});
 				success(data);
-			}, error => {
-				fail(error);
-			}
-		)
+			}, (error) => fail(error))
 
 	}
 
@@ -67,17 +59,14 @@ export class CachingService {
 	private _getFromStorage(url: string, success: Function, fail: Function) {
 		NativeStorage.getItem(url)
 			.then(
-			data => {
+			(data) => {
 				if (data != null && this._isValidDate(data.time)) {
 					success(data.value);
 				} else {
 					fail();
 				}
 			},
-			error => {
-				fail(error)
-			}
-			);
+			(error) => fail(error));
 	}
 
 	/**

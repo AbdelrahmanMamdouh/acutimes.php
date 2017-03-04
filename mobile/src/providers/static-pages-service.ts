@@ -32,9 +32,7 @@ export class StaticPagesService {
 	PageAboutus(): Observable<StaticPage> {
 
 		return this.cachingService.http_get(`${CONFIG.API_URL}wp/v2/pages/57`)
-			.map(res => {
-				return <StaticPage>res.json();
-			})
+			.map(res => <StaticPage>res.json())
 
 	}
 }

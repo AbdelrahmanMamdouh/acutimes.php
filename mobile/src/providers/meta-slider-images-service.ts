@@ -14,7 +14,9 @@ import CONFIG from '../app/config.json';
 @Injectable()
 export class MetaSliderImagesService {
 
-	constructor(public http: Http, public cachingService: CachingService) {
+	constructor(
+		public http: Http,
+		public cachingService: CachingService) {
 		console.log('Hello MetaSliderImagesService Provider');
 	}
 

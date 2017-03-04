@@ -32,7 +32,13 @@ export class ReservationService {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
 
-		let data = { "event_id": event_id, "user_id": user_id, "attendees": attendees, "accessToken": accessToken };
+		let data = {
+			event_id: event_id,
+			user_id: user_id,
+			attendees: attendees,
+			accessToken: accessToken
+		};
+
 		return this.http.post(`${CONFIG.API_URL}fbr/reservation/`, data, options)
 			.map(res => res.json());
 	}

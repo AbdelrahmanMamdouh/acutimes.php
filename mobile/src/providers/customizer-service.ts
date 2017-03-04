@@ -15,7 +15,10 @@ import CONFIG from '../app/config.json';
 @Injectable()
 export class CustomizerService {
 
-	constructor(public http: Http, public cachingService: CachingService) { }
+	constructor(
+		public http: Http,
+		public cachingService: CachingService) { }
+
 	/**
 	 * get all the customizer options
 	 * @returns Observable Customizer
@@ -23,11 +26,10 @@ export class CustomizerService {
 	getAll(): Observable<Customizer> {
 
 		return this.cachingService.http_get(`${CONFIG.API_URL}cjc/customizer/`)
-			.map(res => {
-				return this.parsejson(res.json());
-			});
+			.map(res => this.parsejson(res.json()));
 
 	}
+
 	public parsejson(json): Customizer {
 		return {
 			logo: {

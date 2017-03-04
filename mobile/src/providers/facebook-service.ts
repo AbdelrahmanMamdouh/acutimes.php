@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { NavController, NavParams } from 'ionic-angular';
 import { Facebook, NativeStorage } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
@@ -47,10 +46,9 @@ export class FacebookService {
 	}
 
 	public doFbLogin(): Observable<User> {
-		let permissions: string[];
 
 		//the permissions your facebook app needs from the user
-		permissions = ["public_profile", "email"];
+		let permissions: string[] = ["public_profile", "email"];
 
 		let observable = new Observable(observer => {
 
@@ -68,22 +66,17 @@ export class FacebookService {
 							FacebookService._user = user;
 							this._sendUser().subscribe(data => {
 								FacebookService._user.siteId = data.id;
-								NativeStorage.setItem('user', FacebookService._user)
-									.then(function () {
-									}, function (error) {
-										console.warn(error);
-									})
+								NativeStorage.setItem('user', FacebookService._user).catch((error) => console.warn(error));
 								observer.next(FacebookService._user);
 							});
 						})
-				}, function (error) {
-					console.warn(error);
-				});
+				}, (error) => console.warn(error));
 		})
 		return observable;
 	}
 
 	public doFbLogout(): Promise<any> {
+		FacebookService._user = null;
 		return NativeStorage.remove('user');
 	}
 }
