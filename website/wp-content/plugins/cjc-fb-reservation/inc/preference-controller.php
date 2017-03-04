@@ -41,12 +41,14 @@ class FBR_PreferenceController implements FBR_Controller  {
 
 					$Genres = FBR_Preference::getAllGenres();
 					$Selected = static::getByUser($request['id'])->getSelectedAsBoolean();
+					$ret = [];
 
 					foreach ($Genres as $key => $gen) {
 						$Genres[$key]->isChecked = isset($Selected[$gen->term_id]) ? true : false;
+						array_push($ret,$Genres[$key]);
 					}
 
-					return $Genres;
+					return $ret;
 			}));
 		});	
 
