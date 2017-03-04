@@ -5,6 +5,15 @@ page-home {
 		flex-direction: column;
 	}
 
+	.artists-parallex {
+	    background: url("../assets/img/BG.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		padding-top: 100px;
+		margin-top: -30px;
+		z-index: 2;
+	}
+
 	ion-grid {
 		padding: 0;
 		height: 100%;
