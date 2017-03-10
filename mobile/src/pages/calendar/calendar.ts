@@ -75,7 +75,10 @@ export class CalendarPage {
 		}
 		this.month = this.all[this.v_month];
 		this.setFilteredItems();
+		if(this.doinitSlick == false){
 		this.desSlick();
+	}
+
 	}
 
 	previous(): void {
@@ -85,7 +88,9 @@ export class CalendarPage {
 		}
 		this.month = this.all[this.v_month];
 		this.setFilteredItems();
+		if(this.doinitSlick == false){
 		this.desSlick();
+	}
 	}
 
 	filterItems() {
