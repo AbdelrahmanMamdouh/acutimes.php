@@ -65,7 +65,12 @@ export class FacebookService {
 							user.accessToken = userAccessToken;
 							FacebookService._user = user;
 							this._sendUser().subscribe(data => {
+
+								FacebookService._user.phone = data.phone;
+								FacebookService._user.address = data.address;
+								FacebookService._user.age = data.age;
 								FacebookService._user.siteId = data.id;
+
 								NativeStorage.setItem('user', FacebookService._user).catch((error) => console.warn(error));
 								observer.next(FacebookService._user);
 							});
@@ -79,9 +84,27 @@ export class FacebookService {
 		FacebookService._user = null;
 		return NativeStorage.remove('user');
 	}
+
+	public paseUser(ServerUser): User {
+		let User: User = <User>{};
+
+		/*
+		User.siteId = ServerUser.id;
+		User.phone = ServerUser.phone;
+		User.address = ServerUser.address;
+		User.age = ServerUser.age;
+		User.name = ServerUser.user_name;
+		User.img = ServerUser.user_picture;
+		User. = ServerUser.user_profile;
+		User.email = ServerUser.user_email;
+		User.id = ServerUser.user_id;
+		User.user_status = ServerUser.user_status;
+		*/
+		return User;
+	}
 }
 
-export class User {
+export interface User {
 	id: string;
 	siteId: number;
 	name: string;
@@ -91,4 +114,8 @@ export class User {
 	accessToken: string;
 	pref: any;
 	user_status: any;
+
+	phone;
+	address;
+	age;
 }
