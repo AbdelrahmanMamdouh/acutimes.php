@@ -25,7 +25,7 @@
 						</div>
                         
                         <div class="midfooterarea col-lg-4 col-md-3">
-                        	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer widget area center Sidebar') ) : endif; ?>
+                        	<?php dynamic_sidebar('footer-widget-mid'); ?>
                         </div>
 
 						<div class="contact-information col-lg-4 col-md-5">

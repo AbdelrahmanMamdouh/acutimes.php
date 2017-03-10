@@ -22,9 +22,9 @@ add_action( 'widgets_init', function () {
 add_action( 'widgets_init', function () {
 
 	register_sidebar( array(
-		'name'		 	=> esc_html__( 'Footer Widget area Right (Large)', 'cairo-jazz-club' ),
+		'name'		 	=> esc_html__( 'Footer Widget area Right', 'cairo-jazz-club' ),
 		'id'			=> 'footer-widget-right',
-		'description'   => esc_html__( 'a widget area in the footer on the right side , size large', 'cairo-jazz-club' ),
+		'description'   => esc_html__( 'a widget area in the footer on the right side', 'cairo-jazz-club' ),
 		'before_widget' => '<div class="block">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
@@ -32,9 +32,9 @@ add_action( 'widgets_init', function () {
 	) );
 
 	register_sidebar( array(
-		'name'		 	=> esc_html__( 'Footer Widget area left (small)', 'cairo-jazz-club' ),
+		'name'		 	=> esc_html__( 'Footer Widget area left', 'cairo-jazz-club' ),
 		'id'			=> 'footer-widget-left',
-		'description'   => esc_html__( 'a widget area in the footer on the left side , size small', 'cairo-jazz-club' ),
+		'description'   => esc_html__( 'a widget area in the footer on the left side', 'cairo-jazz-club' ),
 		'before_widget' => '<div class="block">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
@@ -42,12 +42,13 @@ add_action( 'widgets_init', function () {
 	) );
 	
 	register_sidebar( array(
-		'name' => 'Footer widget area center Sidebar',
-		'id' => 'footer_mid_sidebar',
-		'before_widget' => '<div id="wpgyan-widget">',
-		'after_widget' => '</div>',
-		'before_title' => '<h2 class="rounded">',
-		'after_title' => '</h2>',
+		'name'			=> esc_html__('Footer widget area center'),
+		'id'			=> 'footer-widget-mid',
+		'description'   => esc_html__( 'a widget area in the footer in the center', 'cairo-jazz-club' ),
+		'before_widget'	=> '<div id="wpgyan-widget">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h2 class="rounded">',
+		'after_title'	=> '</h2>',
 	) );
 	
 });
