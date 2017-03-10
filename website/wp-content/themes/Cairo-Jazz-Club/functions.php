@@ -191,7 +191,7 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_script( 'jquery-magnific-popup-js', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js', 
 		array('jquery'), null, true);
 
-	wp_enqueue_script( 'cjc-main-v2', get_template_directory_uri().'/js/main-v2.js', 
+	wp_enqueue_script( 'cjc-main', get_template_directory_uri().'/js/main.js', 
 		array('jquery', 'tweenmax-js', 'scrollmagic-js', 'jquery-mmenu-js', 'jquery-magnific-popup-js', 'scrollmagic--animation-gsap-js'), null, true);
 
 });

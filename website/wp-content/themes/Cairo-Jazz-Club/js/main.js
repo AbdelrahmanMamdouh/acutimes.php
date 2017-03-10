@@ -9,7 +9,6 @@ var Init = (function ($) {
 	Init.AutoRun = function () {
 		$(document).ready(function () {
 
-			Init.Modal();
 			Init.ResponsiveMenu();
 			Init.MagnificPopup();
 			Init.HomeParallaxSlider();
@@ -31,51 +30,43 @@ var Init = (function ($) {
 	}
 
 	Init.MagnificPopup = function () {
+
+		// Remove and re-add the class to fix a scroll bug.
+		var open = function () { // open(): Will fire when the popup is OPENED
+			$('body').removeClass('hide-horizontal-scrollbar');
+		};
+		var afterClose = function () { // afterClose():Will fire when the popup is COMPLETELY CLOSED 
+			$('body').addClass('hide-horizontal-scrollbar');
+		};
+
 		// init Magnific Popup on each element with "modal-link" class
 		$('body').magnificPopup({
 			delegate: '.modal-link',
 			type: 'ajax',
-
-            /**
-             * Remove and re-add the class to fix a scroll bug.
-             * open(): Will fire when the popup is OPENED
-             * afterClose():Will fire when the popup is COMPLETELY CLOSED 
-             */
 			callbacks: {
-				open: function () {
-					$('body').removeClass('hide-horizontal-scrollbar');
-				},
-				afterClose: function () {
-					$('body').addClass('hide-horizontal-scrollbar');
-				}
+				open: open,
+				afterClose: afterClose
 			}
 		}).addClass('hide-horizontal-scrollbar'); // Add the class for the first time in init.
 
 		// init inline Magnific Popup on each element with "modal-link-inline" class which is inside a containter with "social-icons" class
-		$('.social-icons').magnificPopup({
+		$('body').magnificPopup({
 			delegate: '.modal-link-inline',
 			type: 'inline',
-
-            /**
-             * Remove and re-add the class to fix a scroll bug.
-             * open(): Will fire when the popup is OPENED
-             * afterClose():Will fire when the popup is COMPLETELY CLOSED 
-             */
 			callbacks: {
-				open: function () {
-					$('body').removeClass('hide-horizontal-scrollbar');
-				},
-				afterClose: function () {
-					$('body').addClass('hide-horizontal-scrollbar');
-				}
+				open: open,
+				afterClose: afterClose
 			}
 		});
 
-
-		$('.chyourg').magnificPopup({
-			type: 'inline'
-		});
-
+		if (document.getElementById("filled").value == 0) {
+			$.magnificPopup.open({
+				items: {
+					src: 'wp-content/themes/Cairo-Jazz-Club/modal-templates/preference-modal.php',
+					type: 'ajax'
+				}
+			});
+		}
 	}
 
 	Init.HomeParallaxSlider = function () {
@@ -134,20 +125,7 @@ var Init = (function ($) {
 				}
 			}]
 		});
-	}
-
-	Init.Modal = function () {
-		var firstlogin = document.getElementById("filled").value;
-		if (firstlogin == 0) {
-			$.magnificPopup.open({
-				items: {
-					src: 'wp-content/themes/Cairo-Jazz-Club/modal-templates/preference-modal.php',
-					type: 'ajax'
-				}
-			});
-
-		}
-	}
+	};
 
 	Init.Event = function (ApiURL) {
 		// Calendar
