@@ -20,11 +20,15 @@
 				<div class="footer-container">
 					<div class="row">
 
-						<div class="subscribe col-md-12 col-lg-8">
+						<div class="subscribe col-lg-4 col-md-4">
 							<?php dynamic_sidebar( 'footer-widget-left' ); ?>
 						</div>
+                        
+                        <div class="midfooterarea col-lg-4 col-md-3">
+                        	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer widget area center Sidebar') ) : endif; ?>
+                        </div>
 
-						<div class="contact-information col-md-6 col-lg-4">
+						<div class="contact-information col-lg-4 col-md-5">
 							<?php dynamic_sidebar( 'footer-widget-right' ); ?>
 						</div>
 

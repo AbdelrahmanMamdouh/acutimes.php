@@ -102,5 +102,5 @@
 				parentLink[i].addEventListener('touchstart', touchStartFn, false);
 			}
 		}
-	} (container));
+	}(container));
 })();

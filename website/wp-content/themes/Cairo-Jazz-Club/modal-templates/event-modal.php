@@ -27,7 +27,6 @@
 		</div>
 		
 		<?php endif; ?>
-				<h2>Performing Artists</h2>
 
 				<?php
 				$artists = get_field('performing_artists', $event->ID, false);
@@ -103,10 +102,10 @@
 			</div>
 			<div class="col-md-4">
 				<div class="c-section c-section--short">
-					<h2>Reserve</h2>
 					<div class="stacked-twin">
 						<?php include(locate_template('template-parts/reservation.php')); ?>
 					</div>
+                    
 				</div>
 				<div>
 					<?php // get_template_part('templates/cancellation-policy' ); ?>

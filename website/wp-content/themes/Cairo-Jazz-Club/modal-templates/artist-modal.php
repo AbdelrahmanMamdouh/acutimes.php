@@ -70,16 +70,21 @@
 						<?php 
 							$icon = get_sub_field("icon");
 							$icon = $icon['sizes']['icon'];
+							$geturl = get_sub_field('url');
 						?>
+						<?php if(!empty($geturl)){ ?>
 						
-						<div class='col-md-4'>
-							<a target="_blank" href='<?php the_sub_field("url") ?>' style='display: inline-block; width: 100%;'>
+							<div class='col-md-4'>
+								<a target="_blank" href='<?php the_sub_field("url") ?>' style='display: inline-block; width: 100%;'>
 
-								<span class='vertical-middle' style='max-width: 50%;' ><img src='<?php echo $icon ?>' alt=''></span>
-								<h4 class='vertical-middle' style='max-width: 50%; margin-left: 1rem;'><?php the_sub_field("text") ?></h4>
+									<span class='vertical-middle' style='max-width: 50%;' ><img src='<?php echo $icon ?>' alt=''></span>
+									<h4 class='vertical-middle' style='max-width: 50%; margin-left: 1rem;'><?php the_sub_field("text") ?></h4>
 
-							</a>
-						</div>
+								</a>
+							</div>
+
+						<?php } ?>
+
 					<?php endwhile; ?>
 					
 				</div>
@@ -90,9 +95,7 @@
 
 		<div>
 			
-			
 			<?php
-
 				$events = get_posts(array(
 					'post_type' => 'avent',
 					"posts_per_page" => "1",
@@ -109,21 +112,18 @@
 						)
 					)
 				));
-
 			?>
 
 			<?php if( $events ): ?>
 			<h2>Upcoming Event</h2>
 				<?php foreach( $events as $post): // variable must be called $post (IMPORTANT) ?>
-					<?php setup_postdata($post); ?>
-
+				
 					<?php
-
+						setup_postdata($post);
 						$thumb_id = get_post_thumbnail_id();
 						$thumb_url_array = wp_get_attachment_image_src($thumb_id, "modal-bleed", true);
 						$thumb_url = $thumb_url_array[0];
 						$event_id = get_the_id();
-
 					?>
 					
 					<div class='modal-bleed c-section c-section--short'>

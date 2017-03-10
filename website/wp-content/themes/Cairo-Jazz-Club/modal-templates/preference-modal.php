@@ -45,34 +45,35 @@ $CJC_genres = get_terms( 'genre' );
 	<form id="form_prefs_modal">
 	<div class="form-group">
 		<div class="input input--reverse">
-			<!--<label for="email">Type Your Email</label>-->
-			   <div class="row footer-form-in">
-            	<div class="col-sm-6">
+
+			<div class="row footer-form-in">
+				<div class="col-sm-6">
 					<input type="email" name="user_fields_modal" class="form-control" id="foote_email" placeholder='Type Your Email' required value='<?php echo $FBR_User_data['email'] ?>'>
-            	</div>
-                <div class="col-sm-6">
+				</div>
+				<div class="col-sm-6">
 					<input type="tel" name="user_fields_modal" class="form-control" id="foote_phone" placeholder='Type Your Phone NO.' required value='<?php echo $FBR_User_data['phone'] ?>'>
-            	</div>
-                <div class="col-sm-6">
+				</div>
+				<div class="col-sm-6">
 					<input type="text" name="user_fields_modal" class="form-control" id="foote_address" placeholder='Type Your Address' value='<?php echo $FBR_User_data['address'] ?>'>
-            	</div>
-                <div class="col-sm-6">
+				</div>
+				<div class="col-sm-6">
 					<input type="number" name="user_fields_modal" class="form-control" id="foote_age" placeholder='Type Your Age' min=21 max=100 required value='<?php echo $FBR_User_data['age'] ?>'>
-            	</div>
-            </div>
+				</div>
+			</div>
 
 		</div>
 	</div>
-<h3>Choose your genre</h3>
+	<h3>Choose your genre</h3>
 	<div class="row">
 
 		<?php foreach($CJC_genres as $gen) { ?>
 
-			<div class="col-md-4 col-sm-6" style="overflow: hidden; max-height: 2.5rem; margin: 8px 0">
+			<div class="col-md-3 col-sm-4 footer-select-in" style="overflow: hidden; max-height: 2.5rem; margin: 4px 0">
 				<p>
 					<input type="checkbox" 
 						id="<?php echo $gen->term_id ?>" 
 						name="pref_check_modal"
+						<?php if(isset($FBR_User_data['genre_bol'][$gen->term_id])) echo 'checked' ?>
 					>
 					<label for="<?php echo $gen->term_id ?>" ><?php echo $gen->name ?></label>
 				</p>
@@ -82,7 +83,7 @@ $CJC_genres = get_terms( 'genre' );
 
 	</div>
 
-	<submit class="btn btn-supporting btn-wide" onclick='Forms.PrefsModal("<?php echo get_site_url() . '/wp-json/fbr/preference/user/'.$FBR_User_data['id'] ?>")'>Submit</submit>
+	<submit class="btn btn-supporting btn-wide" onclick='Forms.PrefsModal("<?php echo get_site_url() . '/wp-json/fbr/preference/user/' ?>")'>Submit</submit>
 </form>
 <div id="form_prefs_responce_modal">
 

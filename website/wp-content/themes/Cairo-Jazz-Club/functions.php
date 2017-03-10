@@ -7,11 +7,6 @@
  * @package cjc
  */
 
-if(WP_DEBUG){
-	error_reporting(E_ALL ^ E_DEPRECATED);
-	ini_set('display_errors', 1);
-}
-
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *

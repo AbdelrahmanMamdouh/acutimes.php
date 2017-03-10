@@ -15,10 +15,10 @@
 get_header(); 
 global $FBR_User_data;
 
-$firstLogin = ( !is_home() &&  is_front_page() && $FBR_User_data['is_loged'] && count($FBR_User_data['genre_bol']) > 0 ) ? 1 : 0;
+$firstLogin = ( is_front_page() && $FBR_User_data['is_loged'] && !count($FBR_User_data['genre_bol']) > 0 ) ? 0 : 1;
 ?>
 
-<input type=hidden id="filled" value="<?php echo $firstLogin ?>">
+<input type="hidden" id="filled" value="<?php echo $firstLogin ?>">
 
 <?php if( !(!is_home() &&  is_front_page())){ ?>
 	<main class="inner" id="primary">

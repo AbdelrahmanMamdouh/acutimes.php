@@ -69,7 +69,12 @@ var Init = (function ($) {
 					$('body').addClass('hide-horizontal-scrollbar');
 				}
 			}
-		})
+		});
+
+
+		$('.chyourg').magnificPopup({
+			type: 'inline'
+		});
 
 	}
 
@@ -133,8 +138,7 @@ var Init = (function ($) {
 
 	Init.Modal = function () {
 		var firstlogin = document.getElementById("filled").value;
-		if (firstlogin == 1) {
-
+		if (firstlogin == 0) {
 			$.magnificPopup.open({
 				items: {
 					src: 'wp-content/themes/Cairo-Jazz-Club/modal-templates/preference-modal.php',
@@ -199,11 +203,17 @@ var Init = (function ($) {
 			}
 		});
 
+		// hide Choose your genre in footer on start
+		jQuery('.midfooterarea #preference-modal').addClass('mfp-modal mfp-hide');
+
+
+
 	};
 
-
-
 	Init.Header = function () {
+
+
+
 
 		if ($(window).width() > 1024) {
 
@@ -256,6 +266,8 @@ var Init = (function ($) {
 					$(".flexslider").css({ "margin-top": "0px", "transition": "all 0.3s ease-in-out" });
 				}
 			});
+
+
 
 			// artist dropdown when page open for 1st
 			$('.artists-grid .esg-dropdown-wrapper').css({ "display": "none" });
@@ -338,7 +350,7 @@ var Init = (function ($) {
 
         });
         */
-	}
+	};
 
 	return Init;
 })(jQuery);
@@ -355,9 +367,18 @@ var Forms = (function ($) {
 		var respon = $("#form_reserve_ticket_responce");
 
 		$.post(form_submit_to, form.serialize())
-			.done(function () {
+
+
+			.done(function (response) {
 				form.hide('slow');
-				respon.text('thank you, your request is beeing processed');
+				resrponsjson = JSON.parse(response);
+				if (resrponsjson.status == "AlreadyReserved") {
+					respon.text('you have already reserved!');
+
+				} else {
+
+					respon.text('thank you, your request is beeing processed');
+				}
 			})
 			.fail(function () {
 				form.hide('slow');
@@ -365,7 +386,9 @@ var Forms = (function ($) {
 			})
 			.always(function () {
 
+
 			});
+
 		return false;
 	};
 
@@ -401,7 +424,7 @@ var Forms = (function ($) {
 		})
 			.done(function () {
 				form.hide('slow');
-				respon.text('thank you, your preference have been saved');
+				respon.text('Thank you, your preferences have been saved');
 			})
 			.fail(function () {
 				form.hide('slow');
@@ -446,7 +469,7 @@ var Forms = (function ($) {
 		})
 			.done(function () {
 				form.hide('slow');
-				respon.text('thank you, your preference have been saved');
+				respon.text('Thank you, your preferences have been saved');
 			})
 			.fail(function () {
 				form.hide('slow');

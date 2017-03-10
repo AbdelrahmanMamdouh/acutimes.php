@@ -41,4 +41,13 @@ add_action( 'widgets_init', function () {
 		'after_title'   => '</h2>',
 	) );
 	
+	register_sidebar( array(
+		'name' => 'Footer widget area center Sidebar',
+		'id' => 'footer_mid_sidebar',
+		'before_widget' => '<div id="wpgyan-widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="rounded">',
+		'after_title' => '</h2>',
+	) );
+	
 });
