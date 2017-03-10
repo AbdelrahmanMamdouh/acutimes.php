@@ -37,7 +37,7 @@ export class PreferencePage {
 
 	onSubmit() {
 		if (!this.user.siteId) { return; }
-		this.prefService.send(this.user.siteId, this.genres);
+		this.prefService.send(this.user, this.genres);
 	}
 
 	ionViewDidLoad() {

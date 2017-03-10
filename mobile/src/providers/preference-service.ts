@@ -24,13 +24,21 @@ export class PreferenceService {
 			.map(res => res.json());
 	}
 
-	send(user_id, gens: Genre[]) {
+	send(user: User, gens: Genre[]) {
 
-		var data = [];
+		var data = {
+			checkBoxes: [],
+			userFields: {
+				foote_email: user.email,
+				foote_phone: user.phone,
+				foote_address: user.address,
+				foote_age: user.age,
+			}
+		};
 
 		for (let key in gens) {
 			if (gens[key].isChecked == true) {
-				data.push(gens[key].term_id);
+				data.checkBoxes.push(gens[key].term_id);
 			}
 		}
 
@@ -38,7 +46,7 @@ export class PreferenceService {
 			headers: new Headers({ 'Content-Type': 'application/json' })
 		});
 
-		return this.http.post(`${CONFIG.API_URL}fbr/preference/user/${user_id}/`, data, options)
+		return this.http.post(`${CONFIG.API_URL}fbr/preference/user/${user.siteId}/`, data, options)
 			.map(res => res.json());
 	}
 
