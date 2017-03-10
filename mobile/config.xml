@@ -81,8 +81,8 @@
 	<plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
 	<plugin name="cordova-plugin-nativestorage" spec="~2.2.1"/>
 	<plugin name="cordova-plugin-facebook4" spec="~1.7.4">
-		<variable name="APP_ID" value="1720561821587311"/>
-		<variable name="APP_NAME" value="cjc"/>
+		<variable name="APP_ID" value="1007128506098493" />
+		<variable name="APP_NAME" value="cjc_­p­r­o­d­u­c­tion" />
 	</plugin>
 	<icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
 </widget>
