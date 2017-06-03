@@ -1,3 +1,13 @@
+<script type="text/javascript">
+	
+	var xhttp = new XMLHttpRequest();
+	var themeDir = <?php echo json_encode(get_template_directory_uri()); ?>;
+	setInterval(function(){
+				xhttp.open("POST", themeDir + "/refreshSession.php", true);
+	 			xhttp.send();
+	 		}, 20000); //refreshes the session every 20 seconds
+</script>
+
 <?php
 /**
  * The template for displaying all pages
@@ -15,10 +25,10 @@
 get_header(); 
 global $FBR_User_data;
 
-$firstLogin = ( is_front_page() && $FBR_User_data['is_loged'] && !count($FBR_User_data['genre_bol']) > 0 ) ? 0 : 1;
+$firstLogin = ( $FBR_User_data['is_loged'] && !count($FBR_User_data['genre_bol']) > 0 ) ? 0 : 1;
 ?>
 
-<input type="hidden" id="filled" value="<?php echo $firstLogin ?>">
+<input type="hidden"  id="filled" value="<?php echo $firstLogin ?>">
 
 <?php if( !(!is_home() &&  is_front_page())){ ?>
 	<main class="inner" id="primary">

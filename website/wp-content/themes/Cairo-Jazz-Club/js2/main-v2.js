@@ -1,6 +1,5 @@
 var Init = (function ($) {
 
-	"use strict";
 	var Init = {};
 
     /**
@@ -10,6 +9,7 @@ var Init = (function ($) {
 	Init.AutoRun = function () {
 		$(document).ready(function () {
 
+
 			Init.Modal();
 			Init.ResponsiveMenu();
 			Init.MagnificPopup();
@@ -18,7 +18,7 @@ var Init = (function ($) {
 			Init.Header();
 
 		});
-	};
+	}
 
 	Init.ResponsiveMenu = function () {
 		$(".main-menu").mmenu({
@@ -29,7 +29,7 @@ var Init = (function ($) {
 		}, { // configuration
 				clone: true
 			});
-	};
+	}
 
 	Init.MagnificPopup = function () {
 		// init Magnific Popup on each element with "modal-link" class
@@ -40,7 +40,7 @@ var Init = (function ($) {
             /**
              * Remove and re-add the class to fix a scroll bug.
              * open(): Will fire when the popup is OPENED
-             * afterClose():Will fire when the popup is COMPLETELY CLOSED
+             * afterClose():Will fire when the popup is COMPLETELY CLOSED 
              */
 			callbacks: {
 				open: function () {
@@ -52,16 +52,6 @@ var Init = (function ($) {
 			}
 		}).addClass('hide-horizontal-scrollbar'); // Add the class for the first time in init.
 
-
-		if (document.getElementById("filled").value === 0) {
-			$.magnificPopup.open({
-				items: {
-					src: 'wp-content/themes/Cairo-Jazz-Club/modal-templates/preference-modal.php',
-					type: 'ajax'
-				}
-			});
-		}
-
 		// init inline Magnific Popup on each element with "modal-link-inline" class which is inside a containter with "social-icons" class
 		$('.social-icons').magnificPopup({
 			delegate: '.modal-link-inline',
@@ -70,7 +60,7 @@ var Init = (function ($) {
             /**
              * Remove and re-add the class to fix a scroll bug.
              * open(): Will fire when the popup is OPENED
-             * afterClose():Will fire when the popup is COMPLETELY CLOSED
+             * afterClose():Will fire when the popup is COMPLETELY CLOSED 
              */
 			callbacks: {
 				open: function () {
@@ -80,32 +70,14 @@ var Init = (function ($) {
 					$('body').addClass('hide-horizontal-scrollbar');
 				}
 			}
-		});
+		})
 
-		$('.footer-form-in').magnificPopup({
-			delegate: '.modal-link-inline',
-			type: 'inline',
+		$('.chyourg').magnificPopup({
+			type: 'ajax',
+		})
+	}
 
-            /**
-             * Remove and re-add the class to fix a scroll bug.
-             * open(): Will fire when the popup is OPENED
-             * afterClose():Will fire when the popup is COMPLETELY CLOSED
-             */
-			callbacks: {
-				open: function () {
-					$('body').removeClass('hide-horizontal-scrollbar');
-				},
-				afterClose: function () {
-					$('body').addClass('hide-horizontal-scrollbar');
-				}
-			}
-		});
-		/*
-        $('.chyourg').magnificPopup({
-            type: 'ajax',
-        })
-		*/
-	};
+
 
 
 
@@ -168,32 +140,24 @@ var Init = (function ($) {
 		});
 	}
 
-
-
-
 	Init.Modal = function () {
-		//alert(firstlogin);
 		var firstlogin = document.getElementById("filled").value;
-		if (firstlogin == 0) {
-			if ($('input[name="pref_check"]').is(':checked')) {
+		if (firstlogin == 1) {
+			alert("hello");
 
-			} else {
+			$.magnificPopup.open({
+				items: {
+					src: 'wp-content/themes/Cairo-Jazz-Club/modal-templates/preference-modal.php',
+					type: 'ajax'
+				}
+			});
 
-				//alert("hello");
-				$.magnificPopup.open({
-					items: {
-						src: 'http://cairojazzclub.com/beta/wp-content/themes/Cairo-Jazz-Club/modal-templates/preference-modal.php',
-						type: 'ajax'
-					}
-				});
-				setTimeout(function () {
-					$("#preference-modal").parent().parent().parent().parent().css({ "pointer-events": "none" });
-
-				}, 3000);
-
-			}
 		}
 	}
+
+
+
+
 
 
 	Init.Event = function (ApiURL) {
@@ -238,10 +202,8 @@ var Init = (function ($) {
 		});
 	};
 
+
 	Init.Footer = function () {
-
-
-
 		var footermenuheight = $(".bottom-footer").outerHeight();
 		$(".bottom-footer").css({ "bottom": -footermenuheight });
 		$(".footer-container").css({ "padding-bottom": footermenuheight });
@@ -253,20 +215,11 @@ var Init = (function ($) {
 			}
 		});
 
-
-
-
-
-
-
-
-
 	};
 
+
+
 	Init.Header = function () {
-
-
-		$('.dob-in').dateDropper();
 
 		if ($(window).width() > 1024) {
 
@@ -276,51 +229,8 @@ var Init = (function ($) {
 				var waypoint = new Waypoint({
 					element: document.getElementById('bubble'),
 					handler: function (direction) {
-						if ($('.desktop-events .event:nth-child(1)').children().length === 0) { } else {
-							$(".desktop-events .event:nth-child(1)").delay(1100).fadeIn().addClass("bounceIn");
-						}
-						if ($('.desktop-events .event:nth-child(2)').children().length === 0) { } else {
-							$(".desktop-events .event:nth-child(2)").delay(1500).fadeIn().addClass("bounceIn");
-						}
-						if ($('.desktop-events .event:nth-child(3)').children().length === 0) { } else {
-							$(".desktop-events .event:nth-child(3)").delay(1400).fadeIn().addClass("bounceIn");
-						}
-						if ($('.desktop-events .event:nth-child(4)').children().length === 0) { } else {
-							$(".desktop-events .event:nth-child(4)").delay(900).fadeIn().addClass("bounceIn");
-						}
-						if ($('.desktop-events .event:nth-child(5)').children().length === 0) { } else {
-							$(".desktop-events .event:nth-child(5)").delay(1200).fadeIn().addClass("bounceIn");
-						}
-						if ($('.desktop-events .event:nth-child(6)').children().length === 0) { } else {
-							$(".desktop-events .event:nth-child(6)").delay(300).fadeIn().addClass("bounceIn");
-						}
-						if ($('.desktop-events .event:nth-child(7)').children().length === 0) { } else {
-							$(".desktop-events .event:nth-child(7)").delay(100).fadeIn().addClass("bounceIn");
-						}
-
-						if ($('.rand-artists .artist:nth-child(1)').children().length === 0) { } else {
-							$(".rand-artists .artist:nth-child(1)").delay(1300).fadeIn().addClass("bounceIn");
-						}
-						if ($('.rand-artists .artist:nth-child(2)').children().length === 0) { } else {
-							$(".rand-artists .artist:nth-child(2)").delay(400).fadeIn().addClass("bounceIn");
-						}
-						if ($('.rand-artists .artist:nth-child(3)').children().length === 0) { } else {
-							$(".rand-artists .artist:nth-child(3)").delay(900).fadeIn().addClass("bounceIn");
-						}
-						if ($('.rand-artists .artist:nth-child(4)').children().length === 0) { } else {
-							$(".rand-artists .artist:nth-child(4)").delay(700).fadeIn().addClass("bounceIn");
-						}
-						if ($('.rand-artists .artist:nth-child(5)').children().length === 0) { } else {
-							$(".rand-artists .artist:nth-child(5)").delay(200).fadeIn().addClass("bounceIn");
-						}
-						if ($('.rand-artists .artist:nth-child(6)').children().length === 0) { } else {
-							$(".rand-artists .artist:nth-child(6)").delay(900).fadeIn().addClass("bounceIn");
-						}
-						if ($('.rand-artists .artist:nth-child(7)').children().length === 0) { } else {
-							$(".rand-artists .artist:nth-child(7)").delay(600).fadeIn().addClass("bounceIn");
-						}
-
-						/*$(".desktop-events .event:nth-child(2)").delay(1500).fadeIn().addClass("bounceIn");
+						$(".desktop-events .event:nth-child(1)").delay(1100).fadeIn().addClass("bounceIn");
+						$(".desktop-events .event:nth-child(2)").delay(1500).fadeIn().addClass("bounceIn");
 						$(".desktop-events .event:nth-child(3)").delay(1400).fadeIn().addClass("bounceIn");
 						$(".desktop-events .event:nth-child(4)").delay(900).fadeIn().addClass("bounceIn");
 						$(".desktop-events .event:nth-child(5)").delay(1200).fadeIn().addClass("bounceIn");
@@ -333,7 +243,6 @@ var Init = (function ($) {
 						$(".rand-artists .artist:nth-child(5)").delay(200).fadeIn().addClass("bounceIn");
 						$(".rand-artists .artist:nth-child(6)").delay(900).fadeIn().addClass("bounceIn");
 						$(".rand-artists .artist:nth-child(7)").delay(600).fadeIn().addClass("bounceIn");
-						*/
 					},
 					offset: '70%'
 				});
@@ -356,15 +265,13 @@ var Init = (function ($) {
 					$(".flexslider").css({ "margin-top": "-40px", "transition": "all 0.3s ease-in-out" });
 
 				} else {
-					//$('header').css({"height": "auto"});
+					//$('header').css({"height": "auto"}); 
 					$('header .logo img').css({ "height": "100", "transition-delay": "2s", "transition": "all 0.3s ease-in-out" });
 					$('div:not([id^="mm-"]) .main-menu ul').css({ "margin-top": "4rem", "transition-delay": "2s", "transition": "all 0.2s ease-in-out" });
 					$('.top-icons .social-icons').css({ "margin-top": "2rem", "transition-delay": "2s", "transition": "all 0.2s ease-in-out" });
 					$(".flexslider").css({ "margin-top": "0px", "transition": "all 0.3s ease-in-out" });
 				}
 			});
-
-
 
 			// artist dropdown when page open for 1st
 			$('.artists-grid .esg-dropdown-wrapper').css({ "display": "none" });
@@ -411,7 +318,7 @@ var Init = (function ($) {
 
 
 				} else {
-					if (scrollTop > (docwithoutfooter - (footerheight - empetysheight))) {
+					if (scrollTop > (docwithoutfooter - (footerheight + empetysheight))) {
 						$('.home .top-footer').css({ "position": "relative", "top": "auto" });
 						$(".flexslider").css({ "position": "relative" });
 						console.log("footerheight" + footerheight + "empetyspace" + empetysheight);
@@ -452,7 +359,6 @@ var Init = (function ($) {
 	return Init;
 })(jQuery);
 
-
 Init.AutoRun();
 
 
@@ -463,39 +369,25 @@ var Forms = (function ($) {
 
 		var form = $("#form_reserve_ticket");
 		var respon = $("#form_reserve_ticket_responce");
-		$('#wait-in').show();
-		form.hide();
 
 		$.post(form_submit_to, form.serialize())
-
-			.done(function (response) {
-				$('#wait-in').hide();
+			.done(function () {
 				form.hide('slow');
-				resrponsjson = JSON.parse(response);
-				if (resrponsjson.status == "AlreadyReserved") {
-					respon.text('You have already reserved this event.');
-
-				} else {
-
-					respon.text('Thank you for your reservation. We will get back to you shortly.');
-				}
+				respon.text('thank you, your request is beeing processed');
 			})
 			.fail(function () {
 				form.hide('slow');
-				respon.text('Sorry, an error has occured pleass try again later.');
+				respon.text('an error happened pls try again later');
 			})
 			.always(function () {
 
-
 			});
-
 		return false;
 	};
 
 	Forms.Prefs = function (form_submit_to) {
 		var form = $("#form_prefs");
 		var respon = $("#form_prefs_responce");
-		var responm = $(".MessageResponse");
 
 		var data = { checkBoxes: [], userFields: {} };
 
@@ -525,13 +417,11 @@ var Forms = (function ($) {
 		})
 			.done(function () {
 				form.hide('slow');
-				respon.text('Thank you, your information has been saved.');
-				responm.text('Thank you, your information has been saved.');
+				respon.text('thank you, your preference have been saved');
 			})
 			.fail(function () {
 				form.hide('slow');
-				respon.text('Sorry, an error has occured pleass try again later.');
-				responm.text('Sorry, an error has occured pleass try again later.');
+				respon.text('an error happened pls try again later');
 			})
 			.always(function () {
 
@@ -572,15 +462,11 @@ var Forms = (function ($) {
 		})
 			.done(function () {
 				form.hide('slow');
-				respon.text('Thanks for signing up to Cairo Jazz Club.');
-				$("#preference-modal").parent().parent().parent().parent().css({ "pointer-events": "auto" });
-				$("#preference-modal .mfp-close").css({ "display": "inherit" });
+				respon.text('thank you, your preference have been saved');
 			})
 			.fail(function () {
 				form.hide('slow');
 				respon.text('an error happened pls try again later');
-				$("#preference-modal").parent().parent().parent().parent().css({ "pointer-events": "auto" });
-				$("#preference-modal .mfp-close").css({ "display": "inherit" });
 			})
 			.always(function () {
 

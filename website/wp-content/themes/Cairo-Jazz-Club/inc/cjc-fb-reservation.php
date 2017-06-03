@@ -16,7 +16,7 @@ $FBR_User_data = array(
 	'address'		=> '',
 	'profile'		=> '',
 
-	'genre_ids'		=> [],
+	'genre_ids'		=> array(),
 	'genre_bol'		=> array(),
 );
 

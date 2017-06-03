@@ -11,7 +11,7 @@ add_action( 'rest_api_init', function() {
 	) );
 } );
 
-$cjc_all_codes = [];
+$cjc_all_codes = array();
 
 function cjc_scew_shortcodes(){
 	global $shortcode_tags;

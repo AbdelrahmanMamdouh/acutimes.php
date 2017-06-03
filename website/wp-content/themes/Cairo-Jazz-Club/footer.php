@@ -27,12 +27,12 @@
                         <div class="midfooterarea col-lg-4 col-md-3">
                         	<?php dynamic_sidebar('footer-widget-mid'); ?>
                         </div>
-
-						<div class="contact-information col-lg-4 col-md-5">
+						
+					</div>
+                        <div class="contact-information col-lg-4 col-md-5">
 							<?php dynamic_sidebar( 'footer-widget-right' ); ?>
 						</div>
 
-					</div>
 				</div>
 			</div>
 		</section>
@@ -64,7 +64,7 @@
 					?>
 					
 				</ul>
-				<p class="centered">&copy; <?php echo date("Y"); ?> <?php echo get_bloginfo('name'); ?>, All rights reserved</p>
+				<p class="centered">&copy; <?php echo date("Y"); ?> Cairo Jazz Club LLC, All Rights Reserved</p>
 			</div>
 
 		</section>

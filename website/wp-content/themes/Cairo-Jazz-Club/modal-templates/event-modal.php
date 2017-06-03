@@ -18,7 +18,7 @@
 	
 	<div class="mfp-modal-content">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-7">
 		<?php $description = get_field('description', $event->ID, false); ?>
 		<?php if ($description) : ?>
 		<div class="media-box__content">
@@ -100,7 +100,7 @@
 				<?php endif; ?>
 				<?php wp_reset_postdata(); ?>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-5">
 				<div class="c-section c-section--short">
 					<div class="stacked-twin">
 						<?php include(locate_template('template-parts/reservation.php')); ?>

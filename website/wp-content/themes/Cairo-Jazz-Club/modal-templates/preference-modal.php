@@ -41,8 +41,10 @@ $CJC_genres = get_terms( 'genre' );
 				
         </div>
 	<div class="mfp-modal-content">
-
+	
 	<form id="form_prefs_modal">
+    <h5>To finalize your registration please fill in the missing information, please remember that your information is confidential and will not be passed on to a third party.</h5>
+    <br>
 	<div class="form-group">
 		<div class="input input--reverse">
 
@@ -57,7 +59,7 @@ $CJC_genres = get_terms( 'genre' );
 					<input type="text" name="user_fields_modal" class="form-control" id="foote_address" placeholder='Type Your Address' value='<?php echo $FBR_User_data['address'] ?>'>
 				</div>
 				<div class="col-sm-6">
-					<input type="number" name="user_fields_modal" class="form-control" id="foote_age" placeholder='Type Your Age' min=21 max=100 required value='<?php echo $FBR_User_data['age'] ?>'>
+					<input type="text" name="user_fields_modal" class="form-control dob-in" data-theme="cjctheme"  data-modal="true"  id="foote_age" placeholder='Date Of Birth'  data-default-date="<?php echo $FBR_User_data['age'] ?>"  required value='<?php echo $FBR_User_data['age'] ?>'>
 				</div>
 			</div>
 
@@ -82,9 +84,16 @@ $CJC_genres = get_terms( 'genre' );
 		<?php } ?>
 
 	</div>
-
-	<submit class="btn btn-supporting btn-wide" onclick='Forms.PrefsModal("<?php echo get_site_url() . '/wp-json/fbr/preference/user/' ?>")'>Submit</submit>
+    <br>
+	<div class="text-center">
+		<submit class="btn btn-supporting btn-wide" onclick='Forms.PrefsModal("<?php echo get_site_url() . '/wp-json/fbr/preference/user/' ?>")'>Submit</submit>
+    </div>
 </form>
+
+<script>
+    jQuery('.dob-in').dateDropper();
+</script>
+
 <div id="form_prefs_responce_modal">
 
 </div>

@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
@@ -3746,7 +3747,6 @@ h3,
 
 @media screen and (min-width: 992px) {
     .right-line {
-        border-right: 2px solid #bccacd;
         padding-right: 2rem;
     }
 }
@@ -3876,12 +3876,12 @@ select {
 
 .input--reverse input {
     border: 0;
-    background: #376069;
-    box-shadow: inset 1px 1px 2px #1a3e45;
+    background: #376069 !important;
+    box-shadow:none !important;
 }
 
 .input--reverse input:focus {
-    box-shadow: inset 1px 1px 2px #1a3e45;
+    box-shadow:none !important;
 }
 
 .input .form-control {
@@ -4600,9 +4600,9 @@ footer .h3 {
     height: 680px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .events-content {
-        height: auto;
+        height: 290px;
     }
 }
 
@@ -6718,11 +6718,25 @@ footer .block {
 }
 
 #preference-modal .input--reverse input {
-    background: #545454;
+    background: rgba(220, 220, 220, 0.4);
+	color:#808080;
+}
+
+#preference-modal .input--reverse input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:#808080;
+}
+#preference-modal .input--reverse input::-moz-placeholder { /* Firefox 19+ */
+  color:#808080;
+}
+#preference-modal .input--reverse input:-ms-input-placeholder { /* IE 10+ */
+  color:#808080;
+}
+#preference-modal .input--reverse input:-moz-placeholder { /* Firefox 18- */
+  color:#808080;
 }
 
 #preference-modal .btn-supporting {
-    background: #333;
+    background: #6a2332;
     color: #fff;
 }
 
@@ -6944,7 +6958,7 @@ input[type=number]
   border-left: 1px solid #eee;
   width: 20px;
   text-align: center;
-  color: #333;
+  color: #fff;
   font-size: 13px;
   font-family: "Trebuchet MS", Helvetica, sans-serif !important;
   line-height: 1.7;
@@ -6968,4 +6982,85 @@ input[type=number]
   position: absolute;
   bottom: -1px;
   height: 50%;
+
 }
+#preference-modal{
+	pointer-events: auto;
+}
+#preference-modal .mfp-close{
+	display:none;
+}
+.requesttsablecheck{
+    position: relative !important;
+    left: 0 !important;
+}
+.speacialRequest textarea.form-control, .PhoneNumber input.form-control{
+	background: rgba(220, 220, 220, 0.4);
+  color: #808080;
+  padding:10px;
+}
+.requsttablep{
+	margin-top:15px;
+}
+.eg-search-wrapper{
+	vertical-align:baseline;	
+}
+
+/* dateinput theme  */
+
+div.datedropper.cjctheme {
+  border-radius: 8px;
+  width: 200px;
+}
+div.datedropper.cjctheme .picker {
+  border-radius: 8px;
+  box-shadow: 0 0 35px 0px rgba(0, 0, 0, 0.07);
+}
+div.datedropper.cjctheme .pick-l {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+div.datedropper.cjctheme:before,
+div.datedropper.cjctheme .pick-submit,
+div.datedropper.cjctheme .pick-lg-b .pick-sl:before,
+div.datedropper.cjctheme .pick-m,
+div.datedropper.cjctheme .pick-lg-h {
+  background-color: #214E58;
+}
+div.datedropper.cjctheme .pick-y.pick-jump,
+div.datedropper.cjctheme .pick li span,
+div.datedropper.cjctheme .pick-lg-b .pick-wke,
+div.datedropper.cjctheme .pick-btn {
+  color: #214E58;
+}
+div.datedropper.cjctheme .picker,
+div.datedropper.cjctheme .pick-l {
+  background-color: #FFF;
+}
+div.datedropper.cjctheme .picker,
+div.datedropper.cjctheme .pick-arw,
+div.datedropper.cjctheme .pick-l {
+  color: #faaf43;
+}
+div.datedropper.cjctheme .pick-m,
+div.datedropper.cjctheme .pick-m .pick-arw,
+div.datedropper.cjctheme .pick-lg-h,
+div.datedropper.cjctheme .pick-lg-b .pick-sl,
+div.datedropper.cjctheme .pick-submit {
+  color: #FFF;
+}
+div.datedropper.cjctheme.picker-tiny:before,
+div.datedropper.cjctheme.picker-tiny .pick-m {
+  background-color: #FFF;
+}
+div.datedropper.cjctheme.picker-tiny .pick-m,
+div.datedropper.cjctheme.picker-tiny .pick-m .pick-arw {
+  color: #faaf43;
+}
+div.datedropper.cjctheme.picker-lkd .pick-submit {
+  background-color: #FFF;
+  color: #faaf43;
+}
+
+
+/* date theme end */ 

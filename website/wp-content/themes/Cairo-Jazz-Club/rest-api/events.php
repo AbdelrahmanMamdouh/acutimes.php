@@ -18,7 +18,7 @@ add_action( 'rest_api_init', function() {
 function restapi_cjc_calendar_events_performing_artists($request) {
 	$event_id = $request['id'];
 	$artists_ids = get_field('performing_artists', $event_id, false);
-    $artists_data=[];
+    $artists_data=array();
     if(empty($artists_ids) == 0){
         $args = array(
 				'post_type' => 'artists',
@@ -30,7 +30,8 @@ function restapi_cjc_calendar_events_performing_artists($request) {
 	
 	foreach( $artists as $artist ) {
 		$link = get_permalink( $artist->ID );
-		$img = wp_get_attachment_image_src(get_post_thumbnail_id($artist->ID), "circle", true)[0];
+ 		$img1 = wp_get_attachment_image_src(get_post_thumbnail_id($artist->ID), "circle", true);
+		$img = $img1[0];
 		
 		$artists_data[] = array(
 							'id' => $artist->ID,

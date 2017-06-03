@@ -10,7 +10,8 @@ $cjcAboutSection->callback = function ( $atts, $content = null ) {
 	$a = $atts;
 
 	$img = $a['img']? wp_get_attachment_url($a['img'] ):null;
-	
+	$img2 = $a['img2']? wp_get_attachment_url($a['img2'] ):null;
+
 	$img_css_class = $text_css_class = '';
 	if($a['direction']=='Right'){
 		$img_css_class = ' col-md-push-8 ';
@@ -28,7 +29,15 @@ $cjcAboutSection->callback = function ( $atts, $content = null ) {
 							<img style="height: 255px;" src="<?php echo $img ?>" alt="">
 						</div>
 					</div>
-				<?php } ?>
+					<?php if(!empty($img2)){ ?>
+					<br />
+					<div class="circle circle--xl circle--center">
+						<div class="circle__content">
+							<img style="height: 255px;" src="<?php echo $img2 ?>" alt="">
+						</div>
+					</div>
+					
+				<?php }} ?>
 			</div>
 			
 			<div class="col-md-8 <?php echo $text_css_class ?>">
@@ -60,6 +69,15 @@ $cjcAboutSection
 		"param_name" 	=> "img",
 		"value" 		=> __(""),
 		"description" 	=> __("the img to be displayed next to title.")
+	))
+	->addvcAttribute(array(
+		"type"			=> "attach_image",
+		"holder"		=> "div",
+		"class"			=> "",
+		"heading" 		=> __("image"),
+		"param_name" 	=> "img2",
+		"value" 		=> __(""),
+		"description" 	=> __("the img 2 to be displayed next to title.")
 	))
 	->addvcAttribute(array(
 		"type"			=> "dropdown",
