@@ -52,23 +52,30 @@ class FBR_ReservationController implements FBR_Controller  {
 				$event_id =  isset( $_POST["event_id"] )  ?  $_POST["event_id"] : $data->event_id;
 				$user_id =   isset( $_POST["user_id"] )   ? $_POST["user_id"]   : $data->user_id;
 				$attendees = isset( $_POST["attendees"] ) ? $_POST["attendees"] : $data->attendees;
+				$Speacial_request = isset( $_POST["Speacial_request"] ) ? $_POST["Speacial_request"] : 'No';
+				$request_ttable = isset( $_POST["request_ttable"] ) ? $_POST["request_ttable"] : 'NULL';
+				$Phone_Number = isset( $_POST["Phone_Number"] ) ? $_POST["Phone_Number"] : 'NULL';
 				$acessToken = isset( $data->accessToken ) ? $data->accessToken : NULL;
 
-				return static::Reserve($event_id, $user_id, $attendees, $acessToken);
+				return static::Reserve($event_id, $user_id, $attendees, $Speacial_request, $request_ttable,$Phone_Number, $acessToken);
 				
 			}));
 		});	
 
 	}
 
-public static function Reserve($event_id, $user_id, $attendees, $accessToken = NULL){
+public static function Reserve($event_id, $user_id, $attendees, $Speacial_request, $request_ttable,$Phone_Number, $accessToken = NULL){
 
 				$reserv = new FBR_Reservation();
 		
-				$reserv->event_id	= (int) $event_id;
-				$reserv->user_id	= (int) $user_id;
-				$reserv->attendees	= (int) $attendees;
-				$reserv->accessToken = $accessToken;
+				$reserv->event_id			= (int) $event_id;
+				$reserv->user_id			= (int) $user_id;
+				$reserv->attendees			= (int) $attendees;
+				$reserv->Speacial_request	= $Speacial_request;
+				$reserv->request_ttable		= $request_ttable;
+				$reserv->Phone_Number		= $Phone_Number;
+
+				$reserv->accessToken 		= $accessToken;
 				if(! is_null($reserv->accessToken)) {
 					$_SESSION['fb_access_token'] = $reserv->accessToken;
 				}

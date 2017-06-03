@@ -6,15 +6,22 @@ class FBR_Reservation {
 	public $event_id;
 	public $state = 0;
 	public $attendees;
+	public $request_ttable;
+	public $Phone_Number;
+	public $Speacial_request;
 	public $accessToken;
 
 	public static $DataFormat = 
+
 	array(
 		'reserv_date'	=> '%s',
 		'user_id'		=> '%d',
 		'event_id'		=> '%d',
 		'state'			=> '%d',
-		'attendees'		=> '%d'
+		'attendees'		=> '%d',
+		'request_ttable'=> '%s',
+		'Speacial_request'=> '%s',	
+		'Phone_Number'=> '%s'
 	);
 
 	public static $PK = ['user_id', 'event_id'];
@@ -31,7 +38,7 @@ class FBR_Reservation {
 
 	static function CreateDBTable(){
 		global $wpdb;
-		
+
 		$charset_collate = $wpdb->get_charset_collate();
 		$table_name = static::GetDBTable();
 
@@ -40,6 +47,9 @@ class FBR_Reservation {
 						`event_id` INT NOT NULL,
 						`state` INT NOT NULL,
 						`attendees` INT NOT NULL,
+						'request_ttable' TEXT,
+						'Speacial_request' TEXT,		
+						'Phone_Number' TEXT,
 						`reserv_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 						PRIMARY KEY (`user_id`,`event_id`)
 					) $charset_collate;");
@@ -68,26 +78,32 @@ class FBR_Reservation {
 		return $wpdb->insert(
 			static::GetDBTable(), 
 			array(
-				'user_id'		=> $this->user_id,
-				'event_id'		=> $this->event_id,
-				'state'			=> $this->state,
-				'attendees'		=> $this->attendees
+				'user_id'			=> $this->user_id,
+				'event_id'			=> $this->event_id,
+				'state'				=> $this->state,
+				'attendees'			=> $this->attendees,
+				'request_ttable'	=> $this->request_ttable,
+				'Speacial_request'	=> $this->Speacial_request,
+				'Phone_Number'	=> $this->Phone_Number
 			),
-			['%d', '%d', '%d', '%d']);
+			['%d', '%d', '%d', '%d', '%s', '%s', '%s']);
 	}
 
 	function update(){
 		return $wpdb->update( 
 			static::GetDBTable(), 
 			array(
-				'state' 	=>	$this->state,
-				'attendees' =>	$this->attendees
+				'state' 			=>	$this->state,
+				'attendees' 		=>	$this->attendees,
+				'request_ttable'	=> $this->request_ttable,
+				'Speacial_request'	=> $this->Speacial_request,
+				'Phone_Number'	=> $this->Phone_Number
 			),
 			array( 
 				'user_id'	=> $this->user_id,
 				'event_id'	=> $this->event_id 
 			), 
-			['%d', '%d'],
+			['%d', '%d', '%s', '%s', '%s'],
 			['%d', '%d'] 
 		);
 	}
@@ -119,18 +135,21 @@ class FBR_Reservation {
 	function sendMail(){
 
 		$headers = array();
-		$to = array(get_option('admin_email'), FBR_NOTIFY_EMAIL);
+		$to = array('reservations@cairojazzclub.com', FBR_NOTIFY_EMAIL);
 		$event = $this->getEvent();
 		$userData = FBR_FBhandler::Init()->getUser();
 		$subject = "New CJC reservation from {$userData->user_email}";
 		$link = get_permalink($this->event_id);
-		
+
 		$message = 	"User Full Name : {$userData->user_name}\n".
 					"User Email     : {$userData->user_email}\n".
 					"Profile        : {$userData->user_profile}\n".
 					"Event Title    : {$event->post_title}\n".
 					"Event Link     : {$link}\n".
-					"Attendees      : {$this->attendees}\n";
+					"Attendees      : {$this->attendees}\n".
+					"Request Table      : {$this->request_ttable}\n".	
+					"Phone Number      : {$this->Phone_Number}\n".
+					"Speacial Request      : {$this->Speacial_request}";
 
 		if(wp_mail($to, $subject, $message, $headers)){
 			return true ;
@@ -150,7 +169,8 @@ class FBR_Reservation {
 			$mail->Port = 587;                                    // TCP port to connect to
 
 			$mail->setFrom('poparab11@gmail.com', 'Mailer');
-			$mail->addAddress(get_option('admin_email'));
+			$mail->addAddress('reservations@cairojazzclub.com');
+			//$mail->addAddress(get_option('admin_email'));
 			$mail->addAddress(FBR_NOTIFY_EMAIL);
 			//$mail->addReplyTo('info@example.com', 'Information');
 
@@ -175,7 +195,7 @@ class FBR_Reservation {
 	}
 
 	function getUser(){
-		
+
 	}
 
 	function isValidEvent(){
