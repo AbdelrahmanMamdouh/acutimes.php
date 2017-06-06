@@ -55,7 +55,7 @@ class FBR_ReservationController implements FBR_Controller  {
 				$Speacial_request = isset( $data["Speacial_request"] ) ? $data["Speacial_request"] : 'No';
 				$request_ttable = isset( $data["request_ttable"] ) ? $data["request_ttable"] : 'NULL';
 				$Phone_Number = isset( $data["Phone_Number"] ) ? $data["Phone_Number"] : 'NULL';
-				$acessToken = isset( $data->accessToken ) ? $data->accessToken : NULL;
+				$acessToken = isset( $data["accessToken"] ) ? $data["accessToken"] : NULL;
 
 				return static::Reserve($event_id, $user_id, $attendees, $Speacial_request, $request_ttable,$Phone_Number, $acessToken);
 				
