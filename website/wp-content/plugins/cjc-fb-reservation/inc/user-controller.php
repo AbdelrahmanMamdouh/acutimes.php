@@ -76,17 +76,24 @@ class FBR_UserController implements FBR_Controller  {
 		
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', '/users/missing-data/(?P<user_id>\d+)', array( 'methods' => 'GET', 'callback' => function($request = null) {
+				$userId = $request['user_id'];
 
-				$user = (array) FBR_User::selectMulti('user_id', $request['user_id'])[0];
+				$user = (array) FBR_User::selectMulti('user_id', $userId)[0];
 				if (empty($user)) {
 					return new WP_Error( 'no_user', 'Invalid user ID', array( 'status' => 404 ) );
 				}
 
 				$empty_data = array_filter($user, function($field) {
-					// returns whether the field is equal null or '' or "" or 0 or "0".
-					return(is_null($field) || empty($field));
+					// returns whether the field is empty, null, false, or a representation of zero.
+					return(empty($field));
 				});
-				return $empty_data;
+
+				if (empty(FBR_PreferenceController::getByUser($userId)->pref_ids)) {
+					$empty_data["genre"] = NULL;
+				}
+
+				return $empty_data;	
+				
 			}));
 		});
 	}
