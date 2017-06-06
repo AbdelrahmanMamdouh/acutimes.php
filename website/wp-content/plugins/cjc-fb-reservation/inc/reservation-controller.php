@@ -47,14 +47,14 @@ class FBR_ReservationController implements FBR_Controller  {
 		
 		add_action( 'rest_api_init', function() {
 			register_rest_route( 'fbr/', 'reservation/', array( 'methods' => 'POST', 'callback' => function($request = null){
-				$data = json_decode( file_get_contents('php://input') );
-				
-				$event_id =  isset( $_POST["event_id"] )  ?  $_POST["event_id"] : $data->event_id;
-				$user_id =   isset( $_POST["user_id"] )   ? $_POST["user_id"]   : $data->user_id;
-				$attendees = isset( $_POST["attendees"] ) ? $_POST["attendees"] : $data->attendees;
-				$Speacial_request = isset( $_POST["Speacial_request"] ) ? $_POST["Speacial_request"] : 'No';
-				$request_ttable = isset( $_POST["request_ttable"] ) ? $_POST["request_ttable"] : 'NULL';
-				$Phone_Number = isset( $_POST["Phone_Number"] ) ? $_POST["Phone_Number"] : 'NULL';
+				$data = $request->get_params();
+
+				$event_id =  $data["event_id"];
+				$user_id =   $data["user_id"];
+				$attendees = $data["attendees"];
+				$Speacial_request = isset( $data["Speacial_request"] ) ? $data["Speacial_request"] : 'No';
+				$request_ttable = isset( $data["request_ttable"] ) ? $data["request_ttable"] : 'NULL';
+				$Phone_Number = isset( $data["Phone_Number"] ) ? $data["Phone_Number"] : 'NULL';
 				$acessToken = isset( $data->accessToken ) ? $data->accessToken : NULL;
 
 				return static::Reserve($event_id, $user_id, $attendees, $Speacial_request, $request_ttable,$Phone_Number, $acessToken);

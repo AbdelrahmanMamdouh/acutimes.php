@@ -70,6 +70,16 @@ class FBR_User {
 		return $ret;
 	}
 
+	/**
+	* Fill user data from an Array
+	*/
+	public function setData(array $vars) {
+		$has = get_object_vars($this);
+		foreach ($has as $name => $oldValue) {
+			array_key_exists($name, $vars) ?  $this->$name = $vars[$name] : NULL;
+		}
+	}
+
 	private function parseData($data){
 		$this->id			= $data->id;
 		$this->phone		= $data->phone;

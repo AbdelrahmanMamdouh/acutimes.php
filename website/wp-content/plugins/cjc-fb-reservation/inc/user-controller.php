@@ -9,6 +9,9 @@ class FBR_UserController implements FBR_Controller  {
 	static function onInit(){
 		static::POST_UpdateUserStatus();
 		static::API_POST_MobileUserAccessToken();
+		
+		static::userMissingDataApiGet();
+		static::userMissingDataApiPatch();
 	}
 
 	/**
@@ -63,4 +66,54 @@ class FBR_UserController implements FBR_Controller  {
 			}));
 		});
 	}
+
+	/**
+	 * wp-json/fbr/users/missing-data/{user_id}
+	 * GET
+	 * body{ user_id} json format
+	 */
+	static function userMissingDataApiGet() {
+		
+		add_action( 'rest_api_init', function() {
+			register_rest_route( 'fbr/', '/users/missing-data/(?P<user_id>\d+)', array( 'methods' => 'GET', 'callback' => function($request = null) {
+
+				$user = (array) FBR_User::selectMulti('user_id', $request['user_id'])[0];
+				if (empty($user)) {
+					return new WP_Error( 'no_user', 'Invalid user ID', array( 'status' => 404 ) );
+				}
+
+				$empty_data = array_filter($user, function($field) {
+					// returns whether the field is equal null or '' or "" or 0 or "0".
+					return(is_null($field) || empty($field));
+				});
+				return $empty_data;
+			}));
+		});
+	}
+
+	/**
+	 * wp-json/fbr/users/missing-data/{user_id}
+	 * PATCH
+	 * body{ user_id} json format
+	 */
+	static function userMissingDataApiPatch() {
+		
+		add_action( 'rest_api_init', function() {
+			register_rest_route( 'fbr/', '/users/missing-data/(?P<user_id>\d+)', array( 'methods' => 'PATCH', 'callback' => function($request = null) {
+				$data = $request->get_params();
+
+				$user = FBR_User::selectMulti('user_id', $request['user_id'])[0];
+				if (empty($user)) {
+					return new WP_Error( 'no_user', 'Invalid user ID', array( 'status' => 404 ) );
+				}
+
+				$user->setData($data);
+				$user->update();
+
+				return $user;
+
+			}));
+		});
+	}
+
 }

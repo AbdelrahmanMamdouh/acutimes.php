@@ -47,9 +47,9 @@ class FBR_Reservation {
 						`event_id` INT NOT NULL,
 						`state` INT NOT NULL,
 						`attendees` INT NOT NULL,
-						'request_ttable' TEXT,
-						'Speacial_request' TEXT,		
-						'Phone_Number' TEXT,
+						`request_ttable` TEXT,
+						`Speacial_request` TEXT,		
+						`Phone_Number` TEXT,
 						`reserv_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 						PRIMARY KEY (`user_id`,`event_id`)
 					) $charset_collate;");
