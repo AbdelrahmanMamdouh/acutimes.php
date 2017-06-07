@@ -91,9 +91,8 @@ class FBR_UserController implements FBR_Controller  {
 				if (empty(FBR_PreferenceController::getByUser($userId)->pref_ids)) {
 					$empty_data["genre"] = NULL;
 				}
-
-				return $empty_data;	
 				
+				return $empty_data;
 			}));
 		});
 	}
@@ -115,16 +114,21 @@ class FBR_UserController implements FBR_Controller  {
 					return new WP_Error( 'no_user', 'Invalid user ID', array( 'status' => 404 ) );
 				}
 
+				if(count($data) <= 2) {
+					return new WP_Error( 'no_data', 'Invalid user data', array( 'status' => 404 ) ); 
+				}
+
 				$user->setData($data);
 				$user->update();
-				$user = (array) $user;
 
-				$user["genre"] = [];
+				$user = (array) $user;
+				$user["genre"] = FBR_PreferenceController::getByUser($userId)->pref_ids;
+
 				if(array_key_exists("genre", $data) && !empty(($pref_ids = $data["genre"]))) {
 					FBR_PreferenceController::UpdatePrefs($userId, $pref_ids);
 					$user["genre"] = $pref_ids;
 				}
-					
+
 				return $user;
 			}));
 		});
