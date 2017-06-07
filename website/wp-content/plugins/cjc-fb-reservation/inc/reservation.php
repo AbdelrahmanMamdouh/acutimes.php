@@ -115,6 +115,7 @@ class FBR_Reservation {
 			$user_id, $event_id), object));
 
 	}
+
 	function isReserved(){
 		global $wpdb;
 		$result = $wpdb->get_results($wpdb->prepare(
@@ -196,6 +197,14 @@ class FBR_Reservation {
 
 	function getUser(){
 
+	}
+
+	function isTodayWeekend() {
+	    $currentDate = new DateTime("now", new DateTimeZone("Africa/Cairo"));
+	    // format('N') = Numeric representation of the day of the week.
+	    $dayOfTheWeek = $currentDate->format('N');
+	    // Weekend = 4 (for Thursday) or 5 (for Friday)
+	    return ( $dayOfTheWeek == 4 || $dayOfTheWeek == 5);
 	}
 
 	function isValidEvent(){

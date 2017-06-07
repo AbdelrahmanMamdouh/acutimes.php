@@ -76,27 +76,31 @@ public static function Reserve($event_id, $user_id, $attendees, $Speacial_reques
 				$reserv->Phone_Number		= $Phone_Number;
 
 				$reserv->accessToken 		= $accessToken;
-				if(! is_null($reserv->accessToken)) {
+				if( !is_null($reserv->accessToken) ) {
 					$_SESSION['fb_access_token'] = $reserv->accessToken;
 				}
+
+				if ( $reserv->isTodayWeekend() ) {
+					return json_encode(array("status" => "NotValidDate", "message" => FBR_MESSSAGE_NOT_VALID_DATE));
+				}
 				
-				if ( !$reserv->isValidUser() ) {
+				else if ( !$reserv->isValidUser() ) {
 					return json_encode(array("status" => "Unauthorized", "message" => FBR_MESSSAGE_UNAUTORIZED));
 					
 				} else if ( !$reserv->isValidEvent() ) { 
-					return json_encode(array("status" => 'NotFound', "message" => FBR_MESSSAGE_NOTFOUND));
+					return json_encode(array("status" => "NotFound", "message" => FBR_MESSSAGE_NOTFOUND));
 
 				} else if ( !$reserv->isValidAttendess() ) {
-					return json_encode(array("status" => 'Illegal', "message" => FBR_MESSSAGE_ILLEGAL));
+					return json_encode(array("status" => "Illegal", "message" => FBR_MESSSAGE_ILLEGAL));
 
 				} else if ( $reserv->isReserved() ) { // if mail sent success
-					return json_encode(array("status" => "AlreadyReserved", 'message' => 'you have already reserved'));
+					return json_encode(array("status" => "AlreadyReserved", "message" => FBR_MESSSAGE_ALREADY_RESERVED));
 
 				} else if($reserv->sendMail() && $reserv->create()){
 					return json_encode(array("status" => "Succeeded", "message" => FBR_MESSSAGE_SUCCESS));
 				
 				} else {
-					return json_encode(array("status" => "Error", 'message' => FBR_MESSSAGE_ERR));
+					return json_encode(array("status" => "Error", "message" => FBR_MESSSAGE_ERR));
 				}
 
 			}

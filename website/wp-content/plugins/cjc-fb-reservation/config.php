@@ -18,3 +18,5 @@ FBR_define('FBR_MESSSAGE_SUCCESS',		__("Thanks! Your reservation has been sent."
 FBR_define('FBR_MESSSAGE_ERR',			__("Message was not sent. Try Again."));
 FBR_define('FBR_MESSSAGE_UNAUTORIZED',	__("You must be logged in to reserve a ticket(s)"));
 FBR_define('FBR_MESSSAGE_ILLEGAL',		__("Reservation not sent. Please only use numbers!"));
+FBR_define('FBR_MESSSAGE_ALREADY_RESERVED',		__("You have already reserved a ticket(s)"));
+FBR_define('FBR_MESSSAGE_NOT_VALID_DATE',		__("Reservations are not allowed during weekends."));
